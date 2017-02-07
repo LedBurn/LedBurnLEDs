@@ -1,16 +1,16 @@
 SIZE = [1200, 680]
 
-PIXEL_SIZE = 6  # pixel size must divide grid size!
+PIXEL_SIZE = 12  # pixel size must divide grid size!
 GRID_RECT = [0, 0, SIZE[0], SIZE[1] - 80]  # grid rect must start 0,0!
 NUM_OF_VERT_PIXELS = GRID_RECT[2] / PIXEL_SIZE
 NUM_OF_HORZ_PIXELS = GRID_RECT[3] / PIXEL_SIZE
 
 TEXT_SIZE = (SIZE[1] - GRID_RECT[3]) / 2
 PADDING = 13
-TOTAL_RECT      = [20,                 SIZE[1] - 2 * TEXT_SIZE + PADDING,      SIZE[0] / 2 - 75 - 20,    TEXT_SIZE - 2 * PADDING]
-MESSAGE_RECT    = [20,                 SIZE[1] - TEXT_SIZE + PADDING,          SIZE[0] / 2 - 75 - 20,    TEXT_SIZE - 2 * PADDING]
+TOTAL_RECT      = [20,                 SIZE[1] - 2 * TEXT_SIZE + PADDING,      SIZE[0] / 2 - 100 - 20,   TEXT_SIZE - 2 * PADDING]
+MESSAGE_RECT    = [20,                 SIZE[1] - TEXT_SIZE + PADDING,          SIZE[0] / 2 - 100 - 20,   TEXT_SIZE - 2 * PADDING]
 
-POINTER_RECT    = [SIZE[0] / 2 - 75,   SIZE[1] - 2 * TEXT_SIZE + PADDING,      150,                      TEXT_SIZE * 2 - 2 * PADDING]
+POINTER_RECT    = [SIZE[0] / 2 - 100,  SIZE[1] - 2 * TEXT_SIZE + PADDING,      200,                      TEXT_SIZE * 2 - 2 * PADDING]
 
 SAVE_RECT       = [SIZE[0] - 150,      SIZE[1] - 2 * TEXT_SIZE + PADDING,      100,                      TEXT_SIZE * 2 - 2 * PADDING]
 
@@ -29,7 +29,6 @@ SAVE_RECT       = [SIZE[0] - 150,      SIZE[1] - 2 * TEXT_SIZE + PADDING,      1
 # | total       | pointer |        save|
 # | message     |         |            |
 # --------------------------------------
-
 
 
 BLACK = (0, 0, 0)

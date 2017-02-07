@@ -94,8 +94,9 @@ class Drawer(object):
         img_x = Conf.POINTER_RECT[0] + Conf.POINTER_RECT[2] / 2 - text_img.get_width() / 2
         self.screen.blit(text_img, (img_x, Conf.POINTER_RECT[1]))
 
-
     def draw_save_button(self):
+        """ Draw the save button. rect + label.
+        """
 
         pygame.draw.rect(self.screen, Conf.GREEN, Conf.SAVE_RECT, 2)
 

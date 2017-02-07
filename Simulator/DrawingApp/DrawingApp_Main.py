@@ -16,7 +16,11 @@ the_array = []
 
 
 def pixel_for_pos(pos):
+    """ Returns (x,y) tuple - the pixel that matches the position.
+    or None if not in the grid.
 
+    pos - (x,y) tuple of the current position on the screen
+    """
     if (pos[0] >= Conf.GRID_RECT[2] or pos[1] >= Conf.GRID_RECT[3]):
         return None
 
@@ -25,9 +29,11 @@ def pixel_for_pos(pos):
 
     return (start_x / Conf.PIXEL_SIZE, start_y / Conf.PIXEL_SIZE)
 
+
 def save_to_file():
-    file_name = time.strftime("%b_%d__%a__%H_%M_%S")
-    file_name += ".txt"
+    """ Save the current array into txt file
+    """
+    file_name = "mapping_" + time.strftime("%b_%d__%H_%M_%S") + ".txt"
 
     text_file = open(file_name, "w")
     text_file.write(str(the_array))
@@ -35,24 +41,29 @@ def save_to_file():
 
     return file_name
 
+
 while not done:
     clock.tick(150)
 
-    # draw grid and save button
+    # draw grid
     drawer.draw_grid()
-    drawer.draw_save_button()
 
     # draw current pointer
     pos = pygame.mouse.get_pos()
     pixel = pixel_for_pos(pos)
-    if (pixel is not None):
+    if pixel is not None:
         drawer.draw_pixel(pixel, Conf.POINTER_COLOR)
-    drawer.draw_pointer_text(str(pixel))
+    if pixel in the_array:
+        drawer.draw_pointer_text(str(pixel) + " - #" + str(the_array.index(pixel)))
+    else:
+        drawer.draw_pointer_text(str(pixel))
 
     # draw the array
     drawer.draw_pixel_array(the_array)
-    drawer.draw_total_text("Total LEDs - "+ str(len(the_array)))
 
+    # draw text and buttons
+    drawer.draw_save_button()
+    drawer.draw_total_text("Total LEDs - " + str(len(the_array)))
 
     for event in pygame.event.get():  # user did something
         if event.type == pygame.QUIT:
@@ -71,10 +82,10 @@ while not done:
                 the_array.pop()
                 drawer.draw_message_text(str(pixel) + " was removed", Conf.ORANGE)
 
-            elif pixel is not None and pixel in the_array: # in the array - error
+            elif pixel is not None and pixel in the_array:  # in the array - error
                 drawer.draw_message_text("You can only remove the last added pixel - " + str(the_array[-1]), Conf.RED)
 
-            elif save_rect.collidepoint(pos):  # save button pressed 
+            elif save_rect.collidepoint(pos):  # save button pressed
                 file_name = save_to_file()
                 drawer.draw_message_text("Saved as " + file_name, Conf.GREEN)
 
