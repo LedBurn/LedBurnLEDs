@@ -3,6 +3,7 @@ from time import sleep
 import networking_may as networking
 import random
 import math
+import pygame
 
 from Colors import Colors
 
@@ -27,6 +28,8 @@ from Animations_Stars.FadeInOutSignsAnimation import FadeInOutSignsAnimation
 from Animations_Stars.AlternateSignsAnimation import AlternateSignsAnimation
 from Animations_Stars.RainbowSignsAnimation import RainbowSignsAnimation
 
+from Simulator.SheepSimulator import SheepSimulator
+
 ########################################################
 # consts & current loop data
 ########################################################
@@ -49,6 +52,16 @@ smallSheep = SmallSheep()
 bigSheep12 = BigSheep12()
 bigSheep34 = BigSheep34()
 signs = Signs()
+
+
+########################################################
+# simulator
+########################################################
+
+USE_SIMULATOR = True
+pygame.init()
+simulator = SheepSimulator()
+
 
 ########################################################
 # button defs
@@ -263,11 +276,17 @@ while True:
         animation.apply(time_percent)
 
     # send data
-    networking.send(current_frame,
-                    smallSheep.get_array(),
-                    bigSheep12.get_array(),
-                    bigSheep34.get_array(),
-                    signs.get_array())
+    if (USE_SIMULATOR):
+        simulator.draw_LEDs(smallSheep.get_array(),
+                            bigSheep12.get_array(),
+                            bigSheep34.get_array(),
+                            signs.get_array())
+    else:
+        networking.send(current_frame,
+                        smallSheep.get_array(),
+                        bigSheep12.get_array(),
+                        bigSheep34.get_array(),
+                        signs.get_array())
 
     # light buttons
     slow_on = math.floor(current_frame / float(SLOW_BUTTON_FRAMES)) % 2 == 0
@@ -280,5 +299,9 @@ while True:
     #     lit_button1()
     # else:
     #     unlit_button1()
+
+    for event in pygame.event.get():  # user did something
+        if event.type == pygame.QUIT:
+            done = True
 
     sleep(0.02)  # 50 frames in seconds
