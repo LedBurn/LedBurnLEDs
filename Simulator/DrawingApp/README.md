@@ -1,7 +1,7 @@
 # Drawing App
 
 ## Usage
-Use this app when you have a LED strip in the real world, and you want to have an array of the real (x, y) position of each LED.
+Use this app when you have a LED strip in the real world, and you want to have an array of the an (x, y) position for each LED in the strip.
 
 ## Start
 run `$ python DrawingApp_Main.py`
