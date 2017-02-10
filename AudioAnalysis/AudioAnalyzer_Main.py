@@ -1,6 +1,8 @@
 import librosa
-import pygame
-import random
+import time
+
+FILE_NAME = "ChristmasDubstep"
+INPUT_FILE = "/Users/marie/git/sheep-stars/Music/" + FILE_NAME + ".mp3"
 
 
 def onset_detect(y, sr):
@@ -39,11 +41,6 @@ def beat_detect(y, sr):
     return beat_times
 
 
-def random_color():
-    print("here")
-    return (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-
-
 def analyize_file(input_file):
 
     print('Loading ', input_file)
@@ -57,39 +54,32 @@ def analyize_file(input_file):
     return onset_times, beat_times
 
 
-file_name = "5-Sleepy_Koala_-_Froggy_Woogie"
-input_file = "/Users/marie/git/sheep-stars/Music/" + file_name + ".mp3"
-onset_times, beat_times = analyize_file(input_file)
-current_onset = -1
-current_beat = -1
+def save_to_file(onset_times, beat_times):
+    """ Save the current array into txt file
+    """
+    file_name = "mapping_" + time.strftime("%b_%d__%H_%M_%S") + ".txt"
 
-pygame.mixer.init()
-pygame.mixer.music.load(input_file)
-pygame.mixer.music.play(0, 0)
+    text_file = open(file_name, "w")
+    
+    text_file.write("beat_times = [")
+    text_file.write(", ".join([str(a) for a in beat_times]))
+    text_file.write("]")
 
-clock = pygame.time.Clock()
+    text_file.write("\n")
 
-screen = pygame.display.set_mode([600, 400])
+    text_file.write("onset_times = [")
+    text_file.write(", ".join([str(a) for a in onset_times]))
+    text_file.write("]")
 
-while pygame.mixer.music.get_busy():
-        song_time = pygame.mixer.music.get_pos()
-        song_time = song_time / 1000.0
+    text_file.close()
 
-        if current_onset == -1 or (song_time > onset_times[current_onset + 1]):
-            current_onset += 1
-            pygame.draw.rect(screen, random_color(), [0, 0, 300, 400], 0)
+    return file_name
 
-        if current_beat == -1 or (song_time > beat_times[current_beat + 1]):
-            current_beat += 1
-            pygame.draw.rect(screen, random_color(), [300, 0, 300, 400], 0)
 
-        pygame.display.flip()
+onset_times, beat_times = analyize_file(INPUT_FILE)
+save_to_file(onset_times, beat_times)
 
-        clock.tick(50)
 
-        for event in pygame.event.get():  # user did something
-            if event.type == pygame.QUIT:
-                done = True
 
 
 
