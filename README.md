@@ -11,6 +11,8 @@ This project contains all the code needed for the Led Burn Camp's LED projects.
 
 3. Install [librosa](https://github.com/librosa/librosa) (only you need the Audio Analyzer)
 
+##### issues
+if you're on mac and pygame gui is crashing, try [this](http://stackoverflow.com/a/37235340)
 
 ## [Drawing App](Simulator/DrawingApp)
 This app helps you simualte real LED strips.
