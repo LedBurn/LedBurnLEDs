@@ -16,11 +16,10 @@ This project contains all the code needed for the Led Burn Camp's LED projects.
 - if you're on mac and pygame gui is crashing, try [this](http://stackoverflow.com/a/37235340)
 
 
-
-## Usefull Apps
+## Useful Apps
 
 ### [Drawing App](Simulator/DrawingApp)
 This app helps you simualte real LED strips.
 
 ### [Audio Analyzer App](AudioAnalysis)
-This app helps you analyize audio files for animations.
+This app helps you analyze audio files for animations.
