@@ -21,3 +21,19 @@ def adjacent_color((r, g, b)): # Assumption: r, g, b in [0, 255]
 def get_random_color():
     color = [random.randrange(256), random.randrange(256), random.randrange(256)]
     return color
+
+
+def hls_to_rgb(h, l, s):
+    """
+    h, l, s - in [0, 1]
+    returns [r, g, b] in [0-255]
+    """
+    return [int(c * 255) for c in colorsys.hsv_to_rgb(h, l, s)]
+
+
+def reduce_brightness(color, new_brightness):
+    """
+    color - [r, g, b] in [0-255]
+    new_brightness - in [0, 1]
+    """
+    return [int(c * new_brightness) for c in color]
