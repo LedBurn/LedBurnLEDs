@@ -1,11 +1,14 @@
 import librosa
 import time
+import numpy as np
 
 FILE_NAME = "ChristmasDubstep"
-INPUT_FILE = "/Users/marie/git/sheep-stars/Music/" + FILE_NAME + ".mp3"
+INPUT_FILE = "../Music_Samples/" + FILE_NAME + ".mp3"
 
 
 def onset_detect(y, sr):
+    """ Detect onset timestamps
+    """
 
     # Use a default hop size of 512 frames @ 22KHz ~= 23ms
     hop_length = 512
@@ -26,10 +29,13 @@ def onset_detect(y, sr):
                                          hop_length=hop_length,
                                          n_fft=n_fft)
 
+    onset_times = np.insert(onset_times, 0, 0.0)  # add time 0.0 in the beginning
     return onset_times
 
 
 def beat_detect(y, sr):
+    """ Detect beat timestamps
+    """
 
     # Run the default beat tracker
     tempo, beat_frames = librosa.beat.beat_track(y=y, sr=sr)
@@ -38,10 +44,13 @@ def beat_detect(y, sr):
     # Convert the frame indices of beat events into timestamps
     beat_times = librosa.frames_to_time(beat_frames, sr=sr)
 
+    beat_times = np.insert(beat_times, 0, 0.0)  # add time 0.0 in the beginning
     return beat_times
 
 
 def analyize_file(input_file):
+    """ Analyize the audio file into onsets and beats timestamp arrays
+    """
 
     print('Loading ', input_file)
     y, sr = librosa.load(input_file, sr=22050)
@@ -55,7 +64,7 @@ def analyize_file(input_file):
 
 
 def save_to_file(onset_times, beat_times):
-    """ Save the current array into txt file
+    """ Save the arrays in a txt file
     """
     file_name = "mapping_" + time.strftime("%b_%d__%H_%M_%S") + ".txt"
 
