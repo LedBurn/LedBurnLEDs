@@ -37,9 +37,7 @@ class SheepSimulator(object):
         """
 
         # small sheep
-        print(str(len(small_sheep0_data)))
         for index in range(len(small_sheep0_data) / 3):
-            print(str(SMALL_SHEEP_MAPPING[index]))
             rect = [PIXEL_SIZE * SMALL_SHEEP_MAPPING[index][0], PIXEL_SIZE * SMALL_SHEEP_MAPPING[index][1], PIXEL_SIZE, PIXEL_SIZE]
             pygame.draw.rect(self.screen, small_sheep0_data[index * 3:index * 3 + 3], rect, 0)
 
