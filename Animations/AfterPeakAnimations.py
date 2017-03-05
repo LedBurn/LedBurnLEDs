@@ -26,7 +26,7 @@ class AfterPeakAnimation:
     @abstractmethod
     def apply(self, time_since_last_peak, parent_array):
         """
-        time_since_last_peak - in miliseconds
+        time_since_last_peak - in seconds - use float
         """
         pass
 
@@ -51,4 +51,33 @@ class AfterPeakAnimation_AddOn_BrightnessLoss(AfterPeakAnimation):
         for i in self.indexes:
             parent_array[i * 3:i * 3 + 3] = Colors.reduce_brightness(parent_array[i * 3:i * 3 + 3], brightness)
 
-        
+
+class AfterPeakAnimation_AddOn_Circle(AfterPeakAnimation):
+    def __init__(self, indexes, speed):
+        """
+        """
+        AfterPeakAnimation.__init__(self, indexes, speed)
+
+    def apply(self, time_since_last_peak, parent_array):
+
+        # diff in number of leds
+        time_since_last_peak = min(time_since_last_peak, self.speed)
+        degree = float(time_since_last_peak) / self.speed
+        diff = degree * len(self.indexes)
+
+        # calculate new colors based on position
+        new_color_array = [None] * len(self.indexes)
+        for i in range(len(self.indexes)):
+            print i
+            print self.indexes[i]
+            index = self.indexes[int((i + diff) % len(self.indexes))]
+            print diff
+            print index
+            new_color_array[i] = parent_array[index * 3:index * 3 + 3]
+
+        # apply
+        for i in range(len(self.indexes)):
+            index = self.indexes[i]
+            parent_array[index * 3:index * 3 + 3] = new_color_array[i]
+
+
