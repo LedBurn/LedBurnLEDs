@@ -2,3 +2,6 @@
 
 *.sublime-project
 *.sublime-workspace
+
+# ignore vim .swp files
+.*.swp

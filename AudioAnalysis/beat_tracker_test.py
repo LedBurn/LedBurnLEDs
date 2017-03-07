@@ -24,7 +24,7 @@ y, sr = librosa.load(args.file)
 
 print 'running beat tracker'
 onset_env = librosa.onset.onset_strength(y, sr=sr)
-y_percussive = librosa.effects.hpss(y)
+y_harmonic, y_percussive = librosa.effects.hpss(y)
 tempo, beat_frames = librosa.beat.beat_track(y=y_percussive, onset_envelope=onset_env, sr=sr)
 print('Estimated tempo: {:.2f} beats per minute'.format(tempo))
 beat_times = librosa.frames_to_time(beat_frames, sr=sr)

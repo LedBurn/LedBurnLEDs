@@ -1,3 +1,13 @@
+#!/usr/bin/env python
+
+'''
+this requires an audio processing backend.
+for ubuntu:
+$ sudo apt-get install libav-tools
+'''
+
+import sys
+import os
 import librosa
 import time
 import numpy as np
@@ -51,6 +61,10 @@ def beat_detect(y, sr):
 def analyize_file(input_file):
     """ Analyize the audio file into onsets and beats timestamp arrays
     """
+    
+    if not os.path.isfile(input_file):
+      print('file not found: %s' % input_file)
+      sys.exit(1)
 
     print('Loading ', input_file)
     y, sr = librosa.load(input_file, sr=22050)

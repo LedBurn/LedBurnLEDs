@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import pygame
 import time
 import DrawingApp_Configuration as Conf
