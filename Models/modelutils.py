@@ -20,12 +20,17 @@ def get_normalized_model(physical_mapping):
   
   # find minimum x,y values for screen size calculation
   x_min, y_min = sys.maxint, sys.maxint
-  for x,y in physical_mapping:
+  for xy_position in physical_mapping:
+    if xy_position is None or len(xy_position) != 2:
+      continue
+    x, y = xy_position
     x_min = min(x_min, x)
     y_min = min(y_min, y)
   
   normalized_mapping = [None] * len(physical_mapping)
   for i in xrange(len(physical_mapping)):
+    if len(physical_mapping[i]) != 2:
+      continue
     x, y = physical_mapping[i]
     normalized_mapping[i] = [x - x_min, y - y_min] 
 

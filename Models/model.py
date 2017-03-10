@@ -6,7 +6,7 @@ class Model(object):
   ''' This class represents a basic model. '''
 
   # default color of a model
-  DEFAULT_COLOR = (255, 255, 255)
+  DEFAULT_COLOR = (0, 0, 0)
 
 
   def __init__(self, model_file):
@@ -34,7 +34,10 @@ class Model(object):
     '''returns the width, height of a bounding rectangle.'''
 
     x_max, y_max = 0, 0
-    for x,y in self.physical_mapping:
+    for xy_position in self.physical_mapping:
+      if xy_position is None:
+        continue
+      x, y = xy_position
       x_max = max(x_max, x)
       y_max = max(y_max, y)
 

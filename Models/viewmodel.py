@@ -24,6 +24,11 @@ PIXEL_SIZE = 6
 def draw_model(screen, physical_mapping, colors):
 
   for i in xrange(len(physical_mapping)):
+
+    # skip inactive leds
+    if physical_mapping[i] is None or not len(physical_mapping[i]) == 2:
+      continue
+
     x, y = physical_mapping[i]
     color = colors[i]
     rect = [PIXEL_SIZE * x, PIXEL_SIZE * y, PIXEL_SIZE, PIXEL_SIZE] 
