@@ -1,12 +1,42 @@
-
 import socket
 import array
+import time
 
 CONTROLER_IP = "10.0.0.210"
 UDP_PORT = 2000
 
 sock = socket.socket(socket.AF_INET, # Internet
-                        socket.SOCK_DGRAM) # UDP
+                     socket.SOCK_DGRAM) # UDP
+
+PROTOCOL_VERSION = 0
+
+# flower - ~550 leds
+FLOWER_STRIP_ID = 0
+FLOWER_SEG0 = 0
+FLOWER_SEG0_PIXEL = 0
+FLOWER_SEG1 = 1
+FLOWER_SEG1_PIXEL = 300
+
+# sheep - 302 leds
+SHEEP_STRIP_ID = 1
+SHEEP_SEG0 = 2
+SHEEP_SEG0_PIXEL = 0
+
+# grass - 600 leds
+GRASS_STRIP_ID = 2
+GRASS_SEG0 = 3
+GRASS_SEG0_PIXEL = 0
+GRASS_SEG1 = 4
+GRASS_SEG1_PIXEL = 300
+
+# sign - 150 leds
+SIGN_STRIP_ID = 3
+SIGN_SEG0 = 5
+SIGN_SEG0_PIXEL = 0
+
+# total
+SEGS_IN_FRAME = 6
+
 
 def uint8_to_array(num):
     c1 = (num / (1)) % 256
@@ -24,25 +54,43 @@ def uint32_to_array(num):
     c4 = (num / (1)) % 256
     return [c4, c3, c2, c1]
 
-protocol_version = 0
-frame_id = 0
-seg_in_frame = 1
-seg_id = 0
-strip_id = 0
-pixel_id = 0
+def send(frame_id,
+         flower_data,
+         sheep_data,
+         grass_data,
+         sign_data):
 
-data =  uint8_to_array(protocol_version) + \
-        uint32_to_array(frame_id) + \
-        uint32_to_array(seg_in_frame) + \
-        uint32_to_array(seg_id) + \
-        uint16_to_array(strip_id) + \
-        uint16_to_array(pixel_id)
+    sendPacket(frame_id, FLOWER_STRIP_ID, FLOWER_SEG0, FLOWER_SEG0_PIXEL, flower_data[0:900])
+    sendPacket(frame_id, FLOWER_STRIP_ID, FLOWER_SEG1, FLOWER_SEG1_PIXEL, flower_data[900:])
 
-#data = data + [0, 255, 0]
-data = data + [255] * 12
+    sendPacket(frame_id, SHEEP_STRIP_ID, SHEEP_SEG0, SHEEP_SEG0_PIXEL, sheep_data)
 
-msg = "LedBurn" + array.array('B', data).tostring()
+    sendPacket(frame_id, GRASS_STRIP_ID, GRASS_SEG0, GRASS_SEG0_PIXEL, grass_data[0:900])
+    sendPacket(frame_id, GRASS_STRIP_ID, GRASS_SEG1, GRASS_SEG1_PIXEL, grass_data[900:])
 
-print ":".join("{:02x}".format(ord(c)) for c in msg)
+    sendPacket(frame_id, SIGN_STRIP_ID, SIGN_SEG0, SIGN_SEG0_PIXEL, sign_data)
 
-sock.sendto(msg, (CONTROLER_IP, UDP_PORT))
+
+def sendPacket(frame_id, strip_id, seg_id, pixel_id, pixels_data):
+
+    data =  uint8_to_array(PROTOCOL_VERSION) + \
+            uint32_to_array(frame_id) + \
+            uint32_to_array(SEGS_IN_FRAME) + \
+            uint32_to_array(seg_id) + \
+            uint16_to_array(strip_id) + \
+            uint16_to_array(pixel_id)
+
+    data = data + pixels_data
+    msg = "LedBurn" + array.array('B', data).tostring()
+
+    sock.sendto(msg, (CONTROLER_IP, UDP_PORT))
+
+
+# test:
+# i = 0
+# while (True):
+#     i += 1
+#     send(i,  [200, 0, 0] * 550, [200,200 ,200] * 302, [0, 200, 0] * 600, [0, 0, 200] * 150)
+#     time.sleep(0.1)
+
+
