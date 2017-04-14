@@ -1,5 +1,8 @@
 from abc import ABCMeta, abstractmethod
-from UIElements.AbstractSheep import Sheep
+
+import sys, os
+sys.path.append(os.path.abspath('../UIElements'))
+from AbstractSheep import Sheep
 
 class SheepAnimation:
     __metaclass__ = ABCMeta

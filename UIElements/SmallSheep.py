@@ -30,6 +30,12 @@ class SmallSheep(Sheep):
     def get_head_indexes(self):
         return self.head
 
+    def get_head_up1(self):
+        return (range(65, 78) + range(27, 40))[::-1]
+    
+    def get_head_up2(self):
+        return range(40, 65)
+
     def get_ears_indexes(self):
         return [self.eye1, self.eye2]
 
