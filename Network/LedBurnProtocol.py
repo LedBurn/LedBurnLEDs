@@ -60,9 +60,11 @@ def send(frame_id,
          grass_data,
          sign_data):
 
+    replaceGBRtoRGB(flower_data, range(463, 513));
     sendPacket(frame_id, FLOWER_STRIP_ID, FLOWER_SEG0, FLOWER_SEG0_PIXEL, flower_data[0:900])
     sendPacket(frame_id, FLOWER_STRIP_ID, FLOWER_SEG1, FLOWER_SEG1_PIXEL, flower_data[900:])
 
+    replaceGBRtoRGB(sheep_data, range(300, 302));
     sendPacket(frame_id, SHEEP_STRIP_ID, SHEEP_SEG0, SHEEP_SEG0_PIXEL, sheep_data)
 
     sendPacket(frame_id, GRASS_STRIP_ID, GRASS_SEG0, GRASS_SEG0_PIXEL, grass_data[0:900])
@@ -86,11 +88,22 @@ def sendPacket(frame_id, strip_id, seg_id, pixel_id, pixels_data):
     sock.sendto(msg, (CONTROLER_IP, UDP_PORT))
 
 
+def replaceGBRtoRGB(data_array,in_range):
+    for i in in_range:
+        gbr = data_array[i*3:i*3+3]
+        rgb = [gbr[1], gbr[0], gbr[2]]
+        data_array[i*3:i*3+3] = rgb
+
+
 # test:
 # i = 0
 # while (True):
 #     i += 1
-#     send(i,  [200, 0, 0] * 550, [200,200 ,200] * 302, [0, 200, 0] * 600, [0, 0, 200] * 150)
+#     flower = [200, 0, 0] * 550
+#     sheep = [200, 0 ,0] * 302
+#     grass = [0, 200, 0] * 600
+#     sign = [0, 0, 200] * 150
+#     send(i,  flower, sheep, grass, sign)
 #     time.sleep(0.1)
 
 
