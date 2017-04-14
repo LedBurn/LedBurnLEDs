@@ -10,14 +10,14 @@ from Grass import Grass
 
 grass = Grass()
 
-from GreenGrassAnimation import GreenGrassAnimation
-animation = GreenGrassAnimation(grass)
+from FireGrassAnimation import FireGrassAnimation
+animation = FireGrassAnimation(grass)
 
 flower 	= [0, 0, 0] * 550
 sheep 	= [0, 0 ,0] * 302
 sign 	= [0, 0, 0] * 150
 
-speed = 100 # in 50 hrz
+speed = 25 # in 50 hrz
 current_time = 0
 frame_id = 0;
     

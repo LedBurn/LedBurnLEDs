@@ -10,7 +10,7 @@ from GradientEffect import GradientEffect
 import math
 import random
 
-num_of_loops = 16
+num_of_loops = 8
 max_green = 200
 min_green = 5
 
