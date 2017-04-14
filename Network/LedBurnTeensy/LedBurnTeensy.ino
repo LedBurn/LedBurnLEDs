@@ -93,6 +93,59 @@ struct PacketHeaderData
   uint16_t numOfPixels; // this is not actually header data, but it's nice to have it here
 };
 
+//////////////////////////////////////////////////////////
+////////////// Indication Leds ///////////////////////////
+
+const int redPin = 17;
+const int greenPin = 18;
+const int bluePin = 19;
+
+void PaintAllLeds(int color, int pin)
+{
+  digitalWrite(redPin, LOW);
+  digitalWrite(greenPin, LOW);
+  digitalWrite(bluePin, LOW);
+
+  digitalWrite(pin, HIGH);  
+
+  for(int i=0; i<leds.numPixels(); i++)
+    leds.setPixel(i, color);
+  leds.show();
+}
+
+void InitIndicationLeds()
+{
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+
+  digitalWrite(redPin, HIGH);
+  digitalWrite(greenPin, HIGH);
+  digitalWrite(bluePin, HIGH);
+
+  delay(500);
+
+  PaintAllLeds(leds.color(128, 0, 0), redPin);
+  delay(1000);
+  PaintAllLeds(leds.color(0, 128, 0), greenPin);
+  delay(1000);
+  PaintAllLeds(leds.color(0, 0, 128), bluePin);
+  delay(1000); 
+
+  // we should leave only the green, as we have power, but no network or error
+  PaintAllLeds(leds.color(0, 0, 0), greenPin);
+}
+
+//////////////////////////////////////////////////////////
+
+void SendColorsToStrips()
+{
+  digitalWrite(bluePin, HIGH);
+  digitalWrite(redPin, LOW);
+  leds.show();
+}
+
+
 bool VerifyPacket(const uint8_t packetBuf[], int packetSize)
 {
   if(packetSize < LB_HEADER_SIZE)
@@ -172,13 +225,13 @@ bool BeforePaintLeds(const PacketHeaderData &phd)
   // do the math with int64, to avoid overflows
   // unless it's very old, in which case, assume the sender restarted and use it
   int64_t diffFromCurrent = (int64_t)phd.frameId - (int64_t)currentFrame;
-  if(diffFromCurrent > -1000 && diffFromCurrent < 0) // 1000 is 20 seconds in 50HZ
+  if(diffFromCurrent > -500 && diffFromCurrent < 0) // 500 is 10 seconds in 50HZ
     return false;
 
   // if we are here, then this frame is not what we expected, but it is not frame from udp re-order.
   // so we change our reference point to it!
   ResetCounter(phd.frameId);
-  leds.show(); // use the leds we already recived
+  SendColorsToStrips(); // use the leds we already recived
   return true;
 }
 
@@ -196,7 +249,7 @@ void AfterPaintLeds(const PacketHeaderData &phd)
   if(numOfReceivedSegments >= phd.segInFrame)
   {
     ResetCounter(phd.frameId + 1);
-    leds.show();
+    SendColorsToStrips();
   }
 }
 
@@ -211,25 +264,39 @@ void setup() {
 
   Serial.begin(9600);
   Serial.println("hello");
+
+  InitIndicationLeds();
 }
 
 void loop() {
   // if there's data available, read a packet
   int packetSize = Udp.parsePacket();
+
+  digitalWrite(bluePin, LOW);
   
   if (packetSize > 0) {  
 
-    // TODO: what if packetSize > MAX_PACKET_SIZE
+    if(packetSize > MAX_PACKET_SIZE)
+    {
+      digitalWrite(redPin, HIGH);
+      return;      
+    }
     
     uint8_t tempBuf[MAX_PACKET_SIZE];
     Udp.read((uint8_t *)tempBuf, MAX_PACKET_SIZE);
 
     if(!VerifyPacket(tempBuf, packetSize))
+    {
+      digitalWrite(redPin, HIGH);
       return;
+    }
 
     PacketHeaderData phd = ParsePacketHeader(tempBuf, packetSize);
     if(!BeforePaintLeds(phd))
+    {
+      digitalWrite(redPin, HIGH);
       return;
+    }
     PaintLeds(tempBuf, phd);
     AfterPaintLeds(phd);  
   }
