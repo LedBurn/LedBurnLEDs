@@ -2,8 +2,8 @@ import socket
 import array
 import time
 
-# CONTROLER_IP = "10.0.0.210"
-CONTROLER_IP = "10.0.0.211"
+CONTROLER_IP = "10.0.0.210"
+# CONTROLER_IP = "10.0.0.211"
 UDP_PORT = 2000
 
 sock = socket.socket(socket.AF_INET, # Internet
