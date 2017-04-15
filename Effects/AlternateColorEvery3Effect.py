@@ -12,7 +12,7 @@ class AlternateColorEvery3Effect(Effect):
     def apply(self, time_precent, parent_array):
 
         #switch 8 times until 1
-        is1onOn1 = int(math.floor(time_precent  * 8.0)) % 2 == 0
+        is1onOn1 = int(math.floor(time_precent  * 4.0)) % 2 == 0
 
         for i in range(len(self.indexes)):
             if (is1onOn1):

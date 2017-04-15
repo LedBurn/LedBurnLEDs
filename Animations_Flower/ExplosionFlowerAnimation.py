@@ -19,13 +19,17 @@ class ExplosionFlowerAnimation(FlowerAnimation):
         self.frame_counter = 0
         self.color = [0, 0, 0]
         self.previous_color = [0, 0, 0]
+        self.previous_hue = 0
         self.effects = []
 
     def create_bottom_animation(self):
         self.effects = []
 
+        hue = self.previous_hue + 0.1 + random.random()*0.8
+        if hue > 1: hue -=1
+        self.previous_hue = hue
+
         self.previous_color = self.color
-        hue = random.random()
         self.color = Colors().hls_to_rgb(hue, 1 ,1 )
 
         self.effects.append(AdvanceEffect.initColor(self.flower.line_back, self.previous_color, self.color))

@@ -11,8 +11,11 @@ from Flower import Flower
 flower = Flower()
 
 from ExplosionFlowerAnimation import ExplosionFlowerAnimation
+from RainbowFlowerAnimation import RainbowFlowerAnimation
+from AlternateFlowerAnimation import AlternateFlowerAnimation
+from RoundRobinFlowerAnimation import RoundRobinFlowerAnimation
 
-animation = ExplosionFlowerAnimation(flower)
+animation = RoundRobinFlowerAnimation(flower)
 
 grass 	= [0, 0, 0] * 600
 sheep 	= [0, 0 ,0] * 302

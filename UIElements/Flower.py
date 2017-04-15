@@ -8,7 +8,7 @@ class Flower:
     leaf_left_front = range(19, 39)
     leaf_left_back = range(38, 63)[::-1]
 
-    bottom_parts = line_front + line_front + leaf_left_back + leaf_left_front + leaf_right_back + leaf_right_front
+    bottom_parts = line_front + line_back + leaf_left_back + leaf_left_front + leaf_right_back + leaf_right_front
     
     seeds = range(463, 513)
 
