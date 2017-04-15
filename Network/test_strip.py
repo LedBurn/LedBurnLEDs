@@ -5,10 +5,10 @@ import lbproto
 
 def test_strips(lbp):
   led  = 0
-  strip = 3
-  pixel_id = 0
+  strip = 0
+  pixel_id = 300
   while True:
-    s = raw_input('[strip %d, led %3d, pixel_id %d]:' % (strip, led, pixel_id))
+    s = raw_input('[strip %d, led %3d, pixel_id %d]:' % (strip, led+pixel_id, pixel_id))
 
     if not s:
       led += 1

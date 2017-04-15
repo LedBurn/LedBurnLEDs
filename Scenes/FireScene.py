@@ -1,6 +1,9 @@
 from Scene import Scene
 
 import sys, os
+sys.path.append(os.path.abspath('../Animations_Flower'))
+from FireFlowerAnimation import FireFlowerAnimation
+
 sys.path.append(os.path.abspath('../Animations_Grass'))
 from FireGrassAnimation import FireGrassAnimation
 
@@ -15,7 +18,8 @@ class FireScene(Scene):
 	def __init__(self, flower, sheep, grass, sign):
 		Scene.__init__(self, flower, sheep, grass, sign)
 
-		self.animations = [FireSheepAnimation(sheep),
+		self.animations = [FireFlowerAnimation(flower),
+							FireSheepAnimation(sheep),
 							FireGrassAnimation(grass),
 							FireSignAnimation(sign)]
 

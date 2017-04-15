@@ -1,5 +1,8 @@
 from abc import ABCMeta, abstractmethod
-from UIElements.Flower import Flower
+
+import sys, os
+sys.path.append(os.path.abspath('../UIElements'))
+from Sign import Sign
 
 class FlowerAnimation:
     __metaclass__ = ABCMeta

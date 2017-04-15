@@ -5,7 +5,11 @@ sys.path.append(os.path.abspath('../Network'))
 import LedBurnProtocol as network
 import time
 
+from operator import itemgetter, attrgetter, methodcaller
+
 sys.path.append(os.path.abspath('../UIElements'))
+from Flower import Flower
+flower = Flower()
 from SmallSheep import SmallSheep
 sheep = SmallSheep()
 from Grass import Grass
@@ -13,14 +17,15 @@ grass = Grass()
 from Sign import Sign
 sign = Sign()
 
-from FireScene import FireScene
-scene = FireScene(None, sheep, grass, sign)
 
-flower 	= [0, 0, 0] * 550
+from FireScene import FireScene
+scene = FireScene(flower, sheep, grass, sign)
+
 
 speed = 25 # in 50 hrz
 current_time = 0
 frame_id = 0;
+
     
 while True:
         
@@ -28,7 +33,7 @@ while True:
 
 	scene.apply(time_precent)
 
-	network.send(frame_id, flower, sheep.get_array(), grass.get_array(), sign.get_array())
+	network.send(frame_id, flower.get_array(), sheep.get_array(), grass.get_array(), sign.get_array())
 
 	time.sleep(0.02)
 	current_time = (current_time + 1) % speed
