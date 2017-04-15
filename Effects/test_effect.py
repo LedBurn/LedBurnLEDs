@@ -6,8 +6,8 @@ sys.path.append(os.path.abspath('../Network'))
 import LedBurnProtocol as network
 import time
 
-from RainbowEffect import RainbowEffect
-animations = [RainbowEffect(range(600))]
+from GoToColorEffect import GoToColorEffect, GoToColorEffectType
+animations = [GoToColorEffect(range(600), [255, 0 ,0], [0, 50, 200], GoToColorEffectType.FAST_TO_SLOW)]
 
 flower 	= [0, 0, 0] * 550
 sheep 	= [0, 0 ,0] * 302

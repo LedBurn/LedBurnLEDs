@@ -4,10 +4,6 @@ import sys, os
 sys.path.append(os.path.abspath('../UIElements'))
 from Grass import Grass
 
-
-start_color = [0, 255, 0]
-end_color = [0, 50 , 50]
-
 class GrassAnimation:
     __metaclass__ = ABCMeta
     

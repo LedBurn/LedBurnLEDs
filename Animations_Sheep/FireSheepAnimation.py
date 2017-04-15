@@ -8,23 +8,10 @@ sys.path.append(os.path.abspath('../Effects'))
 from FireEffect import FireEffect
 from AlwaysOnEffect import AlwaysOnEffect
 
-import math
-import random
-
-max_red = 255
-min_red = 120
-
-max_green = 130
-min_green = 5
-
-red_color_top = [5, 0, 0]
-red_color_bottom = [200, 0, 0]
-
 class FireSheepAnimation(SheepAnimation):
 
     def __init__(self, sheep):
         SheepAnimation.__init__(self, sheep)
-        self.num_of_loops = random.randrange(4, 60)
 
         self.effects = []
         
@@ -73,10 +60,6 @@ class FireSheepAnimation(SheepAnimation):
         
         for effect in self.effects:
             effect.apply(time_percent, self.sheep.get_array())
-
-
-
-
 
 
 
