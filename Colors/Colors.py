@@ -1,5 +1,6 @@
 import colorsys
 import random
+import math
 
 class Colors:
 
@@ -55,3 +56,16 @@ class Colors:
         else:
             diff = toInt - fromInt
             return int(fromInt + diff*percent)
+
+
+    def gradient_array(self, fromColor, toColor, num_of_leds, power=1):
+        colors = []
+        for i in range(num_of_leds):
+            percent = float(i)/num_of_leds
+            percent = math.pow(percent, power)
+            color = self.go_to_color(fromColor, toColor, percent)
+            colors = colors + color
+
+        return colors
+
+

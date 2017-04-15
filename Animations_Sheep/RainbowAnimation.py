@@ -1,5 +1,5 @@
 import math
-from Colors import Colors
+
 from AbstractSheepAnimation import SheepAnimation
 from Effects.RainbowEffect import RainbowEffect
 from Effects.AlwaysOnEffect import AlwaysOnEffect
