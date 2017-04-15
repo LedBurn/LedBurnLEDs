@@ -5,16 +5,13 @@ import sys, os
 sys.path.append(os.path.abspath('../Colors'))
 from Colors import Colors
 
-class GoToColorEffectType:
-    CONST_SPEED = 0
-    FAST_TO_SLOW = 1
-    SLOW_TO_FAST = 2
+from GoToColorEffect import GoToColorEffect, GoToColorEffectType
 
-class GoToColorEffect(Effect):
-    def __init__(self, indexes, from_color, to_color, type):
+class GoToColorsEffect(Effect):
+    def __init__(self, indexes, from_colors, to_colors, type=GoToColorEffectType.CONST_SPEED):
         Effect.__init__(self, indexes)
-        self.from_color = from_color
-        self.to_color = to_color
+        self.from_colors = from_colors
+        self.to_colors = to_colors
         self.type = type
             
     
@@ -26,11 +23,10 @@ class GoToColorEffect(Effect):
         elif self.type == GoToColorEffectType.SLOW_TO_FAST:
             power = math.pow(time_precent, 4)
 
-
-        color = Colors.Colors().go_to_color(self.from_color, self.to_color, power)
-
-        for i in self.indexes:
-            parent_array[i*3 : i*3+3] = color
+        for i in range(len(self.indexes)):
+            index = self.indexes[i]
+            color = Colors().go_to_color(self.from_colors[i*3:i*3+3], self.to_colors[i*3:i*3+3], power)
+            parent_array[index*3 : index*3+3] = color
 
     
 

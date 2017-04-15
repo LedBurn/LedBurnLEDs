@@ -1,7 +1,7 @@
 class Flower:
 
     line_front = range(8, 19) + range(113, 163)
-    line_back = range(513, 583)[::-1]
+    line_back = range(513, 577)[::-1]
     
     leaf_right_front = range(90, 112)[::-1]
     leaf_right_back = range(66, 91)
