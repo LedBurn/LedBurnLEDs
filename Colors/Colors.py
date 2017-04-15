@@ -37,3 +37,19 @@ def reduce_brightness(color, new_brightness):
     new_brightness - in [0, 1]
     """
     return [int(c * new_brightness) for c in color]
+
+
+
+def go_to_color(fromColor, toColor, percent):
+    r = go_to_int(fromColor[0], toColor[0], percent)
+    g = go_to_int(fromColor[1], toColor[1], percent)
+    b = go_to_int(fromColor[2], toColor[2], percent)
+    return [r, g, b]
+
+def go_to_int(fromInt, toInt, percent):
+    if (fromInt > toInt):
+        diff = fromInt - toInt
+        return int(fromInt - diff*percent)
+    else:
+        diff = toInt - fromInt
+        return int(fromInt + diff*percent)

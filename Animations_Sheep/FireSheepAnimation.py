@@ -76,7 +76,3 @@ class FireSheepAnimation(SheepAnimation):
 
 
 
-
-
-
-
