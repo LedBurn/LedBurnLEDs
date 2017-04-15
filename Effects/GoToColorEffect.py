@@ -11,7 +11,7 @@ class GoToColorEffectType:
     SLOW_TO_FAST = 2
 
 class GoToColorEffect(Effect):
-    def __init__(self, indexes, from_color, to_color, type):
+    def __init__(self, indexes, from_color, to_color, type=GoToColorEffectType.CONST_SPEED):
         Effect.__init__(self, indexes)
         self.from_color = from_color
         self.to_color = to_color
@@ -26,8 +26,7 @@ class GoToColorEffect(Effect):
         elif self.type == GoToColorEffectType.SLOW_TO_FAST:
             power = math.pow(time_precent, 4)
 
-
-        color = Colors.Colors().go_to_color(self.from_color, self.to_color, power)
+        color = Colors().go_to_color(self.from_color, self.to_color, power)
 
         for i in self.indexes:
             parent_array[i*3 : i*3+3] = color

@@ -7,6 +7,8 @@ class Flower:
     leaf_right_back = range(66, 91)
     leaf_left_front = range(19, 39)
     leaf_left_back = range(38, 63)[::-1]
+
+    bottom_parts = line_front + line_front + leaf_left_back + leaf_left_front + leaf_right_back + leaf_right_front
     
     seeds = range(463, 513)
 
@@ -41,7 +43,7 @@ class Flower:
         return [self.l1, self.l2, self.l3, self.l4, self.l5, self.l6, self.l7, self.l8, self.l9, self.l10]
 
     def get_seeds(self):
-        return range(463, 513)
+        return seeds
 
     def get_all_indexes(self):
         return self.get_leaves() + self.get_seeds()

@@ -10,15 +10,15 @@ from Flower import Flower
 
 flower = Flower()
 
-from RainbowFlowerAnimation import RainbowFlowerAnimation
+from ExplosionFlowerAnimation import ExplosionFlowerAnimation
 
-animation = RainbowFlowerAnimation(flower)
+animation = ExplosionFlowerAnimation(flower)
 
 grass 	= [0, 0, 0] * 600
 sheep 	= [0, 0 ,0] * 302
 sign 	= [0, 0, 0] * 150
 
-speed = 100 # in 50 hrz
+speed = 25 # in 50 hrz
 current_time = 0
 frame_id = 0;
     
@@ -32,6 +32,6 @@ while True:
 
 	time.sleep(0.02)
 	current_time = (current_time + 1) % speed
- 	frame_id += 500
+ 	frame_id += 1
 
 

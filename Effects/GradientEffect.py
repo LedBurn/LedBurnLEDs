@@ -17,7 +17,7 @@ class GradientEffect(Effect):
             index = self.indexes[i]
             percent = float(i) / len(self.indexes)
             percent = math.pow(percent, self.power)
-            color = Colors.Colors().go_to_color(self.from_color, self.to_color, percent)
+            color = Colors().go_to_color(self.from_color, self.to_color, percent)
             parent_array[index*3 : index*3+3] = color
 
 
