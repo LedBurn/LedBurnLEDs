@@ -68,10 +68,3 @@ class Grass:
                 [self.l10_up, self.l10_down], 
                 [self.l11_up, self.l11_down]]
 
-    def get_seeds(self):
-        return range(300, 350)
-
-    def get_all_indexes(self):
-        return self.get_leaves() + self.get_seeds()
-
-

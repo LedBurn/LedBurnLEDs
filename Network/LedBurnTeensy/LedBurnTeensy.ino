@@ -174,7 +174,7 @@ PacketHeaderData ParsePacketHeader(const uint8_t packetBuf[], int packetSize)
   phd.pixelId = (*((const uint16_t *) (packetBuf + 22) ));
 
   phd.numOfPixels = (packetSize - LB_HEADER_SIZE) / 3;
-  
+
   return phd;
 }
 
