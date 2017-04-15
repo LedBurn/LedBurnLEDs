@@ -16,10 +16,11 @@ red_color_bottom = [200, 0, 0]
 
 class FireEffect(Effect):
 
-    def __init__(self, indexes):
+    def __init__(self, indexes, add_red_bootom=True):
         Effect.__init__(self, indexes)
         self.num_of_loops = random.randrange(4, 60)
         self.loop_num = 0
+        self.add_red_bootom = add_red_bootom
         self.create_effects()
 
     def create_effects(self):
@@ -46,11 +47,16 @@ class FireEffect(Effect):
         up_flame_top = up[fire_level::]
         self.effects.append(GradientEffect(up_flame_top[::-1], red_color_top, min_color, 4))
 
-        up_flame = up[2:fire_level:]
-        self.effects.append(GradientEffect(up_flame[::-1], min_color, max_color, 4))
+        if (self.add_red_bootom):
+            up_flame = up[2:fire_level:]
+            self.effects.append(GradientEffect(up_flame[::-1], min_color, max_color, 4))
 
-        up_fire = up[:2:]
-        self.effects.append(GradientEffect(up_fire, red_color_bottom, max_color, 4))
+            up_fire = up[:2:]
+            self.effects.append(GradientEffect(up_fire, red_color_bottom, max_color, 4))
+
+        else:
+            up_flame = up[:fire_level:]
+            self.effects.append(GradientEffect(up_flame[::-1], min_color, max_color, 4))
 
     
     def apply(self, time_percent, parent_array):

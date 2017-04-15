@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import lbproto
-import ipdb
+# import ipdb
 
 def test_strips(lbp):
   led  = 0
