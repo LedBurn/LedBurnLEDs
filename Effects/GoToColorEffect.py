@@ -27,7 +27,7 @@ class GoToColorEffect(Effect):
             power = math.pow(time_precent, 4)
 
 
-        color = Colors().go_to_color(self.from_color, self.to_color, power)
+        color = Colors.Colors().go_to_color(self.from_color, self.to_color, power)
 
         for i in self.indexes:
             parent_array[i*3 : i*3+3] = color
