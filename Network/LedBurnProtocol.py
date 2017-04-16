@@ -100,7 +100,7 @@ def replaceGBRtoRGB(data_array,in_range):
 # i = 0
 # while (True):
 #     i += 1
-#     flower = [200, 0, 0] * 550
+#     flower = [200, 0, 0] * 580
 #     sheep = [200, 0 ,0] * 302
 #     grass = [0, 200, 0] * 600
 #     sign = [0, 0, 200] * 150

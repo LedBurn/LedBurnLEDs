@@ -5,7 +5,7 @@ import pygame
 import librosa
 import sys
 import os
-import ipdb
+# import ipdb
 
 parser = argparse.ArgumentParser()
 parser.add_argument("file", help="mp3 file to play",

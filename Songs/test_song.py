@@ -1,7 +1,43 @@
 import pygame
 
-FILE_NAME = "Alan Cortes - Teletubbies (Remix)"
-INPUT_FILE = "../Music_Samples/" + FILE_NAME + ".mp3"
+FILE_NAME = "Dreamfunk"
+INPUT_FILE = "../Music/" + FILE_NAME + ".mp3"
+# pieces = [[0,44],
+# [18.92426304,	32], 
+# [25.77414966,	16],
+# [39.49714286,	16],
+# [53.1969161,	44],
+# [72.05151927,	32],
+# [78.92462585,	16],
+# [92.62439909,	16],
+# [106.3473923,	44],
+# [125.2019955,	32],
+# [132.075102	,	16],
+# [145.7748753,	16],
+# [159.4746483	,0]]
+
+pieces = [[0,	64],
+[28.49088435,	32],
+[42.51573696,	32],
+[56.54058957,	64],
+[84.56707483,	64],
+[112.5935601,	96],
+[154.621678,	64],
+[182.6713832,	64],
+[210.6746485,	64],
+[238.7243537,	32],
+[252.7259864,	64],
+[280.7524717,	64],
+[308.8021769,	64],
+[336.8286621,	24],
+[347.3240816,	8],
+[350.8302948,	80],
+[385.8692063,	64],
+[413.8956914,	64],
+[441.9221765,	0]]
+
+
+
 
 import sys, os
 sys.path.append(os.path.abspath('../Network'))
@@ -19,46 +55,38 @@ grass = Grass()
 from Sign import Sign
 sign = Sign()
 
+sys.path.append(os.path.abspath('../'))
+from Colors import Colors
+
 sys.path.append(os.path.abspath('../Scenes'))
 from RoundRobinScene import RoundRobinScene
 scene = RoundRobinScene(flower, sheep, grass, sign)
 
-
-speed = 25 # in 50 hrz
-current_time = 0
-frame_id = 0;
-
-
-#play
 pygame.init()
 clock = pygame.time.Clock()
 pygame.mixer.init()
 pygame.mixer.music.load(INPUT_FILE)
 pygame.mixer.music.play(0, 0)
 
-
-pieces = [	[0.0,24],
-			[10.77405896,16],
-			[15.90566893,16],
-			[19.34222222,32],
-			[22.77877551,32],
-			[26.19210884,32],
-			[39.91510204, 32]]
-current_pieces = 0
+current_piece = 0
 
 frame_id = 0
+hue = 0;
 
 while pygame.mixer.music.get_busy():
-	
-	song_time = (pygame.mixer.music.get_pos() - 200)/ 1000.0
-	if current_pieces + 1 != len(pieces) and song_time > pieces[current_pieces+1][0]:
-		current_pieces += 1
+	song_time = (pygame.mixer.music.get_pos() - 170)/ 1000.0
 
-	duration = pieces[current_pieces+1][0] - pieces[current_pieces][0]
-	num_of_beats = pieces[current_pieces][1]
+	if current_piece < len(pieces) -1 and song_time > pieces[current_piece+1][0]:
+		current_piece += 1
+
+	if current_piece == len(pieces) - 1:
+		duration = 30.0
+ 	else:
+ 		duration = pieces[current_piece+1][0] - pieces[current_piece][0]
+	num_of_beats = pieces[current_piece][1]
 	beat_duration = duration/num_of_beats
 
-	relative_song_time = song_time - pieces[current_pieces][0]
+	relative_song_time = song_time - pieces[current_piece][0]
 
 	beats_played = math.floor(relative_song_time / beat_duration)
 	relative_beat_time = relative_song_time - beat_duration * beats_played
@@ -67,7 +95,7 @@ while pygame.mixer.music.get_busy():
 	scene.apply(percent_beat_time)
 	network.send(frame_id, flower.get_array(), sheep.get_array(), grass.get_array(), sign.get_array())
 
-	clock.tick(20)
+	clock.tick(40)
 	frame_id += 1
 
 
