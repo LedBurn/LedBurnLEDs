@@ -35,8 +35,8 @@ class NaturalFlowerAnimation(FlowerAnimation):
 
         new_hue = self.hue + 0.03125
         if new_hue > 1 : new_hue -= 1
-        prev_color = Colors().hls_to_rgb(self.hue, 1.0, 1.0)
-        new_color = Colors().hls_to_rgb(new_hue, 1.0, 1.0)
+        prev_color = Colors.hls_to_rgb(self.hue, 1.0, 1.0)
+        new_color = Colors.hls_to_rgb(new_hue, 1.0, 1.0)
         self.effects.append(GoToColorEffect(self.flower.get_leaves() + self.flower.seeds, prev_color, new_color))
         self.hue = new_hue
 

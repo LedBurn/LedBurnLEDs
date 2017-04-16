@@ -15,8 +15,9 @@ from RainbowFlowerAnimation import RainbowFlowerAnimation
 from AlternateFlowerAnimation import AlternateFlowerAnimation
 from RoundRobinFlowerAnimation import RoundRobinFlowerAnimation
 from NaturalFlowerAnimation import NaturalFlowerAnimation
+from FireFlowerAnimation import FireFlowerAnimation
 
-animation = NaturalFlowerAnimation(flower)
+animation = FireFlowerAnimation(flower)
 
 grass 	= [0, 0, 0] * 600
 sheep 	= [0, 0 ,0] * 302

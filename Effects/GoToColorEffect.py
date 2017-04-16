@@ -2,7 +2,7 @@ import math
 from AbstractEffect import Effect
 
 import sys, os
-sys.path.append(os.path.abspath('../Colors'))
+sys.path.append(os.path.abspath('../'))
 from Colors import Colors
 
 class GoToColorEffectType:
@@ -26,7 +26,7 @@ class GoToColorEffect(Effect):
         elif self.type == GoToColorEffectType.SLOW_TO_FAST:
             power = math.pow(time_precent, 4)
 
-        color = Colors().go_to_color(self.from_color, self.to_color, power)
+        color = Colors.go_to_color(self.from_color, self.to_color, power)
 
         for i in self.indexes:
             parent_array[i*3 : i*3+3] = color

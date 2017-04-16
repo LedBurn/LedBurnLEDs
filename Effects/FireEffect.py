@@ -18,10 +18,10 @@ class FireEffect(Effect):
 
     def __init__(self, indexes, add_red_bootom=True):
         Effect.__init__(self, indexes)
-        self.num_of_loops = random.randrange(4, 60)
         self.loop_num = 0
         self.add_red_bootom = add_red_bootom
         self.create_effects()
+        self.previous_time = 1
 
     def create_effects(self):
         self.effects = []
@@ -60,14 +60,20 @@ class FireEffect(Effect):
 
     
     def apply(self, time_percent, parent_array):
+
+        if (time_percent < self.previous_time):
+            self.num_of_loops = random.randrange(4, 60)
+        self.previous_time = time_percent
         
         loop = math.floor(time_percent * self.num_of_loops)
         if (loop != self.loop_num):
-            self.loop_num =  self.loop_num + 1 if (self.loop_num + 1 < self.num_of_loops) else 0
+            self.loop_num =  self.loop_num + 1 if (self.loop_num < self.num_of_loops) else 0
             self.create_effects()
         
         for effect in self.effects:
             effect.apply(time_percent, parent_array)
+
+
 
 
 

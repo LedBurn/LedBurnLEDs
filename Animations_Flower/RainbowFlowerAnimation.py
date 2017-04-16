@@ -8,7 +8,7 @@ sys.path.append(os.path.abspath('../Effects'))
 from RainbowEffect import RainbowEffect
 from GoToColorsEffect import GoToColorsEffect
 
-sys.path.append(os.path.abspath('../Colors'))
+sys.path.append(os.path.abspath('../'))
 from Colors import Colors
 
 import random
@@ -35,13 +35,13 @@ class RainbowFlowerAnimation(FlowerAnimation):
 
         if self.frame_counter % 2 == 0:
             self.hue = random.random()
-        color = Colors().hls_to_rgb(self.hue, 1, 1)
+        color = Colors.hls_to_rgb(self.hue, 1, 1)
         light_color = [x*0.2 for x in color]
 
-        gradient1_front = Colors().gradient_array(light_color, color, len(self.flower.line_front), 4)
-        gradient2_front = Colors().gradient_array([30, 30, 30], [100, 100, 100],  len(self.flower.line_front), 4)
-        gradient1_back = Colors().gradient_array(light_color, color, len(self.flower.line_back), 4)
-        gradient2_back = Colors().gradient_array([30, 30, 30], [100, 100, 100], len(self.flower.line_back), 4)
+        gradient1_front = Colors.gradient_array(light_color, color, len(self.flower.line_front), 4)
+        gradient2_front = Colors.gradient_array([30, 30, 30], [100, 100, 100],  len(self.flower.line_front), 4)
+        gradient1_back = Colors.gradient_array(light_color, color, len(self.flower.line_back), 4)
+        gradient2_back = Colors.gradient_array([30, 30, 30], [100, 100, 100], len(self.flower.line_back), 4)
 
         if self.frame_counter % 2 == 0:
             self.effects.append(GoToColorsEffect(self.flower.line_front ,gradient2_front, gradient1_front))
@@ -50,10 +50,10 @@ class RainbowFlowerAnimation(FlowerAnimation):
             self.effects.append(GoToColorsEffect(self.flower.line_front ,gradient1_front, gradient2_front))
             self.effects.append(GoToColorsEffect(self.flower.line_back ,gradient1_back, gradient2_back))
 
-        gradient1_leaf1 = Colors().gradient_array(light_color, color, len(self.flower.leaf_right_front + self.flower.leaf_right_back), 4)
-        gradient2_leaf1 = Colors().gradient_array([30, 30, 30], [100, 100, 100], len(self.flower.leaf_right_front + self.flower.leaf_right_back), 4)
-        gradient1_leaf2 = Colors().gradient_array(light_color, color, len(self.flower.leaf_left_front + self.flower.leaf_left_back), 4)
-        gradient2_leaf2 = Colors().gradient_array([30, 30, 30], [100, 100, 100], len(self.flower.leaf_left_front + self.flower.leaf_left_back), 4)
+        gradient1_leaf1 = Colors.gradient_array(light_color, color, len(self.flower.leaf_right_front + self.flower.leaf_right_back), 4)
+        gradient2_leaf1 = Colors.gradient_array([30, 30, 30], [100, 100, 100], len(self.flower.leaf_right_front + self.flower.leaf_right_back), 4)
+        gradient1_leaf2 = Colors.gradient_array(light_color, color, len(self.flower.leaf_left_front + self.flower.leaf_left_back), 4)
+        gradient2_leaf2 = Colors.gradient_array([30, 30, 30], [100, 100, 100], len(self.flower.leaf_left_front + self.flower.leaf_left_back), 4)
 
         if self.frame_counter % 2 == 0:
             self.effects.append(GoToColorsEffect(self.flower.leaf_right_front + self.flower.leaf_right_back ,gradient2_leaf1, gradient1_leaf1))
