@@ -19,7 +19,8 @@ sign = Sign()
 
 
 from FireScene import FireScene
-scene = FireScene(flower, sheep, grass, sign)
+from RoundRobinScene import RoundRobinScene
+scene = RoundRobinScene(flower, sheep, grass, sign)
 
 
 speed = 25 # in 50 hrz

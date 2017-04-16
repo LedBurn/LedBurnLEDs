@@ -7,7 +7,7 @@ from Flower import Flower
 sys.path.append(os.path.abspath('../Effects'))
 from AlwaysOnEffect import AlwaysOnEffect
 
-sys.path.append(os.path.abspath('../Colors'))
+sys.path.append(os.path.abspath('../'))
 from Colors import Colors
 
 import random
@@ -34,7 +34,7 @@ class RoundRobinFlowerAnimation(FlowerAnimation):
 
         self.effects = []
         self.last_hue += 0.05
-        rand_color = Colors().hls_to_rgb(self.last_hue, 1.0, 1.0)
+        rand_color = Colors.hls_to_rgb(self.last_hue, 1.0, 1.0)
         self.effects.append(AlwaysOnEffect(self.flower.get_leaves_array()[self.last_leaf], rand_color))
         self.effects.append(AlwaysOnEffect(self.flower.seeds, rand_color))
         self.effects.append(AlwaysOnEffect(self.flower.bottom_parts, rand_color))

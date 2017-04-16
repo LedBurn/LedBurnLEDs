@@ -10,20 +10,19 @@ from AlwaysOnEffect import AlwaysOnEffect
 
 
 class RoundRobinGrassAnimation(GrassAnimation):
-    def __init__(self, grass, spikes_times_percent):
+    def __init__(self, grass):
         GrassAnimation.__init__(self, grass)
-
-        self.spikes_times_percent = spikes_times_percent
-
         self.effects = []
         self.last_hue = 0.0
         self.last_leaf = 0
+        self.previous_time = 1
 
     def apply(self, time_percent):
 
-        if time_percent > self.spikes_times_percent[0]:
+        if time_percent < self.previous_time:
             self._start_spike()
-            del self.spikes_times_percent[0]
+        self.previous_time = time_percent
+
 
         for effect in self.effects:
             effect.apply(time_percent, self.grass.get_array())
