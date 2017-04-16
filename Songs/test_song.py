@@ -1,7 +1,14 @@
 import pygame
+import yaml
 
-FILE_NAME = "Dreamfunk"
-INPUT_FILE = "../Music/" + FILE_NAME + ".mp3"
+FILE = 'Teletubbies.yml'
+
+with open(FILE, 'r') as f:
+    song = yaml.load(f)
+
+audio_file = "../Music/" + song['file_name']
+
+pieces = song['pieces']
 # pieces = [[0,44],
 # [18.92426304,	32], 
 # [25.77414966,	16],
@@ -16,25 +23,25 @@ INPUT_FILE = "../Music/" + FILE_NAME + ".mp3"
 # [145.7748753,	16],
 # [159.4746483	,0]]
 
-pieces = [[0,	64],
-[28.49088435,	32],
-[42.51573696,	32],
-[56.54058957,	64],
-[84.56707483,	64],
-[112.5935601,	96],
-[154.621678,	64],
-[182.6713832,	64],
-[210.6746485,	64],
-[238.7243537,	32],
-[252.7259864,	64],
-[280.7524717,	64],
-[308.8021769,	64],
-[336.8286621,	24],
-[347.3240816,	8],
-[350.8302948,	80],
-[385.8692063,	64],
-[413.8956914,	64],
-[441.9221765,	0]]
+# pieces = [[0,	64],
+# [28.49088435,	32],
+# [42.51573696,	32],
+# [56.54058957,	64],
+# [84.56707483,	64],
+# [112.5935601,	96],
+# [154.621678,	64],
+# [182.6713832,	64],
+# [210.6746485,	64],
+# [238.7243537,	32],
+# [252.7259864,	64],
+# [280.7524717,	64],
+# [308.8021769,	64],
+# [336.8286621,	24],
+# [347.3240816,	8],
+# [350.8302948,	80],
+# [385.8692063,	64],
+# [413.8956914,	64],
+# [441.9221765,	0]]
 
 
 
@@ -65,7 +72,7 @@ scene = RoundRobinScene(flower, sheep, grass, sign)
 pygame.init()
 clock = pygame.time.Clock()
 pygame.mixer.init()
-pygame.mixer.music.load(INPUT_FILE)
+pygame.mixer.music.load(audio_file)
 pygame.mixer.music.play(0, 0)
 
 current_piece = 0
@@ -95,14 +102,5 @@ while pygame.mixer.music.get_busy():
 	scene.apply(percent_beat_time)
 	network.send(frame_id, flower.get_array(), sheep.get_array(), grass.get_array(), sign.get_array())
 
-	clock.tick(40)
+	clock.tick(50)
 	frame_id += 1
-
-
-
-
-
-
-
-
-
