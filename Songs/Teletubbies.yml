@@ -6,81 +6,105 @@ pieces:
     - 44
     - 
       flower: 
-        Natural: ~
+        Natural:
+          hue_speed: 0.01
+          hue_start: 0.0
   - 
     - 18.92426304
     - 8
     - 
       flower: 
-        RoundRobin: ~
+        RoundRobin:
+          hue_speed: 0.08
+          hue_start: 0.44
         beat_mul: 4
   - 
     - 25.77414966
     - 32
     - 
       flower: 
-        RoundRobin: ~
+        RoundRobin:
+          hue_speed: 0.8
+          hue_start: 0.0
         beat_mul: 0.5
   - 
     - 39.49714286
     - 32
     - 
       flower: 
-        RoundRobin: ~
+        RoundRobin: 
+          hue_speed: 0.8
+          hue_start: 0.92
         beat_mul: 0.5
   - 
     - 53.1969161
     - 44
     - 
       flower: 
-        Natural: ~
+        Natural: 
+          hue_speed: 0.01
+          hue_start: 0.0
   - 
     - 72.05151927
     - 8
     - 
       flower: 
-        RoundRobin: ~
+        RoundRobin: 
+          hue_speed: 0.08
+          hue_start: 0.44
         beat_mul: 4
   - 
     - 78.92462585
     - 32
     - 
       flower: 
-        RoundRobin: ~
+        RoundRobin: 
+          hue_speed: 0.8
+          hue_start: 0.0
         beat_mul: 0.5
   - 
     - 92.62439909
     - 32
     - 
       flower: 
-        RoundRobin: ~
+        RoundRobin: 
+          hue_speed: 0.8
+          hue_start: 0.92
         beat_mul: 0.5
   - 
     - 106.3473923
     - 44
     - 
       flower: 
-        Natural: ~
+        Natural: 
+          hue_speed: 0.01
+          hue_start: 0.0
   - 
     - 125.2019955
     - 8
     - 
       flower: 
-        RoundRobin: ~
+        RoundRobin: 
+          hue_speed: 0.08
+          hue_start: 0.44
         beat_mul: 4
   - 
     - 132.075102
     - 32
     - 
       flower: 
-        RoundRobin: ~
+        RoundRobin: 
+          hue_speed: 0.8
+          hue_start: 0.0
         beat_mul: 0.5
   - 
     - 145.7748753
     - 32
     - 
       flower: 
-        RoundRobin: ~
+        RoundRobin: 
+          hue_speed: 0.8
+          hue_start: 0.92
         beat_mul: 0.5
   - 
     - 159.4746483

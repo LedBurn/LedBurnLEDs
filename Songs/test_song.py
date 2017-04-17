@@ -66,8 +66,13 @@ def create_animations(animation_dict):
 			flower_animation_mul = animation_dict['flower']['beat_mul']
 		else:
 			flower_animation_mul = 1
+	else:
+		flower_animation = None
 
 def apply_animation(animation, num_of_beats, duration, relative_song_time):
+	if (animation == None):
+		return
+
 	beat_duration = duration/num_of_beats
 	beats_played = math.floor(relative_song_time / beat_duration)
 	relative_beat_time = relative_song_time - beat_duration * beats_played
@@ -105,8 +110,13 @@ create_animations(pieces[current_piece_id][2])
 frame_id = 0
 hue = 0;
 
+last_time = 0
+
 while pygame.mixer.music.get_busy():
 	song_time = (pygame.mixer.music.get_pos() - 170)/ 1000.0
+	if (last_time > song_time):
+		print 'oh no!!!!'
+	last_time = song_time
 
 	if current_piece_id < len(pieces) -1 and song_time > pieces[current_piece_id+1][0]:
 		current_piece_id += 1

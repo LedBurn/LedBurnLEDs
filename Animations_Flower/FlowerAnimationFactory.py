@@ -8,7 +8,7 @@ class FlowerAnimationFactory():
     @staticmethod
     def create_animation(config, flower):
 
-    	print config
+    	print 'flower -', config
 
     	if config == None:
     		print 'Invalid flower animation - None'

@@ -18,8 +18,16 @@ class NaturalFlowerAnimation(FlowerAnimation):
     def __init__(self, flower, props):
         FlowerAnimation.__init__(self, flower, props)
         self.effects = []
-        self.hue = random.random()
         self.previous_time = 1
+
+        self.hue_speed = 0.03125
+        self.hue = random.random()
+        if self.props != None:
+            if 'hue_speed' in self.props:
+                self.hue_speed = self.props['hue_speed']
+            if 'hue_start' in self.props:
+                self.hue = self.props['hue_start']
+
 
     def apply(self, time_percent):
 
@@ -33,7 +41,7 @@ class NaturalFlowerAnimation(FlowerAnimation):
     def next_hue(self):
         self.effects = []
 
-        new_hue = self.hue + 0.03125
+        new_hue = self.hue + self.hue_speed
         if new_hue > 1 : new_hue -= 1
         prev_color = Colors.hls_to_rgb(self.hue, 1.0, 1.0)
         new_color = Colors.hls_to_rgb(new_hue, 1.0, 1.0)
