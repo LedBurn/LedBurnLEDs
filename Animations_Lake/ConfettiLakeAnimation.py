@@ -1,7 +1,7 @@
 from LakeAnimation import LakeAnimation
 
-from ConfettiEffect import ConfettiEffect
-from AlwaysOnEffect import AlwaysOnEffect
+from Effects.ConfettiEffect import ConfettiEffect
+from Effects.AlwaysOnEffect import AlwaysOnEffect
 
 class ConfettiLakeAnimation(LakeAnimation):
     def __init__(self, lake, props):

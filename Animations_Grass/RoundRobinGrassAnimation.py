@@ -1,14 +1,9 @@
 from GrassAnimation import GrassAnimation
 
-import sys, os, random, colorsys
+import random, colorsys
 
-sys.path.append(os.path.abspath('../UIElements'))
-from Grass import Grass
+from Effects.AlwaysOnEffect import AlwaysOnEffect
 
-sys.path.append(os.path.abspath('../Effects'))
-from AlwaysOnEffect import AlwaysOnEffect
-
-sys.path.append(os.path.abspath('../'))
 from Colors import Colors
 
 

@@ -1,11 +1,7 @@
 from GrassAnimation import GrassAnimation
 
-import sys, os
-sys.path.append(os.path.abspath('../Effects'))
-from SinglePixelEffect import SinglePixelEffect
+from Effects.SinglePixelEffect import SinglePixelEffect
 
-
-sys.path.append(os.path.abspath('../Colors'))
 from Colors import Colors
 
 import random, colorsys

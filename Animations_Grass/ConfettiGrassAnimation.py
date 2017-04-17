@@ -1,6 +1,6 @@
 from GrassAnimation import GrassAnimation
 
-from ConfettiEffect import ConfettiEffect
+from Effects.ConfettiEffect import ConfettiEffect
 
 class ConfettiGrassAnimation(GrassAnimation):
     def __init__(self, grass, props):
@@ -10,8 +10,8 @@ class ConfettiGrassAnimation(GrassAnimation):
         leds_percent_per_beat = 0.4
         brightness = 1.0
         if self.props != None:
-        	if 'leds_percent_per_beat' in self.props:
-        		leds_percent_per_beat = self.props['leds_percent_per_beat']
+            if 'leds_percent_per_beat' in self.props:
+                leds_percent_per_beat = self.props['leds_percent_per_beat']
             if 'brightness' in self.props:
                 brightness = self.props['brightness']
         

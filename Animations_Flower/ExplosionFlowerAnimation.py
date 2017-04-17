@@ -1,12 +1,9 @@
 from FlowerAnimation import FlowerAnimation
 
-import sys, os
-sys.path.append(os.path.abspath('../Effects'))
-from GoToColorEffect import GoToColorEffect, GoToColorEffectType
-from AdvanceEffect import AdvanceEffect
-from AlwaysOnEffect import AlwaysOnEffect
+from Effects.GoToColorEffect import GoToColorEffect, GoToColorEffectType
+from Effects.AdvanceEffect import AdvanceEffect
+from Effects.AlwaysOnEffect import AlwaysOnEffect
 
-sys.path.append(os.path.abspath('../Colors'))
 from Colors import Colors
 
 import random

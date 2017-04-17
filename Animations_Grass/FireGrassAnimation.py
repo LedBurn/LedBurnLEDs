@@ -1,11 +1,6 @@
 from GrassAnimation import GrassAnimation
 
-import sys, os
-sys.path.append(os.path.abspath('../UIElements'))
-from Grass import Grass
-
-sys.path.append(os.path.abspath('../Effects'))
-from FireEffect import FireEffect
+from Effects.FireEffect import FireEffect
 
 class FireGrassAnimation(GrassAnimation):
 

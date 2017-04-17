@@ -1,12 +1,7 @@
 from FlowerAnimation import FlowerAnimation
 
-import sys, os
-sys.path.append(os.path.abspath('../UIElements'))
-from Flower import Flower
-
-sys.path.append(os.path.abspath('../Effects'))
-from ConfettiEffect import ConfettiEffect
-from AlwaysOnEffect import AlwaysOnEffect
+from Effects.ConfettiEffect import ConfettiEffect
+from Effects.AlwaysOnEffect import AlwaysOnEffect
 
 class ConfettiFlowerAnimation(FlowerAnimation):
     def __init__(self, flower, props):

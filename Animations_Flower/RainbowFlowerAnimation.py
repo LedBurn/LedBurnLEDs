@@ -1,14 +1,8 @@
 from FlowerAnimation import FlowerAnimation
 
-import sys, os
-sys.path.append(os.path.abspath('../UIElements'))
-from Sign import Sign
+from Effects.RainbowEffect import RainbowEffect
+from Effects.GoToColorsEffect import GoToColorsEffect
 
-sys.path.append(os.path.abspath('../Effects'))
-from RainbowEffect import RainbowEffect
-from GoToColorsEffect import GoToColorsEffect
-
-sys.path.append(os.path.abspath('../'))
 from Colors import Colors
 
 import random

@@ -1,11 +1,7 @@
 from GrassAnimation import GrassAnimation
 
-import sys, os
-sys.path.append(os.path.abspath('../Effects'))
-from SpikeEffect import SpikeEffect
+from Effects.SpikeEffect import SpikeEffect
 
-
-sys.path.append(os.path.abspath('../Colors'))
 from Colors import Colors
 
 import random, colorsys
