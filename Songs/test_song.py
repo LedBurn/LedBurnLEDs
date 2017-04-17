@@ -50,15 +50,15 @@ from Flower import Flower
 from SmallSheep import SmallSheep
 from Grass import Grass
 from Sign import Sign
+from Lake import Lake
 
 sys.path.append(os.path.abspath('../Animations_Flower'))
 from FlowerAnimationFactory import FlowerAnimationFactory
 sys.path.append(os.path.abspath('../Animations_Grass'))
 from GrassAnimationFactory import GrassAnimationFactory
+sys.path.append(os.path.abspath('../Animations_Lake'))
+from LakeAnimationFactory import LakeAnimationFactory
 
-
-flower_animation = None
-flower_animation_mul = 1
 
 def create_animations(animation_dict):
 	if 'flower' in animation_dict: 
@@ -82,6 +82,16 @@ def create_animations(animation_dict):
 	else:
 		grass_animation = None
 
+	if 'lake' in animation_dict:
+		global lake_animation, lake_animation_mul
+		lake_animation = LakeAnimationFactory.create_animation(animation_dict['lake'], lake)
+		if 'beat_mul' in animation_dict['lake']:
+			lake_animation_mul = animation_dict['lake']['beat_mul']
+		else:
+			lake_animation_mul = 1
+	else:
+		lake_animation = None
+
 
 def apply_animation(animation, num_of_beats, duration, relative_song_time):
 	if (animation == None):
@@ -100,6 +110,7 @@ flower = Flower()
 sheep = SmallSheep()
 grass = Grass()
 sign = Sign()
+lake = Lake()
 
 
 # open file
@@ -140,15 +151,19 @@ while pygame.mixer.music.get_busy():
 	num_of_beats = pieces[current_piece_id][1]
 	relative_song_time = song_time - pieces[current_piece_id][0]
 
-	#flower
-	flower_num_of_beats = num_of_beats* flower_animation_mul
-	apply_animation(flower_animation, flower_num_of_beats, duration, relative_song_time)
-	print flower_num_of_beats
+	if (flower_animation != None):
+		flower_num_of_beats = num_of_beats* flower_animation_mul
+		apply_animation(flower_animation, flower_num_of_beats, duration, relative_song_time)
 
-	grass_num_of_beats = num_of_beats * grass_animation_mul
-	apply_animation(grass_animation, grass_num_of_beats, duration, relative_song_time)
+	if (grass_animation != None):
+		grass_num_of_beats = num_of_beats * grass_animation_mul
+		apply_animation(grass_animation, grass_num_of_beats, duration, relative_song_time)
 
-	network.send(frame_id, flower.get_array(), sheep.get_array(), grass.get_array(), sign.get_array())
+	if (lake_animation != None):
+		lake_num_of_beats = num_of_beats *  lake_animation_mul
+		apply_animation(lake_animation, lake_num_of_beats, duration, relative_song_time)
+
+	network.send(frame_id, flower.get_array(), sheep.get_array(), grass.get_array(), sign.get_array(), lake.get_array())
 
 	clock.tick(50)
 	frame_id += 1
