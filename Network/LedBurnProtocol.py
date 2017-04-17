@@ -2,8 +2,8 @@ import socket
 import array
 import time
 
+# CONTROLER_IP = "10.0.0.210"
 CONTROLER_IP = "10.0.0.210"
-# CONTROLER_IP = "10.0.0.211"
 UDP_PORT = 2000
 
 sock = socket.socket(socket.AF_INET, # Internet
@@ -35,8 +35,26 @@ SIGN_STRIP_ID = 3
 SIGN_SEG0 = 5
 SIGN_SEG0_PIXEL = 0
 
+# lake
+LAKE_STRIP_ID = 4
+LAKE_SEG0 = 6
+LAKE_SEG0_PIXEL = 0
+LAKE_SEG1= 7
+LAKE_SEG1_PIXEL = 300
+
+LAKE_WAVE_STRIP_ID0 = 5
+LAKE_WAVE_SEG0 = 6
+LAKE_WAVE_SEG0_PIXEL = 0
+LAKE_WAVE_SEG1= 7
+LAKE_WAVE_SEG1_PIXEL = 300
+LAKE_WAVE_STRIP_ID1 = 6
+LAKE_WAVE_SEG2 = 8
+LAKE_WAVE_SEG2_PIXEL = 0
+LAKE_WAVE_SEG3= 9
+LAKE_WAVE_SEG3_PIXEL = 300
+
 # total
-SEGS_IN_FRAME = 6
+SEGS_IN_FRAME = 10
 
 
 def uint8_to_array(num):
@@ -59,7 +77,8 @@ def send(frame_id,
          flower_data,
          sheep_data,
          grass_data,
-         sign_data):
+         sign_data,
+         lake_data):
 
     replaceGBRtoRGB(flower_data, range(463, 513));
     sendPacket(frame_id, FLOWER_STRIP_ID, FLOWER_SEG0, FLOWER_SEG0_PIXEL, flower_data[0:900])
@@ -72,6 +91,14 @@ def send(frame_id,
     sendPacket(frame_id, GRASS_STRIP_ID, GRASS_SEG1, GRASS_SEG1_PIXEL, grass_data[900:])
 
     sendPacket(frame_id, SIGN_STRIP_ID, SIGN_SEG0, SIGN_SEG0_PIXEL, sign_data)
+    
+    sendPacket(frame_id, LAKE_STRIP_ID, LAKE_SEG0, LAKE_SEG0_PIXEL, lake_data[0:900])
+    sendPacket(frame_id, LAKE_STRIP_ID, LAKE_SEG1, LAKE_SEG1_PIXEL, lake_data[900:1800])
+    
+    sendPacket(frame_id, LAKE_WAVE_STRIP_ID0, LAKE_WAVE_SEG0, LAKE_WAVE_SEG0_PIXEL, lake_data[1800:2700])
+    sendPacket(frame_id, LAKE_WAVE_STRIP_ID0, LAKE_WAVE_SEG1, LAKE_WAVE_SEG1_PIXEL, lake_data[2700:3600])
+    sendPacket(frame_id, LAKE_WAVE_STRIP_ID1, LAKE_WAVE_SEG2, LAKE_WAVE_SEG2_PIXEL, lake_data[3600:4500])
+    sendPacket(frame_id, LAKE_WAVE_STRIP_ID1, LAKE_WAVE_SEG3, LAKE_WAVE_SEG3_PIXEL, lake_data[4500:5400])
 
 
 def sendPacket(frame_id, strip_id, seg_id, pixel_id, pixels_data):
@@ -96,15 +123,16 @@ def replaceGBRtoRGB(data_array,in_range):
         data_array[i*3:i*3+3] = rgb
 
 
-# test:
-# i = 0
-# while (True):
-#     i += 1
-#     flower = [200, 0, 0] * 580
-#     sheep = [200, 0 ,0] * 302
-#     grass = [0, 200, 0] * 600
-#     sign = [0, 0, 200] * 150
-#     send(i,  flower, sheep, grass, sign)
-#     time.sleep(0.1)
+#test:
+i = 0
+while (True):
+    i += 1
+    flower = [200, 0, 0] * 580
+    sheep = [200, 0 ,0] * 302
+    grass = [0, 200, 0] * 600
+    sign = [0, 0, 200] * 150
+    lake = [0, 0, 0] * 600 + [0, 0, 0] * 600 + [0, 0, 0] * 600
+    send(i,  flower, sheep, grass, sign, lake)
+    time.sleep(0.1)
 
 
