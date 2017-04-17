@@ -30,8 +30,8 @@ class AlternateFlowerAnimation(FlowerAnimation):
     def create_effects(self):
         self.effects = []
         
-        color1 = Colors().hls_to_rgb(self.hue1, 1, 1)
-        color2 = Colors().hls_to_rgb(self.hue2, 1, 1)
+        color1 = Colors.hls_to_rgb(self.hue1, 1, 1)
+        color2 = Colors.hls_to_rgb(self.hue2, 1, 1)
         self.effects.append(AlternateColorEvery3Effect(self.flower.bottom_parts,color1, color2))
         self.effects.append(AlternateColorEvery3Effect(self.flower.get_leaves(),color1, color2))
 
