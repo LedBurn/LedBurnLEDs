@@ -98,25 +98,17 @@ pieces = song['pieces']
 current_piece_id = 0
 
 # init music
-pygame.init()
 clock = pygame.time.Clock()
 pygame.mixer.init()
 pygame.mixer.music.load(audio_file)
 pygame.mixer.music.play(0, 0)
 
+
 create_animations(pieces[current_piece_id][2])
-
-
 frame_id = 0
-hue = 0;
-
-last_time = 0
 
 while pygame.mixer.music.get_busy():
 	song_time = (pygame.mixer.music.get_pos() - 170)/ 1000.0
-	if (last_time > song_time):
-		print 'oh no!!!!'
-	last_time = song_time
 
 	if current_piece_id < len(pieces) -1 and song_time > pieces[current_piece_id+1][0]:
 		current_piece_id += 1

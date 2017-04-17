@@ -24,5 +24,14 @@ class FlowerAnimationFactory():
     	if 'RoundRobin' in config:
     		return RoundRobinFlowerAnimation(flower, config['RoundRobin'])
 
+        if 'Alternate' in config:
+            return AlternateFlowerAnimation(flower, config['Alternate'])
+
+        if 'Explosion' in config:
+            return ExplosionFlowerAnimation(flower, config['Explosion'])
+
+        if 'Fire' in config:
+            return FireFlowerAnimation(flower, config['Fire'])
+
         print 'Invalid flower animation -', config
 
