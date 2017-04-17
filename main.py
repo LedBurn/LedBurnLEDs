@@ -8,9 +8,9 @@ pygame.mixer.init()
 
 
 # temp sensor
-UDPSock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
-listen_addr = ("",5005)
-UDPSock.bind(listen_addr)
+# UDPSock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+# listen_addr = ("",5005)
+# UDPSock.bind(listen_addr)
 
 
 song = None
@@ -19,8 +19,8 @@ while True:
 	# read sensors data
 	# todo - sample motion & temp sensors - get udp?
 	#  
-	data, addr = UDPSock.recvfrom(1024)
-	print data.strip(), addr
+	# data, addr = UDPSock.recvfrom(1024)
+	# print data.strip(), addr
 
 
 	# current song is playing
@@ -30,7 +30,8 @@ while True:
 	# new song
 	else:
 		# to do - decide which song, maybe a break?
-		song = Song("Songs/Teletubbies.yml")
+		# song = Song("Songs/Soul Orchestra.yml")
+		song = Song("Songs/Dreamfunk.yml")
 		pygame.mixer.music.load(song.get_audio_file())
 		pygame.mixer.music.play(0, 0)
 
