@@ -124,15 +124,15 @@ def replaceGBRtoRGB(data_array,in_range):
 
 
 #test:
-i = 0
-while (True):
-    i += 1
-    flower = [200, 0, 0] * 580
-    sheep = [200, 0 ,0] * 302
-    grass = [0, 200, 0] * 600
-    sign = [0, 0, 200] * 150
-    lake = [0, 0, 0] * 600 + [0, 0, 0] * 600 + [0, 0, 0] * 600
-    send(i,  flower, sheep, grass, sign, lake)
-    time.sleep(0.1)
+# i = 0
+# while (True):
+#     i += 1
+#     flower = [200, 0, 0] * 580
+#     sheep = [200, 0 ,0] * 302
+#     grass = [0, 200, 0] * 600
+#     sign = [0, 0, 200] * 150
+#     lake = [0, 200, 200] * 600 + [0, 0, 200] * 600 + [0, 0, 200] * 600
+#     send(i,  flower, sheep, grass, sign, lake)
+#     time.sleep(0.1)
 
 
