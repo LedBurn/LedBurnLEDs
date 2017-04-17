@@ -17,6 +17,12 @@ pieces:
             hue_start: 0.33
             pixel_hue: 0.7
         beat_mul: 0.125
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.04
+            hue_start: 0.0
+        beat_mul: 1
   -
     - 28.49088435
     - 32
@@ -32,6 +38,12 @@ pieces:
           directionType: Up
           leafChooseType: SingleSequence
           colorType: Rainbow
+        beat_mul: 1
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
         beat_mul: 1
   -
     - 42.51573696
@@ -49,6 +61,12 @@ pieces:
           leafChooseType: SingleRandom
           colorType: Rainbow
         beat_mul: 1
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.1
+            hue_start: 0.0
+        beat_mul: 1
   -
     - 56.54058957
     - 64
@@ -63,6 +81,12 @@ pieces:
         RoundRobin:
           hue_speed: 0.08
           hue_start: 0.0
+        beat_mul: 2
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
         beat_mul: 2
   -
     - 84.56707483
@@ -80,6 +104,12 @@ pieces:
           leafChooseType: All
           colorType: Rainbow
         beat_mul: 1
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
+        beat_mul: 1
   -
     - 112.5935601
     - 96
@@ -95,6 +125,12 @@ pieces:
           directionType: UpAndDown
           leafChooseType: All
           colorType: Greenish
+        beat_mul: 1
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
         beat_mul: 1
   -
     - 154.621678
@@ -112,6 +148,12 @@ pieces:
           leafChooseType: All
           colorType: Rainbow
         beat_mul: 0.5
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
+        beat_mul: 1
   -
     - 182.6713832
     - 64
@@ -127,6 +169,12 @@ pieces:
             on_time_percent: 0.5
             hue_start: 0.33
             pixel_hue: 0.7
+        beat_mul: 1
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
         beat_mul: 1
   -
     - 210.6746485
@@ -144,6 +192,12 @@ pieces:
           leafChooseType: All
           colorType: Rainbow
         beat_mul: 0.5
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
+        beat_mul: 1
   -
     - 238.7243537
     - 32
@@ -160,6 +214,12 @@ pieces:
             hue_start: 0.0
             pixel_hue: 0.3
         beat_mul: 0.125
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
+        beat_mul: 1
   -
     - 252.7259864
     - 64
@@ -176,6 +236,12 @@ pieces:
             hue_start: 0.7
             pixel_hue: 0.33
         beat_mul: 0.125
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
+        beat_mul: 1
   -
     - 280.7524717
     - 64
@@ -192,6 +258,12 @@ pieces:
             hue_start: 0.33
             pixel_hue: 0.7
         beat_mul: 0.125
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
+        beat_mul: 1
   -
     - 308.8021769
     - 64
@@ -208,6 +280,12 @@ pieces:
             hue_start: 0.5
             pixel_hue: 0.5
         beat_mul: 0.125
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
+        beat_mul: 1
   -
     - 336.8286621
     - 24
@@ -224,6 +302,12 @@ pieces:
             hue_start: 0.33
             pixel_hue: 0.7
         beat_mul: 0.125
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
+        beat_mul: 1
   -
     - 347.3240816
     - 8
@@ -240,6 +324,12 @@ pieces:
             hue_start: 0.8
             pixel_hue: 0.2
         beat_mul: 0.125
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
+        beat_mul: 1
   -
     - 350.8302948
     - 80
@@ -256,6 +346,12 @@ pieces:
           leafChooseType: SingleRandom
           colorType: Rainbow
         beat_mul: 0.5
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
+        beat_mul: 1
   -
     - 385.8692063
     - 64
@@ -271,6 +367,12 @@ pieces:
           directionType: UpAndDown
           leafChooseType: SingleSequence
           colorType: Rainbow
+        beat_mul: 1
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
         beat_mul: 1
   -
     - 413.8956914
@@ -288,6 +390,12 @@ pieces:
             hue_start: 0.33
             pixel_hue: 0.7
         beat_mul: 0.125
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
+        beat_mul: 1
   -
     - 441.9221765
     - 0
@@ -304,3 +412,9 @@ pieces:
             hue_start: 0.33
             pixel_hue: 0.7
         beat_mul: 0.125
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
+        beat_mul: 1
