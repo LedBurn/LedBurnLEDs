@@ -103,7 +103,10 @@ sign = Sign()
 
 
 # open file
-FILE = 'Teletubbies.yml'
+# FILE = 'Teletubbies.yml'
+# FILE = 'Dreamfunk.yml'
+FILE = 'Soul Orchestra.yml'
+
 with open(FILE, 'r') as f:
     song = yaml.load(f)
 
