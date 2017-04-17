@@ -10,8 +10,8 @@ from AlwaysOnEffect import AlwaysOnEffect
 
 class FireFlowerAnimation(FlowerAnimation):
 
-    def __init__(self, flower):
-        FlowerAnimation.__init__(self, flower)
+    def __init__(self, flower, props):
+        FlowerAnimation.__init__(self, flower, props)
 
         self.effects = []
         self.effects.append(FireEffect(self.flower.line_front))

@@ -30,7 +30,7 @@ class ExplosionFlowerAnimation(FlowerAnimation):
         self.previous_hue = hue
 
         self.previous_color = self.color
-        self.color = Colors().hls_to_rgb(hue, 1 ,1 )
+        self.color = Colors.hls_to_rgb(hue, 1 ,1 )
 
         self.effects.append(AdvanceEffect.initColor(self.flower.line_back, self.previous_color, self.color))
         self.effects.append(AdvanceEffect.initColor(self.flower.line_front, self.previous_color, self.color))

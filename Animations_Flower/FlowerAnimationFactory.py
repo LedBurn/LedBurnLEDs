@@ -1,6 +1,9 @@
 from NaturalFlowerAnimation import NaturalFlowerAnimation
 from RainbowFlowerAnimation import RainbowFlowerAnimation
 from RoundRobinFlowerAnimation import RoundRobinFlowerAnimation
+from ExplosionFlowerAnimation import ExplosionFlowerAnimation
+from AlternateFlowerAnimation import AlternateFlowerAnimation
+from FireFlowerAnimation import FireFlowerAnimation
 
 
 class FlowerAnimationFactory():
