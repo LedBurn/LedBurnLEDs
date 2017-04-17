@@ -15,8 +15,8 @@ import random
 
 class NaturalFlowerAnimation(FlowerAnimation):
 
-    def __init__(self, flower):
-        FlowerAnimation.__init__(self, flower)
+    def __init__(self, flower, props):
+        FlowerAnimation.__init__(self, flower, props)
         self.effects = []
         self.hue = random.random()
         self.previous_time = 1

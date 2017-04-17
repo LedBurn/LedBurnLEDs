@@ -13,8 +13,8 @@ import random
 
 class ExplosionFlowerAnimation(FlowerAnimation):
 
-    def __init__(self, flower):
-        FlowerAnimation.__init__(self, flower)
+    def __init__(self, flower, props):
+        FlowerAnimation.__init__(self, flower, props)
         self.previous_time = 1;
         self.frame_counter = 0
         self.color = [0, 0, 0]

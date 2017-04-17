@@ -1,14 +1,5 @@
-import pygame
-import yaml
 
-FILE = 'Teletubbies.yml'
 
-with open(FILE, 'r') as f:
-    song = yaml.load(f)
-
-audio_file = "../Music/" + song['file_name']
-
-pieces = song['pieces']
 # pieces = [[0,44],
 # [18.92426304,	32], 
 # [25.77414966,	16],
@@ -51,31 +42,65 @@ sys.path.append(os.path.abspath('../Network'))
 import LedBurnProtocol as network
 import time
 import math
+import pygame
+import yaml
 
 sys.path.append(os.path.abspath('../UIElements'))
 from Flower import Flower
-flower = Flower()
 from SmallSheep import SmallSheep
-sheep = SmallSheep()
 from Grass import Grass
-grass = Grass()
 from Sign import Sign
+
+sys.path.append(os.path.abspath('../Animations_Flower'))
+from FlowerAnimationFactory import FlowerAnimationFactory
+
+
+flower_animation = None
+flower_animation_mul = 1
+
+def create_animations(animation_dict):
+	if 'flower' in animation_dict: 
+		global flower_animation, flower_animation_mul
+		flower_animation = FlowerAnimationFactory.create_animation(animation_dict['flower'], flower)
+		if 'beat_mul' in animation_dict['flower']:
+			flower_animation_mul = animation_dict['flower']['beat_mul']
+		else:
+			flower_animation_mul = 1
+
+def apply_animation(animation, num_of_beats, duration, relative_song_time):
+	beat_duration = duration/num_of_beats
+	beats_played = math.floor(relative_song_time / beat_duration)
+	relative_beat_time = relative_song_time - beat_duration * beats_played
+	percent_beat_time = relative_beat_time / beat_duration
+
+	animation.apply(percent_beat_time)
+
+
+# ui elements
+flower = Flower()
+sheep = SmallSheep()
+grass = Grass()
 sign = Sign()
 
-sys.path.append(os.path.abspath('../'))
-from Colors import Colors
 
-sys.path.append(os.path.abspath('../Scenes'))
-from RoundRobinScene import RoundRobinScene
-scene = RoundRobinScene(flower, sheep, grass, sign)
+# open file
+FILE = 'Teletubbies.yml'
+with open(FILE, 'r') as f:
+    song = yaml.load(f)
 
+audio_file = "../Music/" + song['file_name']
+pieces = song['pieces']
+current_piece_id = 0
+
+# init music
 pygame.init()
 clock = pygame.time.Clock()
 pygame.mixer.init()
 pygame.mixer.music.load(audio_file)
 pygame.mixer.music.play(0, 0)
 
-current_piece = 0
+create_animations(pieces[current_piece_id][2])
+
 
 frame_id = 0
 hue = 0;
@@ -83,24 +108,29 @@ hue = 0;
 while pygame.mixer.music.get_busy():
 	song_time = (pygame.mixer.music.get_pos() - 170)/ 1000.0
 
-	if current_piece < len(pieces) -1 and song_time > pieces[current_piece+1][0]:
-		current_piece += 1
+	if current_piece_id < len(pieces) -1 and song_time > pieces[current_piece_id+1][0]:
+		current_piece_id += 1
+		create_animations(pieces[current_piece_id][2])
 
-	if current_piece == len(pieces) - 1:
+	if current_piece_id == len(pieces) - 1:
 		duration = 30.0
  	else:
- 		duration = pieces[current_piece+1][0] - pieces[current_piece][0]
-	num_of_beats = pieces[current_piece][1]
-	beat_duration = duration/num_of_beats
+ 		duration = pieces[current_piece_id+1][0] - pieces[current_piece_id][0]
 
-	relative_song_time = song_time - pieces[current_piece][0]
 
-	beats_played = math.floor(relative_song_time / beat_duration)
-	relative_beat_time = relative_song_time - beat_duration * beats_played
-	percent_beat_time = relative_beat_time / beat_duration
+	num_of_beats = pieces[current_piece_id][1]
+	relative_song_time = song_time - pieces[current_piece_id][0]
 
-	scene.apply(percent_beat_time)
+	#flower
+	flower_num_of_beats = num_of_beats* flower_animation_mul
+	apply_animation(flower_animation, flower_num_of_beats, duration, relative_song_time)
+
+
 	network.send(frame_id, flower.get_array(), sheep.get_array(), grass.get_array(), sign.get_array())
 
 	clock.tick(50)
 	frame_id += 1
+
+
+
+

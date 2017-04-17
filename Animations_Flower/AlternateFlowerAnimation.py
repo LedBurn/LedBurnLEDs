@@ -8,15 +8,15 @@ sys.path.append(os.path.abspath('../Effects'))
 from AlternateColorEvery3Effect import AlternateColorEvery3Effect
 from AlwaysOnEffect import AlwaysOnEffect
 
-sys.path.append(os.path.abspath('../Colors'))
+sys.path.append(os.path.abspath('../'))
 from Colors import Colors
 
 import random
 
 class AlternateFlowerAnimation(FlowerAnimation):
 
-    def __init__(self, flower):
-        FlowerAnimation.__init__(self, flower)
+    def __init__(self, flower, props):
+        FlowerAnimation.__init__(self, flower, props)
         self.previous_time = 1
         self.effects = []
         self.cycle_num = 0

@@ -14,8 +14,8 @@ import random
 
 class RoundRobinFlowerAnimation(FlowerAnimation):
 
-    def __init__(self, flower):
-        FlowerAnimation.__init__(self, flower)
+    def __init__(self, flower, props):
+        FlowerAnimation.__init__(self, flower, props)
         self.effects = []
         self.last_hue = 0.0
         self.last_leaf = 0

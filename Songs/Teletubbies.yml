@@ -6,76 +6,83 @@ pieces:
     - 44
     - 
       flower: 
-        NaturalFlowerAnimation: ~
+        Natural: ~
   - 
     - 18.92426304
     - 8
     - 
       flower: 
-        RoundRobinFlowerAnimation: 
-          beat_mul: 4
+        RoundRobin: ~
+        beat_mul: 4
   - 
     - 25.77414966
     - 32
     - 
       flower: 
-        RoundRobinFlowerAnimation: 
-          beat_mul: 0.5
+        RoundRobin: ~
+        beat_mul: 0.5
   - 
     - 39.49714286
     - 32
     - 
       flower: 
-        RoundRobinFlowerAnimation: 
-          beat_mul: 0.5
+        RoundRobin: ~
+        beat_mul: 0.5
   - 
     - 53.1969161
     - 44
+    - 
+      flower: 
+        Natural: ~
   - 
     - 72.05151927
     - 8
+    - 
+      flower: 
+        RoundRobin: ~
+        beat_mul: 4
   - 
     - 78.92462585
     - 32
+    - 
+      flower: 
+        RoundRobin: ~
+        beat_mul: 0.5
   - 
     - 92.62439909
     - 32
+    - 
+      flower: 
+        RoundRobin: ~
+        beat_mul: 0.5
   - 
     - 106.3473923
     - 44
+    - 
+      flower: 
+        Natural: ~
   - 
     - 125.2019955
     - 8
+    - 
+      flower: 
+        RoundRobin: ~
+        beat_mul: 4
   - 
     - 132.075102
     - 32
+    - 
+      flower: 
+        RoundRobin: ~
+        beat_mul: 0.5
   - 
     - 145.7748753
     - 32
+    - 
+      flower: 
+        RoundRobin: ~
+        beat_mul: 0.5
   - 
     - 159.4746483
     - 0
-
-
-# pieces: 
-# - [0,  64]
-# - [28.49088435, 32]
-# - [42.51573696, 32]
-# - [56.54058957, 64]
-# - [84.56707483, 64]
-# - [112.5935601, 96]
-# - [154.621678,  64]
-# - [182.6713832, 64]
-# - [210.6746485, 64]
-# - [238.7243537, 32]
-# - [252.7259864, 64]
-# - [280.7524717, 64]
-# - [308.8021769, 64]
-# - [336.8286621, 24]
-# - [347.3240816, 8]
-# - [350.8302948, 80]
-# - [385.8692063, 64]
-# - [413.8956914, 64]
-# - [441.9221765, 0]
-
-
+    - ~
