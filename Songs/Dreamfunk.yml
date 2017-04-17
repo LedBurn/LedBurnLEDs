@@ -1,0 +1,174 @@
+---
+file_name: "Dreamfunk.mp3"
+pieces: 
+  - 
+    - 0
+    - 64
+    -   
+      flower: 
+        Natural:
+          hue_speed: 0.04
+          hue_start: 0.0
+        beat_mul: 1
+  -
+    - 28.49088435
+    - 32
+    - 
+      flower: 
+        RoundRobin:
+          hue_speed: 0.08
+          hue_start: 0.64
+        beat_mul: 1
+  -
+    - 42.51573696
+    - 32
+    - 
+      flower: 
+        RoundRobin:
+          hue_speed: 0.1
+          hue_start: 0.0
+        beat_mul: 1
+  -
+    - 56.54058957
+    - 64
+    - 
+      flower: 
+        RoundRobin:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 2
+  -
+    - 84.56707483
+    - 64
+    - 
+      flower: 
+        RoundRobin:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1
+  -
+    - 112.5935601
+    - 96
+    - 
+      flower: 
+        Alternate:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1
+  -
+    - 154.621678
+    - 64
+    - 
+      flower: 
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.5
+  -
+    - 182.6713832
+    - 64
+    - 
+      flower: 
+        Alternate:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1
+  -
+    - 210.6746485
+    - 64
+    - 
+      flower: 
+        Explosion:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1
+  -
+    - 238.7243537
+    - 32
+    - 
+      flower: 
+        Natural:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1
+  -
+    - 252.7259864
+    - 64
+    - 
+      flower: 
+        Natural:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1
+  -
+    - 280.7524717
+    - 64
+    - 
+      flower: 
+        Natural:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1
+  -
+    - 308.8021769
+    - 64
+    - 
+      flower: 
+        Natural:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1
+  -
+    - 336.8286621
+    - 24
+    - 
+      flower: 
+        Natural:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1
+  -
+    - 347.3240816
+    - 8
+    - 
+      flower: 
+        Natural:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1
+  -
+    - 350.8302948
+    - 80
+    - 
+      flower: 
+        Explosion:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1
+  -
+    - 385.8692063
+    - 64
+    - 
+      flower: 
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.25
+  -
+    - 413.8956914
+    - 64
+    - 
+      flower: 
+        Natural:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1
+  -
+    - 441.9221765
+    - 0
+    - 
+      flower: 
+        Natural:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1
