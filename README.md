@@ -9,7 +9,7 @@ This project contains all the code needed for the Led Burn Camp's LED projects.
 
 2. Install [pygame](http://www.pygame.org/download.shtml)
 
-3. Install PyYAML http://pyyaml.org/
+3. Install [PyYAML](http://pyyaml.org/)
 
 4. Install [librosa](https://github.com/librosa/librosa) (only you need the Audio Analyzer)
 
