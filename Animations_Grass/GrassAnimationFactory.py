@@ -2,6 +2,7 @@ from FireGrassAnimation import FireGrassAnimation
 from HorLineGrassAnimation import HorLineGrassAnimation
 from RoundRobinGrassAnimation import RoundRobinGrassAnimation
 from SpikeGrassAnimation import SpikeGrassAnimation
+from ConfettiGrassAnimation import ConfettiGrassAnimation
 
 class GrassAnimationFactory():
     @staticmethod
@@ -24,6 +25,9 @@ class GrassAnimationFactory():
 
         if 'Fire' in config:
             return FireGrassAnimation(grass, config['Fire'])
+
+        if 'Confetti' in config:
+            return ConfettiGrassAnimation(grass, config['Confetti'])
 
         print 'Invalid grass animation -', config
 

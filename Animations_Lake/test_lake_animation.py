@@ -11,7 +11,8 @@ from Lake import Lake
 lake = Lake()
 
 from RoundRobinLakeAnimation import RoundRobinLakeAnimation
-animation = RoundRobinLakeAnimation(lake, None)
+from ConfettiLakeAnimation import ConfettiLakeAnimation
+animation = ConfettiLakeAnimation(lake, None)
 
 flower 	= [0, 0, 0] * 550
 sheep 	= [0, 0 ,0] * 302

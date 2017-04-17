@@ -4,6 +4,7 @@ from RoundRobinFlowerAnimation import RoundRobinFlowerAnimation
 from ExplosionFlowerAnimation import ExplosionFlowerAnimation
 from AlternateFlowerAnimation import AlternateFlowerAnimation
 from FireFlowerAnimation import FireFlowerAnimation
+from ConfettiFlowerAnimation import ConfettiFlowerAnimation
 
 
 class FlowerAnimationFactory():
@@ -35,6 +36,9 @@ class FlowerAnimationFactory():
 
         if 'Fire' in config:
             return FireFlowerAnimation(flower, config['Fire'])
+
+        if 'Confetti' in config:
+            return ConfettiFlowerAnimation(flower, config['Confetti'])
 
         print 'Invalid flower animation -', config
 

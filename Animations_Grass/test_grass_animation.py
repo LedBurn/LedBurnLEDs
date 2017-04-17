@@ -12,12 +12,14 @@ grass = Grass()
 
 from FireGrassAnimation import FireGrassAnimation
 from RoundRobinGrassAnimation import RoundRobinGrassAnimation
+from ConfettiGrassAnimation import ConfettiGrassAnimation
 
-animation = RoundRobinGrassAnimation(grass, None)
+animation = ConfettiGrassAnimation(grass, None)
 
 flower 	= [0, 0, 0] * 550
 sheep 	= [0, 0 ,0] * 302
 sign 	= [0, 0, 0] * 150
+lake 	= [0, 0, 0] * 1800 	
 
 speed = 25 # in 50 hrz
 current_time = 0
@@ -29,7 +31,7 @@ while True:
 
 	animation.apply(time_precent)
 
-	network.send(frame_id, flower, sheep, grass.get_array(), sign)
+	network.send(frame_id, flower, sheep, grass.get_array(), sign, lake)
 
 	time.sleep(0.02)
 	current_time = (current_time + 1) % speed
