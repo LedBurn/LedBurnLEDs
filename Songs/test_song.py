@@ -53,6 +53,8 @@ from Sign import Sign
 
 sys.path.append(os.path.abspath('../Animations_Flower'))
 from FlowerAnimationFactory import FlowerAnimationFactory
+sys.path.append(os.path.abspath('../Animations_Grass'))
+from GrassAnimationFactory import GrassAnimationFactory
 
 
 flower_animation = None
@@ -66,8 +68,20 @@ def create_animations(animation_dict):
 			flower_animation_mul = animation_dict['flower']['beat_mul']
 		else:
 			flower_animation_mul = 1
+		print 'flower -', flower_animation_mul
 	else:
 		flower_animation = None
+
+	if 'grass' in animation_dict:
+		global grass_animation, grass_animation_mul
+		grass_animation = GrassAnimationFactory.create_animation(animation_dict['grass'], grass)
+		if 'beat_mul' in animation_dict['grass']:
+			grass_animation_mul = animation_dict['grass']['beat_mul']
+		else:
+			grass_animation_mul = 1
+	else:
+		grass_animation = None
+
 
 def apply_animation(animation, num_of_beats, duration, relative_song_time):
 	if (animation == None):
@@ -126,7 +140,10 @@ while pygame.mixer.music.get_busy():
 	#flower
 	flower_num_of_beats = num_of_beats* flower_animation_mul
 	apply_animation(flower_animation, flower_num_of_beats, duration, relative_song_time)
+	print flower_num_of_beats
 
+	grass_num_of_beats = num_of_beats * grass_animation_mul
+	apply_animation(grass_animation, grass_num_of_beats, duration, relative_song_time)
 
 	network.send(frame_id, flower.get_array(), sheep.get_array(), grass.get_array(), sign.get_array())
 

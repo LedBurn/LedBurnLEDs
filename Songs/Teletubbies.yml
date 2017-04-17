@@ -4,19 +4,30 @@ pieces:
   - 
     - 0
     - 44
-    - 
+    -
       flower: 
         Natural:
           hue_speed: 0.01
           hue_start: 0.0
+
+      grass:
+        HorLine:
+            on_time_percent: 1.0
+        beat_mul: 0.5
   - 
     - 18.92426304
     - 8
     - 
       flower: 
         RoundRobin:
-          hue_speed: 0.08
           hue_start: 0.44
+          hue_speed: 0.08
+        beat_mul: 4
+
+      grass:
+        RoundRobin:
+          hue_start: 0.44
+          hue_speed: 0.08
         beat_mul: 4
   - 
     - 25.77414966
@@ -24,17 +35,30 @@ pieces:
     - 
       flower: 
         RoundRobin:
-          hue_speed: 0.8
           hue_start: 0.0
+          hue_speed: 0.08
         beat_mul: 0.5
+
+      grass:
+        RoundRobin:
+          hue_start: 0.0
+          hue_speed: 0.08
+        beat_mul: 0.5
+
   - 
     - 39.49714286
     - 32
     - 
       flower: 
         RoundRobin: 
-          hue_speed: 0.8
+          hue_speed: 0.08
           hue_start: 0.92
+        beat_mul: 0.5
+
+      grass:
+        RoundRobin:
+          hue_start: 0.08
+          hue_speed: 0.92
         beat_mul: 0.5
   - 
     - 53.1969161
@@ -59,7 +83,7 @@ pieces:
     - 
       flower: 
         RoundRobin: 
-          hue_speed: 0.8
+          hue_speed: 0.08
           hue_start: 0.0
         beat_mul: 0.5
   - 
@@ -68,7 +92,7 @@ pieces:
     - 
       flower: 
         RoundRobin: 
-          hue_speed: 0.8
+          hue_speed: 0.08
           hue_start: 0.92
         beat_mul: 0.5
   - 
@@ -94,7 +118,7 @@ pieces:
     - 
       flower: 
         RoundRobin: 
-          hue_speed: 0.8
+          hue_speed: 0.08
           hue_start: 0.0
         beat_mul: 0.5
   - 
@@ -103,7 +127,7 @@ pieces:
     - 
       flower: 
         RoundRobin: 
-          hue_speed: 0.8
+          hue_speed: 0.08
           hue_start: 0.92
         beat_mul: 0.5
   - 

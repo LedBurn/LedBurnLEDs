@@ -11,12 +11,11 @@ from Grass import Grass
 
 grass = Grass()
 
-from HorLineGrassAnimation import HorLineGrassAnimation
+from GreenGrassAnimation import GreenGrassAnimation
 
-props = {"on_time_percent" : 0.4}
-animation = HorLineGrassAnimation(grass, props)
+animation = GreenGrassAnimation(grass)
 
-flower = [0, 0, 0] * 600
+flower = [0, 0, 0] * 550
 sheep = [0, 0, 0] * 302
 sign = [0, 0, 0] * 150
 
@@ -33,6 +32,6 @@ while True:
 
     time.sleep(0.02)
     current_time = (current_time + 1) % speed
-    frame_id += 1
+    frame_id += 500
 
 

@@ -27,13 +27,39 @@ class LeafColorType:
 
 class SpikeGrassAnimation(GrassAnimation):
 
-    def __init__(self, grass, direction_type = DirectionType.ALL_UP, leaf_choose_type = LeafChooseType.ALL_LEAFS, leaf_color = LeafColorType.GREENISH):
-        GrassAnimation.__init__(self, grass)
+    def __init__(self, grass, props):
+
+                 # direction_type = DirectionType.ALL_UP, leaf_choose_type = LeafChooseType.ALL_LEAFS, leaf_color = LeafColorType.GREENISH):
+        GrassAnimation.__init__(self, grass, props)
         self.previous_time = 1
-        self.direction_type = direction_type
-        self.leaf_choose_type = leaf_choose_type
         self.last_leaf = 0 # used when self.leaf_choose_type == LeafChooseType.SINGLE_SEQUENCE
-        self.leaf_color = leaf_color
+
+        self.direction_type = DirectionType.ALL_UP
+        self.leaf_choose_type = LeafChooseType.ALL_LEAFS
+        self.leaf_color = LeafColorType.GREENISH
+        if self.props != None:
+            if 'directionType' in self.props:
+                directionType = self.props['directionType']
+                if directionType == 'Up':
+                    self.direction_type = DirectionType.ALL_UP
+                elif directionType == 'Down':
+                    self.direction_type = DirectionType.ALL_DOWN
+                elif directionType == 'UpAndDown':
+                    self.direction_type = DirectionType.ONE_UP_ONE_DOWN
+            if 'leafChooseType' in self.props:
+                leafChooseType = self.props['leafChooseType']
+                if leafChooseType == 'All':
+                    self.leaf_choose_type = LeafChooseType.ALL_LEAFS
+                if leafChooseType == 'SingleRandom':
+                    self.leaf_choose_type = LeafChooseType.SINGLE_RANDOM
+                if leafChooseType == 'SingleSequence':
+                    self.leaf_choose_type = LeafChooseType.SINGLE_SEQUENCE
+            if 'colorType' in self.props:
+                colorType = self.props['colorType']
+                if colorType == 'Rainbow':
+                    self.leaf_color = LeafColorType.RAINBOW
+                elif colorType == 'Greenish':
+                    self.leaf_color == LeafColorType.GREENISH
 
         self.max_height = 0
         for leaf in self.grass.get_leaves_array():

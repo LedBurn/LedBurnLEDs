@@ -11,7 +11,9 @@ from Grass import Grass
 grass = Grass()
 
 from FireGrassAnimation import FireGrassAnimation
-animation = FireGrassAnimation(grass)
+from RoundRobinGrassAnimation import RoundRobinGrassAnimation
+
+animation = RoundRobinGrassAnimation(grass, None)
 
 flower 	= [0, 0, 0] * 550
 sheep 	= [0, 0 ,0] * 302

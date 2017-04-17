@@ -13,7 +13,10 @@ grass = Grass()
 
 from SpikeGrassAnimation import SpikeGrassAnimation, DirectionType, LeafChooseType, LeafColorType
 
-animation = SpikeGrassAnimation(grass, DirectionType.ALL_DOWN, LeafChooseType.ALL_LEAFS, LeafColorType.RAINBOW)
+props = {'directionType' : 'Up',
+         'leafChooseType' : 'All',
+         'colorType' : 'Rainbow'}
+animation = SpikeGrassAnimation(grass, props)
 
 flower = [0, 0, 0] * 600
 sheep = [0, 0, 0] * 302

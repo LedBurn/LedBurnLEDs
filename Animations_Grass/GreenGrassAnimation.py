@@ -16,8 +16,8 @@ min_green = 5
 
 class GreenGrassAnimation(GrassAnimation):
 
-    def __init__(self, grass):
-        GrassAnimation.__init__(self, grass)
+    def __init__(self, grass, props):
+        GrassAnimation.__init__(self, grass, props)
         self.create_effects()
         self.loop_num = 0
 
@@ -39,12 +39,12 @@ class GreenGrassAnimation(GrassAnimation):
     
 
     def apply(self, time_percent):
-        
+
         loop = math.floor(time_percent * num_of_loops)
         if (loop != self.loop_num):
             self.loop_num =  self.loop_num + 1 if (self.loop_num + 1 < num_of_loops) else 0
             self.create_effects()
-        
+
         for effect in self.effects:
             effect.apply(time_percent, self.grass.get_array())
 

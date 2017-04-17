@@ -7,8 +7,9 @@ from Grass import Grass
 class GrassAnimation:
     __metaclass__ = ABCMeta
     
-    def __init__(self, grass):
+    def __init__(self, grass, props):
         self.grass = grass
+        self.props = props
 
     @abstractmethod
     def apply(self, time_percent): pass
