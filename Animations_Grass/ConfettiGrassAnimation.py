@@ -12,7 +12,7 @@ class ConfettiGrassAnimation(GrassAnimation):
         if self.props != None:
         	if 'leds_percent_per_beat' in self.props:
         		leds_percent_per_beat = self.props['leds_percent_per_beat']
-            if 'brightness' in self.props:
+        if 'brightness' in self.props:
                 brightness = self.props['brightness']
         
         self.effects.append(ConfettiEffect(self.grass.get_leaves(), leds_percent_per_beat, brightness))

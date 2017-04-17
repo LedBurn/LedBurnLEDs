@@ -13,7 +13,7 @@ pieces:
         
       grass:
         HorLine:
-            on_time_percent: 0.5
+            on_time_percent: 1.0
             hue_start: 0.33
             pixel_hue: 0.7
         beat_mul: 0.125
@@ -320,7 +320,7 @@ pieces:
         
       grass:
         HorLine:
-            on_time_percent: 1.0
+            on_time_percent: 0.5
             hue_start: 0.8
             pixel_hue: 0.2
         beat_mul: 0.125
@@ -386,7 +386,7 @@ pieces:
 
       grass:
         HorLine:
-            on_time_percent: 0.5
+            on_time_percent: 1.0
             hue_start: 0.33
             pixel_hue: 0.7
         beat_mul: 0.125
@@ -408,7 +408,7 @@ pieces:
         
       grass:
         HorLine:
-            on_time_percent: 0.5
+            on_time_percent: 1.0
             hue_start: 0.33
             pixel_hue: 0.7
         beat_mul: 0.125

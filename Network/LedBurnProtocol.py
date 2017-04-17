@@ -2,8 +2,9 @@ import socket
 import array
 import time
 
-# CONTROLER_IP = "10.0.0.210"
-CONTROLER_IP = "10.0.0.210"
+CONTROLER_IP1 = "10.0.0.210"
+CONTROLER_IP2 = "10.0.0.211"
+CONTROLER_IP3 = "10.0.0.212"
 UDP_PORT = 2000
 
 sock = socket.socket(socket.AF_INET, # Internet
@@ -113,7 +114,9 @@ def sendPacket(frame_id, strip_id, seg_id, pixel_id, pixels_data):
     data = data + pixels_data
     msg = "LedBurn" + array.array('B', data).tostring()
 
-    sock.sendto(msg, (CONTROLER_IP, UDP_PORT))
+    sock.sendto(msg, (CONTROLER_IP1, UDP_PORT))
+    sock.sendto(msg, (CONTROLER_IP2, UDP_PORT))
+    sock.sendto(msg, (CONTROLER_IP3, UDP_PORT))
 
 
 def replaceGBRtoRGB(data_array,in_range):

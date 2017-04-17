@@ -9,6 +9,21 @@ pieces:
         Natural: 
           hue_speed: 0.02
           hue_start: 0.25
+        beat_mul: 1
+        
+      grass:
+        HorLine:
+            on_time_percent: 1.0
+            hue_start: 0.33
+            pixel_hue: 0.5
+        beat_mul: 0.125
+        
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: True
+            brightness: 0.5
+        beat_mul: 0.5
   - 
     - 17.60072562
     - 32
@@ -17,6 +32,20 @@ pieces:
         Explosion: 
           hue_speed: 0.01
           hue_start: 0.0
+        beat_mul: 0.5
+        
+      grass:  
+        Spike:
+          directionType: Up
+          leafChooseType: SingleRandom
+          colorType: Rainbow
+        beat_mul: 0.25
+        
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: True
+            brightness: 0.5
         beat_mul: 0.5
   - 
     - 31.32371882
@@ -27,6 +56,20 @@ pieces:
           hue_speed: 0.04
           hue_start: 0.25
         beat_mul: 0.5
+        
+      grass:
+        HorLine:
+            on_time_percent: 1.0
+            hue_start: 0.25
+            pixel_hue: 0.75
+        beat_mul: 0.125
+        
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: True
+            brightness: 0.5
+        beat_mul: 1
   - 
     - 45.04671202
     - 32
@@ -36,6 +79,20 @@ pieces:
           hue_speed: 0.02
           hue_start: 0.0
         beat_mul: 0.125
+        
+      grass:
+        HorLine:
+            on_time_percent: 1.0
+            hue_start: 0.33
+            pixel_hue: 0.7
+        beat_mul: 0.125
+        
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: True
+            brightness: 0.5
+        beat_mul: 1
   - 
     - 58.76970522
     - 32
@@ -44,6 +101,21 @@ pieces:
         Natural: 
           hue_speed: 0.02
           hue_start: 0.25
+        beat_mul: 1
+        
+      grass:
+        HorLine:
+            on_time_percent: 1.0
+            hue_start: 0.33
+            pixel_hue: 0.7
+        beat_mul: 0.5
+        
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: True
+            brightness: 0.5
+        beat_mul: 1
   - 
     - 72.46947846
     - 32
@@ -53,6 +125,20 @@ pieces:
           hue_speed: 0.01
           hue_start: 0.0
         beat_mul: 0.5
+        
+      grass:
+        HorLine:
+            on_time_percent: 1.0
+            hue_start: 0.33
+            pixel_hue: 0.7
+        beat_mul: 0.125
+        
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: True
+            brightness: 0.5
+        beat_mul: 1
   - 
     - 86.19247166
     - 32
@@ -61,6 +147,21 @@ pieces:
         RoundRobin: 
           hue_speed: 0.02
           hue_start: 0.25
+        beat_mul: 1
+        
+      grass:
+        HorLine:
+            on_time_percent: 0.5
+            hue_start: 0.33
+            pixel_hue: 0.7
+        beat_mul: 0.125
+        
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: True
+            brightness: 0.5
+        beat_mul: 1
   - 
     - 99.93868481
     - 32
@@ -69,6 +170,21 @@ pieces:
         Natural: 
           hue_speed: 0.01
           hue_start: 0.25
+        beat_mul: 1
+        
+      grass:
+        HorLine:
+            on_time_percent: 0.5
+            hue_start: 0.33
+            pixel_hue: 0.7
+        beat_mul: 0.125
+        
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: True
+            brightness: 0.5
+        beat_mul: 1
   - 
     - 113.6152381
     - 32
@@ -78,6 +194,20 @@ pieces:
           hue_speed: 0.01
           hue_start: 0.0
         beat_mul: 0.25
+        
+      grass:
+        HorLine:
+            on_time_percent: 0.5
+            hue_start: 0.33
+            pixel_hue: 0.7
+        beat_mul: 0.125
+        
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: True
+            brightness: 0.5
+        beat_mul: 1
   - 
     - 127.3150113
     - 32
@@ -86,6 +216,21 @@ pieces:
         Explosion: 
           hue_speed: 0.01
           hue_start: 0.25
+        beat_mul: 1
+        
+      grass:
+        HorLine:
+            on_time_percent: 0.5
+            hue_start: 0.33
+            pixel_hue: 0.7
+        beat_mul: 0.125
+        
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: True
+            brightness: 0.5
+        beat_mul: 1
   - 
     - 141.0380045
     - 32
@@ -95,6 +240,19 @@ pieces:
           hue_speed: 0.01
           hue_start: 0.0
         beat_mul: 0.5
+        
+      grass:
+        HorLine:
+            on_time_percent: 0.5
+            hue_start: 0.33
+            pixel_hue: 0.7
+        beat_mul: 0.125
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
+        beat_mul: 1
   - 
     - 154.7609977
     - 32
@@ -103,6 +261,21 @@ pieces:
         RoundRobin: 
           hue_speed: 0.01
           hue_start: 0.25
+        beat_mul: 1
+        
+      grass:
+        HorLine:
+            on_time_percent: 0.5
+            hue_start: 0.33
+            pixel_hue: 0.7
+        beat_mul: 0.125
+        
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: True
+            brightness: 0.5
+        beat_mul: 1
   - 
     - 168.460771
     - 64
@@ -112,6 +285,20 @@ pieces:
           hue_speed: 0.01
           hue_start: 0.0
         beat_mul: 0.5
+        
+      grass:
+        HorLine:
+            on_time_percent: 0.5
+            hue_start: 0.33
+            pixel_hue: 0.7
+        beat_mul: 0.125
+        
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: True
+            brightness: 0.5
+        beat_mul: 1
   -
     - 195.8835374
     - 64
@@ -120,6 +307,21 @@ pieces:
         RoundRobin: 
           hue_speed: 0.01
           hue_start: 0.0
+        beat_mul: 1
+        
+      grass:
+        HorLine:
+            on_time_percent: 0.5
+            hue_start: 0.33
+            pixel_hue: 0.7
+        beat_mul: 0.125
+        
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: True
+            brightness: 0.5
+        beat_mul: 1
   - 
     - 223.283084
     - 64
@@ -128,3 +330,18 @@ pieces:
         Natural:
           hue_speed: 0.01
           hue_start: 0.25
+        beat_mul: 1
+        
+      grass:
+        HorLine:
+            on_time_percent: 0.5
+            hue_start: 0.33
+            pixel_hue: 0.7
+        beat_mul: 0.125
+        
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: True
+            brightness: 0.5
+        beat_mul: 1
