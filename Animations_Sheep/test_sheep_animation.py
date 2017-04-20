@@ -16,6 +16,7 @@ animation = FireSheepAnimation(sheep)
 flower 	= [0, 0, 0] * 550
 grass 	= [0, 0, 0] * 600
 sign 	= [0, 0, 0] * 150
+lake 	= [0, 0, 0] * 1800
 
 speed = 25 # in 50 hrz
 current_time = 0
@@ -27,7 +28,7 @@ while True:
 
 	animation.apply(time_precent)
 
-	network.send(frame_id, flower, sheep.get_array(), grass, sign)
+	network.send(frame_id, flower, sheep.get_array(), grass, sign, lake)
 
 	time.sleep(0.02)
 	current_time = (current_time + 1) % speed
