@@ -1,8 +1,6 @@
 import math
 from AbstractEffect import Effect
 
-import sys, os
-sys.path.append(os.path.abspath('../'))
 from Colors import Colors
 
 class GoToColorEffectType:

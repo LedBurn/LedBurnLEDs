@@ -1,16 +1,10 @@
 from LakeAnimation import LakeAnimation
 
-import sys, os, random, colorsys
+import random
 
-sys.path.append(os.path.abspath('../UIElements'))
-from Lake import Lake
+from Effects.AlwaysOnEffect import AlwaysOnEffect
 
-sys.path.append(os.path.abspath('../Effects'))
-from AlwaysOnEffect import AlwaysOnEffect
-
-sys.path.append(os.path.abspath('../'))
 from Colors import Colors
-
 
 class RoundRobinLakeAnimation(LakeAnimation):
     def __init__(self, lake, props):

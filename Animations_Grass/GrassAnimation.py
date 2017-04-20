@@ -1,9 +1,5 @@
 from abc import ABCMeta, abstractmethod
 
-import sys, os
-sys.path.append(os.path.abspath('../UIElements'))
-from Grass import Grass
-
 class GrassAnimation:
     __metaclass__ = ABCMeta
     

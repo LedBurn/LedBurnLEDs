@@ -1,13 +1,7 @@
 from FlowerAnimation import FlowerAnimation
 
-import sys, os
-sys.path.append(os.path.abspath('../UIElements'))
-from Flower import Flower
+from Effects.AlwaysOnEffect import AlwaysOnEffect
 
-sys.path.append(os.path.abspath('../Effects'))
-from AlwaysOnEffect import AlwaysOnEffect
-
-sys.path.append(os.path.abspath('../'))
 from Colors import Colors
 
 import random

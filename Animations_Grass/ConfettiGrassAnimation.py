@@ -1,6 +1,6 @@
 from GrassAnimation import GrassAnimation
 
-from ConfettiEffect import ConfettiEffect
+from Effects.ConfettiEffect import ConfettiEffect
 
 class ConfettiGrassAnimation(GrassAnimation):
     def __init__(self, grass, props):

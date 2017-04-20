@@ -1,12 +1,7 @@
 from FlowerAnimation import FlowerAnimation
 
-import sys, os
-sys.path.append(os.path.abspath('../UIElements'))
-from Sign import Sign
-
-sys.path.append(os.path.abspath('../Effects'))
-from FireEffect import FireEffect
-from AlwaysOnEffect import AlwaysOnEffect
+from Effects.FireEffect import FireEffect
+from Effects.AlwaysOnEffect import AlwaysOnEffect
 
 class FireFlowerAnimation(FlowerAnimation):
 
