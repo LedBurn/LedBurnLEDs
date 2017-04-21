@@ -15,7 +15,7 @@ from UIElements.Lake import Lake
 
 from Colors import Colors
 
-FILE = 'nisim.yml'
+FILE = 'TATRAN - Shvat.yml'
 
 
 def apply_animation(ui_element, num_of_beats, duration, relative_song_time):
@@ -47,6 +47,7 @@ with open(FILE, 'r') as f:
 
 audio_file = "../Music/" + song['file_name']
 pieces = song['pieces']
+offset = song['offset']
 current_piece_id = 0
 print pieces[current_piece_id]
 
@@ -61,7 +62,7 @@ frame_id = 0
 hue = 0.3
 
 while pygame.mixer.music.get_busy():
-	song_time = (pygame.mixer.music.get_pos() - 200)/ 1000.0
+	song_time = (pygame.mixer.music.get_pos() / 1000.0) + offset
 
 	if current_piece_id < len(pieces) -1 and song_time > pieces[current_piece_id+1][0]:
 		current_piece_id += 1
