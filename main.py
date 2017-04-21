@@ -1,6 +1,6 @@
 import time
 import datetime
-# import MFRC522
+import MFRC522
 import pygame
 import socket
 from Songs.Song import Song
@@ -8,7 +8,8 @@ from Songs.Song import Song
 clock = pygame.time.Clock()
 pygame.mixer.init()
 
-start_temp = 127
+start_temp = -127
+temperature = -127
 
 # temp sensor
 tempUDPSock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
@@ -24,7 +25,11 @@ motionUDPSock.setblocking(0)
 
 #RFID sensor
 # Create an object of the class MFRC522
-# MIFAREReader = MFRC522.MFRC522()
+MIFAREReader = MFRC522.MFRC522()
+gymUID = [236,237,86,75]
+jointUID = [32,230,68,223]
+cardUID = [21,211,122,69]
+SachiMeter = 0
 
 #initialize time vars
 MyTime = datetime.datetime.now()
@@ -44,7 +49,7 @@ def ReadNonBlockingUDP(UDPSock):
 		return -127
 
 
-def RFIDRead():
+def RFIDRead(Desired_UID):
 	# Scan for cards
 	(status, TagType) = MIFAREReader.MFRC522_Request(MIFAREReader.PICC_REQIDL)
 
@@ -52,7 +57,7 @@ def RFIDRead():
 	if status == MIFAREReader.MI_OK:
 		print "Card detected"
 	else:
-		return -1
+		return 0
 
 	# Get the UID of the card
 	(status, uid) = MIFAREReader.MFRC522_Anticoll()
@@ -61,8 +66,14 @@ def RFIDRead():
 	if status == MIFAREReader.MI_OK:
 	
 		# Print UID
-		print "Card read UID: " + str(uid[0]) + "," + str(uid[1]) + "," + str(uid[2]) + "," + str(uid[3])
-	
+		#print "Card read UID: " + str(uid[0]) + "," + str(uid[1]) + "," + str(uid[2]) + "," + str(uid[3])
+                #print "Desired UID: " + str(Desired_UID[0]) + "," + str(Desired_UID[1]) + "," + str(Desired_UID[2]) + "," + str(Desired_UID[3])
+                if ((uid[0]==Desired_UID[0]) & (uid[1]==Desired_UID[1]) & (uid[2]==Desired_UID[2]) & (uid[3]==Desired_UID[3])):
+                        return 1
+                else:
+                        return 0
+
+                
 		# This is the default key for authentication
 		key = [0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]
 	
@@ -95,12 +106,18 @@ while True:
 		print motionRead
 	
 	# need to think how to avoid consequtive detections
-	# whichRFID = RFIDRead()
-	# if (whichRFID == 1):
-		# print "ID is the joint"
-		# if ((MyTime-rfidTime)>datetime.timedelta(seconds=3)):
-			# rfidTime = MyTime
-			# SachiMeter += 1
+	if (RFIDRead(jointUID)):
+		#print "ID MATCH!"
+		if ((MyTime-rfidTime)>datetime.timedelta(seconds=3)):
+			rfidTime = MyTime
+			SachiMeter += 1
+			print "SachiMeter at " + str(SachiMeter)
+	else:
+                if ((MyTime-rfidTime)>datetime.timedelta(seconds=10)):
+			rfidTime = MyTime
+			if (SachiMeter>0):
+        			SachiMeter -= 1
+			print "SachiMeter at " + str(SachiMeter)
 	
 	MyTime = datetime.datetime.now()
 	
@@ -121,7 +138,7 @@ while True:
 		if ((MyTime-prevTime)>datetime.timedelta(seconds=10)):
 			prevTime = MyTime
 			# if temperature delta in 10 seconds is more than 2 degrees, someone is touching
-			if ((temperature-start_temp)>2):
+			if (((temperature-start_temp)>2) & (start_temp>0)):
 				print "thanks for the hug, play a hippie song"
 				# song = Song("Songs/Soul Orchestra.yml")
 				# song = Song("Songs/Dreamfunk.yml")
