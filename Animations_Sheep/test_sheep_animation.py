@@ -10,8 +10,8 @@ from SmallSheep import SmallSheep
 
 sheep = SmallSheep()
 
-from FillFadeSheepAnimation import FillFadeSheepAnimation
-animation = FillFadeSheepAnimation(sheep)
+from SpikeSheepAnimation import SpikeSheepAnimation
+animation = SpikeSheepAnimation(sheep)
 
 flower 	= [0, 0, 0] * 550
 grass 	= [0, 0, 0] * 600

@@ -71,3 +71,7 @@ class Sheep:
     @abstractmethod
     def get_legs_indexes(self): pass
 
+    def clear(self):
+        arr = self.get_array()
+        for i in range(0, len(arr)):
+            arr[i] = 0
