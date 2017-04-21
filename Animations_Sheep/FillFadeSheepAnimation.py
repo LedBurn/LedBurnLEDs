@@ -6,7 +6,7 @@ from Effects.AlwaysOnEffect import AlwaysOnEffect
 from Colors.TimedColor import HueChangeTimedColor
 
 class FillFadeSheepAnimation(SheepAnimation):
-    def __init__(self, sheep):
+    def __init__(self, sheep, props):
         SheepAnimation.__init__(self, sheep)
         self.restart_effect()
         self.previous_time = 1

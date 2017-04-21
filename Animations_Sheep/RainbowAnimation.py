@@ -6,12 +6,12 @@ from Effects.AlwaysOnEffect import AlwaysOnEffect
 
 class RainbowAnimation(SheepAnimation):
 
-    def __init__(self, sheep, num_of_spins):
+    def __init__(self, sheep, props):
         SheepAnimation.__init__(self, sheep)
-        self.num_of_spins = num_of_spins
+        self.num_of_spins = props['num_of_spins'] if props and 'num_of_spins' in props else 1
         self.current_spin = -1
         self.create_effects()
-        
+
     def create_effects(self):
         bodyEffect = RainbowEffect(self.sheep.get_body_indexes())
         headEffect = RainbowEffect(self.sheep.get_head_indexes())

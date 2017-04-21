@@ -13,6 +13,7 @@ from UIElements.Lake import Lake
 from Animations_Flower.FlowerAnimationFactory import FlowerAnimationFactory
 from Animations_Grass.GrassAnimationFactory import GrassAnimationFactory
 from Animations_Lake.LakeAnimationFactory import LakeAnimationFactory
+from Animations_Sheep.SheepAnimationFactory import SheepAnimationFactory
 
 class Song():
 	def __init__(self, file_name):
@@ -24,6 +25,8 @@ class Song():
 		self.grass_animation_mul = 1
 		self.lake_animation = None
 		self.lake_animation_mul = 1
+		self.sheep_animation = None
+		self.sheep_animation_mul = 1
 
 		self.flower = Flower()
 		self.sheep = SmallSheep()
@@ -44,6 +47,7 @@ class Song():
 		return self.audio_file
 
 	def create_animations(self, animation_dict):
+		print animation_dict
 		if 'flower' in animation_dict: 
 			self.flower_animation = FlowerAnimationFactory.create_animation(animation_dict['flower'], self.flower)
 			if 'beat_mul' in animation_dict['flower']:
@@ -70,6 +74,13 @@ class Song():
 				self.lake_animation_mul = 1
 		else:
 			self.lake_animation = None
+
+		if 'sheep' in animation_dict:
+			self.sheep_animation = SheepAnimationFactory.create_animation(animation_dict['sheep'], self.sheep)
+			if 'beat_mul' in animation_dict['sheep']:
+				self.sheep_animation_mul = animation_dict['sheep']['beat_mul']
+			else:
+				self.sheep_animation_mul = 1
 
 
 	def apply_animation(self, animation, num_of_beats, duration, relative_song_time):
@@ -109,6 +120,10 @@ class Song():
 		if (self.lake_animation != None):
 			lake_num_of_beats = num_of_beats *  self.lake_animation_mul
 			self.apply_animation(self.lake_animation, lake_num_of_beats, duration, relative_song_time)
+
+		if self.sheep_animation:
+			sheep_num_of_beats = num_of_beats * self.sheep_animation_mul
+			self.apply_animation(self.sheep_animation, sheep_num_of_beats, duration, relative_song_time)
 
 		network.send(self.frame_id, 
 			self.flower.get_array(), 

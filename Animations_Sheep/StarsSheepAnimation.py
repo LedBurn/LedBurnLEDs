@@ -10,11 +10,8 @@ class StarsSheepAnimation(SheepAnimation):
     def __init__(self, sheep, props):
         SheepAnimation.__init__(self, sheep)
 
-        self.stars_per_cycle = int(len(sheep.get_body_indexes()) * 0.1)
-
-        if props != None:
-            if 'stars_percent' in self.props:
-                self.stars_per_cycle = int(self.props['stars_percent'] * len(sheep))
+        stars_percent = props['stars_percent'] if props and 'stars_percent' in props else 0.1
+        self.stars_per_cycle = int(stars_percent * len(sheep.get_array()))
 
         self.previous_time = 1.0
 
