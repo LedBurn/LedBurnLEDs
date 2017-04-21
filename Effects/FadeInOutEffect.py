@@ -10,9 +10,9 @@ class FadeInOutEffect(Effect):
     def apply(self, time_precent, parent_array):
 
         if (time_precent < 0.5):
-            power = 1 - time_precent * 2
+            power = time_precent * 2
         else:
-            power = (time_precent - 0.5) * 2
+            power = (1.0 - time_precent) * 2
         fixed_power = Colors.fix_lightness_percent(power)
 
         color = self.timed_color.get_color(time_precent, None)
