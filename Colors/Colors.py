@@ -23,6 +23,11 @@ import math
     #     color = [random.randrange(256), random.randrange(256), random.randrange(256)]
     #     return color
 
+def change_rgb_lightness(rgb_color, lightness_factor):
+    return [int(c * lightness_factor) for c in rgb_color]
+
+def fix_lightness_percent(orig_val):
+    return (1-orig_val) * (1-orig_val)
 
 def hls_to_rgb(h, l, s):
     """

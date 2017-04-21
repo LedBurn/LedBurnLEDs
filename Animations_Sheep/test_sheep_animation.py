@@ -10,15 +10,15 @@ from SmallSheep import SmallSheep
 
 sheep = SmallSheep()
 
-from FireSheepAnimation import FireSheepAnimation
-animation = FireSheepAnimation(sheep)
+from FillFadeSheepAnimation import FillFadeSheepAnimation
+animation = FillFadeSheepAnimation(sheep)
 
 flower 	= [0, 0, 0] * 550
 grass 	= [0, 0, 0] * 600
 sign 	= [0, 0, 0] * 150
 lake 	= [0, 0, 0] * 1800
 
-speed = 25 # in 50 hrz
+speed = 100 # in 50 hrz
 current_time = 0
 frame_id = 0;
     
