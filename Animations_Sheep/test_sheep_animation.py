@@ -11,7 +11,8 @@ from SmallSheep import SmallSheep
 sheep = SmallSheep()
 
 from SpikeSheepAnimation import SpikeSheepAnimation
-animation = SpikeSheepAnimation(sheep)
+from FireSheepAnimation import FireSheepAnimation
+animation = FireSheepAnimation(sheep)
 
 flower 	= [0, 0, 0] * 550
 grass 	= [0, 0, 0] * 600
