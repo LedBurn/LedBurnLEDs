@@ -15,7 +15,7 @@ from UIElements.Lake import Lake
 
 from Colors import Colors
 
-FILE = 'TATRAN - Shvat.yml'
+FILE = 'nisim.yml'
 
 
 def apply_animation(ui_element, num_of_beats, duration, relative_song_time):
