@@ -14,7 +14,7 @@ def read_non_blocking_udp(UDPSock):
 		#print data.strip(), addr
 		return float(data.strip())
 	except:
-		return -127
+		return None
 
 
 

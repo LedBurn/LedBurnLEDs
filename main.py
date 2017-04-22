@@ -22,7 +22,7 @@ rfidTime = MyTime
 song = None
 check_num = 0
 
-start_temp = -127
+start_temp = None
 prevSachiMeter = 0
 
 
@@ -35,7 +35,7 @@ while True:
 
 	sachiMeter, illusionsFlag = r.process()
 	curr_temperature = temperature.get_temperature()
-	
+
 	# if (MyTime.second != prevTime.second):
 		# print MyTime.second-prevTime.second
 
@@ -54,7 +54,7 @@ while True:
 			check_num += 1
 			prevTime = MyTime
 			# if temperature delta in 10 seconds is more than 2 degrees, someone is touching
-			if (((curr_temperature-start_temp)>2) and (start_temp>0)):
+			if start_temp is not None and curr_temperature is not None and (curr_temperature-start_temp)>2:
 				print "thanks for the hug, play a hippie song"
 				# song = Song("Songs/Soul Orchestra.yml")
 				# song = Song("Songs/Dreamfunk.yml")
@@ -63,9 +63,9 @@ while True:
 				pygame.mixer.music.play(0, 0)
 				break
 
-			if (curr_temperature < 20):
+			if (curr_temperature is not None and curr_temperature < 20):
 				print "my branch is a little cold, any tree huggers to the rescue?"
-			elif (curr_temperature > 28):
+			elif (curr_temperature is not None and curr_temperature > 28):
 				print "its so warm, somebody must be hugging me, play a hippie song"
 				# song = Song("Songs/Soul Orchestra.yml")
 				song = Song("Songs/Dreamfunk.yml")

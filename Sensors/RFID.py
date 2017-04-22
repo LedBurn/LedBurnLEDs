@@ -1,5 +1,3 @@
-
-
 IS_RPI = False
 
 if IS_RPI:
