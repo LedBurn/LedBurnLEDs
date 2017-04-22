@@ -22,7 +22,8 @@ rfidTime = MyTime
 song = None
 check_num = 0
 
-
+start_temp = -127
+prevSachiMeter = 0
 
 
 while True:
