@@ -12,8 +12,8 @@ import librosa
 import time
 import numpy as np
 
-FILE_NAME = "ChristmasDubstep"
-INPUT_FILE = "../Music_Samples/" + FILE_NAME + ".mp3"
+FILE_NAME = "Pink Floyd - Wish You Were Here"
+INPUT_FILE = "../Music/" + FILE_NAME + ".mp3"
 
 
 def onset_detect(y, sr):
