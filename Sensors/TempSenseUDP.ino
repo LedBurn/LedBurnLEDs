@@ -5,7 +5,8 @@
 #include <EthernetUdp.h>
 
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0x68 };
-IPAddress ip(10, 0, 0, 220);
+IPAddress localIp(10, 0, 0, 220);
+IPAddress serverIp(10, 0, 0, 200);
 
 unsigned int localPort = 8888;      // local port to listen on
 
@@ -33,7 +34,7 @@ void setup(void)
   // Start up the library
   sensors.begin();
 
-  Ethernet.begin(mac, ip);
+  Ethernet.begin(mac, localIp);
   Udp.begin(localPort);  
 }
  
@@ -52,7 +53,7 @@ void loop(void)
     // You can have more than one IC on the same bus. 
     // 0 refers to the first IC on the wire
 
-  Udp.beginPacket("10.0.0.104", 5005);
+  Udp.beginPacket(serverIp, 5005);
   tempString = String(tempRead,2);
   Udp.write(tempString.c_str());
 
