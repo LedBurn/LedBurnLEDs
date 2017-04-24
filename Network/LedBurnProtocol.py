@@ -5,6 +5,7 @@ import time
 CONTROLER_IP1 = "10.0.0.210"
 CONTROLER_IP2 = "10.0.0.211"
 CONTROLER_IP3 = "10.0.0.212"
+CONTROLER_IP4 = "10.0.0.213"
 UDP_PORT = 2000
 
 sock = socket.socket(socket.AF_INET, # Internet
@@ -54,8 +55,13 @@ LAKE_WAVE_SEG2_PIXEL = 0
 LAKE_WAVE_SEG3= 9
 LAKE_WAVE_SEG3_PIXEL = 300
 
+# temp stick - 144 leds
+TEMP_STICK_STRIP_ID = 7
+TEMP_STICK_SEG0 = 10
+TEMP_STICK_PIXEL = 0
+
 # total
-SEGS_IN_FRAME = 10
+SEGS_IN_FRAME = 11
 
 
 def uint8_to_array(num):
@@ -79,7 +85,8 @@ def send(frame_id,
          sheep_data,
          grass_data,
          sign_data,
-         lake_data):
+         lake_data,
+         temp_stick):
 
     replaceGBRtoRGB(flower_data, range(463, 513));
     sendPacket(frame_id, FLOWER_STRIP_ID, FLOWER_SEG0, FLOWER_SEG0_PIXEL, flower_data[0:900])
@@ -101,6 +108,8 @@ def send(frame_id,
     sendPacket(frame_id, LAKE_WAVE_STRIP_ID1, LAKE_WAVE_SEG2, LAKE_WAVE_SEG2_PIXEL, lake_data[3600:4500])
     sendPacket(frame_id, LAKE_WAVE_STRIP_ID1, LAKE_WAVE_SEG3, LAKE_WAVE_SEG3_PIXEL, lake_data[4500:5400])
 
+    sendPacket(frame_id, TEMP_STICK_STRIP_ID, TEMP_STICK_SEG0, TEMP_STICK_PIXEL, temp_stick[0:144*3])
+
 
 def sendPacket(frame_id, strip_id, seg_id, pixel_id, pixels_data):
 
@@ -115,8 +124,9 @@ def sendPacket(frame_id, strip_id, seg_id, pixel_id, pixels_data):
     msg = "LedBurn" + array.array('B', data).tostring()
 
     sock.sendto(msg, (CONTROLER_IP1, UDP_PORT))
-    sock.sendto(msg, (CONTROLER_IP2, UDP_PORT))
-    sock.sendto(msg, (CONTROLER_IP3, UDP_PORT))
+    #sock.sendto(msg, (CONTROLER_IP2, UDP_PORT))
+    #sock.sendto(msg, (CONTROLER_IP3, UDP_PORT))
+    #sock.sendto(msg, (CONTROLER_IP4, UDP_PORT))
 
 
 def replaceGBRtoRGB(data_array,in_range):

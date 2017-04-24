@@ -9,6 +9,7 @@ from UIElements.SmallSheep import SmallSheep
 from UIElements.Grass import Grass
 from UIElements.Sign import Sign
 from UIElements.Lake import Lake
+from UIElements.TempStick import TempStick
 
 from Animations_Flower.FlowerAnimationFactory import FlowerAnimationFactory
 from Animations_Grass.GrassAnimationFactory import GrassAnimationFactory
@@ -33,6 +34,7 @@ class Song():
 		self.grass = Grass()
 		self.sign = Sign()
 		self.lake = Lake()
+		self.temp_stick = TempStick()
 
 		with open(self.file_name, 'r') as f:
 			self.song_yml = yaml.load(f)
@@ -95,7 +97,9 @@ class Song():
 		animation.apply(percent_beat_time)
 
 
-	def play_animations(self, song_time):
+	def play_animations(self, song_time, curr_temerature):
+
+		self.temp_stick.set_temperature(curr_temerature)
 
 		if self.current_piece_id < len(self.pieces) -1 and song_time > self.pieces[self.current_piece_id+1][0]:
 			self.current_piece_id += 1
@@ -130,7 +134,8 @@ class Song():
 			self.sheep.get_array(), 
 			self.grass.get_array(), 
 			self.sign.get_array(),
-			 self.lake.get_array())
+			self.lake.get_array(),
+			self.temp_stick.get_array())
 
 		self.frame_id += 1
 

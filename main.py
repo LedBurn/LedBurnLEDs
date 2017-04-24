@@ -19,7 +19,9 @@ MyTime = datetime.datetime.now()
 prevTime = MyTime
 rfidTime = MyTime
 
-song = None
+song = Song("Songs/Teletubbies.yml")
+pygame.mixer.music.load(song.get_audio_file())
+pygame.mixer.music.play(0, 0)
 check_num = 0
 
 start_temp = None
@@ -42,7 +44,8 @@ while True:
 
 	# current song is playing
 	if song != None and pygame.mixer.music.get_busy():
-		song.play_animations((pygame.mixer.music.get_pos() - 170)/ 1000.0)
+		sont_time = (pygame.mixer.music.get_pos() - 170)/ 1000.0
+		song.play_animations(sont_time, curr_temperature)
 		start_temp = curr_temperature
 
 	# new song
