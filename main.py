@@ -6,10 +6,12 @@ from Songs.Song import Song
 from Sensors.RFID import RFID
 from Sensors.Temperature import Temperature
 from Sensors.Motion import Motion
+from Sensors.Decisions import Decisions
 
 r = RFID()
 temperature = Temperature()
 motion = Motion()
+decisions = Decisions()
 
 clock = pygame.time.Clock()
 pygame.mixer.init()
@@ -19,9 +21,7 @@ MyTime = datetime.datetime.now()
 prevTime = MyTime
 rfidTime = MyTime
 
-song = Song("Songs/Teletubbies.yml")
-pygame.mixer.music.load(song.get_audio_file())
-pygame.mixer.music.play(0, 0)
+song = None
 check_num = 0
 
 start_temp = None
@@ -38,16 +38,21 @@ while True:
 	sachiMeter, illusionsFlag = r.process()
 	curr_temperature = temperature.get_temperature()
 
-	# if (MyTime.second != prevTime.second):
-		# print MyTime.second-prevTime.second
-
-
 	# current song is playing
-	if song != None and pygame.mixer.music.get_busy():
+	song_playing = song != None and pygame.mixer.music.get_busy()
+	if song_playing:
 		sont_time = (pygame.mixer.music.get_pos() - 170)/ 1000.0
 		song.play_animations(sont_time, curr_temperature)
 		start_temp = curr_temperature
+	else: #no song
+		next_song = decisions.decide(curr_temperature)
+		print "next song is: " + next_song
+		if next_song is not None:
+			song = Song("Songs/" + next_song)
+			pygame.mixer.music.load(song.get_audio_file())
+			pygame.mixer.music.play(0, 0)
 
+	"""
 	# new song
 	else:
 		# to do - decide which song, maybe a break?
@@ -97,6 +102,7 @@ while True:
 			print "no decision by sensors, pick random song"
 		# else:
 			# white glow animation
+	"""
 
 
 	clock.tick(50)

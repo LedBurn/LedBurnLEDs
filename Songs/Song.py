@@ -49,6 +49,10 @@ class Song():
 		return self.audio_file
 
 	def create_animations(self, animation_dict):
+
+		if animation_dict is None:
+			return
+
 		print animation_dict
 		if 'flower' in animation_dict: 
 			self.flower_animation = FlowerAnimationFactory.create_animation(animation_dict['flower'], self.flower)
