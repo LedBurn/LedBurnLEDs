@@ -3,6 +3,7 @@ from GrassAnimation import GrassAnimation
 from Effects.SpikeEffect import SpikeEffect
 
 from Colors import Colors
+from Colors.TimedColor import ConstTimedColor
 
 import random, colorsys
 
@@ -97,10 +98,10 @@ class SpikeGrassAnimation(GrassAnimation):
     def add_for_single_leaf(self, leaf):
         rand_leaf_color = self.get_rand_leaf_color()
         self.effects.append(
-            SpikeEffect(leaf[0][:: 1 if self.direction_type == DirectionType.ALL_UP else -1], rand_leaf_color, 0.5,
+            SpikeEffect(leaf[0][:: 1 if self.direction_type == DirectionType.ALL_UP else -1], ConstTimedColor(rand_leaf_color), 0.5,
                         self.max_height))
         self.effects.append(
-            SpikeEffect(leaf[1][:: 1 if self.direction_type == DirectionType.ALL_DOWN else -1], rand_leaf_color, 0.5,
+            SpikeEffect(leaf[1][:: 1 if self.direction_type == DirectionType.ALL_DOWN else -1], ConstTimedColor(rand_leaf_color), 0.5,
                         self.max_height))
 
 
