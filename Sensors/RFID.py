@@ -45,11 +45,13 @@ if IS_RPI:
             else:
                 if ((curr_time - self.rfidTime) > datetime.timedelta(seconds=30)):
                     self.rfidTime = curr_time
+                    self.illusionFlag = False
                     if (self.sachiMeter > 0):
                         self.sachiMeter -= 1
                     elif (self.sachiMeter < 0):
                         self.sachiMeter += 1
                     print "SachiMeter at " + str(self.sachiMeter)
+                    print "illusion flag reset to False"
 
             return (self.sachiMeter, self.illusionFlag)
 

@@ -37,15 +37,16 @@ while True:
 
 	sachiMeter, illusionsFlag = r.process()
 	curr_temperature = temperature.get_temperature()
+	motion_detected = motion.get_has_motion()
 
 	# current song is playing
 	song_playing = song != None and pygame.mixer.music.get_busy()
 	if song_playing:
-		sont_time = (pygame.mixer.music.get_pos() - 170)/ 1000.0
-		song.play_animations(sont_time, curr_temperature)
+		song_time = (pygame.mixer.music.get_pos() - 170)/ 1000.0
+		song.play_animations(song_time, curr_temperature)
 		start_temp = curr_temperature
 	else: #no song
-		next_song = decisions.decide(curr_temperature)
+		next_song = decisions.decide(start_temperature, curr_temperature, sachiMeter, illusionsFlag, motion_detected)
 		print "next song is: " + next_song
 		if next_song is not None:
 			song = Song("Songs/" + next_song)
