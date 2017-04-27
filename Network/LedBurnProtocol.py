@@ -84,8 +84,9 @@ def send(frame_id,
 
     sendPacketWithIp(GRASS1_IP, GRASS1_STRIP_ID, 0, grass_data[0:900])
     sendPacketWithIp(GRASS1_IP, GRASS1_STRIP_ID, 300, grass_data[900:1800])
-    sendPacketWithIp(GRASS2_IP, GRASS2_STRIP_ID0, 0, grass_data[0:900])
-    sendPacketWithIp(GRASS2_IP, GRASS2_STRIP_ID1, 0, grass_data[0:900])
+    sendPacketWithIp(GRASS2_IP, GRASS2_STRIP_ID0, 0, grass_data[1800:2700])
+    sendPacketWithIp(GRASS2_IP, GRASS2_STRIP_ID0, 300, grass_data[2700:3087])
+    sendPacketWithIp(GRASS2_IP, GRASS2_STRIP_ID1, 0, grass_data[3087:3987])
 
     sendPacketWithIp(SIGN_IP, SIGN_STRIP_ID, 0, sign_data)
 
