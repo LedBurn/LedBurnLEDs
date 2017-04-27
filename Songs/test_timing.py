@@ -84,7 +84,12 @@ while pygame.mixer.music.get_busy():
 	apply_animation(sign, num_of_beats, duration, relative_song_time)
 	apply_animation(lake, num_of_beats, duration, relative_song_time)
 
-	network.send(frame_id, flower.get_array(), sheep.get_array(), grass.get_array(), sign.get_array(), lake.get_array())
+	network.send(frame_id, 
+		flower_data=flower.get_array(), 
+		sheep_data=sheep.get_array(), 
+		grass_data=grass.get_array(), 
+		sign_data=sign.get_array(), 
+		lake_data=lake.get_array())
 
 	clock.tick(50)
 	frame_id += 1
