@@ -92,12 +92,12 @@ def send(frame_id,
     sendPacketWithIp(LAKE_IP, LAKE_STRIP_ID, 0, lake_data[0:900])
     sendPacketWithIp(LAKE_IP, LAKE_STRIP_ID, 300, lake_data[900:1800])
 
-    sendPacketWithIp(LAKE_IP, LAKE_STRIP_ID, 0, lake_data[1800:2700])
-    sendPacketWithIp(LAKE_IP, LAKE_STRIP_ID, 300, lake_data[2700:3600])
-    sendPacketWithIp(LAKE_IP, LAKE_STRIP_ID, 0, lake_data[3600:4500])
-    sendPacketWithIp(LAKE_IP, LAKE_STRIP_ID, 300, lake_data[4500:5400])
+    sendPacketWithIp(LAKE_IP, LAKE_WAVE_STRIP_ID0, 0, lake_data[1800:2700])
+    sendPacketWithIp(LAKE_IP, LAKE_WAVE_STRIP_ID0, 300, lake_data[2700:3600])
+    sendPacketWithIp(LAKE_IP, LAKE_WAVE_STRIP_ID1, 0, lake_data[3600:4500])
+    sendPacketWithIp(LAKE_IP, LAKE_WAVE_STRIP_ID1, 300, lake_data[4500:5400])
 
-    sendPacketWithIp(TEMP_STICK_IP, LAKE_STRIP_ID, 0, temp_stick[0:144*3])
+    sendPacketWithIp(TEMP_STICK_IP, TEMP_STICK_STRIP_ID, 0, temp_stick[0:144*3])
 
     sendStoredFrame()
 
