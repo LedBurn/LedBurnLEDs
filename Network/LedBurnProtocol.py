@@ -1,12 +1,17 @@
 import socket
 import array
+import random
 import time
 
-CONTROLER_IP1 = "10.0.0.210"
-CONTROLER_IP2 = "10.0.0.211"
-CONTROLER_IP3 = "10.0.0.212"
-CONTROLER_IP4 = "10.0.0.213"
+controlers_map = {210: "10.0.0.210", 211: "10.0.0.211", 212: "10.0.0.212", 213: "10.0.0.213"}
 UDP_PORT = 2000
+
+#frame data - we store the data we are about to send here.
+#these variables are static for the module
+last_frame_id = random.randint(0, 100000000)
+stored_msgs = {controler_ip:[] for controler_ip in controlers_map.iterkeys()} #map each ip to the messages we want to send to this ip
+
+
 
 sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
@@ -14,54 +19,36 @@ sock = socket.socket(socket.AF_INET, # Internet
 PROTOCOL_VERSION = 0
 
 # flower - ~550 leds
+FLOWER_IP = 210
 FLOWER_STRIP_ID = 0
-FLOWER_SEG0 = 0
-FLOWER_SEG0_PIXEL = 0
-FLOWER_SEG1 = 1
-FLOWER_SEG1_PIXEL = 300
 
 # sheep - 302 leds
+SHEEP_IP = 210
 SHEEP_STRIP_ID = 1
-SHEEP_SEG0 = 2
-SHEEP_SEG0_PIXEL = 0
 
-# grass - 600 leds
-GRASS_STRIP_ID = 2
-GRASS_SEG0 = 3
-GRASS_SEG0_PIXEL = 0
-GRASS_SEG1 = 4
-GRASS_SEG1_PIXEL = 300
+# grass1 - 600 leds
+GRASS1_IP = 210
+GRASS1_STRIP_ID = 2
+
+#grass2 - how many leds?
+GRASS2_IP = 212
+GRASS2_STRIP_ID0 = 0
+GRASS2_STRIP_ID1 = 1
+
 
 # sign - 150 leds
+SIGN_IP = 210
 SIGN_STRIP_ID = 3
-SIGN_SEG0 = 5
-SIGN_SEG0_PIXEL = 0
 
 # lake
+LAKE_IP = 210
 LAKE_STRIP_ID = 4
-LAKE_SEG0 = 6
-LAKE_SEG0_PIXEL = 0
-LAKE_SEG1= 7
-LAKE_SEG1_PIXEL = 300
-
 LAKE_WAVE_STRIP_ID0 = 5
-LAKE_WAVE_SEG0 = 6
-LAKE_WAVE_SEG0_PIXEL = 0
-LAKE_WAVE_SEG1= 7
-LAKE_WAVE_SEG1_PIXEL = 300
 LAKE_WAVE_STRIP_ID1 = 6
-LAKE_WAVE_SEG2 = 8
-LAKE_WAVE_SEG2_PIXEL = 0
-LAKE_WAVE_SEG3= 9
-LAKE_WAVE_SEG3_PIXEL = 300
 
 # temp stick - 144 leds
+TEMP_STICK_IP = 210
 TEMP_STICK_STRIP_ID = 7
-TEMP_STICK_SEG0 = 10
-TEMP_STICK_PIXEL = 0
-
-# total
-SEGS_IN_FRAME = 11
 
 
 def uint8_to_array(num):
@@ -88,34 +75,51 @@ def send(frame_id,
          lake_data,
          temp_stick):
 
-    replaceGBRtoRGB(flower_data, range(463, 513));
-    sendPacket(frame_id, FLOWER_STRIP_ID, FLOWER_SEG0, FLOWER_SEG0_PIXEL, flower_data[0:900])
-    sendPacket(frame_id, FLOWER_STRIP_ID, FLOWER_SEG1, FLOWER_SEG1_PIXEL, flower_data[900:])
+    replaceGBRtoRGB(flower_data, range(463, 513))
+    sendPacketWithIp(FLOWER_IP, FLOWER_STRIP_ID, 0, flower_data[0:900])
+    sendPacketWithIp(FLOWER_IP, FLOWER_STRIP_ID, 300, flower_data[900:0])
 
-    replaceGBRtoRGB(sheep_data, range(300, 302));
-    sendPacket(frame_id, SHEEP_STRIP_ID, SHEEP_SEG0, SHEEP_SEG0_PIXEL, sheep_data)
+    replaceGBRtoRGB(sheep_data, range(300, 302))
+    sendPacketWithIp(SHEEP_IP, SHEEP_STRIP_ID, 0, sheep_data)
 
-    sendPacket(frame_id, GRASS_STRIP_ID, GRASS_SEG0, GRASS_SEG0_PIXEL, grass_data[0:900])
-    sendPacket(frame_id, GRASS_STRIP_ID, GRASS_SEG1, GRASS_SEG1_PIXEL, grass_data[900:])
+    sendPacketWithIp(GRASS1_IP, GRASS1_STRIP_ID, 0, grass_data[0:900])
+    sendPacketWithIp(GRASS1_IP, GRASS1_STRIP_ID, 300, grass_data[900:1800])
+    sendPacketWithIp(GRASS2_IP, GRASS2_STRIP_ID0, 0, grass_data[0:900])
+    sendPacketWithIp(GRASS2_IP, GRASS2_STRIP_ID1, 0, grass_data[0:900])
 
-    sendPacket(frame_id, SIGN_STRIP_ID, SIGN_SEG0, SIGN_SEG0_PIXEL, sign_data)
-    
-    sendPacket(frame_id, LAKE_STRIP_ID, LAKE_SEG0, LAKE_SEG0_PIXEL, lake_data[0:900])
-    sendPacket(frame_id, LAKE_STRIP_ID, LAKE_SEG1, LAKE_SEG1_PIXEL, lake_data[900:1800])
-    
-    sendPacket(frame_id, LAKE_WAVE_STRIP_ID0, LAKE_WAVE_SEG0, LAKE_WAVE_SEG0_PIXEL, lake_data[1800:2700])
-    sendPacket(frame_id, LAKE_WAVE_STRIP_ID0, LAKE_WAVE_SEG1, LAKE_WAVE_SEG1_PIXEL, lake_data[2700:3600])
-    sendPacket(frame_id, LAKE_WAVE_STRIP_ID1, LAKE_WAVE_SEG2, LAKE_WAVE_SEG2_PIXEL, lake_data[3600:4500])
-    sendPacket(frame_id, LAKE_WAVE_STRIP_ID1, LAKE_WAVE_SEG3, LAKE_WAVE_SEG3_PIXEL, lake_data[4500:5400])
+    sendPacketWithIp(SIGN_IP, SIGN_STRIP_ID, 0, sign_data)
 
-    sendPacket(frame_id, TEMP_STICK_STRIP_ID, TEMP_STICK_SEG0, TEMP_STICK_PIXEL, temp_stick[0:144*3])
+    sendPacketWithIp(LAKE_IP, LAKE_STRIP_ID, 0, lake_data[0:900])
+    sendPacketWithIp(LAKE_IP, LAKE_STRIP_ID, 300, lake_data[900:1800])
 
+    sendPacketWithIp(LAKE_IP, LAKE_STRIP_ID, 0, lake_data[1800:2700])
+    sendPacketWithIp(LAKE_IP, LAKE_STRIP_ID, 300, lake_data[2700:3600])
+    sendPacketWithIp(LAKE_IP, LAKE_STRIP_ID, 0, lake_data[3600:4500])
+    sendPacketWithIp(LAKE_IP, LAKE_STRIP_ID, 300, lake_data[4500:5400])
 
-def sendPacket(frame_id, strip_id, seg_id, pixel_id, pixels_data):
+    sendPacketWithIp(TEMP_STICK_IP, LAKE_STRIP_ID, 0, temp_stick[0:144*3])
 
+    sendStoredFrame()
+
+def sendPacketWithIp(controler_ip, strip_id, pixel_id, pixel_data):
+    stored_msgs[controler_ip].append({"strip_id" : strip_id, "pixel_id": pixel_id, "pixel_data":pixel_data})
+
+def sendStoredFrame():
+    global stored_msgs, last_frame_id
+    for ip in stored_msgs.iterkeys():
+        ip_str = controlers_map[ip]
+        num_of_segments = len(stored_msgs[ip])
+        for i in range(0, num_of_segments):
+            curr_segment = stored_msgs[ip][i]
+            sendPacket(ip_str, curr_segment["strip_id"], num_of_segments, i, curr_segment["pixel_id"], curr_segment["pixel_data"])
+    last_frame_id = last_frame_id + 1
+    stored_msgs = {controler_ip:[] for controler_ip in controlers_map.iterkeys()} #map each ip to the messages we want to send to this ip
+
+def sendPacket(ip, strip_id, seg_in_frame, seg_id, pixel_id, pixels_data):
+    global last_frame_id
     data =  uint8_to_array(PROTOCOL_VERSION) + \
-            uint32_to_array(frame_id) + \
-            uint32_to_array(SEGS_IN_FRAME) + \
+            uint32_to_array(last_frame_id) + \
+            uint32_to_array(seg_in_frame) + \
             uint32_to_array(seg_id) + \
             uint16_to_array(strip_id) + \
             uint16_to_array(pixel_id)
@@ -123,10 +127,7 @@ def sendPacket(frame_id, strip_id, seg_id, pixel_id, pixels_data):
     data = data + pixels_data
     msg = "LedBurn" + array.array('B', data).tostring()
 
-    sock.sendto(msg, (CONTROLER_IP1, UDP_PORT))
-    #sock.sendto(msg, (CONTROLER_IP2, UDP_PORT))
-    #sock.sendto(msg, (CONTROLER_IP3, UDP_PORT))
-    #sock.sendto(msg, (CONTROLER_IP4, UDP_PORT))
+    sock.sendto(msg, (ip, UDP_PORT))
 
 
 def replaceGBRtoRGB(data_array,in_range):

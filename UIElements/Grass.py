@@ -37,7 +37,7 @@ class Grass:
         self.clear()
 
     def clear(self):
-        self.arr = [0, 0, 0] * 600
+        self.arr = [0, 0, 0] * (600 + 800)
 
     def get_array(self):
         return self.arr

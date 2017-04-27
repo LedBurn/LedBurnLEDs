@@ -24,7 +24,7 @@ rfidTime = MyTime
 song = None
 check_num = 0
 
-start_temp = None
+start_temperature = None
 prevSachiMeter = 0
 
 
