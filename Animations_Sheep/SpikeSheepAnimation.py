@@ -2,6 +2,7 @@ from AbstractSheepAnimation import SheepAnimation
 from Effects.SpikeEffect import SpikeEffect
 
 from Colors.TimedColor import HueChangeTimedColor
+from Colors.TimedColor import HueChangeTimedColorByLocation
 
 import random
 
@@ -32,5 +33,5 @@ class SpikeSheepAnimation(SheepAnimation):
         if random.random() < 0.5:
             indexes = indexes[::-1]
         hue_start = 0
-        self.effects.append(SpikeEffect(indexes, HueChangeTimedColor(hue_start, hue_start + 1.0), 1.0, len(indexes) * 2))
+        self.effects.append(SpikeEffect(indexes, HueChangeTimedColorByLocation(hue_start, hue_start + 1.0), 1.0, len(indexes) * 2))
 

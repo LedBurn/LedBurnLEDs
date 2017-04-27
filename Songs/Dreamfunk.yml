@@ -19,10 +19,11 @@ pieces:
         beat_mul: 0.125
         
       lake:
-        RoundRobin:
-            hue_speed: 0.04
-            hue_start: 0.0
-        beat_mul: 1
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
+        beat_mul: 0.5
   -
     - 28.49088435
     - 32
@@ -41,9 +42,10 @@ pieces:
         beat_mul: 1
         
       lake:
-        RoundRobin:
-            hue_speed: 0.08
-            hue_start: 0.0
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
         beat_mul: 1
   -
     - 42.51573696
@@ -63,9 +65,10 @@ pieces:
         beat_mul: 1
         
       lake:
-        RoundRobin:
-            hue_speed: 0.1
-            hue_start: 0.0
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
         beat_mul: 1
   -
     - 56.54058957
@@ -106,9 +109,10 @@ pieces:
         beat_mul: 1
         
       lake:
-        RoundRobin:
-            hue_speed: 0.08
-            hue_start: 0.0
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
         beat_mul: 1
   -
     - 112.5935601
@@ -128,9 +132,10 @@ pieces:
         beat_mul: 1
         
       lake:
-        RoundRobin:
-            hue_speed: 0.08
-            hue_start: 0.0
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
         beat_mul: 1
   -
     - 154.621678
@@ -153,7 +158,7 @@ pieces:
         RoundRobin:
             hue_speed: 0.08
             hue_start: 0.0
-        beat_mul: 1
+        beat_mul: 0.5
   -
     - 182.6713832
     - 64
@@ -172,9 +177,10 @@ pieces:
         beat_mul: 1
         
       lake:
-        RoundRobin:
-            hue_speed: 0.08
-            hue_start: 0.0
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
         beat_mul: 1
   -
     - 210.6746485
@@ -194,9 +200,10 @@ pieces:
         beat_mul: 0.5
         
       lake:
-        RoundRobin:
-            hue_speed: 0.08
-            hue_start: 0.0
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
         beat_mul: 1
   -
     - 238.7243537
@@ -216,9 +223,10 @@ pieces:
         beat_mul: 0.125
         
       lake:
-        RoundRobin:
-            hue_speed: 0.08
-            hue_start: 0.0
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
         beat_mul: 1
   -
     - 252.7259864
@@ -260,9 +268,10 @@ pieces:
         beat_mul: 0.125
         
       lake:
-        RoundRobin:
-            hue_speed: 0.08
-            hue_start: 0.0
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
         beat_mul: 1
   -
     - 308.8021769
@@ -304,9 +313,10 @@ pieces:
         beat_mul: 0.125
         
       lake:
-        RoundRobin:
-            hue_speed: 0.08
-            hue_start: 0.0
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
         beat_mul: 1
   -
     - 347.3240816
@@ -348,9 +358,10 @@ pieces:
         beat_mul: 0.5
         
       lake:
-        RoundRobin:
-            hue_speed: 0.08
-            hue_start: 0.0
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
         beat_mul: 1
   -
     - 385.8692063
@@ -370,9 +381,10 @@ pieces:
         beat_mul: 1
         
       lake:
-        RoundRobin:
-            hue_speed: 0.08
-            hue_start: 0.0
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
         beat_mul: 1
   -
     - 413.8956914
@@ -414,7 +426,8 @@ pieces:
         beat_mul: 0.125
         
       lake:
-        RoundRobin:
-            hue_speed: 0.08
-            hue_start: 0.0
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
         beat_mul: 1

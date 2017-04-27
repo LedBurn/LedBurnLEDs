@@ -24,7 +24,7 @@ class SpikeEffect(Effect):
             color = [0, 0, 0]
             if i >= bottom_pixel and i <= top_pixel:
                 i_percent = float(i - bottom_pixel) / float(top_pixel - bottom_pixel)
-                color = Colors.change_rgb_lightness(self.timed_color.get_color(time_precent, None), Colors.fix_lightness_percent(i_percent))
+                color = Colors.change_rgb_lightness(self.timed_color.get_color(time_precent, i_percent), Colors.fix_lightness_percent(i_percent))
             index_in_obj = self.indexes[i]
             parent_array[index_in_obj * 3: index_in_obj * 3 + 3] = color
 

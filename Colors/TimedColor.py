@@ -39,7 +39,17 @@ class HueChangeTimedColor(AbstractTimedColor):
         return Colors.hls_to_rgb(curr_hue, 1.0, 1.0)
 
 
+class HueChangeTimedColorByLocation(AbstractTimedColor):
 
+    def __init__(self, hue_start, hue_end):
+        AbstractTimedColor.__init__(self)
+        self.hue_start = hue_start
+        self.hue_end = hue_end
+        self.hue_diff = hue_end - hue_start
+
+    def get_color(self, time_percent, location_percent):
+        curr_hue = self.hue_start + self.hue_diff * location_percent
+        return Colors.hls_to_rgb(curr_hue, 1.0, 1.0)
 
 
 
