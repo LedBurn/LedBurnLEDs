@@ -1,5 +1,6 @@
 from RoundRobinLakeAnimation import RoundRobinLakeAnimation
 from ConfettiLakeAnimation import ConfettiLakeAnimation
+from NaturalLakeAnimation import NaturalLakeAnimation
 
 class LakeAnimationFactory():
     @staticmethod
@@ -16,5 +17,8 @@ class LakeAnimationFactory():
 
         if 'Confetti' in config:
         	return ConfettiLakeAnimation(lake, config['Confetti'])
+
+        if 'Natural' in config:
+            return NaturalFlowerAnimation(lake, config['Natural'])
 
         print 'Invalid lake animation -', config
