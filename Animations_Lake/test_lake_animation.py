@@ -13,9 +13,10 @@ lake = Lake()
 from RoundRobinLakeAnimation import RoundRobinLakeAnimation
 from ConfettiLakeAnimation import ConfettiLakeAnimation
 from NaturalLakeAnimation import NaturalLakeAnimation
-animation = NaturalLakeAnimation(lake, None)
+from EqLakeAnimation import EqLakeAnimation
+animation = EqLakeAnimation(lake, None)
 
-speed = 150 # in 50 hrz
+speed = 100 # in 50 hrz
 current_time = 0
 frame_id = 0;
     

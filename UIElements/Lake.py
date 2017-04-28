@@ -56,6 +56,7 @@ class Lake:
 	waves_arr = [wave1, wave2, wave3, wave4, wave5, wave6, wave7, wave8, wave9, wave10, wave11, wave12, wave13]
 	waves = wave1 + wave2 + wave3 + wave4 + wave5 + wave6 + wave7 + wave8 + wave9 + wave10 + wave11 + wave12 + wave13
 
+
 	contour = range(0, 57) + range(58, 178) + range(178, 534)
 
 	whole_lake = waves + contour 

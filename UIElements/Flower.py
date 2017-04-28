@@ -52,7 +52,12 @@ class Flower:
     def get_leaves_array(self):
         return self.top_leaves_arr
     def get_seeds(self):
-        return seeds
+        return self.seeds
+
+    def get_left_leaf(self):
+        return self.leaf_left_back + self.leaf_left_front
+    def get_right_leaf(self):
+        return self.leaf_right_back + self.leaf_right_front
 
     def get_all_indexes(self):
         return self.get_leaves() + self.get_seeds()

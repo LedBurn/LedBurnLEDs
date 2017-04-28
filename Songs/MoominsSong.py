@@ -7,12 +7,14 @@ import random
 
 class MoominsSong():
 
-    def __init__(self, sheep):
+    def __init__(self, sheep, flower):
         print "Music/The - Moomins.mp3"
         self.read_time_stamps()
         self.sheep = sheep
+        self.flower = flower
 
-        self.effects = []
+        self.s_effects = []
+        self.f_effects = []
 
         self.hue = 0
         self.body_part = 0
@@ -33,12 +35,15 @@ class MoominsSong():
     def apply_animation(self, song_time):
         if self.time_stamps and song_time > self.time_stamps[0][0]:
             sheep.clear()
+            flower.clear()
             label = self.time_stamps[0][1]
+            self.f_effects = []
             if label == "H":
-                self.effects = [
+                self.s_effects = [
                     AlwaysOnEffect(sheep.get_head_indexes() + sheep.get_ears_indexes(), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
+                print 'here'
             elif label == "BP":
-                self.effects = [
+                self.s_effects = [
                     AlwaysOnEffect(sheep.get_body_part_indexes(self.body_part), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
                 self.body_part = (self.body_part + self.body_part_dir)
                 if self.body_part == self.sheep.get_num_of_body_parts() - 1:
@@ -46,19 +51,25 @@ class MoominsSong():
                 elif self.body_part == 0:
                     self.body_part_dir = 1
             elif label == "L1":
-                self.effects = [
+                self.s_effects = [
                     AlwaysOnEffect(sheep.get_leg12_indexes(), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
+                #self.f_effects = [
+                #    AlwaysOnEffect(self.flower.get_left_leaf(), Colors.hls_to_rgb(0.0, 1.0, 1.0))
+                #]
                 self.hue = (self.hue + 0.3) % 1
             elif label == "L2":
-                self.effects = [
+                self.s_effects = [
                     AlwaysOnEffect(sheep.get_leg34_indexes(), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
+                #self.f_effects = [
+                #    AlwaysOnEffect(self.flower.get_right_leaf(), Colors.hls_to_rgb(0.0, 1.0, 1.0))
+                #]
                 self.hue = (self.hue + 0.3) % 1
             elif label == "W":
-                self.effects = [
+                self.s_effects = [
                     AlwaysOnEffect(sheep.get_all_indexes(), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
             else:
                 print "unknown label: " + label
-                self.effects = [AlwaysOnEffect(sheep.get_body_part_indexes(self.body_part), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
+                self.s_effects = [AlwaysOnEffect(sheep.get_body_part_indexes(self.body_part), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
                 self.body_part = (self.body_part + 1) % self.sheep.get_num_of_body_parts()
             self.hue = (self.hue + 0.05) % 1
             self.curr_effect_start = self.time_stamps[0][0]
@@ -66,8 +77,10 @@ class MoominsSong():
             self.curr_effect_time = (self.time_stamps[0][0] - self.curr_effect_start) if len(self.time_stamps) > 0 else 1
 
         time_percent = (song_time - self.curr_effect_start)/self.curr_effect_time
-        for e in self.effects:
+        for e in self.s_effects:
             e.apply(time_percent, sheep.get_array())
+        for e in self.f_effects:
+            e.apply(time_percent, flower.get_array())
 
 
 if __name__ == "__main__":
@@ -75,15 +88,16 @@ if __name__ == "__main__":
     import pygame
     import Network.LedBurnProtocol as network
     from UIElements.SmallSheep import SmallSheep
+    from UIElements.Flower import Flower
 
-    flower = [0, 0, 0] * 550
+    flower = Flower()
     grass = [0, 0, 0] * 600
     sign = [0, 0, 0] * 150
     lake = [0, 0, 0] * 1800
     sheep = SmallSheep()
 
     frame_id = random.randint(0, 10000000)
-    song = MoominsSong(sheep)
+    song = MoominsSong(sheep, flower)
 
     clock = pygame.time.Clock()
     pygame.mixer.init()
@@ -95,7 +109,7 @@ if __name__ == "__main__":
         song.apply_animation(song_time)
 
         network.send(frame_id,
-                     flower,
+                     flower.get_array(),
                      sheep.get_array(),
                      grass,
                      sign,
