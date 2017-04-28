@@ -12,8 +12,14 @@ sheep = SmallSheep()
 from SpikeSheepAnimation import SpikeSheepAnimation
 from FireSheepAnimation import FireSheepAnimation
 from AlternateSheepAnimation import AlternateSheepAnimation
+from SheepConfettiAnimation import SheepConfettiAnimation
+from RainbowAnimation import RainbowAnimation
+from FillFadeSheepAnimation import FillFadeSheepAnimation
+from StarsSheepAnimation import StarsSheepAnimation
 
-animation = SpikeSheepAnimation(sheep, {'hue_start' :0.1})
+# animation = SpikeSheepAnimation(sheep, {'hue_start' :0.1})
+# animation = FillFadeSheepAnimation(sheep, {'hue_start' : 'Rainbow'})
+animation = StarsSheepAnimation(sheep, {'stars_percent' : 0.01})
 
 speed = 75 # in 50 hrz
 current_time = 0

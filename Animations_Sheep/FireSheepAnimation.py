@@ -10,8 +10,8 @@ from AlwaysOnEffect import AlwaysOnEffect
 
 class FireSheepAnimation(SheepAnimation):
 
-    def __init__(self, sheep):
-        SheepAnimation.__init__(self, sheep)
+    def __init__(self, sheep, props):
+        SheepAnimation.__init__(self, sheep, props)
 
         self.effects = []
         

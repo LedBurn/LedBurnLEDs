@@ -8,7 +8,7 @@ import random
 
 class StarsSheepAnimation(SheepAnimation):
     def __init__(self, sheep, props):
-        SheepAnimation.__init__(self, sheep)
+        SheepAnimation.__init__(self, sheep, props)
 
         stars_percent = props['stars_percent'] if props and 'stars_percent' in props else 0.1
         self.stars_per_cycle = int(stars_percent * len(sheep.get_array()))

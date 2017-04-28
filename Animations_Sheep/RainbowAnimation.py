@@ -7,9 +7,7 @@ from Effects.AlwaysOnEffect import AlwaysOnEffect
 class RainbowAnimation(SheepAnimation):
 
     def __init__(self, sheep, props):
-        SheepAnimation.__init__(self, sheep)
-        self.num_of_spins = props['num_of_spins'] if props and 'num_of_spins' in props else 1
-        self.current_spin = -1
+        SheepAnimation.__init__(self, sheep, props)
         self.create_effects()
 
     def create_effects(self):
@@ -18,14 +16,8 @@ class RainbowAnimation(SheepAnimation):
         self.effects = [bodyEffect, headEffect]
     
     def apply(self, time_percent):
-        spin = int(math.floor(time_percent * self.num_of_spins))
-        if (spin != self.current_spin):
-            self.current_spin = spin
-
-        oneSpinTime = 1.0 / self.num_of_spins
-        relativePercent = (time_percent - oneSpinTime * self.current_spin) * self.num_of_spins
         for effect in self.effects:
-            effect.apply(relativePercent, self.sheep.get_array())
+            effect.apply(time_percent, self.sheep.get_array())
 
         leg12color = self.sheep.get_array()[self.sheep.get_leg12_connection_index()*3 :
                                             self.sheep.get_leg12_connection_index()*3 + 3]
