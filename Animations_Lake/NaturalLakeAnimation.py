@@ -50,5 +50,4 @@ class NaturalLakeAnimation(LakeAnimation):
             if (time_percent < self.start_times[i] or time_percent > self.start_times[i]+self.speeds[i]):
                 continue
             relative_pos = (time_percent - self.start_times[i]) / self.speeds[i]
-            print relative_pos
             self.effects[i].apply(relative_pos, self.lake.get_array())

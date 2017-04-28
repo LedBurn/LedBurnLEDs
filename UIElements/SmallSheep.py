@@ -24,6 +24,9 @@ class SmallSheep(Sheep):
         self.eye2 = 301
         self.arr = [0,0,0] * 302
 
+    def clear(self):
+        self.arr = [0, 0, 0] * 302
+
     def get_array(self):
         return self.arr
     

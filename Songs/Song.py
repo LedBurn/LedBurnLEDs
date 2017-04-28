@@ -15,6 +15,7 @@ from Animations_Flower.FlowerAnimationFactory import FlowerAnimationFactory
 from Animations_Grass.GrassAnimationFactory import GrassAnimationFactory
 from Animations_Lake.LakeAnimationFactory import LakeAnimationFactory
 from Animations_Sheep.SheepAnimationFactory import SheepAnimationFactory
+from Animations_Sign.SignAnimationFactory import SignAnimationFactory
 
 class Song():
 	def __init__(self, file_name):
@@ -28,6 +29,8 @@ class Song():
 		self.lake_animation_mul = 1
 		self.sheep_animation = None
 		self.sheep_animation_mul = 1
+		self.sign_animation = None
+		self.sign_animation_mul = 1
 
 		self.flower = Flower()
 		self.sheep = SmallSheep()
@@ -42,6 +45,7 @@ class Song():
 		self.pieces = self.song_yml['pieces']
 		self.current_piece_id = 0
 
+		print str(self.pieces[self.current_piece_id][0]) + " - " + str(self.pieces[self.current_piece_id][1])
 		self.create_animations(self.pieces[self.current_piece_id][2])
 		self.frame_id = 0
 
@@ -53,7 +57,6 @@ class Song():
 		if animation_dict is None:
 			return
 
-		print animation_dict
 		if 'flower' in animation_dict: 
 			self.flower_animation = FlowerAnimationFactory.create_animation(animation_dict['flower'], self.flower)
 			if 'beat_mul' in animation_dict['flower']:
@@ -87,6 +90,17 @@ class Song():
 				self.sheep_animation_mul = animation_dict['sheep']['beat_mul']
 			else:
 				self.sheep_animation_mul = 1
+		else:
+			self.sheep_animation = None
+
+		if 'sign' in animation_dict:
+			self.sign_animation = SignAnimationFactory.create_animation(animation_dict['sign'], self.sign)
+			if 'beat_mul' in animation_dict['sign']:
+				self.sign_animation_mul = animation_dict['sign']['beat_mul']
+			else:
+				self.sign_animation_mul = 1
+		else:
+			self.sign_animation = None
 
 
 	def apply_animation(self, animation, num_of_beats, duration, relative_song_time):
@@ -100,6 +114,12 @@ class Song():
 
 		animation.apply(percent_beat_time)
 
+	def clear_leds(self):
+		self.flower.clear()
+		self.sheep.clear()
+		self.grass.clear()
+		self.sign.clear()
+		self.lake.clear()
 
 	def play_animations(self, song_time, curr_temerature):
 
@@ -107,6 +127,7 @@ class Song():
 
 		if self.current_piece_id < len(self.pieces) -1 and song_time > self.pieces[self.current_piece_id+1][0]:
 			self.current_piece_id += 1
+			print str(self.pieces[self.current_piece_id][0]) + " - " + str(self.pieces[self.current_piece_id][1])
 			self.create_animations(self.pieces[self.current_piece_id][2])
 
 		if self.current_piece_id == len(self.pieces) - 1:
@@ -117,6 +138,7 @@ class Song():
 		num_of_beats = self.pieces[self.current_piece_id][1]
 		relative_song_time = song_time - self.pieces[self.current_piece_id][0]
 
+		self.clear_leds()
 		if (self.flower_animation != None):
 			flower_num_of_beats = num_of_beats * self.flower_animation_mul
 			self.apply_animation(self.flower_animation, flower_num_of_beats, duration, relative_song_time)
@@ -132,6 +154,10 @@ class Song():
 		if self.sheep_animation:
 			sheep_num_of_beats = num_of_beats * self.sheep_animation_mul
 			self.apply_animation(self.sheep_animation, sheep_num_of_beats, duration, relative_song_time)
+
+		if self.sign_animation:
+			sign_num_of_beats = num_of_beats * self.sign_animation_mul
+			self.apply_animation(self.sign_animation, sign_num_of_beats, duration, relative_song_time)
 
 		network.send(self.frame_id, 
 			self.flower.get_array(), 
