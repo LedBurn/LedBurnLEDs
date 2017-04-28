@@ -14,7 +14,7 @@ from RoundRobinLakeAnimation import RoundRobinLakeAnimation
 from ConfettiLakeAnimation import ConfettiLakeAnimation
 from NaturalLakeAnimation import NaturalLakeAnimation
 from EqLakeAnimation import EqLakeAnimation
-animation = EqLakeAnimation(lake, None)
+animation = EqLakeAnimation(lake, {"hue1":0.7, "hue2":0.8, "brightness": 0.2})
 
 speed = 100 # in 50 hrz
 current_time = 0

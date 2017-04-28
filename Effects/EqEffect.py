@@ -1,13 +1,15 @@
 from AbstractEffect import Effect
 
-import colorsys
+from Colors import Colors
 import random
 
 
 class EqEffect(Effect):
-    def __init__(self, indexes, leds_percent_per_beat, brightness=1.0):
+    def __init__(self, indexes, brightness=1.0, hue1 = 0.6, hue2 = 0.8):
         Effect.__init__(self, indexes)
-        self.hue = 0
+        self.brightness = brightness
+        self.hue1 = hue1
+        self.hue2 = hue2
         self.eq_start = random.uniform(0.2, 0.7)
         self.curr_pos = self.eq_start
         self.last_time_percent = 0
@@ -22,7 +24,6 @@ class EqEffect(Effect):
 
     def apply(self, time_percent, parent_array):
 
-        self.hue = (self.hue + 1.0 / 180.0)
         if time_percent < self.last_time_percent:
             self.eq_start = random.uniform(0.2, 0.7)
         self.last_time_percent = time_percent
@@ -30,13 +31,13 @@ class EqEffect(Effect):
         percent = (self.eq_start + random.uniform(-0.00, 0.00)) + ( (self._global_value(time_percent) - 0.2) * 0.5)
         percent = max(percent, 0.0)
         percent = min(percent, 1.0)
-        self.curr_pos = self.curr_pos + (percent - self.curr_pos) * 0.4
+        self.curr_pos = self.curr_pos + min((percent - self.curr_pos) * 0.4, int(len(self.indexes) * 0.03))
         v = int(len(self.indexes) * self.curr_pos)
 
         """ fade to black """
         for i in range(0, v):
             obj_pixel = self.indexes[i]
-            parent_array[3 * obj_pixel: 3 * obj_pixel + 3] = [0, 0, 255]
+            parent_array[3 * obj_pixel: 3 * obj_pixel + 3] = Colors.hls_to_rgb(self.hue1, 1.0, self.brightness)
         for i in range(v, len(self.indexes)):
             obj_pixel = self.indexes[i]
-            parent_array[3 * obj_pixel: 3 * obj_pixel + 3] = [0, 255, 0]
+            parent_array[3 * obj_pixel: 3 * obj_pixel + 3] = Colors.hls_to_rgb(self.hue2, 1.0, self.brightness)

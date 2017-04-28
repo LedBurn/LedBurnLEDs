@@ -54,6 +54,20 @@ class Lake:
 	wave13_high_con = 353
 
 	waves_arr = [wave1, wave2, wave3, wave4, wave5, wave6, wave7, wave8, wave9, wave10, wave11, wave12, wave13]
+	conn_arr = [[wave1_low_con, wave1_high_con],
+				[wave2_low_con, wave2_high_con],
+				[wave3_low_con, wave3_high_con],
+				[wave4_low_con, wave4_high_con],
+				[wave5_low_con, wave5_high_con],
+				[wave6_low_con, wave6_high_con],
+				[wave7_low_con, wave7_high_con],
+				[wave8_low_con, wave8_high_con],
+				[wave9_low_con, wave9_high_con],
+				[wave10_low_con, wave10_high_con],
+				[wave11_low_con, wave11_high_con],
+				[wave12_low_con, wave12_high_con],
+				[wave13_low_con, wave13_high_con],
+				]
 	waves = wave1 + wave2 + wave3 + wave4 + wave5 + wave6 + wave7 + wave8 + wave9 + wave10 + wave11 + wave12 + wave13
 
 
@@ -70,6 +84,14 @@ class Lake:
 
 	def get_array(self):
 		return self.arr
+
+	def get_con_by_wave_id(self, wave_id):
+		if wave_id < 1:
+			return [ (self.wave1_high_con + self.wave1_low_con) / 2, (self.wave1_high_con + self.wave1_low_con) / 2]
+		elif wave_id > 13:
+			return [ (self.wave13_high_con + self.wave13_low_con) / 2, (self.wave13_high_con + self.wave13_low_con) / 2]
+		else:
+			return self.conn_arr[wave_id]
 
 
 
