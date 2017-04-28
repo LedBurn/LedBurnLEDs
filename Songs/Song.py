@@ -52,55 +52,38 @@ class Song():
 	def get_audio_file(self):
 		return self.audio_file
 
+
+	def get_effect(self, animation_dict, name, element, factory):
+		if animation_dict != None and name in animation_dict: 
+			if 'Clear' in animation_dict[name]:
+				element.clear()
+				return None
+			else:	
+				return factory.create_animation(animation_dict[name], element)
+		else:
+			return None
+
+	def get_mul(self, animation_dict, name):
+		if animation_dict != None and name in animation_dict and 'beat_mul' in animation_dict[name]:
+			return animation_dict[name]['beat_mul']
+		return 1.0
+
 	def create_animations(self, animation_dict):
+	
+		self.flower_animation = self.get_effect(animation_dict, 'flower', self.flower, FlowerAnimationFactory)
+		self.flower_animation_mul = self.get_mul(animation_dict, 'flower')
 
-		if animation_dict is None:
-			return
+		self.grass_animation = self.get_effect(animation_dict, 'grass', self.grass, GrassAnimationFactory)
+		self.grass_animation_mul = self.get_mul(animation_dict, 'grass')
 
-		if 'flower' in animation_dict: 
-			self.flower_animation = FlowerAnimationFactory.create_animation(animation_dict['flower'], self.flower)
-			if 'beat_mul' in animation_dict['flower']:
-				self.flower_animation_mul = animation_dict['flower']['beat_mul']
-			else:
-				self.flower_animation_mul = 1
-		else:
-			self.flower_animation = None
+		self.lake_animation = self.get_effect(animation_dict, 'lake', self.lake, LakeAnimationFactory)
+		self.lake_animation_mul = self.get_mul(animation_dict, 'lake')
 
-		if 'grass' in animation_dict:
-			self.grass_animation = GrassAnimationFactory.create_animation(animation_dict['grass'],self.grass)
-			if 'beat_mul' in animation_dict['grass']:
-				self.grass_animation_mul = animation_dict['grass']['beat_mul']
-			else:
-				self.grass_animation_mul = 1
-		else:
-			self.grass_animation = None
+		self.sheep_animation = self.get_effect(animation_dict, 'sheep', self.sheep, SheepAnimationFactory)
+		self.sheep_animation_mul = self.get_mul(animation_dict, 'sheep')
 
-		if 'lake' in animation_dict:
-			self.lake_animation = LakeAnimationFactory.create_animation(animation_dict['lake'], self.lake)
-			if 'beat_mul' in animation_dict['lake']:
-				self.lake_animation_mul = animation_dict['lake']['beat_mul']
-			else:
-				self.lake_animation_mul = 1
-		else:
-			self.lake_animation = None
-
-		if 'sheep' in animation_dict:
-			self.sheep_animation = SheepAnimationFactory.create_animation(animation_dict['sheep'], self.sheep)
-			if 'beat_mul' in animation_dict['sheep']:
-				self.sheep_animation_mul = animation_dict['sheep']['beat_mul']
-			else:
-				self.sheep_animation_mul = 1
-		else:
-			self.sheep_animation = None
-
-		if 'sign' in animation_dict:
-			self.sign_animation = SignAnimationFactory.create_animation(animation_dict['sign'], self.sign)
-			if 'beat_mul' in animation_dict['sign']:
-				self.sign_animation_mul = animation_dict['sign']['beat_mul']
-			else:
-				self.sign_animation_mul = 1
-		else:
-			self.sign_animation = None
+		self.sign_animation = self.get_effect(animation_dict, 'sign', self.sign, SignAnimationFactory)
+		self.sign_animation_mul = self.get_mul(animation_dict, 'sign')
 
 
 	def apply_animation(self, animation, num_of_beats, duration, relative_song_time):
@@ -138,24 +121,23 @@ class Song():
 		num_of_beats = self.pieces[self.current_piece_id][1]
 		relative_song_time = song_time - self.pieces[self.current_piece_id][0]
 
-		self.clear_leds()
-		if (self.flower_animation != None):
+		if self.flower_animation != None:
 			flower_num_of_beats = num_of_beats * self.flower_animation_mul
 			self.apply_animation(self.flower_animation, flower_num_of_beats, duration, relative_song_time)
 
-		if (self.grass_animation != None):
+		if self.grass_animation != None:
 			grass_num_of_beats = num_of_beats * self.grass_animation_mul
 			self.apply_animation(self.grass_animation, grass_num_of_beats, duration, relative_song_time)
 
-		if (self.lake_animation != None):
+		if self.lake_animation != None:
 			lake_num_of_beats = num_of_beats *  self.lake_animation_mul
 			self.apply_animation(self.lake_animation, lake_num_of_beats, duration, relative_song_time)
 
-		if self.sheep_animation:
+		if self.sheep_animation != None:
 			sheep_num_of_beats = num_of_beats * self.sheep_animation_mul
 			self.apply_animation(self.sheep_animation, sheep_num_of_beats, duration, relative_song_time)
 
-		if self.sign_animation:
+		if self.sign_animation != None:
 			sign_num_of_beats = num_of_beats * self.sign_animation_mul
 			self.apply_animation(self.sign_animation, sign_num_of_beats, duration, relative_song_time)
 
