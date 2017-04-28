@@ -1,9 +1,10 @@
 #include <Ethernet.h>
 #include <EthernetUdp.h>
 
-byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0x69 };
+byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 221 };
 IPAddress localIp(10, 0, 0, 221);
-IPAddress serverIp(10, 0, 0, 200);
+//IPAddress serverIp(10, 0, 0, 200);
+IPAddress serverIp(255, 255, 255, 255);
 
 unsigned int localPort = 8888;      // local port to listen on
 

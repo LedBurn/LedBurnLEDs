@@ -22,6 +22,7 @@ prevTime = MyTime
 rfidTime = MyTime
 
 song = None
+next_song = None
 check_num = 0
 
 start_temperature = None
@@ -29,30 +30,32 @@ prevSachiMeter = 0
 
 
 while True:
-	# read sensors data
-	# todo - sample motion & temp sensors - by udp
-	#  
+    # read sensors data
+    # todo - sample motion & temp sensors - by udp
+    #  
 
-	MyTime = datetime.datetime.now()
+    MyTime = datetime.datetime.now()
 
-	sachiMeter, illusionsFlag = r.process()
-	curr_temperature = temperature.get_temperature()
-	motion_detected = motion.get_has_motion()
+    sachiMeter, illusionsFlag = r.process()
+    curr_temperature = temperature.get_temperature()
+    motion_detected = motion.get_has_motion()
 
-	# current song is playing
-	song_playing = song != None and pygame.mixer.music.get_busy()
-	if song_playing:
-		song_time = (pygame.mixer.music.get_pos() - 170)/ 1000.0
-		song.play_animations(song_time, curr_temperature)
-		start_temp = curr_temperature
-	else: #no song
-		next_song = decisions.decide(start_temperature, curr_temperature, sachiMeter, illusionsFlag, motion_detected)
-		print "next song is: " + next_song
-		if next_song is not None:
-			song = Song("Songs/" + next_song)
-			pygame.mixer.music.load(song.get_audio_file())
-			pygame.mixer.music.play(0, 0)
-
+    # current song is playing
+    song_playing = song != None and pygame.mixer.music.get_busy()
+    if song_playing:
+        song_time = (pygame.mixer.music.get_pos() - 170)/ 1000.0
+        song.play_animations(song_time, curr_temperature)
+        start_temp = curr_temperature
+    else: #no song playing
+        if next_song is not None:
+            print "next song is: " + next_song[0]
+            song = Song("Songs/" + next_song[0])
+            pygame.mixer.music.load(song.get_audio_file())
+            pygame.mixer.music.play(0, 0)
+            del next_song[0]
+        else:
+            next_song = decisions.decide(start_temp, curr_temperature, sachiMeter, illusionsFlag, motion_detected)
+        
 	"""
 	# new song
 	else:
@@ -106,8 +109,8 @@ while True:
 	"""
 
 
-	clock.tick(50)
-	
+    clock.tick(50)
+    
 
 
 

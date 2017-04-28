@@ -4,9 +4,10 @@
 #include <Ethernet.h>
 #include <EthernetUdp.h>
 
-byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0x68 };
+byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 220 };
 IPAddress localIp(10, 0, 0, 220);
-IPAddress serverIp(10, 0, 0, 200);
+//IPAddress serverIp(10, 0, 0, 200);
+IPAddress serverIp(255, 255, 255, 255);
 
 unsigned int localPort = 8888;      // local port to listen on
 
@@ -27,6 +28,8 @@ String  tempString = "No read";
  
 void setup(void)
 {
+  pinMode(4, OUTPUT);
+  digitalWrite(4, HIGH);   // de-select the SD Card
   // start serial port
   Serial.begin(9600);
   Serial.println("Dallas Temperature IC Control Library Demo");
@@ -34,7 +37,8 @@ void setup(void)
   // Start up the library
   sensors.begin();
 
-  Ethernet.begin(mac, localIp);
+  Ethernet.begin(mac,localIp);
+  Serial.println(Ethernet.localIP());
   Udp.begin(localPort);  
 }
  
