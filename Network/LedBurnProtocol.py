@@ -18,7 +18,7 @@ sock = socket.socket(socket.AF_INET, # Internet
 
 PROTOCOL_VERSION = 0
 
-# flower - ~550 leds
+# flower - 580 leds
 FLOWER_IP = 210
 FLOWER_STRIP_ID = 0
 
@@ -77,7 +77,7 @@ def send(frame_id,
 
     replaceGBRtoRGB(flower_data, range(463, 513))
     sendPacketWithIp(FLOWER_IP, FLOWER_STRIP_ID, 0, flower_data[0:900])
-    sendPacketWithIp(FLOWER_IP, FLOWER_STRIP_ID, 300, flower_data[900:0])
+    sendPacketWithIp(FLOWER_IP, FLOWER_STRIP_ID, 300, flower_data[900:1800])
 
     replaceGBRtoRGB(sheep_data, range(300, 302))
     sendPacketWithIp(SHEEP_IP, SHEEP_STRIP_ID, 0, sheep_data)
