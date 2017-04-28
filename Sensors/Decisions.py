@@ -64,7 +64,8 @@ class Decisions:
             print "Hey! I see I got company, let me play you a song"
             return ["SeeYou.yml", "TATRAN - Shvat.yml"]
 
-        return ["Teletubbies.yml"]
+        # return ["Teletubbies.yml"]
+        return ["HuggingMe.yml"]
 
     def use_temperature(self, curr_temperature):
         if curr_temperature is None:

@@ -45,16 +45,19 @@ while True:
     if song_playing:
         song_time = (pygame.mixer.music.get_pos() - 170)/ 1000.0
         song.play_animations(song_time, curr_temperature)
-        start_temp = curr_temperature
+        start_temperature = curr_temperature
     else: #no song playing
         if next_song is not None:
             print "next song is: " + next_song[0]
             song = Song("Songs/" + next_song[0])
             pygame.mixer.music.load(song.get_audio_file())
             pygame.mixer.music.play(0, 0)
-            del next_song[0]
+            if len(next_song) > 1:
+                del next_song[0]
+            else:
+                next_song = None
         else:
-            next_song = decisions.decide(start_temp, curr_temperature, sachiMeter, illusionsFlag, motion_detected)
+            next_song = decisions.decide(start_temperature, curr_temperature, sachiMeter, illusionsFlag, motion_detected)
         
 	"""
 	# new song
