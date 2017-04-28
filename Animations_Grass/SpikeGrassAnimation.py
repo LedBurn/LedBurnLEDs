@@ -18,7 +18,7 @@ class LeafChooseType:
     SINGLE_SEQUENCE = 2
 
 class LeafColorType:
-    GREENISH = 0
+    COLOR = 0
     RAINBOW = 1
 
 
@@ -33,8 +33,9 @@ class SpikeGrassAnimation(GrassAnimation):
 
         self.direction_type = DirectionType.ALL_UP
         self.leaf_choose_type = LeafChooseType.ALL_LEAFS
-        self.leaf_color = LeafColorType.GREENISH
+        self.leaf_color = LeafColorType.RAINBOW
         if self.props != None:
+            
             if 'directionType' in self.props:
                 directionType = self.props['directionType']
                 if directionType == 'Up':
@@ -43,6 +44,7 @@ class SpikeGrassAnimation(GrassAnimation):
                     self.direction_type = DirectionType.ALL_DOWN
                 elif directionType == 'UpAndDown':
                     self.direction_type = DirectionType.ONE_UP_ONE_DOWN
+            
             if 'leafChooseType' in self.props:
                 leafChooseType = self.props['leafChooseType']
                 if leafChooseType == 'All':
@@ -51,6 +53,14 @@ class SpikeGrassAnimation(GrassAnimation):
                     self.leaf_choose_type = LeafChooseType.SINGLE_RANDOM
                 if leafChooseType == 'SingleSequence':
                     self.leaf_choose_type = LeafChooseType.SINGLE_SEQUENCE
+            
+            if 'hue_start' in self.props:
+                if self.props['hue_start'] == 'Rainbow':
+                    self.leaf_color = LeafColorType.RAINBOW
+                else:    
+                    self.leaf_color = LeafColorType.COLOR
+                    self.hue = self.props['hue_start']
+
             if 'colorType' in self.props:
                 colorType = self.props['colorType']
                 if colorType == 'Rainbow':
@@ -90,8 +100,8 @@ class SpikeGrassAnimation(GrassAnimation):
                 self.last_leaf = 0
 
     def get_rand_leaf_color(self):
-        if self.leaf_color == LeafColorType.GREENISH:
-            return [int(c*255) for c in colorsys.hsv_to_rgb(0.33, random.uniform(0.5, 1), random.uniform(0.5, 1))]
+        if self.leaf_color == LeafColorType.COLOR:
+            return [int(c*255) for c in colorsys.hsv_to_rgb(self.hue, random.uniform(0.5, 1), random.uniform(0.5, 1))]
         elif self.leaf_color == LeafColorType.RAINBOW:
             return [int(c*255) for c in colorsys.hsv_to_rgb(random.random(), 1.0, 1.0)]
 
