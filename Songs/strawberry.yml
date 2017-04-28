@@ -1,56 +1,253 @@
 --- 
-offset: -0.2
+offset: -0.5
 file_name: "TATRAN - Shvat - 10 Strawberry Fields Forever.mp3"
 pieces: 
   -
     - 0
     - 25
-    - 
-    - 
+    -
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
+        beat_mul: 0.5
   - 
     - 20.06204082
     - 16
-    - 
+    -
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
+        beat_mul: 0.5
+        
+      grass:  
+        Spike:
+          directionType: Up
+          leafChooseType: SingleRandom
+          colorType: Rainbow
+        beat_mul: 0.5      
   - 
     - 32.64725624
     - 9
-    - 
+    -
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
+        beat_mul: 0.5
+        
+      grass:
+        HorLine:
+            on_time_percent: 1.0
+            hue_start: 0.66
+            pixel_hue: 0.7
+        beat_mul: 0.125  
   - 
     - 39.77578231
     - 4
     - 
+      grass:  
+        Spike:
+          directionType: UpAndDown
+          leafChooseType: All
+          colorType: Rainbow
+        beat_mul: 0.5
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
+        beat_mul: 0.5
+        
+      flower: 
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.5        
   - 
     - 43.02657596
     - 8
     - 
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
+        beat_mul: 0.5
+        
+      grass:  
+        Spike:
+          directionType: Up
+          leafChooseType: SingleRandom
+          colorType: Rainbow
+        beat_mul: 0.5
+        
+      flower: 
+        Natural:
+          hue_speed: 0.04
+          hue_start: 0.0
+        beat_mul: 1
   - 
     - 49.27274376
     - 16
     - 
+      lake:
+        Eq:
+        beat_mul: 0.5
+        
+      grass:  
+        Spike:
+          directionType: Up
+          leafChooseType: SingleRandom
+          colorType: Rainbow
+        beat_mul: 0.5
+        
+      flower: 
+        Natural:
+          hue_speed: 0.04
+          hue_start: 0.0
+        beat_mul: 1
   - 
     - 61.83473923
     - 4
     - 
+      lake:
+        Eq:
+        beat_mul: 0.5
+        
+      grass:  
+        Spike:
+          directionType: Up
+          leafChooseType: SingleRandom
+          colorType: Rainbow
+        beat_mul: 0.5
+        
+      flower: 
+        Natural:
+          hue_speed: 0.04
+          hue_start: 0.0
+        beat_mul: 1
   - 
     - 64.96943311
     - 8
     - 
+      lake:
+        Eq:
+        beat_mul: 0.5
+        
+      grass:  
+        Spike:
+          directionType: Up
+          leafChooseType: SingleRandom
+          colorType: Rainbow
+        beat_mul: 0.5
+        
+      flower: 
+        Natural:
+          hue_speed: 0.04
+          hue_start: 0.0
+        beat_mul: 1
   - 
     - 71.1923809524
     - 4
     - 
+      lake:
+        Eq:
+        beat_mul: 0.5
+        
+      grass:  
+        Spike:
+          directionType: Up
+          leafChooseType: SingleRandom
+          colorType: Rainbow
+        beat_mul: 0.5
+        
+      flower: 
+        Natural:
+          hue_speed: 0.04
+          hue_start: 0.0
+        beat_mul: 1
+        
+      sheep:
+        Confetti:
   - 
     - 74.37351474
     - 4
     - 
+      lake:
+        Eq:
+        beat_mul: 0.5
+        
+      grass:  
+        Spike:
+          directionType: Up
+          leafChooseType: SingleRandom
+          colorType: Rainbow
+        beat_mul: 0.5
+        
+      flower: 
+        Natural:
+          hue_speed: 0.04
+          hue_start: 0.0
+        beat_mul: 1
+        
+      sheep:
+        Confetti:
   - 
     - 77.4849886621
     - 16
     - 
+      lake:
+        Eq:
+        beat_mul: 0.5
+        
+      grass:  
+        Spike:
+          directionType: Up
+          leafChooseType: SingleRandom
+          colorType: Rainbow
+        beat_mul: 0.5
+        
+      flower: 
+        Natural:
+          hue_speed: 0.04
+          hue_start: 0.0
+        beat_mul: 1
+        
+      sheep:
+        Confetti:
   - 
     - 90.11664399
     - 6
     - 
+      grass:  
+        Spike:
+          directionType: UpAndDown
+          leafChooseType: All
+          colorType: Rainbow
+        beat_mul: 0.5
+        
+      lake:
+        RoundRobin:
+            hue_speed: 0.08
+            hue_start: 0.0
+        beat_mul: 0.5
+        
+      flower: 
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.5 
+        
+      sheep:
+        Rainbow:
+       
+      sign:
+        Rainbow:
   - 
     - 94.85351474
     - 3
@@ -114,6 +311,7 @@ pieces:
   - 
     - 221.1004082
     - 7
+    -
   - 
     - 226.6267575
     - 1
