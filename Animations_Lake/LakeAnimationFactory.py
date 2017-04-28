@@ -19,6 +19,6 @@ class LakeAnimationFactory():
         	return ConfettiLakeAnimation(lake, config['Confetti'])
 
         if 'Natural' in config:
-            return NaturalFlowerAnimation(lake, config['Natural'])
+            return NaturalLakeAnimation(lake, config['Natural'])
 
         print 'Invalid lake animation -', config

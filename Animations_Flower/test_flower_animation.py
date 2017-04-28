@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 
 import sys, os
-sys.path.append(os.path.abspath('../Network'))
-import LedBurnProtocol as network
+sys.path.append(os.path.abspath('../'))
+import Network.LedBurnProtocol as network
 import time
 
-sys.path.append(os.path.abspath('../UIElements'))
-from Flower import Flower
+from UIElements.Flower import Flower
 
 flower = Flower()
 
@@ -18,15 +17,11 @@ from NaturalFlowerAnimation import NaturalFlowerAnimation
 from FireFlowerAnimation import FireFlowerAnimation
 from ConfettiFlowerAnimation import ConfettiFlowerAnimation
 
-props = {'only_top' : False,
-		'leds_percent_per_beat' : 0.5,
-		'brightness': 0.7}
-animation = ConfettiFlowerAnimation(flower, props)
-
-grass 	= [0, 0, 0] * 600
-sheep 	= [0, 0 ,0] * 302
-sign 	= [0, 0, 0] * 150
-lake 	= [0, 0, 0] * 1800
+# props = {'only_top' : False,
+# 		'leds_percent_per_beat' : 0.5,
+# 		'brightness': 0.7}
+# animation = ConfettiFlowerAnimation(flower, props)
+animation = RainbowFlowerAnimation(flower, None)
 
 speed = 40 # in 50 hrz
 current_time = 0
@@ -38,7 +33,7 @@ while True:
 
 	animation.apply(time_precent)
 
-	network.send(frame_id, flower.get_array(), sheep, grass, sign, lake)
+	network.send(frame_id, flower_data=flower.get_array())
 
 	time.sleep(0.02)
 	current_time = (current_time + 1) % speed
