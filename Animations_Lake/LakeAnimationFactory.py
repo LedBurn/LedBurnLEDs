@@ -1,6 +1,7 @@
 from RoundRobinLakeAnimation import RoundRobinLakeAnimation
 from ConfettiLakeAnimation import ConfettiLakeAnimation
 from NaturalLakeAnimation import NaturalLakeAnimation
+from EqLakeAnimation import EqLakeAnimation
 
 class LakeAnimationFactory():
     @staticmethod
@@ -9,7 +10,7 @@ class LakeAnimationFactory():
         print 'lake -', config
 
         if config == None:
-            print 'Invalid lake animation - None'
+            print 'Invalid lake animation r- None'
             return
 
         if 'RoundRobin' in config:
@@ -20,5 +21,8 @@ class LakeAnimationFactory():
 
         if 'Natural' in config:
             return NaturalLakeAnimation(lake, config['Natural'])
+
+        if 'Eq' in config:
+            return EqLakeAnimation(lake, config['Eq'])
 
         print 'Invalid lake animation -', config
