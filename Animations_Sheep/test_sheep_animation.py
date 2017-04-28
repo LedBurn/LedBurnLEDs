@@ -1,25 +1,21 @@
 #!/usr/bin/env python
 
 import sys, os
-sys.path.append(os.path.abspath('../Network'))
-import LedBurnProtocol as network
+sys.path.append(os.path.abspath('../'))
+import Network.LedBurnProtocol as network
 import time
 
-sys.path.append(os.path.abspath('../UIElements'))
-from SmallSheep import SmallSheep
+from UIElements.SmallSheep import SmallSheep
 
 sheep = SmallSheep()
 
 from SpikeSheepAnimation import SpikeSheepAnimation
 from FireSheepAnimation import FireSheepAnimation
-animation = FireSheepAnimation(sheep)
+from AlternateSheepAnimation import AlternateSheepAnimation
 
-flower 	= [0, 0, 0] * 550
-grass 	= [0, 0, 0] * 600
-sign 	= [0, 0, 0] * 150
-lake 	= [0, 0, 0] * 1800
+animation = SpikeSheepAnimation(sheep, {'hue_start' :0.1})
 
-speed = 100 # in 50 hrz
+speed = 75 # in 50 hrz
 current_time = 0
 frame_id = 0;
     
@@ -29,7 +25,7 @@ while True:
 
 	animation.apply(time_precent)
 
-	network.send(frame_id, flower, sheep.get_array(), grass, sign, lake)
+	network.send(frame_id, sheep_data=sheep.get_array())
 
 	time.sleep(0.02)
 	current_time = (current_time + 1) % speed

@@ -4,6 +4,8 @@ from FillFadeSheepAnimation import FillFadeSheepAnimation
 from StarsSheepAnimation import StarsSheepAnimation
 from SpikeSheepAnimation import SpikeSheepAnimation
 
+from AlternateSheepAnimation import AlternateSheepAnimation
+
 class SheepAnimationFactory():
     @staticmethod
     def create_animation(config, sheep):
@@ -19,7 +21,8 @@ class SheepAnimationFactory():
             'Rainbow': RainbowAnimation,
             'FillFade': FillFadeSheepAnimation,
             'Stars': StarsSheepAnimation,
-            'Spikes': SpikeSheepAnimation
+            'Spikes': SpikeSheepAnimation,
+            'Alternate' : AlternateSheepAnimation
         }
 
         for n, o in name_to_obj.iteritems():

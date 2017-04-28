@@ -61,13 +61,6 @@ class SpikeGrassAnimation(GrassAnimation):
                     self.leaf_color = LeafColorType.COLOR
                     self.hue = self.props['hue_start']
 
-            if 'colorType' in self.props:
-                colorType = self.props['colorType']
-                if colorType == 'Rainbow':
-                    self.leaf_color = LeafColorType.RAINBOW
-                elif colorType == 'Greenish':
-                    self.leaf_color == LeafColorType.GREENISH
-
         self.max_height = 0
         for leaf in self.grass.get_leaves_array():
             self.max_height = max(self.max_height, len(leaf[0]))

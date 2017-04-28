@@ -1,12 +1,18 @@
 from AbstractSheep import Sheep
 
 class SmallSheep(Sheep):
+
+    legs = range(97,111) + range(117,131) + range(163,178) + range(184,198)
+    body = range(81,95) + range(133,146) + range(147,161) + range(200,211) + range(213,225) + range(227,240) + range(242,256) + range(257,271) + range(273,285) + range(288,300)
+    head = range(27,78)
+    eyes = [300, 301]
+
     def __init__(self):
-        self.head = range(27,78)
-        self.body = [range(81,95), range(133,146), range(147,161),
-                     range(200,211), range(213,225), range(227,240),
-                     range(242,256), range(257,271), range(273,285),
-                     range(288,300)]
+        self.head_indexes = range(27,78)
+        self.body_split = [range(81,95), range(133,146), range(147,161),
+                        range(200,211), range(213,225), range(227,240),
+                        range(242,256), range(257,271), range(273,285),
+                        range(288,300)]
         self.leg1_side1 = range(97,111)
         self.leg1_side2 = range(117,131)
         self.leg2_side1 = range(163,178)
@@ -28,7 +34,7 @@ class SmallSheep(Sheep):
     # -- Head -- #
     
     def get_head_indexes(self):
-        return self.head
+        return self.head_indexes
 
     def get_head_up1(self):
         return (range(65, 78) + range(27, 40))[::-1]
@@ -59,12 +65,15 @@ class SmallSheep(Sheep):
         for i in range(0, self.get_num_of_body_parts()):
             body_indexes += self.get_body_part_indexes(i)
         return body_indexes[::-1]
+        return []
     
     def get_num_of_body_parts(self):
-        return len(self.body)
+        return len(self.body_split)
+        return 0
     
     def get_body_part_indexes(self, body_part_number):
-        return self.body[body_part_number]
+        return self.body_split[body_part_number]
+        return 0
 
 
     # -- Legs -- #
