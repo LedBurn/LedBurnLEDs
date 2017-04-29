@@ -1,4 +1,5 @@
 ---
+offset: -0.0
 file_name: "Dreamfunk.mp3"
 pieces: 
   - 
@@ -30,7 +31,7 @@ pieces:
     - 
       flower: 
         RoundRobin:
-          hue_speed: 0.08
+          hue_speed: 0.04
           hue_start: 0.64
         beat_mul: 1
         
@@ -88,7 +89,7 @@ pieces:
         
       lake:
         RoundRobin:
-            hue_speed: 0.08
+            hue_speed: 0.04
             hue_start: 0.0
         beat_mul: 2
   -
@@ -132,11 +133,8 @@ pieces:
         beat_mul: 1
         
       lake:
-        Confetti:
-            leds_percent_per_beat: 0.2
-            only_waves: False
-            brightness: 0.5
-        beat_mul: 1
+        Eq:
+        beat_mul: 2
   -
     - 154.621678
     - 64
@@ -155,10 +153,13 @@ pieces:
         beat_mul: 0.5
         
       lake:
-        RoundRobin:
-            hue_speed: 0.08
-            hue_start: 0.0
+        Natural:
+          hue_start: 0.0
         beat_mul: 0.5
+        
+      sheep:
+        Spikes:
+          hue_start: 0.0
   -
     - 182.6713832
     - 64
@@ -172,16 +173,19 @@ pieces:
       grass:
         HorLine:
             on_time_percent: 0.5
-            hue_start: 0.33
+            hue_start: 0.2
             pixel_hue: 0.7
         beat_mul: 1
         
       lake:
-        Confetti:
-            leds_percent_per_beat: 0.2
-            only_waves: False
-            brightness: 0.5
+        Eq:
+          hue1: 0.0
+          hue2: 0.2
         beat_mul: 1
+        
+      sheep:
+        Alternate:
+          
   -
     - 210.6746485
     - 64
@@ -205,6 +209,9 @@ pieces:
             only_waves: False
             brightness: 0.5
         beat_mul: 1
+      
+      sheep:
+        Confetti:
   -
     - 238.7243537
     - 32
@@ -228,6 +235,9 @@ pieces:
             only_waves: False
             brightness: 0.5
         beat_mul: 1
+        
+      sheep:
+        Confetti:
   -
     - 252.7259864
     - 64
@@ -246,10 +256,13 @@ pieces:
         beat_mul: 0.125
         
       lake:
-        RoundRobin:
-            hue_speed: 0.08
-            hue_start: 0.0
+        Natural:
+          hue_start: 0.0
         beat_mul: 1
+        
+      sheep:
+        Spikes:
+          hue_start: 0.0
   -
     - 280.7524717
     - 64
@@ -261,11 +274,8 @@ pieces:
         beat_mul: 1
         
       grass:
-        HorLine:
-            on_time_percent: 1.0
-            hue_start: 0.33
-            pixel_hue: 0.7
-        beat_mul: 0.125
+        Spike:
+          directionType: UpAndDown
         
       lake:
         Confetti:
@@ -273,6 +283,9 @@ pieces:
             only_waves: False
             brightness: 0.5
         beat_mul: 1
+        
+      sheep:
+        Confetti:
   -
     - 308.8021769
     - 64
@@ -292,9 +305,12 @@ pieces:
         
       lake:
         RoundRobin:
-            hue_speed: 0.08
+            hue_speed: 0.04
             hue_start: 0.0
         beat_mul: 1
+        
+      sheep:
+        Rainbow:
   -
     - 336.8286621
     - 24
@@ -318,6 +334,9 @@ pieces:
             only_waves: False
             brightness: 0.5
         beat_mul: 1
+        
+      sheep:
+        Clear:
   -
     - 347.3240816
     - 8
@@ -336,16 +355,17 @@ pieces:
         beat_mul: 0.125
         
       lake:
-        RoundRobin:
-            hue_speed: 0.08
-            hue_start: 0.0
-        beat_mul: 1
+        Spin:
+          contour_color:
+            type: circular_loc_hue
+        beat_mul: 0.25
+        
   -
     - 350.8302948
     - 80
     - 
       flower: 
-        Explosion:
+        RoundRobin:
           hue_speed: 0.08
           hue_start: 0.0
         beat_mul: 1
@@ -358,11 +378,13 @@ pieces:
         beat_mul: 0.5
         
       lake:
-        Confetti:
-            leds_percent_per_beat: 0.2
-            only_waves: False
-            brightness: 0.5
+        RoundRobin:
+          hue_speed: 0.04
+          hue_start: 0.0
         beat_mul: 1
+        
+      sheep:
+        FillFade:
   -
     - 385.8692063
     - 64
@@ -386,9 +408,12 @@ pieces:
             only_waves: False
             brightness: 0.5
         beat_mul: 1
+        
+      sheep:
+        Clear:
   -
     - 413.8956914
-    - 64
+    - 48
     - 
       flower: 
         Natural:
@@ -397,37 +422,25 @@ pieces:
         beat_mul: 1
 
       grass:
-        HorLine:
-            on_time_percent: 1.0
-            hue_start: 0.33
-            pixel_hue: 0.7
-        beat_mul: 0.125
+        Clear:
         
       lake:
-        RoundRobin:
-            hue_speed: 0.08
-            hue_start: 0.0
-        beat_mul: 1
+        Spin:
+          contour_color:
+            type: circular_loc_hue
+        beat_mul: 0.0625
   -
-    - 441.9221765
-    - 0
+    - 428.9221765
+    - 16
     - 
       flower: 
-        Natural:
-          hue_speed: 0.08
-          hue_start: 0.0
-        beat_mul: 1
-        
+        Clear:
+      
       grass:
-        HorLine:
-            on_time_percent: 1.0
-            hue_start: 0.33
-            pixel_hue: 0.7
-        beat_mul: 0.125
+        Clear:
         
       lake:
-        Confetti:
-            leds_percent_per_beat: 0.2
-            only_waves: False
-            brightness: 0.5
-        beat_mul: 1
+        Clear:
+        
+      Sign:
+        Rainbow:
