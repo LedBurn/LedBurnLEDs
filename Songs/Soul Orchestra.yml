@@ -1,27 +1,15 @@
---- 
+---
+offset: 0.0 
 file_name: "Mindex - Soul Orchestra.mp3"
 pieces: 
   - 
     - 0
     - 20
-    - 
-      flower: 
-        Natural: 
-          hue_speed: 0.02
-          hue_start: 0.25
-        beat_mul: 1
-        
-      grass:
-        HorLine:
-            on_time_percent: 1.0
-            hue_start: 0.33
-            pixel_hue: 0.5
-        beat_mul: 0.125
-        
+    -   
       lake:
         Confetti:
             leds_percent_per_beat: 0.2
-            only_waves: True
+            only_waves: False
             brightness: 0.5
         beat_mul: 0.5
   - 
@@ -34,17 +22,10 @@ pieces:
           hue_start: 0.0
         beat_mul: 0.5
         
-      grass:  
-        Spike:
-          directionType: Up
-          leafChooseType: SingleRandom
-          colorType: Rainbow
-        beat_mul: 0.25
-        
       lake:
         Confetti:
             leds_percent_per_beat: 0.2
-            only_waves: True
+            only_waves: False
             brightness: 0.5
         beat_mul: 0.5
   - 
@@ -52,22 +33,16 @@ pieces:
     - 32
     - 
       flower: 
-        RoundRobin: 
-          hue_speed: 0.04
-          hue_start: 0.25
-        beat_mul: 0.5
+        Clear:
         
-      grass:
-        HorLine:
-            on_time_percent: 1.0
-            hue_start: 0.25
-            pixel_hue: 0.75
-        beat_mul: 0.125
+      grass:  
+        RoundRobin:
+        beat_mul: 0.5
         
       lake:
         Confetti:
             leds_percent_per_beat: 0.2
-            only_waves: True
+            only_waves: False
             brightness: 0.5
         beat_mul: 1
   - 
@@ -83,14 +58,14 @@ pieces:
       grass:
         HorLine:
             on_time_percent: 1.0
-            hue_start: 0.33
+            hue_start: 0.1
             pixel_hue: 0.7
         beat_mul: 0.125
         
       lake:
         Confetti:
             leds_percent_per_beat: 0.2
-            only_waves: True
+            only_waves: False
             brightness: 0.5
         beat_mul: 1
   - 
@@ -103,18 +78,17 @@ pieces:
           hue_start: 0.25
         beat_mul: 1
         
-      grass:
-        HorLine:
-            on_time_percent: 1.0
-            hue_start: 0.33
-            pixel_hue: 0.7
-        beat_mul: 0.5
+      grass:  
+        Spike:
+          directionType: Up
+          leafChooseType: All
+          colorType: Rainbow
+        beat_mul: 0.25
         
       lake:
-        Confetti:
-            leds_percent_per_beat: 0.2
-            only_waves: True
-            brightness: 0.5
+        Stars:
+          stars_color:
+            type: circular_loc_hue
         beat_mul: 1
   - 
     - 72.46947846
@@ -134,10 +108,9 @@ pieces:
         beat_mul: 0.125
         
       lake:
-        Confetti:
-            leds_percent_per_beat: 0.2
-            only_waves: True
-            brightness: 0.5
+        Stars:
+          stars_color:
+            type: circular_loc_hue
         beat_mul: 1
   - 
     - 86.19247166
@@ -150,18 +123,16 @@ pieces:
         beat_mul: 1
         
       grass:
-        HorLine:
-            on_time_percent: 0.5
-            hue_start: 0.33
-            pixel_hue: 0.7
-        beat_mul: 0.125
+        Spike:
+          directionType: UpAndDown
+          leafChooseType: All
+        beat_mul: 0.25
         
       lake:
-        Confetti:
-            leds_percent_per_beat: 0.2
-            only_waves: True
-            brightness: 0.5
-        beat_mul: 1
+        Spin:
+          contour_color:
+            type: circular_loc_hue
+        beat_mul: 0.125
   - 
     - 99.93868481
     - 32
@@ -182,7 +153,7 @@ pieces:
       lake:
         Confetti:
             leds_percent_per_beat: 0.2
-            only_waves: True
+            only_waves: False
             brightness: 0.5
         beat_mul: 1
   - 
@@ -205,9 +176,13 @@ pieces:
       lake:
         Confetti:
             leds_percent_per_beat: 0.2
-            only_waves: True
+            only_waves: False
             brightness: 0.5
         beat_mul: 1
+        
+      sheep:
+        Alternate:
+        beat_mul: 0.25
   - 
     - 127.3150113
     - 32
@@ -228,9 +203,12 @@ pieces:
       lake:
         Confetti:
             leds_percent_per_beat: 0.2
-            only_waves: True
+            only_waves: False
             brightness: 0.5
         beat_mul: 1
+        
+      sheep:
+        Clear:
   - 
     - 141.0380045
     - 32
@@ -250,9 +228,15 @@ pieces:
         
       lake:
         RoundRobin:
-            hue_speed: 0.08
+            hue_speed: 0.04
             hue_start: 0.0
         beat_mul: 1
+        
+      sheep:
+        Spikes:
+          hue_start: 0.33
+          beat_mul: 0.5
+          
   - 
     - 154.7609977
     - 32
@@ -273,9 +257,12 @@ pieces:
       lake:
         Confetti:
             leds_percent_per_beat: 0.2
-            only_waves: True
+            only_waves: False
             brightness: 0.5
         beat_mul: 1
+        
+      sheep:
+        Clear:
   - 
     - 168.460771
     - 64
@@ -287,61 +274,60 @@ pieces:
         beat_mul: 0.5
         
       grass:
-        HorLine:
-            on_time_percent: 0.5
-            hue_start: 0.33
-            pixel_hue: 0.7
+        Spike:
+          directionType: UpAndDown
+          leafChooseType: All
+          hue_start: Rainbow
         beat_mul: 0.125
         
       lake:
         Confetti:
             leds_percent_per_beat: 0.2
-            only_waves: True
+            only_waves: False
             brightness: 0.5
         beat_mul: 1
+        
+      sheep:
+        Rainbow:
+        beat_mul: 0.5
   -
     - 195.8835374
     - 64
     -
       flower: 
-        RoundRobin: 
-          hue_speed: 0.01
-          hue_start: 0.0
+        Confetti:
         beat_mul: 1
         
       grass:
-        HorLine:
-            on_time_percent: 0.5
-            hue_start: 0.33
-            pixel_hue: 0.7
-        beat_mul: 0.125
+        Confetti:
         
       lake:
-        Confetti:
-            leds_percent_per_beat: 0.2
-            only_waves: True
-            brightness: 0.5
+        Eq:
+          hue1: 0.2
+          hue2: 0.1
         beat_mul: 1
+        
+      sheep:
+        Confetti:
   - 
     - 223.283084
     - 64
     - 
       flower:
-        Natural:
-          hue_speed: 0.01
-          hue_start: 0.25
-        beat_mul: 1
+        Clear:
         
       grass:
-        HorLine:
-            on_time_percent: 0.5
-            hue_start: 0.33
-            pixel_hue: 0.7
-        beat_mul: 0.125
+        Clear:
         
       lake:
-        Confetti:
-            leds_percent_per_beat: 0.2
-            only_waves: True
-            brightness: 0.5
-        beat_mul: 1
+        Spin:
+          contour_color:
+            type: circular_loc_hue
+        beat_mul: 0.125
+
+      sheep:
+        Clear:
+        
+      sign:
+        Rainbow:
+        beat_mul: 0.0625

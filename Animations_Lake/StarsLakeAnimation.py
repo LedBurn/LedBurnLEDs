@@ -41,7 +41,7 @@ class StarsLakeAnimation(LakeAnimation):
         indexes = self.lake.whole_lake[:]
         random.shuffle(indexes)
         for i in range(0, self.stars_per_cycle):
-            location_percent = float(i) / len(self.stars_per_cycle)
+            location_percent = float(i) / float(self.stars_per_cycle)
             self.add_effect_for_index(indexes.pop(), location_percent)
 
 

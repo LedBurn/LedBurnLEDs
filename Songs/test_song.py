@@ -4,7 +4,7 @@ sys.path.append(os.path.abspath('../'))
 import pygame
 from Song import Song
 
-song = Song("strawberry.yml")
+song = Song("Soul Orchestra.yml")
 
 clock = pygame.time.Clock()
 pygame.mixer.init()
