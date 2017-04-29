@@ -14,11 +14,12 @@ from RoundRobinLakeAnimation import RoundRobinLakeAnimation
 from ConfettiLakeAnimation import ConfettiLakeAnimation
 from NaturalLakeAnimation import NaturalLakeAnimation
 from EqLakeAnimation import EqLakeAnimation
-animation = EqLakeAnimation(lake, {"hue1":0.7, "hue2":0.8, "brightness": 0.2})
+from SpiningColorLakeAnimation import SpiningColorLakeAnimation
+animation = SpiningColorLakeAnimation(lake, {"hue1":0.7, "hue2":0.8, "brightness": 0.2})
 
 speed = 100 # in 50 hrz
 current_time = 0
-frame_id = 0;
+frame_id = 0
     
 while True:
         
