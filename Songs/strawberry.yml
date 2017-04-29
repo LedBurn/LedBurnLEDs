@@ -1,5 +1,5 @@
 --- 
-offset: -0.5
+offset: 0.1
 file_name: "TATRAN - Shvat - 10 Strawberry Fields Forever.mp3"
 pieces: 
   -
@@ -26,9 +26,9 @@ pieces:
       grass:  
         Spike:
           directionType: Up
-          leafChooseType: SingleRandom
-          colorType: Rainbow
-        beat_mul: 0.5      
+          leafChooseType: All
+          hue_start: Rainbow
+        beat_mul: 0.25      
   - 
     - 32.64725624
     - 9
@@ -45,6 +45,7 @@ pieces:
             on_time_percent: 1.0
             hue_start: 0.66
             pixel_hue: 0.7
+            brightness: 0.5
         beat_mul: 0.125  
   - 
     - 39.77578231
@@ -54,14 +55,14 @@ pieces:
         Spike:
           directionType: UpAndDown
           leafChooseType: All
-          colorType: Rainbow
+          hue_start: Rainbow
         beat_mul: 0.5
         
       lake:
-        RoundRobin:
-            hue_speed: 0.08
-            hue_start: 0.0
-        beat_mul: 0.5
+        Spin:
+            contour_color: 
+                type: circular_loc_hue
+        beat_mul: 0.125
         
       flower: 
         Rainbow:
@@ -83,8 +84,8 @@ pieces:
         Spike:
           directionType: Up
           leafChooseType: SingleRandom
-          colorType: Rainbow
-        beat_mul: 0.5
+          hue_start: Rainbow
+        beat_mul: 1
         
       flower: 
         Natural:
@@ -103,14 +104,12 @@ pieces:
         Spike:
           directionType: Up
           leafChooseType: SingleRandom
-          colorType: Rainbow
-        beat_mul: 0.5
+          hue_start: Rainbow
+        beat_mul: 1
         
       flower: 
-        Natural:
-          hue_speed: 0.04
-          hue_start: 0.0
-        beat_mul: 1
+        Rainbow:
+        beat_mul: 0.5
   - 
     - 61.83473923
     - 4
@@ -123,82 +122,14 @@ pieces:
         Spike:
           directionType: Up
           leafChooseType: SingleRandom
-          colorType: Rainbow
-        beat_mul: 0.5
+          hue_start: Rainbow
+        beat_mul: 1
         
       flower: 
-        Natural:
-          hue_speed: 0.04
-          hue_start: 0.0
+        Alternate:
         beat_mul: 1
   - 
     - 64.96943311
-    - 8
-    - 
-      lake:
-        Eq:
-        beat_mul: 0.5
-        
-      grass:  
-        Spike:
-          directionType: Up
-          leafChooseType: SingleRandom
-          colorType: Rainbow
-        beat_mul: 0.5
-        
-      flower: 
-        Natural:
-          hue_speed: 0.04
-          hue_start: 0.0
-        beat_mul: 1
-  - 
-    - 71.1923809524
-    - 4
-    - 
-      lake:
-        Eq:
-        beat_mul: 0.5
-        
-      grass:  
-        Spike:
-          directionType: Up
-          leafChooseType: SingleRandom
-          colorType: Rainbow
-        beat_mul: 0.5
-        
-      flower: 
-        Natural:
-          hue_speed: 0.04
-          hue_start: 0.0
-        beat_mul: 1
-        
-      sheep:
-        Confetti:
-  - 
-    - 74.37351474
-    - 4
-    - 
-      lake:
-        Eq:
-        beat_mul: 0.5
-        
-      grass:  
-        Spike:
-          directionType: Up
-          leafChooseType: SingleRandom
-          colorType: Rainbow
-        beat_mul: 0.5
-        
-      flower: 
-        Natural:
-          hue_speed: 0.04
-          hue_start: 0.0
-        beat_mul: 1
-        
-      sheep:
-        Confetti:
-  - 
-    - 77.4849886621
     - 16
     - 
       lake:
@@ -206,17 +137,51 @@ pieces:
         beat_mul: 0.5
         
       grass:  
+        Clear:
+        
+      flower: 
+        Explosion:
+        beat_mul: 1
+  -
+    - 74.37351474
+    - 4
+    - 
+      grass:  
         Spike:
-          directionType: Up
-          leafChooseType: SingleRandom
-          colorType: Rainbow
+          directionType: UpAndDown
+          leafChooseType: All
+          hue_start: Rainbow
+        beat_mul: 0.5
+        
+      lake:
+        Spin:
+            contour_color: 
+                type: circular_loc_hue
+        beat_mul: 0.25
+        
+      flower: 
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.5      
+  - 
+    - 77.4849886621
+    - 16
+    - 
+      lake:
+        Confetti:
+          only_waves: False
+        
+      grass:  
+        grass:  
+        Spike:
+          directionType: UpAndDown
+          leafChooseType: All
+          hue_start: 0.6
         beat_mul: 0.5
         
       flower: 
-        Natural:
-          hue_speed: 0.04
-          hue_start: 0.0
-        beat_mul: 1
+        Confetti:
         
       sheep:
         Confetti:
@@ -224,18 +189,54 @@ pieces:
     - 90.11664399
     - 6
     - 
+      lake:
+        Confetti:
+        
+      grass:  
+        Clear:
+        
+      flower: 
+        Confetti:
+        
+      sheep:
+        Confetti:
+       
+      sign:
+        Rainbow:
+  - 
+    - 94.85351474
+    - 3
+    - 
+      lake:
+        Confetti:
+        
+      grass:  
+        Clear:
+        
+      flower: 
+        Confetti:
+        
+      sheep:
+        Confetti:
+       
+      sign:
+        Rainbow:
+  - 
+    - 97.26839002
+    - 4
+    - 
       grass:  
         Spike:
           directionType: UpAndDown
           leafChooseType: All
-          colorType: Rainbow
+          hue_start: Rainbow
         beat_mul: 0.5
         
       lake:
         RoundRobin:
-            hue_speed: 0.08
+            hue_speed: 0.04
             hue_start: 0.0
-        beat_mul: 0.5
+        beat_mul: 4
         
       flower: 
         Rainbow:
@@ -247,73 +248,346 @@ pieces:
         Rainbow:
        
       sign:
-        Rainbow:
-  - 
-    - 94.85351474
-    - 3
-    - 
-  - 
-    - 97.26839002
-    - 4
-    - 
+        Clear:
   - 
     - 100.5656236
     - 8
     - 
+      grass:  
+        Spike:
+          directionType: UpAndDown
+          leafChooseType: SingleSequence
+          hue_start: Rainbow
+        beat_mul: 1
+        
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
+        beat_mul: 0.5
+        
+      flower: 
+        Clear:
+        
+      sheep:
+        Clear:
+       
+      sign:
+        Clear:
   - 
     - 106.927891156
     - 20
     - 
+      grass:  
+        Clear:
+        
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
+        beat_mul: 0.5
+        
+      flower: 
+        Natural:
+        
+      sheep:
+        Spikes:
+          hue_start: 0.33
+       
+      sign:
+        Clear:
   - 
     - 122.833560091
     - 16
     - 
+      grass:  
+        Clear:
+        
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
+        beat_mul: 0.5
+        
+      flower: 
+        Explosion:
+        
+      sheep:
+        Clear:
+       
+      sign:
+        Clear:
   - 
     - 135.743854875
     - 16
     - 
+      grass:  
+        Clear:
+        
+      lake:
+        Spin:
+            contour_color: 
+                type: circular_loc_hue
+        beat_mul: 0.25
+        
+      flower: 
+        Alternate:
+        
+      sheep:
+        Clear:
+       
+      sign:
+        Clear:
   - 
     - 148.46839
     - 6
     - 
+      grass:  
+        Clear:
+        
+      lake:
+        Eq:
+          hue1: 0.2
+          hue2: 0.6
+          brightness: 0.4
+        beat_mul: 1
+        
+      flower: 
+        Confetti:
+        
+      sheep:
+        Clear:
+       
+      sign:
+        Clear:
   - 
     - 153.182040816
     - 2
     - 
+      grass:  
+        Spike:
+          directionType: UpAndDown
+          leafChooseType: All
+          hue_start: Rainbow
+        beat_mul: 1
+        
+      lake:
+        Eq:
+          hue1: 0.2
+          hue2: 0.6
+          brightness: 0.4
+        beat_mul: 0.5
+        
+      flower: 
+        Confetti:
+        
+      sheep:
+        Clear:
+       
+      sign:
+        Clear:
   - 
     - 154.7145578
     - 16
     - 
+      grass:  
+        Clear:
+        
+      lake:
+        Spin:
+            contour_color:
+                type: const_color
+                hue: 0.33
+        beat_mul: 0.5
+        
+      flower: 
+        Natural:
+        
+      sheep:
+        Clear:
+       
+      sign:
+        Clear:
   - 
     - 167.5087528
     - 6
     - 
+      grass:  
+        Clear:
+        
+      lake:
+        Spin:
+            contour_color:
+                type: const_color
+                hue: 0.33
+        beat_mul: 0.5
+        
+      flower: 
+        Natural:
+        
+      sheep:
+        Spikes:
+          hue_start: 0.33
+       
+      sign:
+        Clear:
   - 
     - 172.3152834
     - 3
     - 
+      grass:  
+        Clear:
+        
+      lake:
+        Spin:
+            contour_color:
+                type: const_color
+                hue: 0.33
+        beat_mul: 0.5
+        
+      flower: 
+        Natural:
+        
+      sheep:
+        FillFade:
+            hue_start : 0.33
+       
+      sign:
+        Clear:
   - 
     - 174.7301587
     - 4
     - 
+      grass:  
+        Spike:
+          directionType: UpAndDown
+          leafChooseType: All
+          hue_start: Rainbow
+        beat_mul: 0.5
+        
+      lake:
+        Spin:
+            contour_color: 
+                type: circular_loc_hue
+        beat_mul: 0.25
+        
+      flower: 
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.5
+    
+      sheep:
+        Rainbow:
+
+      sign:
+        Rainbow:
   - 
     - 177.8880726
     - 30
     - 
+      grass:  
+        Clear:
+        
+      lake:
+        Spin:
+            Spin:
+            contour_color: 
+                type: circular_loc_hue
+        beat_mul: 0.125
+        
+      flower: 
+        Clear:
+        
+      sheep:
+        Clear:
+       
+      sign:
+        Clear:
   - 
     - 201.711746
     - 12
     - 
+      grass:  
+        Clear:
+        
+      lake:
+        Clear:
+        
+      flower: 
+        Explosion:
+        beat_mul: 1
+        
+      sheep:
+        Clear:
+       
+      sign:
+        Clear:
   - 
     - 211.440907
     - 12
     - 
+      grass:  
+        Clear:
+        
+      lake:
+        Spin:
+            Spin:
+            contour_color: 
+                type: circular_loc_hue
+        beat_mul: 0.125
+        
+      flower: 
+        Clear:
+        
+      sheep:
+        Clear:
+       
+      sign:
+        Clear:
   - 
     - 221.1004082
     - 7
     -
+      grass:  
+        Spike:
+          directionType: UpAndDown
+          leafChooseType: All
+          hue_start: 0.6
+        beat_mul: 0.5
+        
+      lake:
+        Confetti:
+            only_waves: False
+        
+      flower: 
+        Confetti:
+        
+      sheep:
+        Confetti:
+       
+      sign:
+        Clear:
   - 
     - 226.6267575
-    - 1
-    - ~
+    - 2
+    - 
+      grass:  
+        Clear:
+        
+      lake:
+        Clear:
+        
+      flower: 
+        Clear:
+        
+      sheep:
+        Clear:
+       
+      sign:
+        Hue:
+          hue_start: 0.67
 

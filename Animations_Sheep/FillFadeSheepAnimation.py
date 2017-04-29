@@ -10,7 +10,7 @@ class FillFadeSheepAnimation(SheepAnimation):
         SheepAnimation.__init__(self, sheep, props)
 
         self.hue = 'Rainbow'
-        if self != self.props:
+        if self.props != None:
             if 'hue_start' in self.props:
                 self.hue = self.props['hue_start']
 
