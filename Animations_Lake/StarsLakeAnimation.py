@@ -40,11 +40,12 @@ class StarsLakeAnimation(LakeAnimation):
         self.lake.clear()
         indexes = self.lake.whole_lake[:]
         random.shuffle(indexes)
-        for _ in range(0, self.stars_per_cycle):
-            self.add_effect_for_index(indexes.pop())
+        for i in range(0, self.stars_per_cycle):
+            location_percent = float(i) / len(self.stars_per_cycle)
+            self.add_effect_for_index(indexes.pop(), location_percent)
 
 
-    def add_effect_for_index(self, index):
+    def add_effect_for_index(self, index, location_percent):
         start_t = random.uniform(0.0, 0.4)
         dark_time = 1.0 - random.uniform(0.00, 0.4)
         on_tot_time = dark_time - start_t
@@ -52,4 +53,4 @@ class StarsLakeAnimation(LakeAnimation):
         on_end_t = dark_time - random.uniform(0.1, on_tot_time / 2.0)
         rgb_color = Colors.hls_to_rgb(random.random(), random.uniform(0, 0.5), 1.0)
         self.effects.append(
-            StarEffect([index], self.timed_color, start_t, on_start_t, on_end_t, dark_time))
+            StarEffect([index], self.timed_color, start_t, on_start_t, on_end_t, dark_time, location_percent))
