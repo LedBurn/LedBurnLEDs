@@ -293,9 +293,11 @@ pieces:
     - 151.2083447
     - 8
     - lake:
-        Natural: 
+        Spin:
+          contour_color:
+            type: 'const_color'
+            hue: 0.67
         beat_mul: 0.25
-        # spin animation
       sheep:
         Spikes:
           hue_start: 0.67
@@ -311,9 +313,11 @@ pieces:
     - 156.5024943
     - 8
     - lake:
-        Natural: 
+        Spin:
+          contour_color:
+            type: 'const_color'
+            hue: 0.67
         beat_mul: 0.25
-        # spin animation
       sheep:
         Spikes:
           hue_start: 0.67
