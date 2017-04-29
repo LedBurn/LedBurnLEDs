@@ -19,8 +19,8 @@ sock = socket.socket(socket.AF_INET, # Internet
 PROTOCOL_VERSION = 0
 
 # flower - 580 leds
-FLOWER_IP = 210
-FLOWER_STRIP_ID = 0
+FLOWER_IP = 213
+FLOWER_STRIP_ID = 3
 
 # sheep - 302 leds
 SHEEP_IP = 210

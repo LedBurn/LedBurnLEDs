@@ -3,7 +3,7 @@ import datetime
 class Decisions:
 
     MAX_HUG_REQUESTS = 2
-    HUG_MAX_TEMP = 24.0
+    HUG_MAX_TEMP = 20.0
     ALREADY_HUGED_TEMP = 27.0
     TEMP_DIFF_FOR_DECISION = 2.0
     STONED_REQUESTS = 2
@@ -65,7 +65,7 @@ class Decisions:
             return ["SeeYou.yml", "TATRAN - Shvat.yml"]
 
         # return ["Teletubbies.yml"]
-        return ["HuggingMe.yml"]
+        return ["strawberry.yml"]
 
     def use_temperature(self, curr_temperature):
         if curr_temperature is None:
