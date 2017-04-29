@@ -297,7 +297,7 @@ pieces:
           contour_color:
             type: 'const_color'
             hue: 0.67
-        beat_mul: 0.25
+        beat_mul: 0.125
       sheep:
         Spikes:
           hue_start: 0.67
@@ -317,7 +317,7 @@ pieces:
           contour_color:
             type: 'const_color'
             hue: 0.67
-        beat_mul: 0.25
+        beat_mul: 0.125
       sheep:
         Spikes:
           hue_start: 0.67

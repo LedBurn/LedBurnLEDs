@@ -20,7 +20,7 @@ PROTOCOL_VERSION = 0
 
 # flower - 580 leds
 FLOWER_IP = 213
-FLOWER_STRIP_ID = 3
+FLOWER_STRIP_ID = 7
 
 # sheep - 302 leds
 SHEEP_IP = 210
@@ -33,7 +33,7 @@ GRASS1_STRIP_ID = 2
 #grass2 - how many leds?
 GRASS2_IP = 213
 GRASS2_STRIP_ID0 = 2
-GRASS2_STRIP_ID1 = 1
+GRASS2_STRIP_ID1 = 5
 
 
 # sign - 150 leds
