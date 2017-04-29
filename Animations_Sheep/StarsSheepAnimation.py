@@ -42,7 +42,7 @@ class StarsSheepAnimation(SheepAnimation):
         for i in self.sheep.get_ears_indexes():
             self.add_effect_for_index(i, 0.0)
         for i in range(0, self.stars_per_cycle):
-            location_percent = float(i) / len(self.stars_per_cycle)
+            location_percent = float(i) / self.stars_per_cycle
             if len(indexes) > 0:
                 self.add_effect_for_index(indexes.pop(), location_percent)
 
