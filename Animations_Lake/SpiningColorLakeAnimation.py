@@ -4,7 +4,7 @@ from Effects.SpikeEffect import SpikeEffect
 from Effects.GradientEffect import GradientEffect
 from Effects.AlwaysOnEffect import AlwaysOnEffect
 
-from Colors.TimedColor import ConstTimedColor, HueChangeTimedColor, CircularLocHue
+from Colors.TimedColor import CircularLocHue, TimedColorFactory
 
 from Colors import Colors
 
@@ -14,19 +14,19 @@ class SpiningColorLakeAnimation(LakeAnimation):
         LakeAnimation.__init__(self, lake, props)
         self.effects = []
 
+        self.timed_color = CircularLocHue()
+
         self.brightness = 0.2
         self.hue1 = 0.7
         self.hue2 = 0.8
 
         if self.props != None:
-            if 'hue1' in self.props:
-                self.hue1 = self.props['hue1']
-            if 'hue2' in self.props:
-                self.hue2 = self.props['hue2']
-            if 'brightness' in self.props:
-                self.brightness = self.props['brightness']
+            if 'contour_color' in self.props:
+                timed_color = TimedColorFactory(self.props['contour_color'])
+                if timed_color is not None:
+                    self.timed_color = timed_color
 
-        self.effects.append(SpikeEffect(self.lake.contour, CircularLocHue(), 0.65, len(self.lake.contour), circular=True))
+        self.effects.append(SpikeEffect(self.lake.contour, self.timed_color, 0.65, len(self.lake.contour), circular=True))
 
     def apply(self, time_percent):
         for effect in self.effects:

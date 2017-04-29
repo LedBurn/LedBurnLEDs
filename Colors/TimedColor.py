@@ -78,6 +78,21 @@ class HueChangeTimedColorByLocation(AbstractTimedColor):
         return curr_hue;
 
 
+def TimedColorFactory(props):
 
+    if 'type' not in props:
+        print 'expect property type in color configuration: ' + str(props)
+        return None
+
+    color_type = props['type']
+    if color_type == "circular_loc_hue":
+        return CircularLocHue()
+    elif color_type == "const_color":
+        if "hue" not in props:
+            print "missing 'hue' in " + str(props) + " for color of type " + color_type
+            return None
+        return ConstTimedColor(Colors.hls_to_rgb(props["hue"], 1.0, 1.0))
+
+    print 'cannot find color with type ' + str(color_type)
 
 
