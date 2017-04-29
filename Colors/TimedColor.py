@@ -87,6 +87,11 @@ def TimedColorFactory(props):
     color_type = props['type']
     if color_type == "circular_loc_hue":
         return CircularLocHue()
+    elif color_type == "hue_change_time":
+        if "hue_start" not in props or "hue_end" not in props:
+            print "missing 'hue_start' or 'hue_end' in " + str(props) + " for color of type " + color_type
+            return None
+        return HueChangeTimedColor(props["hue_start"], props["hue_end"])
     elif color_type == "const_color":
         if "hue" not in props:
             print "missing 'hue' in " + str(props) + " for color of type " + color_type
