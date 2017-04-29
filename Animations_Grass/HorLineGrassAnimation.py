@@ -15,6 +15,7 @@ class HorLineGrassAnimation(GrassAnimation):
         self.on_time_percent = 0.5
         self.hue = 0.33
         self.pixel_hue = 0.7
+        self.brightness = 1.0
         if self.props != None:
             if 'on_time_percent' in self.props:
                 self.on_time_percent = self.props['on_time_percent']
@@ -22,6 +23,8 @@ class HorLineGrassAnimation(GrassAnimation):
                 self.hue = self.props['hue_start']
             if 'pixel_hue' in self.props:
                 self.pixel_hue = self.props['pixel_hue']
+            if 'brightness' in self.props:
+                self.brightness = self.props['brightness']
 
 
         max_height = 0
@@ -30,7 +33,7 @@ class HorLineGrassAnimation(GrassAnimation):
             max_height = max(max_height, len(leaf[1]))
 
         for leaf in self.grass.get_leaves_array():
-            rand_leaf_color = Colors.hls_to_rgb(self.hue, random.uniform(0.35, 1), random.uniform(0.35, 1))
+            rand_leaf_color = Colors.hls_to_rgb(self.hue, random.uniform(0.6, 1), random.uniform(0.2, self.brightness))
             pixel_color = Colors.hls_to_rgb(self.pixel_hue, 1.0, 1.0)
             self.effects.append(SinglePixelEffect(leaf[0], rand_leaf_color, pixel_color, max_height * (1 + self.on_time_percent)))
             self.effects.append(SinglePixelEffect(leaf[1][::-1], rand_leaf_color, pixel_color, max_height * (1 + self.on_time_percent)))
