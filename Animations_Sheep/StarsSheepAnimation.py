@@ -11,7 +11,7 @@ class StarsSheepAnimation(SheepAnimation):
         SheepAnimation.__init__(self, sheep, props)
 
         stars_percent = props['stars_percent'] if props and 'stars_percent' in props else 0.1
-        self.stars_per_cycle = int(stars_percent * len(sheep.get_array()))
+        self.stars_per_cycle = int(stars_percent * len(sheep.get_all_indexes()))
 
         self.previous_time = 1.0
 
@@ -35,7 +35,8 @@ class StarsSheepAnimation(SheepAnimation):
         for i in self.sheep.get_ears_indexes():
             self.add_effect_for_index(i)
         for _ in range(0, self.stars_per_cycle):
-            self.add_effect_for_index(indexes.pop())
+            if len(indexes) > 0:
+                self.add_effect_for_index(indexes.pop())
 
     def add_effect_for_index(self, index):
         start_t = random.uniform(0.0, 0.4)
