@@ -2,6 +2,7 @@ from RoundRobinLakeAnimation import RoundRobinLakeAnimation
 from ConfettiLakeAnimation import ConfettiLakeAnimation
 from NaturalLakeAnimation import NaturalLakeAnimation
 from EqLakeAnimation import EqLakeAnimation
+from SpiningColorLakeAnimation import SpiningColorLakeAnimation
 
 class LakeAnimationFactory():
     @staticmethod
@@ -24,5 +25,8 @@ class LakeAnimationFactory():
 
         if 'Eq' in config:
             return EqLakeAnimation(lake, config['Eq'])
+
+        if 'Spin' in config:
+            return SpiningColorLakeAnimation(lake, config['Spin'])
 
         print 'Invalid lake animation -', config
