@@ -5,100 +5,439 @@ pieces:
   - 
     - 0
     - 16
-    -
+    - grass:
+        Spike:
+          directionType: "Down"
+          hue_start: 0.7
+          brightness: 0.4
+        beat_mul: 0.25
   - 
     - 6.524807256
     - 32
-    - 
+    - grass:
+        Spike:
+          directionType: "Down"
+          hue_start: 0.7
+          brightness: 0.7
+        beat_mul: 1.0
   -
     - 19.69052154
     - 28
-    - 
+    - grass:
+        Spike:
+          directionType: "Down"
+          hue_start: 0.7
+          brightness: 1.0
+        beat_mul: 1.0
+      lake:
+        Natural:
+          hue_start: 0.7
+        beat_mul: 1.0
   - 
     - 31.18439909
     - 4
-    - 
+    - grass:
+        Spike:
+          directionType: "Down"
+          hue_start: 0.7
+          brightness: 1.0
+        beat_mul: 0.25
+      lake:
+        Natural:
+          hue_start: 0.7
+        beat_mul: 0.25
   - 
     - 32.83301587
     - 32
-    - 
+    - grass:
+        Spike:
+          directionType: "Down"
+          hue_start: 0.4
+          brightness: 1.0
+        beat_mul: 1.0
+      lake:
+        Natural:
+          hue_start: 0.4
+        beat_mul: 1.0
   - 
     - 45.9755102
     - 28
-    - 
+    - grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: 0.4
+          brightness: 1.0
+        beat_mul: 1.0
+      lake:
+        Natural:
+          hue_start: 0.4
+        beat_mul: 1.0
   - 
     - 57.49260771
     - 4
-    - 
+    - grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: 0.4
+          brightness: 1.0
+        beat_mul: 0.25
+      lake:
+        Natural:
+          hue_start: 0.4
+        beat_mul: 0.25
   - 
     - 59.11800454
     - 60
-    - 
+    - grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: 0.1
+          brightness: 1.0
+        beat_mul: 1.0
+      lake:
+        Natural:
+          hue_start: 0.1
+        beat_mul: 1.0
+      sheep:
+        FillFade:
+          hue_start: 0.1
+        beat_mul: 0.5
   - 
     - 83.80081633
     - 4
-    - 
+    - grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: 0.1
+          brightness: 1.0
+        beat_mul: 0.25
+      lake:
+        Natural:
+          hue_start: 0.1
+        beat_mul: 0.25
+      sheep:
+        FillFade:
+          hue_start: 0.1
+        beat_mul: 0.25
   - 
     - 85.42621315
     - 32
-    -  
+    - grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: 0.8
+          brightness: 1.0
+        beat_mul: 1.0
+      lake:
+        Natural:
+          hue_start: 0.8
+        beat_mul: 1.0
+      sheep:
+        FillFade:
+          hue_start: 0.8
+        beat_mul: 0.5
+      sign:
+        Hue:
+          full_color: False
+          animated: False
+          hue_start: 0.8
+        beat_mul: 0.5
   - 
     - 98.59192744
     - 28
-    - 
+    - grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: 0.6
+          brightness: 1.0
+        beat_mul: 1.0
+      lake:
+        Natural:
+          hue_start: 0.6
+        beat_mul: 1.0
+      sheep:
+        FillFade:
+          hue_start: 0.6
+        beat_mul: 0.5
+      sign:
+        Hue:
+          full_color: False
+          animated: False
+          hue_start: 0.6
+        beat_mul: 0.5
   - 
     - 110.085805
     - 4
-    - 
+    - grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: 0.6
+          brightness: 1.0
+        beat_mul: 0.25
+      lake:
+        Natural:
+          hue_start: 0.6
+        beat_mul: 0.25
+      sheep:
+        FillFade:
+          hue_start: 0.6
+        beat_mul: 0.25
+      sign:
+        Hue:
+          full_color: False
+          animated: False
+          hue_start: 0.6
+        beat_mul: 0.25
   - 
     - 111.7344218
     - 32
-    - 
+    - grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: 0.3
+          brightness: 1.0
+        beat_mul: 1.0
+      lake:
+        Natural:
+          hue_start: 0.3
+        beat_mul: 1.0
+      sheep:
+        Rainbow:
+        beat_mul: 0.5
+      sign:
+        Rainbow:
+        beat_mul: 0.5
   - 
     - 124.8769161
     - 28
-    - 
+    - grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: 0.9
+          brightness: 1.0
+        beat_mul: 1.0
+      lake:
+        Natural:
+          hue_start: 0.9
+        beat_mul: 1.0
+      sheep:
+        Rainbow:
+        beat_mul: 0.5
+      sign:
+        Rainbow:
+        beat_mul: 0.5
   - 
     - 136.3940136
     - 4
-    - 
+    - grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: 0.9
+          brightness: 1.0
+        beat_mul: 0.25
+      lake:
+        Natural:
+          hue_start: 0.9
+        beat_mul: 0.25
+      sheep:
+        Rainbow:
+        beat_mul: 0.125
+      sign:
+        Rainbow:
+        beat_mul: 0.125
   - 
     - 138.0426304
     - 32
-    - 
+    - grass:
+        Clear:
+      lake:
+        Clear:
+      sheep:
+        Rainbow:
+        beat_mul: 0.125
+      sign:
+        Rainbow:
+        beat_mul: 0.125
   - 
     - 151.1619048
     - 32
-    - 
+    - sheep:
+        Rainbow:
+        beat_mul: 0.125
+      sign:
+        Rainbow:
+        beat_mul: 0.125
+      flower:
+        RoundRobin:
+        beat_mul: 0.5
   - 
     - 164.327619
     - 28
-    - 
+    - grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: 0.5
+          brightness: 1.0
+        beat_mul: 1.0
+      lake:
+        Natural:
+          hue_start: 0.5
+        beat_mul: 1.0
+      sheep:
+        Rainbow:
+        beat_mul: 0.5
+      sign:
+        Rainbow:
+        beat_mul: 0.5
+      flower:
+        Alternate:
   - 
     - 175.8447166
     - 4
-    - 
+    - grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: 0.5
+          brightness: 1.0
+        beat_mul: 0.25
+      lake:
+        Natural:
+          hue_start: 0.5
+        beat_mul: 0.25
+      sheep:
+        Rainbow:
+        beat_mul: 0.125
+      sign:
+        Rainbow:
+        beat_mul: 0.125
+      flower:
+        Alternate:
   - 
     - 177.4701134
     - 28
-    - 
+    - grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: 0.1
+          brightness: 1.0
+        beat_mul: 1.0
+      lake:
+        Natural:
+          hue_start: 0.1
+        beat_mul: 1.0
+      sheep:
+        Alternate:
+      sign:
+        Hue:
+          full_color: False
+          animated: False
+          hue_start: 0.8
+        beat_mul: 0.5
+      flower:
+        Alternate:
   - 
     - 188.9872109
     - 4
-    - 
+    - grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: 0.1
+          brightness: 1.0
+        beat_mul: 0.25
+      lake:
+        Natural:
+          hue_start: 0.1
+        beat_mul: 0.25
+      sheep:
+        Alternate:
+      sign:
+        Hue:
+          full_color: False
+          animated: False
+          hue_start: 0.8
+        beat_mul: 0.25
+      flower:
+        Alternate:
   - 
     - 190.6358277
     - 28
-    - 
+    - grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: "Rainbow"
+        beat_mul: 1.0
+      lake:
+        RoundRobin:
+      sheep:
+        Rainbow:
+      sign:
+        Hue:
+          full_color: False
+          animated: False
+          hue_start: 0.8
+        beat_mul: 1.0
+      flower:
+        Rainbow:
   - 
     - 202.1529252
     - 4
-    - 
+    - grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: "Rainbow"
+        beat_mul: 0.25
+      sheep:
+        Rainbow:
+        beat_mul: 0.25
+      sign:
+        Hue:
+          full_color: False
+          animated: False
+          hue_start: 0.8
+        beat_mul: 0.25
+      flower:
+        Rainbow:
+        beat_mul: 0.25
   - 
     - 203.801542
     - 32
-    - 
+    - grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: "Rainbow"
+        beat_mul: 1.0
+      sheep:
+        Rainbow:
+        beat_mul: 1.0
+      sign:
+        Hue:
+          full_color: False
+          animated: True
+          hue_start: 0.8
+        beat_mul: 1.0
+      flower:
+        Rainbow:
+        beat_mul: 1.0
+      lake:
+        Spin:
+          contour_color:
+            type: "circular_loc_hue"
   - 
     - 216.9440363
     - 16
-    - 
+    - grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: "Rainbow"
+          brightness: 0.5
+        beat_mul: 0.5
+      sheep:
+        Clear:
+      sign:
+        Clear:
+      flower:
+        Clear:
+      lake:
+        Spin:
+          contour_color:
+            type: "circular_loc_hue"
