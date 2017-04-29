@@ -55,7 +55,7 @@ class CircularLocHue(AbstractTimedColor):
         AbstractTimedColor.__init__(self)
 
     def get_color(self, time_percent, location_percent):
-        return Colors.hls_to_rgb(location_percent, 1.0, 1.0)
+        return Colors.hls_to_rgb(location_percent if location_percent is not None else 0.0, 1.0, 1.0)
 
 
 class HueChangeTimedColorByLocation(AbstractTimedColor):
