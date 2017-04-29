@@ -1,5 +1,5 @@
 --- 
-offset: -0.35
+offset: -0.55
 file_name: "TATRAN - Shvat - 05 Shvat.mp3"
 pieces: 
   - 
@@ -9,121 +9,455 @@ pieces:
   -
     - 1.14503401
     - 16
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.125
   - 
     - 11.86503401
     - 16
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.125
   - 
     - 22.58503401
     - 32
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.25
+      sheep:
+        Spikes:
+          hue_start: 0.67
+        beat_mul: 0.5
   - 
     - 44.02503401
     - 24
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.25
+      sheep:
+        Spikes:
+          hue_start: 0.67
+        beat_mul: 0.5
+      grass:
+        HorLine:
+          hue_start: 0.67
+          pixel_hue: 0.4
+          on_time_percent: 1.0
+          brightness: 0.5
+        beat_mul: 0.5
   - 
     - 59.90748299
     - 8
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.25
+      sheep:
+        Spikes:
+          hue_start: 0.67
+        beat_mul: 0.5
+      grass:
+        HorLine:
+            hue_start: 0.67
+            pixel_hue: 0.4
+            on_time_percent: 0
+            brightness: 0.6
+        beat_mul: 0.25
   - 
     - 65.1784127
     - 12
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.25
+      sheep:
+        Spikes:
+          hue_start: 0.67
+        beat_mul: 1.0
+      grass:
+        HorLine:
+          hue_start: 0.67
+          pixel_hue: 0.4
+          on_time_percent: 1.0
+          brightness: 0.6
+        beat_mul: 0.5
   - 
     - 73.18929705
     - 4
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.25
+      sheep:
+        Clear:
+      grass:
+        Clear:
   - 
     - 75.39519274
     - 32
-    - 
+    - lake:
+        Confetti:
+          leds_percent_per_beat: 0.2
+          brightness: 0.7
+          only_waves: True
+        beat_mul: 1.0
+      grass:
+        HorLine:
+          hue_start: 0.67
+          pixel_hue: 0.4
+          on_time_percent: 0.5
+          brightness: 0.8
+        beat_mul: 0.5
+      flower:
+        RoundRobin:
+          hue_start: 0.1
+          hue_speed: 0.13
+        beat_mul: 1.0
   - 
     - 96.85043084
     - 5
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.25
+      grass:
+        Clear:
+      flower:
+        Clear:
   - 
     - 100.2637642
     - 3
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 1.0
+      flower:
+        RoundRobin:
+          hue_start: 0.0
+          hue_speed: 0.3
+        beat_mul: 1.0
+      sign:
+        Hue:
+          hue_start: 0.0
+          hue_speed: 0.2
+          animated: False
+          full_color: True
+        beat_mul: 1.0
   - 
     - 102.3303401
     - 5
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.25
+      flower:
+        Clear:
+      sign:
+        Clear:
   - 
     - 105.8365533
     - 3
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.3333333333
+      flower:
+        RoundRobin:
+          hue_start: 0.1
+          hue_speed: 0.2
+        beat_mul: 0.3333333333
+      sign:
+        Hue:
+          hue_start: 0.0
+          hue_speed: 0.2
+          animated: False
+          full_color: True
+        beat_mul: 0.3333333333
   - 
     - 107.8334694
     - 5
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.25
+      flower:
+        Clear:
+      sign:
+        Clear:
   - 
     - 111.2468027
     - 3
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 1.0
+      flower:
+        RoundRobin:
+          hue_start: 0.0
+          hue_speed: 0.13
+        beat_mul: 1.0
+      sign:
+        Hue:
+          hue_start: 0.0
+          hue_speed: 0.2
+          animated: False
+          full_color: True
+        beat_mul: 1.0
   - 
     - 113.4062585
     - 4
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.25
+      flower:
+        Clear:
+      sign:
+        Hue:
+          hue_start: 0.6
+          hue_speed: 0.2
+          animated: Yes
+          full_color: True
+        beat_mul: 1.0
   - 
     - 116.1926531
     - 4
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.25 
+      sign:
+        Hue:
+          hue_start: 0.4
+          hue_speed: 0.2
+          animated: YES
+          full_color: True
+        beat_mul: 1.0
+      sheep:
+        Spikes:
+          hue_start: 0.67
+        beat_mul: 0.5
   - 
     - 118.9558277
     - 8
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.25
+      sign:
+        Hue:
+          hue_start: 0.4
+          hue_speed: 0.2
+          animated: YES
+          full_color: True
+        beat_mul: 1.0
+      sheep:
+        Spikes:
+          hue_start: 0.67
+        beat_mul: 0.5
   - 
     - 124.4821769
     - 16
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.25
+      sheep:
+        Spikes:
+          hue_start: 0.67
+        beat_mul: 0.5
+      grass:
+        HorLine:
+          hue_start: 0.67
+          pixel_hue: 0.4
+          on_time_percent: 1.0
+          brightness: 0.6
+        beat_mul: 0.25
   - 
     - 135.1401361
     - 8
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.25
+      sheep:
+        Spikes:
+          hue_start: 0.67
+        beat_mul: 0.5
   - 
     - 140.5039456
     - 16
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.25
+      sign:
+        Clear:
+      sheep:
+        Spikes:
+          hue_start: 0.67
+        beat_mul: 0.5
+      grass:
+        HorLine:
+          hue_start: 0.67
+          pixel_hue: 0.4
+          on_time_percent: 1.0
+          brightness: 0.6
+        beat_mul: 0.25
   - 
     - 151.2083447
     - 8
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.25
+        # spin animation
+      sheep:
+        Spikes:
+          hue_start: 0.67
+        beat_mul: 0.5
+      grass:
+        HorLine:
+          hue_start: 0.67
+          pixel_hue: 0.4
+          on_time_percent: 1.0
+          brightness: 0.6
+        beat_mul: 0.5
   - 
     - 156.5024943
     - 8
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.25
+        # spin animation
+      sheep:
+        Spikes:
+          hue_start: 0.67
+        beat_mul: 0.5
+      grass:
+        HorLine:
+          hue_start: 0.67
+          pixel_hue: 0.4
+          on_time_percent: 1.0
+          brightness: 0.6
+        beat_mul: 0.5
   - 
     - 161.796644
     - 16
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.125
+      sheep:
+        Clear:
+      grass:
+        Clear:
   - 
     - 172.4081633
     - 16
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.25
+      sheep:
+        Spikes:
+          hue_start: 0.67
+        beat_mul: 0.5
   - 
     - 183.0429025
     - 32
-    - 
+    - lake:
+        Natural: 
+        beat_mul: 0.5
+      sheep:
+        Spikes:
+          hue_start: 0.67
+        beat_mul: 0.5
+      flower:
+        RoundRobin:
+          hue_start: 0.1
+          hue_speed: 0.13
   - 
     - 204.4052608
     - 16
-    - 
+    - lake:
+        Confetti:
+          leds_percent_per_beat: 0.2
+          brightness: 0.7
+          only_waves: True
+        beat_mul: 1.0
+      sheep:
+        Spikes:
+          hue_start: 0.67
+        beat_mul: 0.5
+      grass:
+        HorLine:
+          hue_start: 0.67
+          pixel_hue: 0.4
+          on_time_percent: 0.5
+          brightness: 0.6
+        beat_mul: 0.5
+      flower:
+        RoundRobin:
+          hue_start: 0.1
+          hue_speed: 0.13
   - 
     - 215.06322
     - 16
-    - 
+    - lake:
+        Confetti:
+          leds_percent_per_beat: 0.4
+          brightness: 0.7
+          only_waves: True
+        beat_mul: 1.0
+      grass:
+        HorLine:
+          hue_start: 0.67
+          pixel_hue: 0.4
+          on_time_percent: 0.5
+          brightness: 0.8
+        beat_mul: 0.5
+      flower:
+        RoundRobin:
+          hue_start: 0.1
+          hue_speed: 0.13
+      sheep:
+        Spikes:
+          hue_start: 0.67
+        beat_mul: 0.5
   - 
     - 225.7211791
     - 12
-    - 
+    - lake:
+        Confetti:
+          leds_percent_per_beat: 0.6
+          brightness: 0.7
+          only_waves: False
+        beat_mul: 1.0
+      grass:
+        HorLine:
+          hue_start: 0.67
+          pixel_hue: 0.4
+          on_time_percent: 0.5
+          brightness: 1.0
+        beat_mul: 1.0
+      flower:
+        RoundRobin:
+          hue_start: 0.1
+          hue_speed: 0.13
+      sheep:
+        Spikes:
+          hue_start: 0.67
+        beat_mul: 0.5
+      sign:
+        Hue:
+          hue_start: 0.0
+          hue_speed: 0.2
+          animated: False
+          full_color: True
+        beat_mul: 1.0
   - 
     - 233.7611791
     - 1
-    - 
+    - lake:
+        Clear:
+      grass:
+        Clear:
+      flower:
+        Clear:
+      sign:
+        Clear:
   - 
     - 234.4311791
     - 8
-    - ~
+    - sheep: 
+        Clear:
+      lake:
+        Confetti:
+          leds_percent_per_beat: 0.1
+          brightness: 0.3
+          only_waves: True
+        beat_mul: 1.0
 
