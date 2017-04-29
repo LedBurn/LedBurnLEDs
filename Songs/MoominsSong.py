@@ -20,6 +20,8 @@ class MoominsSong():
         self.body_part = 0
         self.body_part_dir = 1
 
+        self.leaf = 0
+
         self.curr_effect_start = 0
         self.curr_effect_time = 1
 
@@ -37,22 +39,24 @@ class MoominsSong():
             sheep.clear()
             flower.clear()
             label = self.time_stamps[0][1]
-            self.f_effects = []
             if label == "H":
                 self.s_effects = [
                     AlwaysOnEffect(sheep.get_head_indexes() + sheep.get_ears_indexes(), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
-                print 'here'
+                self.f_effects = [AlwaysOnEffect(self.flower.get_seeds(), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
             elif label == "BP":
                 self.s_effects = [
                     AlwaysOnEffect(sheep.get_body_part_indexes(self.body_part), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
+                self.f_effects = [AlwaysOnEffect(self.flower.get_leaves_array()[self.leaf], Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
                 self.body_part = (self.body_part + self.body_part_dir)
                 if self.body_part == self.sheep.get_num_of_body_parts() - 1:
                     self.body_part_dir = -1
                 elif self.body_part == 0:
                     self.body_part_dir = 1
+                self.leaf = (self.leaf + 1) % len(self.flower.get_leaves_array())
             elif label == "L1":
                 self.s_effects = [
                     AlwaysOnEffect(sheep.get_leg12_indexes(), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
+                self.f_effects = [AlwaysOnEffect(self.flower.get_left_leaf(), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
                 #self.f_effects = [
                 #    AlwaysOnEffect(self.flower.get_left_leaf(), Colors.hls_to_rgb(0.0, 1.0, 1.0))
                 #]
@@ -60,6 +64,7 @@ class MoominsSong():
             elif label == "L2":
                 self.s_effects = [
                     AlwaysOnEffect(sheep.get_leg34_indexes(), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
+                self.f_effects = [AlwaysOnEffect(self.flower.get_right_leaf(), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
                 #self.f_effects = [
                 #    AlwaysOnEffect(self.flower.get_right_leaf(), Colors.hls_to_rgb(0.0, 1.0, 1.0))
                 #]
@@ -67,6 +72,7 @@ class MoominsSong():
             elif label == "W":
                 self.s_effects = [
                     AlwaysOnEffect(sheep.get_all_indexes(), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
+                self.f_effects = [AlwaysOnEffect(self.flower.get_all_indexes(), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
             else:
                 print "unknown label: " + label
                 self.s_effects = [AlwaysOnEffect(sheep.get_body_part_indexes(self.body_part), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]

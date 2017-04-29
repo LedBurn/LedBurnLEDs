@@ -30,7 +30,12 @@ class EqLakeAnimation(LakeAnimation):
 
         #the lake segments between the waves
         for i in range(1, len(self.lake.waves_arr)):
-            high_indexes = range(self.lake.conn_arr[i][0], self.lake.conn_arr[i-1][0])
+            high_start = self.lake.conn_arr[i][0]
+            high_end = self.lake.conn_arr[i-1][0]
+            if high_start < high_end:
+                high_indexes = range(high_start, high_end)
+            else:
+                high_indexes = range(high_start, self.lake.contour[-1]) + range(0, high_end)
             low_indexes = range(self.lake.conn_arr[i-1][1], self.lake.conn_arr[i][1])
             self.effects.append(AlwaysOnEffect(high_indexes, Colors.hls_to_rgb(self.hue1, 1.0, self.brightness)))
             self.effects.append(AlwaysOnEffect(low_indexes, Colors.hls_to_rgb(self.hue2, 1.0, self.brightness)))
