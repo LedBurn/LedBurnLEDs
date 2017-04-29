@@ -44,6 +44,7 @@ class Song():
 		self.audio_file = "Music/" + self.song_yml['file_name']
 		self.pieces = self.song_yml['pieces']
 		self.current_piece_id = 0
+		self.offset = self.song_yml['offset']
 
 		print str(self.pieces[self.current_piece_id][0]) + " - " + str(self.pieces[self.current_piece_id][1])
 		self.create_animations(self.pieces[self.current_piece_id][2])
@@ -105,6 +106,8 @@ class Song():
 		self.lake.clear()
 
 	def play_animations(self, song_time, curr_temerature):
+
+		song_time += self.offset
 
 		self.temp_stick.set_temperature(curr_temerature)
 
