@@ -91,7 +91,14 @@ def TimedColorFactory(props):
         if "hue" not in props:
             print "missing 'hue' in " + str(props) + " for color of type " + color_type
             return None
-        return ConstTimedColor(Colors.hls_to_rgb(props["hue"], 1.0, 1.0))
+        sat = 1.0 if "sat" not in props else props["sat"]
+        val = 1.0 if "val" not in props else props["val"]
+        return ConstTimedColor(Colors.hsv_to_rgb(props["hue"], sat, val))
+    elif color_type == "timed_hue":
+        if "hue_start" not in props or "hue_end" not in props:
+            print "missing 'hue_start' or 'hue_end' in " + str(props) + " for color of type " + color_type
+            return None
+        return HueChangeTimedColor(props["hue_start"], props["hue_end"])
 
     print 'cannot find color with type ' + str(color_type)
 

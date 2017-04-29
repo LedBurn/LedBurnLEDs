@@ -1,80 +1,204 @@
 --- 
-offset: -0.5
+offset: -0.17
 file_name: "Grouch - Exile - Organik Mechanik Vol 2.mp3"
 pieces: 
   - 
     - 0
     - 8
-    - 
+    - lake:
+        Confetti:
+            leds_percent_per_beat: 0.1
+            only_waves: False
+            brightness: 0.3
+            fade_factor: 0.95
+        beat_mul: 0.25
+
   -
     - 8.93968254
     - 32
-    - 
-  - 
+    - grass:
+        HorLine:
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.1
+            only_waves: False
+            brightness: 0.3
+            fade_factor: 0.95
+        beat_mul: 1
+  -
     - 27.42276644
     - 28
-    - 
-  - 
+    - flower:
+        Natural:
+        beat_mul: 0.5
+      grass:
+        Spike:
+          directionType: UpAndDown
+          leafChooseType: All
+          colorType: Rainbow
+        beat_mul: 0.25
+  -
     - 43.58385488
     - 4
-    - 
-  - 
+    - flower:
+        Confetti:
+        beat_mul: 4.0
+      sheep:
+        Confetti:
+        beat_mul: 4.0
+      grass:
+        Confetti:
+        beat_mul: 4.0
+      lake:
+        Confetti:
+        beat_mul: 4.0
+      sign:
+        Confetti:
+        beat_mul: 4.0
+  -
     - 45.88263039
     - 28
-    - 
+    - lake:
+        Spin:
+          contour_color:
+            type: circular_loc_hue
+        beat_mul: 0.0625
+      flower:
+        Clear:
+      sheep:
+        Clear:
+      grass:
+        Clear:
+      sign:
+        Clear:
   - 
     - 62.04371882
     - 4
-    - 
-  - 
+    - flower:
+        Confetti:
+      sheep:
+        Confetti:
+      grass:
+        Confetti:
+      lake:
+        Confetti:
+      sign:
+        Confetti:
+  -
     - 64.34249433
     - 32
-    - 
+    - sheep:
+        Clear:
+      flower:
+        Clear:
+      sign:
+        Clear:
+      lake:
+        Eq:
+          hue1: 0.6
+          hue2: 0.7
+          brightness: 0.5
+      grass:
+        Confetti:
   - 
     - 82.80235828
     - 28
-    - 
+    - lake:
+        Eq:
+          hue1: 0.7
+          hue2: 0.8
+          brightness: 0.5
+      grass:
+        Confetti:
   - 
     - 98.96344671
     - 4
-    - 
+    - lake:
+        Natural:
+        beat_mul: 2.0
   - 
     - 101.2622222
     - 32
-    - 
+    - lake:
+        Eq:
+          hue1: 0.3
+          hue2: 0.4
+          brightness: 0.5
+      grass:
+        Confetti:
   - 
     - 119.7220862
     - 28
-    - 
-  - 
+    - lake:
+        Eq:
+          hue1: 0.4
+          hue2: 0.5
+          brightness: 0.5
+      grass:
+        Confetti:
+  -
     - 135.9063946
     - 4
-    - 
+    - lake:
+        Clear:
   - 
     - 138.2051701
     - 32
-    - 
+    - grass:
+        HorLine:
+          hue_start: 0.4
+      lake:
+        Confetti:
   - 
     - 156.665034
     - 24
-    - 
-  - 
+    - grass:
+        HorLine:
+          hue_start: 0.6
+      lake:
+        Confetti:
+  -
     - 170.5273469
     - 8
-    - 
+    - flower:
+        Alternate:
+        beat_mul: 2
+      lake:
+        Clear:
+      grass:
+        Clear:
   - 
     - 175.2035374
     - 32
-    - 
+    - lake:
+        Eq:
+          hue1: 0.0
+          hue2: 0.4
+          brightness: 0.5
+      grass:
+        Confetti:
+      flower:
+        Clear:
   - 
     - 193.6634014
     - 28
-    - 
-  - 
+    - lake:
+        Eq:
+          hue1: 0.4
+          hue2: 0.8
+          brightness: 0.5
+      grass:
+        Confetti:
+  -
     - 209.8941497
     - 4
-    - 
+    - lake:
+        Clear:
+      grass:
+        Clear:
   - 
     - 212.4251247
     - 16
-    - ~
+    - lake:
+        Confetti:
+        beat_mul: 0.125

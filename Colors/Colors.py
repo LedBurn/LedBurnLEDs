@@ -29,6 +29,9 @@ def change_rgb_lightness(rgb_color, lightness_factor):
 def fix_lightness_percent(orig_val):
     return orig_val * orig_val
 
+def hsv_to_rgb(h, s, v):
+    return [int(c * 255) for c in colorsys.hsv_to_rgb(h, s, v)]
+
 def hls_to_rgb(h, l, s):
     """
     h, l, s - in [0, 1]

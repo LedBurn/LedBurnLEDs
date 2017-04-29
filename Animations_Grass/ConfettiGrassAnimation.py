@@ -9,15 +9,15 @@ class ConfettiGrassAnimation(GrassAnimation):
 
         leds_percent_per_beat = 0.4
         brightness = 1.0
-        if self.props != None:
-        	if 'leds_percent_per_beat' in self.props:
-        		leds_percent_per_beat = self.props['leds_percent_per_beat']
-        if 'brightness' in self.props:
+        if self.props is not None:
+            if 'leds_percent_per_beat' in self.props:
+                leds_percent_per_beat = self.props['leds_percent_per_beat']
+            if 'brightness' in self.props:
                 brightness = self.props['brightness']
         
         self.effects.append(ConfettiEffect(self.grass.get_leaves(), leds_percent_per_beat, brightness))
 
     
     def apply(self, time_percent):
-    	for effect in self.effects:
-        	effect.apply(time_percent, self.grass.get_array())
+        for effect in self.effects:
+            effect.apply(time_percent, self.grass.get_array())
