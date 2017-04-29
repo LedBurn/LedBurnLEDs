@@ -5,92 +5,302 @@ pieces:
   - 
     - 0
     - 2
-    - 
+    -
   - 
     - 4.829750567
     - 16
-    - 
+    - sheep:
+        Stars:
+        beat_mul: 0.5
   -
     - 20.03882086
     - 16
-    -
+    - sheep:
+        Stars:
+        beat_mul: 0.5
+      lake:
+        Stars:
+        beat_mul: 0.5
   - 
     - 34.34231293
-    - 16
-    -
-  - 
-    - 48.64580499
-    - 8
-    - 
+    - 24
+    - sheep:
+        Stars:
+        beat_mul: 0.5
+      grass:
+        RoundRobin:
+      lake:
+        Stars:
+        beat_mul: 0.5
   - 
     - 55.84399093
     - 24
-    -
+    - sheep:
+        Stars:
+        beat_mul: 0.5
+      grass:
+        RoundRobin:
+          hue_start: 0.5
+      flower:
+        Natural:
+      lake:
+        Stars:
+        beat_mul: 0.5
   - 
     - 77.46176871
     - 12
-    - 
+    - sheep:
+        Rainbow:
+      grass:
+        Confetti:
+      lake:
+        Confetti:
+      flower:
+        Alternate:
+      sign:
+        Hue:
+          animated: False
+          full_color: False
   - 
     - 88.21260771
     - 28
-    -
+    - sheep:
+        Stars:
+        beat_mul: 0.5
+      sign:
+        Clear:
+      flower:
+        Natural: 
+          hue_start: 0.7
+      lake:
+        Natural:
+          hue_start: 0.7
+        beat_mul: 0.25
+      grass:
+        Confetti:
   - 
     - 113.0579592
     - 28
-    - 
+    - sheep:
+        Stars:
+        beat_mul: 0.5
+      flower:
+        Natural: 
+          hue_start: 0.3
+      lake:
+        Natural:
+          hue_start: 0.3
+        beat_mul: 0.25
+      grass:
+        Confetti:
   - 
     - 137.7872109
     - 16
-    - 
+    - sheep:
+        Stars:
+        beat_mul: 0.25
+      flower: 
+        Explosion:
+        beat_mul: 0.5
+      lake:
+        Clear:
+      grass:
+        Clear:
   - 
     - 151.9049433
     - 10
-    - 
+    - sheep:
+        Stars:
+        beat_mul: 0.5
+      flower: 
+        Natural:
+          hue_start: 0.45
+          hue_speed: 0.15
+        beat_mul: 0.25  
   - 
     - 160.6356463
     - 8
-    - 
+    - sheep:
+        Stars:
+        beat_mul: 0.5
+      flower: 
+        Rainbow:
+        beat_mul: 0.25
+      grass:
+        Spike:
+          directionType: "UpAndDown"
+        beat_mul: 2.0
   - 
     - 167.3926531
     - 20
-    - 
+    - sheep:
+        Stars:
+        beat_mul: 0.5
+      flower:
+        Alternate:
+      grass:
+        Spike:
+          directionType: "UpAndDown"
+        beat_mul: 0.5
+      Stars:
+        beat_mul: 0.5
   - 
     - 184.6682993
     - 4
-    - 
+    - sheep:
+        Stars:
+        beat_mul: 0.5
+      flower:
+        Rainbow:
+        beat_mul: 0.25
+      grass:
+        Spike:
+          directionType: "UpAndDown"
+        beat_mul: 0.5
+      Stars:
+        beat_mul: 0.5
   - 
     - 188.1745125
     - 20
-    - 
+    - sheep:
+        Stars:
+        beat_mul: 0.25
+      flower:
+        Alternate:
+      grass:
+        Spike:
+          directionType: "UpAndDown"
+        beat_mul: 0.5
+      lake:
+        Eq:
+          hue1: 0.8
+          hue2: 0.6
+
   - 
     - 205.6126984
     - 8
-    - 
+    - sheep:
+        Stars:
+        beat_mul: 0.5
+      flower:
+        Rainbow:
+        beat_mul: 0.5
+      grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: 0.9
+        beat_mul: 0.5
+      lake:
+        Eq:
+          hue1: 0.8
+          hue2: 0.0
   - 
     - 212.6019048
     - 20
-    - 
+    - sheep:
+        Stars:
+        beat_mul: 0.5
+      flower:
+        Natural:
+          hue_start: 0.9
+          hue_speed: 0.4
+        beat_mul: 0.5
+      grass:
+        Spike:
+          directionType: "UpAndDown"
+          hue_start: 0.9
+        beat_mul: 0.5
+      lake:
+        Confetti:
+          leds_percent_per_beat: 0.75
   - 
     - 230.0400907
     - 16
-    - 
+    - sheep:
+        Stars:
+        beat_mul: 0.5
+      lake:
+        Confetti:
+          leds_percent_per_beat: 0.2
+      grass:
+        Clear:
+      flower:
+        Clear:
   - 
     - 243.8791837
     - 10
-    - 
+    - sheep:
+        Stars:
+        beat_mul: 0.5
+      lake:
+        Confetti:
+          leds_percent_per_beat: 0.2
+      flower: 
+        Natural:
+          hue_start: 0.45
+          hue_speed: 0.15
+        beat_mul: 0.25  
   - 
     - 252.400907
     - 8
-    - 
+    - sheep:
+        Stars:
+        beat_mul: 0.5
+      flower: 
+        Natural:
+          hue_start: 0.45
+          hue_speed: 0.15
+        beat_mul: 0.25
+      grass:
+        Spike:
+          directionType: "UpAndDown"
+        beat_mul: 2.0
+      lake:
+        Stars:
   - 
     - 259.1114739
     - 20
-    - 
+    - sheep:
+        Stars:
+        beat_mul: 0.5
+      flower:
+        Alternate:
+      grass:
+        Spike:
+          directionType: "UpAndDown"
+        beat_mul: 0.5
+      lake:
+        Stars:
   - 
     - 276.3639002
     - 32
-    - 
+    - sheep:
+        Alternate:
+        beat_mul: 2.0
+      flower:
+        Rainbow:
+        beat_mul: 025
+      grass:
+        Spike:
+          directionType: "UpAndDown"
+        beat_mul: 0.5
+      lake:
+        Confetti:
+          leds_percent_per_beat: 0.9
+      sign:
+        Rainbow:
   - 
     - 303.3687075
     - 4
-    - 
+    - grass:
+        Clear:
+      flower:
+        Clear:
+      sign:
+        Clear:
+      sheep:
+        Stars:
+        beat_mul: 0.5
+      lake:
+        Confetti:
+          leds_percent_per_beat: 0.3
