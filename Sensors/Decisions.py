@@ -55,6 +55,7 @@ class Decisions:
 
             # if not the time, we will choose an input source since we don't have one
             self.curr_input = InputType.SACHI
+            print 'will use input selection of SACHI'
 
         if self.curr_input == InputType.SACHI:
             next_songs = self.decide_by_RFID(illusions_flag, sachi_meter)
@@ -156,11 +157,13 @@ class Decisions:
         # finish the RFID input selection
         if sachi_meter > 2:
             #"Yooo, Ani mastul, lets play some music"
+            print 'sachi meter is HIGH'
             return ["mastul.yml", self.choose_and_validate_next_song()]
 
         # finish the RFID input selection
         if sachi_meter < -2:
             #"man i havent been to the gym in a while, lets dance instead! (play upbeat song)"
+            print 'sachi meter is LOW'
             return ["gym.yml", self.choose_and_validate_next_song()]
 
         # if we are here, we are waiting fot the user to change the sachi meter.
@@ -168,15 +171,18 @@ class Decisions:
 
         if self.last_req_time is None or (datetime.datetime.now() - self.last_req_time) > datetime.timedelta(seconds = 15):
 
-            if self.stoned_request_count < self.STONED_REQUESTS:
+            if self.stoned_request_count >= self.STONED_REQUESTS:
+                print 'finished all our stoned requests. chosing next song without transition'
                 return [self.choose_and_validate_next_song()]
+
+            print 'offering user to change sachi meter'
 
             self.stoned_request_count += 1
             self.last_req_time = datetime.datetime.now()
 
             if sachi_meter >= 0:
                 # "Can someone pass me the sachta, i'm almost there"
-                return ["Sachta.yml"]
+                return ["DesertChill.yml"] #"Sachta.yml"
             else:
                 #I can't decide if I want to get stoned or go to the gym.
                 return ["cant_decied.yml"]
