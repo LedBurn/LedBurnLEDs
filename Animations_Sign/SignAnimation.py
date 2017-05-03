@@ -2,7 +2,6 @@ from abc import ABCMeta, abstractmethod
 
 import sys, os
 sys.path.append(os.path.abspath('../UIElements'))
-from Sign import Sign
 
 
 class SignAnimation:

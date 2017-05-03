@@ -43,7 +43,7 @@ while True:
     # current song is playing
     song_playing = song != None and pygame.mixer.music.get_busy()
     if song_playing:
-        song_time = (pygame.mixer.music.get_pos() - 170)/ 1000.0
+        song_time = (pygame.mixer.music.get_pos())/ 1000.0
         song.play_animations(song_time, curr_temperature)
         start_temperature = curr_temperature
     else: #no song playing
