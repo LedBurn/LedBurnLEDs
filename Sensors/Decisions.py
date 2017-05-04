@@ -23,11 +23,11 @@ class Decisions:
         self.last_req_time = None
 
         # it is ok to use transitions and full songs as you like in the time_songs map
-        self.time_songs  = {datetime.datetime(2017,5,28,18,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,40,0) : ["sundown.yml", "wish.yml"], datetime.datetime(2017,5,28,20,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,21,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,22,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,23,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,0,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,1,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,2,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,3,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,4,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,35,0) : ["sunrise.yml", "wish.yml"], datetime.datetime(2017,5,28,6,0,0) : ["hour.yml", "wish.yml"], \
-                            datetime.datetime(2017,5,28,18,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,40,0) : ["sundown.yml", "wish.yml"], datetime.datetime(2017,5,28,20,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,21,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,22,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,23,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,0,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,1,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,2,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,3,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,4,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,35,0) : ["sunrise.yml", "wish.yml"], datetime.datetime(2017,5,28,6,0,0) : ["hour.yml", "wish.yml"], \
-                            datetime.datetime(2017,5,28,18,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,40,0) : ["sundown.yml", "wish.yml"], datetime.datetime(2017,5,28,20,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,21,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,22,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,23,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,0,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,1,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,2,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,3,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,4,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,35,0) : ["sunrise.yml", "wish.yml"], datetime.datetime(2017,5,28,6,0,0) : ["hour.yml", "wish.yml"], \
-                            datetime.datetime(2017,5,28,18,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,40,0) : ["sundown.yml", "wish.yml"], datetime.datetime(2017,5,28,20,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,21,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,22,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,23,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,0,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,1,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,2,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,3,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,4,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,35,0) : ["sunrise.yml", "wish.yml"], datetime.datetime(2017,5,28,6,0,0) : ["hour.yml", "wish.yml"], \
-                            datetime.datetime(2017,5,28,18,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,40,0) : ["sundown.yml", "wish.yml"], datetime.datetime(2017,5,28,20,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,21,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,22,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,23,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,0,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,1,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,2,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,3,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,4,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,0,0) : ["hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,35,0) : ["sunrise.yml", "wish.yml"], datetime.datetime(2017,5,28,6,0,0) : ["hour.yml", "wish.yml"], \
+        self.time_songs  = {datetime.datetime(2017,5,28,18,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,40,0) : ["Transitions/sundown.yml", "wish.yml"], datetime.datetime(2017,5,28,20,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,21,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,22,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,23,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,0,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,1,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,2,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,3,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,4,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,35,0) : ["Transitions/sunrise.yml", "wish.yml"], datetime.datetime(2017,5,28,6,0,0) : ["Transitions/hour.yml", "wish.yml"], \
+                            datetime.datetime(2017,5,28,18,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,40,0) : ["Transitions/sundown.yml", "wish.yml"], datetime.datetime(2017,5,28,20,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,21,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,22,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,23,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,0,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,1,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,2,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,3,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,4,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,35,0) : ["Transitions/sunrise.yml", "wish.yml"], datetime.datetime(2017,5,28,6,0,0) : ["Transitions/hour.yml", "wish.yml"], \
+                            datetime.datetime(2017,5,28,18,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,40,0) : ["Transitions/sundown.yml", "wish.yml"], datetime.datetime(2017,5,28,20,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,21,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,22,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,23,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,0,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,1,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,2,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,3,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,4,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,35,0) : ["Transitions/sunrise.yml", "wish.yml"], datetime.datetime(2017,5,28,6,0,0) : ["Transitions/hour.yml", "wish.yml"], \
+                            datetime.datetime(2017,5,28,18,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,40,0) : ["Transitions/sundown.yml", "wish.yml"], datetime.datetime(2017,5,28,20,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,21,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,22,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,23,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,0,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,1,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,2,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,3,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,4,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,35,0) : ["Transitions/sunrise.yml", "wish.yml"], datetime.datetime(2017,5,28,6,0,0) : ["Transitions/hour.yml", "wish.yml"], \
+                            datetime.datetime(2017,5,28,18,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,40,0) : ["Transitions/sundown.yml", "wish.yml"], datetime.datetime(2017,5,28,20,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,21,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,22,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,23,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,0,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,1,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,2,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,3,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,4,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,35,0) : ["Transitions/sunrise.yml", "wish.yml"], datetime.datetime(2017,5,28,6,0,0) : ["Transitions/hour.yml", "wish.yml"], \
                             }
         self.clear_old_time_events()
 
@@ -150,21 +150,21 @@ class Decisions:
         # illusions flag will finish the RFID input selection
         if illusions_flag:
             #"Ahh, i see you're looking for something special, how about this.. (play illusion song)"
-            ill_song = random.choice(["LiveFullyNow.yml", "ItStartsNow.yml", "LiveFullyNow.yml", "ItStartsNow.yml"])
+            ill_song = random.choice(["Transitions/LiveFullyNow.yml", "Transitions/ItStartsNow.yml", "Transitions/LiveFullyNow.yml", "Transitions/ItStartsNow.yml"])
             print 'illusions_flag set, next illusion song is ' + str(ill_song)
-            return ["special.yml", ill_song, self.choose_and_validate_next_song()]
+            return [random.choice(["Transitions/special.yml"]), ill_song, self.choose_and_validate_next_song()]
 
         # finish the RFID input selection
         if sachi_meter > 2:
             #"Yooo, Ani mastul, lets play some music"
             print 'sachi meter is HIGH'
-            return ["mastul.yml", self.choose_and_validate_next_song()]
+            return [random.choice(["Transitions/mastul.yml"]), self.choose_and_validate_next_song()]
 
         # finish the RFID input selection
         if sachi_meter < -2:
             #"man i havent been to the gym in a while, lets dance instead! (play upbeat song)"
             print 'sachi meter is LOW'
-            return ["gym.yml", self.choose_and_validate_next_song()]
+            return [random.choice(["Transitions/gym.yml"]), self.choose_and_validate_next_song()]
 
         # if we are here, we are waiting fot the user to change the sachi meter.
         # tell him how it goes...
@@ -182,10 +182,10 @@ class Decisions:
 
             if sachi_meter >= 0:
                 # "Can someone pass me the sachta, i'm almost there"
-                return ["DesertChill.yml"] #"Sachta.yml"
+                return [random.choice(["Transitions/Transitions/Sachta.yml"])]
             else:
                 #I can't decide if I want to get stoned or go to the gym.
-                return ["cant_decied.yml"]
+                return [random.choice(["Transitions/cant_decide.yml"])]
 
         return None
 
@@ -198,12 +198,12 @@ class Decisions:
             print 'start temperature was ' + str(start_temperature) + " now its " + str(curr_temperature) + \
                   " thanking for the hug..."
             self.hug_request_count = 0
-            return ["HugThanks.yml", "exile.yml"]
+            return [random.choice(["Transitions/HugThanks.yml"]), "exile.yml"]
 
         if curr_temperature < self.HUG_MAX_TEMP and self.hug_request_count < self.MAX_HUG_REQUESTS:
             self.hug_request_count += 1
-            return ["DesertChill.yml"]
+            return [random.choice(["Transitions/DesertChill.yml"])]
         elif curr_temperature > self.ALREADY_HUGED_TEMP:
-            return ["HuggingMe.yml", "exile.yml"]
+            return [random.choice(["Transitions/HuggingMe.yml"]), "exile.yml"]
 
         return None
