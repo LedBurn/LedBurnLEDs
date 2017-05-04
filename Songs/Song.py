@@ -46,6 +46,11 @@ class Song():
 		self.current_piece_id = 0
 		self.offset = self.song_yml['offset']
 
+		self.is_transition = 'Transitions' in self.audio_file
+		self.temp_stick.set_is_on(self.is_transition)
+		self.temp_stick.set_brightness(1.0 if self.is_transition else 0.15)
+
+
 		print str(self.pieces[self.current_piece_id][0]) + " - " + str(self.pieces[self.current_piece_id][1])
 		self.create_animations(self.pieces[self.current_piece_id][2])
 		self.frame_id = 0
