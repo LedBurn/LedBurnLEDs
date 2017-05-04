@@ -182,7 +182,7 @@ class Decisions:
 
             if sachi_meter >= 0:
                 # "Can someone pass me the sachta, i'm almost there"
-                return [random.choice(["Transitions/Transitions/Sachta.yml"])]
+                return [random.choice(["Transitions/Sachta.yml"])]
             else:
                 #I can't decide if I want to get stoned or go to the gym.
                 return [random.choice(["Transitions/cant_decide.yml"])]
@@ -202,7 +202,7 @@ class Decisions:
 
         if curr_temperature < self.HUG_MAX_TEMP and self.hug_request_count < self.MAX_HUG_REQUESTS:
             self.hug_request_count += 1
-            return [random.choice(["Transitions/DesertChill.yml"])]
+            return [random.choice(["Transitions/DesertChill.yml", "Transitions/HoldMyStick.yml"])]
         elif curr_temperature > self.ALREADY_HUGED_TEMP:
             return [random.choice(["Transitions/HuggingMe.yml"]), "exile.yml"]
 
