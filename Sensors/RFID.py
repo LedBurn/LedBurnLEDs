@@ -1,6 +1,6 @@
-IS_RPI = False
+import platform
 
-if IS_RPI:
+if (platform.machine() == 'armv7l'):
 
     import MFRC522
 
