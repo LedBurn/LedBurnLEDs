@@ -4,11 +4,13 @@ import pygame
 import socket
 from Songs.Song import Song
 from Sensors.RFID import RFID
+from Sensors.RFIDUDP import RFIDUDP
 from Sensors.Temperature import Temperature
 from Sensors.Motion import Motion
 from Sensors.Decisions import Decisions
 
 r = RFID()
+rf = RFIDUDP()
 temperature = Temperature()
 motion = Motion()
 decisions = Decisions()
@@ -36,7 +38,8 @@ while True:
 
     MyTime = datetime.datetime.now()
 
-    sachiMeter, illusionsFlag = r.process()
+    sachiMeter, illusionsFlag = rf.process()
+    # rfid_uid = rf.get_uid()
     curr_temperature = temperature.get_temperature()
     motion_detected = motion.get_has_motion()
 

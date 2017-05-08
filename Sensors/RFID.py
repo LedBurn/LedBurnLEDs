@@ -38,7 +38,7 @@ if (platform.machine() == 'armv7l'):
                         self.sachiMeter += -1
                     print "SachiMeter at " + str(self.sachiMeter)
             elif (set(whichUID) == set(self.cardUID)):
-                if ((self.MyTime - self.rfidTime) > datetime.timedelta(seconds=3)):
+                if ((curr_time - self.rfidTime) > datetime.timedelta(seconds=3)):
                     self.rfidTime = curr_time
                     self.sachiMeter = 0
                     self.illusionFlag = True

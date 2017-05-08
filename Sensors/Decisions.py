@@ -150,7 +150,7 @@ class Decisions:
         # illusions flag will finish the RFID input selection
         if illusions_flag:
             #"Ahh, i see you're looking for something special, how about this.. (play illusion song)"
-            ill_song = random.choice(["Transitions/LiveFullyNow.yml", "Transitions/ItStartsNow.yml", "Transitions/LiveFullyNow.yml", "Transitions/ItStartsNow.yml"])
+            ill_song = random.choice(["LiveFullyNow.yml", "ItStartsNow.yml", "LiveFullyNow.yml", "ItStartsNow.yml"])
             print 'illusions_flag set, next illusion song is ' + str(ill_song)
             return [random.choice(["Transitions/special.yml"]), ill_song, self.choose_and_validate_next_song()]
 

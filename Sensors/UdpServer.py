@@ -8,7 +8,7 @@ UDPSock2 = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 
 # Listen on port 5005
 # (to all IP addresses on this system)
-listen_addr = ("",5005)
+listen_addr = ("",5007)
 # listen_addr2 = ("",5006)
 UDPSock.bind(listen_addr)
 # UDPSock2.bind(listen_addr2)
