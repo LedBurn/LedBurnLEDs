@@ -182,7 +182,7 @@ class Decisions:
 
             if sachi_meter >= 0:
                 # "Can someone pass me the sachta, i'm almost there"
-                return [random.choice(["Transitions/Sachta.yml"])]
+                return [random.choice(["Transitions/sachta.yml"])]
             else:
                 #I can't decide if I want to get stoned or go to the gym.
                 return [random.choice(["Transitions/cant_decide.yml"])]

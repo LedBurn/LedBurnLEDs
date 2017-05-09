@@ -13,13 +13,14 @@ from FireGrassAnimation import FireGrassAnimation
 from RoundRobinGrassAnimation import RoundRobinGrassAnimation
 from ConfettiGrassAnimation import ConfettiGrassAnimation
 from SpikeGrassAnimation import SpikeGrassAnimation
+from StarsGrassAnimation import StarsGrassAnimation
 
 # animation = ConfettiGrassAnimation(grass, None)
-animation = SpikeGrassAnimation(grass, {"hue_start" : 0.9})
+animation = StarsGrassAnimation(grass, {'stars_color': {'type': 'circular_loc_hue'}})
 
 speed = 75 # in 50 hrz
 current_time = 0
-frame_id = 0;
+frame_id = 0
     
 while True:
         
