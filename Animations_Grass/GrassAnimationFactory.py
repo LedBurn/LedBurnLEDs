@@ -36,5 +36,8 @@ class GrassAnimationFactory():
         if 'Swipe' in config:
             return StarsGrassAnimation(grass, config['Swipe'])
 
+        if 'Alternate' in config:
+            return StarsGrassAnimation(grass, config['Alternate'])
+
         print 'Invalid grass animation -', config
 

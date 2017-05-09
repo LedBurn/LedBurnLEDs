@@ -15,10 +15,11 @@ from ConfettiGrassAnimation import ConfettiGrassAnimation
 from SpikeGrassAnimation import SpikeGrassAnimation
 from StarsGrassAnimation import StarsGrassAnimation
 from SwipeGrassAnimation import SwipeGrassAnimation
+from AlternateGrassAnimation import AlternateGrassAnimation
 
 # animation = ConfettiGrassAnimation(grass, None)
 #animation = SwipeGrassAnimation(grass, {'color': {'type': 'timed_hue', 'hue_start' : 0.0, 'hue_end' : 1.5}})
-animation = SwipeGrassAnimation(grass, {})
+animation = AlternateGrassAnimation(grass, {})
 
 speed = 75 # in 50 hrz
 current_time = 0
