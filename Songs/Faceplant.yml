@@ -1,88 +1,276 @@
 --- 
-offset: -0.65
+offset: -0.5
 file_name: "13 Faceplant - Photoperiodism.mp3"
 pieces: 
   - 
     - 0
     - 32
     - 
+      sheep:
+        Rainbow:
+        beat_mul: 0.0625
   - 
     - 20.54965986
     - 8
     - 
+      sheep:
+        Rainbow:
+        beat_mul: 0.125
+      
+      grass:
+        Spike:
+        beat_mul: 0.125
   -
     - 25.7044898
     - 24
     - 
+      sheep:
+        Rainbow:
+        beat_mul: 0.125
+      
+      grass:
+        Spike:
+        beat_mul: 0.125
   - 
     - 41.28507937
     - 8
     - 
+      sheep:
+        Rainbow:
+        beat_mul: 0.125
+        
+      grass:
+        Spike:
+        beat_mul: 0.125
+        
+      flower:
+        Rainbow:
+        beat_mul: 0.125
   - 
     - 46.48634921
     - 32
     - 
+      sheep:
+        Clear:
+        
+      grass:
+        Spike:
+        beat_mul: 0.125
+        
+      flower:
+        Rainbow:
+        beat_mul: 0.125
   - 
     - 67.15210884
     - 20
     - 
+      grass:
+        Spike:
+        beat_mul: 0.125
+        
+      flower:
+        Rainbow:
+        beat_mul: 0.125
+        
+      lake:
+        Spin:
+            contour_color: 
+                type: circular_loc_hue
+        beat_mul: 0.0625
+        
   - 
     - 80.03918367
     - 4
     - 
+      grass:
+        Clear:
+        
+      flower:
+        Explosion:
+        beat_mul: 1
+        
+      lake:
+        Spin:
+            contour_color: 
+                type: circular_loc_hue
+        beat_mul: 0.0625
+      
   - 
     - 82.61659864
     - 8
     - 
+      flower:
+        Explosion:
+        beat_mul: 1
+        
+      lake:
+        Spin:
+            contour_color: 
+                type: circular_loc_hue
+        beat_mul: 0.0625
   - 
     - 87.79464853
     - 24
     - 
+      flower:
+        Rainbow:
+        beat_mul: 0.125
+        
+      lake:
+        Spin:
+            contour_color: 
+                type: circular_loc_hue
+        beat_mul: 0.0625
   - 
     - 103.2591383
     - 16
     - 
+      flower:
+        Rainbow:
+        beat_mul: 0.125
+        
+      lake:
+        Confetti:
+          only_waves: True
+        beat_mul: 0.125
   - 
     - 113.5920181
     - 12
     - 
+      flower:
+        Rainbow:
+        beat_mul: 0.125
+        
+      lake:
+        Confetti:
+          only_waves: False
+        beat_mul: 0.125
   - 
     - 121.3010431
     - 4
     - 
+      flower:
+        Rainbow:
+        beat_mul: 0.125
+        
+      lake:
+        Confetti:
+          only_waves: False
+        beat_mul: 0.125
+        
+      grass:
+        Spike:
+        beat_mul: 0.25
+      
   - 
     - 123.7623583
     - 32
     - 
+      flower:
+        Confetti:
+        beat_mul: 0.125
+        
+      lake:
+        Confetti:
+          only_waves: False
+        beat_mul: 0.125
+        
+      grass:
+        Clear:
   - 
     - 144.5674376
     - 24
     - 
+      flower:
+        Confetti:
+        beat_mul: 0.125
+        
+      lake:
+        Confetti:
+          only_waves: False
+        beat_mul: 0.125
+        
+      grass:
+        RoundRobin:
+        beat_mul: 1
   - 
     - 160.0319274
     - 8
     - 
+      flower:
+        Clear:
+        
+      lake:
+        Clear:
+        
+      grass:
+        Clear:
+        
+      sheep:
+        Spikes:
+        beat_mul: 1
   - 
     - 165.1867574
     - 32
     - 
+      grass:
+        RoundRobin:
+        beat_mul: 1
+        
+      sheep:
+        Spikes:
+        beat_mul: 1
   - 
     - 185.7131973
     - 32
-    - 
+    -         
+      sheep:
+        FillFade:
+        beat_mul: 0.5
+        
+      lake:
+        RoundRobin:
   - 
     - 206.4950567
     - 32
     - 
+      sheep:
+        Clear:
+        
+      flower:
+        RoundRobin:
+        
+      lake:
+        Eq:      
   - 
     - 227.1375964
     - 28
     - 
+      flower:
+        RoundRobin:
+        
+      lake:
+        Eq: 
+        
+      grass:
+        HorLine:
+        beat_mul: 0.5
   - 
     - 245.3217234
     - 4
     - 
+      flower:
+        Alternate:
+        
+      lake:
+        Clear: 
+        
+      grass:
+        Clear:
   - 
     - 247.9194558
     - 8
     - 
+      flower:
+        Confetti:
+        
