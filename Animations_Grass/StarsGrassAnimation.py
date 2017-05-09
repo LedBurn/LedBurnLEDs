@@ -1,7 +1,6 @@
 import random
 from GrassAnimation import GrassAnimation
 from Colors.TimedColor import ConstTimedColor, TimedColorFactory
-from Colors import Colors
 from Effects.StarEffect import StarEffect
 
 class StarsGrassAnimation(GrassAnimation):

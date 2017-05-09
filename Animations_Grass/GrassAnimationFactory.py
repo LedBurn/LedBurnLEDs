@@ -3,6 +3,7 @@ from HorLineGrassAnimation import HorLineGrassAnimation
 from RoundRobinGrassAnimation import RoundRobinGrassAnimation
 from SpikeGrassAnimation import SpikeGrassAnimation
 from ConfettiGrassAnimation import ConfettiGrassAnimation
+from StarsGrassAnimation import StarsGrassAnimation
 
 class GrassAnimationFactory():
     @staticmethod
@@ -28,6 +29,12 @@ class GrassAnimationFactory():
 
         if 'Confetti' in config:
             return ConfettiGrassAnimation(grass, config['Confetti'])
+
+        if 'Stars' in config:
+            return StarsGrassAnimation(grass, config['Stars'])
+
+        if 'Swipe' in config:
+            return StarsGrassAnimation(grass, config['Swipe'])
 
         print 'Invalid grass animation -', config
 

@@ -84,6 +84,15 @@ class Grass:
     def get_array(self):
         return self.arr
 
+    def leaf_loc_percent(self, leaf_index):
+        if leaf_index < 11:
+            return float(leaf_index) / (11.0 - 1.0)
+        else:
+            return float(24.0 - leaf_index) / (25.0 - 11.0 - 1.0)
+
+    def num_of_leaves(self):
+        return 25
+
     def get_leaves(self):
         return self.l1_up + self.l1_down + \
             self.l2_up + self.l2_down + \
