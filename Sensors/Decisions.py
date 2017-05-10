@@ -54,8 +54,9 @@ class Decisions:
                 return next_songs
 
             # if not the time, we will choose an input source since we don't have one
-            self.curr_input = InputType.SACHI
-            print 'will use input selection of SACHI'
+            if sachi_meter is not None:
+                self.curr_input = InputType.SACHI
+                print 'will use input selection of SACHI'
 
         if self.curr_input == InputType.SACHI:
             next_songs = self.decide_by_RFID(illusions_flag, sachi_meter)
@@ -147,6 +148,9 @@ class Decisions:
 
     def decide_by_RFID(self, illusions_flag, sachi_meter):
 
+        if sachi_meter is None:
+            return None
+
         # illusions flag will finish the RFID input selection
         if illusions_flag:
             #"Ahh, i see you're looking for something special, how about this.. (play illusion song)"
@@ -182,7 +186,11 @@ class Decisions:
 
             if sachi_meter >= 0:
                 # "Can someone pass me the sachta, i'm almost there"
-                return [random.choice(["Transitions/sachta.yml"])]
+                if self.stoned_request_count == 1:
+                    return [random.choice(["Transitions/sachta.yml"])]
+                else:
+                    #bigler - change this yml to something else
+                    return [random.choice(["Transitions/sachta.yml"])]
             else:
                 #I can't decide if I want to get stoned or go to the gym.
                 return [random.choice(["Transitions/cant_decide.yml"])]

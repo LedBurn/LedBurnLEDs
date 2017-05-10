@@ -1,12 +1,10 @@
 from AbstractSheepAnimation import SheepAnimation
 
 import sys, os
-sys.path.append(os.path.abspath('../UIElements'))
-from AbstractSheep import Sheep
+from UIElements.AbstractSheep import Sheep
 
-sys.path.append(os.path.abspath('../Effects'))
-from FireEffect import FireEffect
-from AlwaysOnEffect import AlwaysOnEffect
+from Effects.FireEffect import FireEffect
+from Effects.AlwaysOnEffect import AlwaysOnEffect
 
 class FireSheepAnimation(SheepAnimation):
 
