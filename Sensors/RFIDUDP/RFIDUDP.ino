@@ -52,6 +52,9 @@ EthernetUDP Udp;
 
 MFRC522 mfrc522(SS_PIN, RST_PIN);  // Create MFRC522 instance
 
+unsigned long heartbeat_time = 0;
+byte PICC_version;
+
 unsigned int readCard[4];
 
 void setup() {
@@ -67,6 +70,17 @@ void setup() {
 }
 
 void loop() {
+  PICC_version = 0;
+  PICC_version = mfrc522.PCD_ReadRegister(MFRC522::VersionReg);
+
+  if (((millis() - heartbeat_time) > 1000) && (PICC_version == 146)) {
+    Serial.print("sending 1 sec keep alive, read Firmware version is: 0x");
+    Serial.println(PICC_version, HEX);
+    Udp.beginPacket(serverIp, 5007);
+    Udp.print(0);
+    Udp.endPacket();
+    heartbeat_time = millis();
+  }
 	// Look for new cards
 	if ( ! mfrc522.PICC_IsNewCardPresent()) {
 		return;
@@ -92,5 +106,5 @@ void loop() {
   Udp.print(readCard[3]);
 
   Udp.endPacket();
-  delay(1000);
+  //delay(1000);
 }
