@@ -4,6 +4,7 @@ from NaturalLakeAnimation import NaturalLakeAnimation
 from EqLakeAnimation import EqLakeAnimation
 from SpiningColorLakeAnimation import SpiningColorLakeAnimation
 from StarsLakeAnimation import StarsLakeAnimation
+from FireLakeAnimation import FireLakeAnimation
 
 class LakeAnimationFactory():
     @staticmethod
@@ -32,5 +33,8 @@ class LakeAnimationFactory():
 
         if 'Stars' in config:
             return StarsLakeAnimation(lake, config['Stars'])
+
+        if 'Fire' in config:
+            return FireLakeAnimation(lake, config['Fire'])
 
         print 'Invalid lake animation -', config

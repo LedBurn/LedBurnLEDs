@@ -4,8 +4,8 @@ from Effects.FireEffect import FireEffect
 
 class FireGrassAnimation(GrassAnimation):
 
-    def __init__(self, grass):
-        GrassAnimation.__init__(self, grass)
+    def __init__(self, grass, props):
+        GrassAnimation.__init__(self, grass, props)
         
         self.effects = []
         for leaf in self.grass.get_leaves_array():

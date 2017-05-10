@@ -1,0 +1,18 @@
+--- 
+offset: -0.0
+file_name: "Burning Fireplace with Crackling Fire Sounds (Full HD).mp3"
+pieces: 
+  - 
+    - 0
+    - 6
+    - 
+      flower:
+        Fire:
+      sign:
+        Fire:
+      grass:
+        Fire:
+      sheep:
+        Fire:
+      lake:
+        Fire:

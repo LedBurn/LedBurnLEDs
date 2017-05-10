@@ -3,7 +3,7 @@ from RainbowAnimation import RainbowAnimation
 from FillFadeSheepAnimation import FillFadeSheepAnimation
 from StarsSheepAnimation import StarsSheepAnimation
 from SpikeSheepAnimation import SpikeSheepAnimation
-
+from FireSheepAnimation import FireSheepAnimation
 from AlternateSheepAnimation import AlternateSheepAnimation
 
 class SheepAnimationFactory():
@@ -22,7 +22,8 @@ class SheepAnimationFactory():
             'FillFade': FillFadeSheepAnimation,
             'Stars': StarsSheepAnimation,
             'Spikes': SpikeSheepAnimation,
-            'Alternate' : AlternateSheepAnimation
+            'Alternate' : AlternateSheepAnimation,
+            'Fire' : FireSheepAnimation
         }
 
         for n, o in name_to_obj.iteritems():

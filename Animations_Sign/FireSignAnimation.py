@@ -5,8 +5,8 @@ from Effects.AlwaysOnEffect import AlwaysOnEffect
 
 class FireSignAnimation(SignAnimation):
 
-    def __init__(self, sign):
-        SignAnimation.__init__(self, sign)
+    def __init__(self, sign, props):
+        SignAnimation.__init__(self, sign, props)
 
         self.effects = []
         self.effects.append(FireEffect(self.sign.a_bottom_to_top, add_red_bootom=False))
