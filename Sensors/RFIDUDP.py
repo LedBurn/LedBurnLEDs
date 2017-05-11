@@ -10,11 +10,13 @@ class RFIDUDP:
         self.sock = ReadRemoteUpd.create_udp_listen_sock(5007)
         self.last_sucessful_read_time = None
 
+        self.illusionFlag = False
         self.gymUID = 2362378675.0
         self.jointUID = 3223068223.0
         self.cardUID = 2121112269.0
         self.sachiMeter = None
         self.rfidTime = datetime.datetime.now()
+        self.fadeTime = datetime.datetime.now()
        
     def process(self):
 
@@ -46,19 +48,22 @@ class RFIDUDP:
             if ((curr_time - self.rfidTime) > datetime.timedelta(seconds=3)):
                 self.rfidTime = curr_time
                 self.sachiMeter = 0
-                illusion_flag = True
+                self.illusionFlag = True
+                print 'Ellusions flag is set'
         else:
-            if ((curr_time - self.rfidTime) > datetime.timedelta(seconds=30)):
+            if ((curr_time - self.rfidTime) > datetime.timedelta(seconds=90) and
+                    (curr_time - self.fadeTime) > datetime.timedelta(seconds=90)):
                 self.rfidTime = curr_time
-                self.illusionFlag = False
+                if self.illusionFlag is True:
+                    self.illusionFlag = False
+                    print 'illusions flag set to False'
                 if (self.sachiMeter > 0):
                     self.sachiMeter -= 1
                 elif (self.sachiMeter < 0):
                     self.sachiMeter += 1
                 print "SachiMeter at " + str(self.sachiMeter)
-                print "illusion flag reset to False"
 
-        return (self.sachiMeter, illusion_flag)
+        return (self.sachiMeter, self.illusionFlag)
 
 
     # if 0 is returned - there is communication but no read from sensor
@@ -69,7 +74,7 @@ class RFIDUDP:
 
         if uidRead is not None:
             if self.last_sucessful_read_time is None:
-                print 'starting to receive RFID from sensor. curr value: ' + str(self.uidRead)
+                print 'starting to receive RFID from sensor. curr value: ' + str(uidRead)
             self.last_sucessful_read_time = datetime.datetime.now()
             return uidRead
 
@@ -80,5 +85,5 @@ class RFIDUDP:
         if self.last_sucessful_read_time is None:
             return None
         else:
-            return 0
+            return 0.0
 

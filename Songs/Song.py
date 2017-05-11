@@ -10,6 +10,7 @@ from UIElements.Grass import Grass
 from UIElements.Sign import Sign
 from UIElements.Lake import Lake
 from UIElements.TempStick import TempStick
+from UIElements.SachiMeter import SachiMeter
 
 from Animations_Flower.FlowerAnimationFactory import FlowerAnimationFactory
 from Animations_Grass.GrassAnimationFactory import GrassAnimationFactory
@@ -38,6 +39,7 @@ class Song():
 		self.sign = Sign()
 		self.lake = Lake()
 		self.temp_stick = TempStick()
+		self.sachi_meter = SachiMeter()
 
 		with open(self.file_name, 'r') as f:
 			self.song_yml = yaml.load(f)
@@ -110,11 +112,12 @@ class Song():
 		self.sign.clear()
 		self.lake.clear()
 
-	def play_animations(self, song_time, curr_temerature):
+	def play_animations(self, song_time, curr_temerature, sachi_meter):
 
 		song_time += self.offset
 
 		self.temp_stick.set_temperature(curr_temerature)
+		self.sachi_meter.set_sachi_meter(sachi_meter)
 
 		if self.current_piece_id < len(self.pieces) -1 and song_time > self.pieces[self.current_piece_id+1][0]:
 			self.current_piece_id += 1
