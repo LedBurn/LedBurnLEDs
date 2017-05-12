@@ -1,65 +1,19 @@
-#include <OctoWS2811.h>
-
 #include <SPI.h>         // needed for Arduino versions later than 0018
 #include <Ethernet.h>
 #include <EthernetUdp.h>         // UDP library from: bjoern@cs.stanford.edu 12/30/2008
 
 #include <OctoWS2811.h>
 
-// the LedBurn protocol is designed to transfer addressable leds colors data between sender and receiver.
-// it is a network protocol, for one way communication between a sender software that generates a scene,
-// to a controler software that receives the colors and send them to the pysical leds for display.
-// the protocol is aimed to maximize the following properties:
-// 1. no configuration or changes to the software in the reciver side.
-// 2. support non-reliable network communication.
-// 3. minimum latency between frame generation and leds display time.
-// 4. avoid displaying leds from different frames where possible.
-// 5. support various network setups with differnt MTUs.
-// 
-// the protocol has a header and payload.
-// the header is used to identify the protocol, the current frame, and the current segment.
-// header consist of 3 parts:
-//
-// 1. prtocol definition. 8 byets.
-//    1.1 7 charateres in ascii: "LedBurn", used to identify the protocol 
-//        and enable the receiver to throw away other packets which might be sent on the port by mistake.
-//        also useful to quickly identify the packets when packet sniffing the network for debug.
-//    1.2 1 byte of protocol version. current value is 0.
-//
-// 2. frame definition. 8 bytes containing two uint32 numbers.
-//    2.1 first 4 bytes number is the frame id.
-//        frame id is serial (advance by one between frames).
-//        used to group related segments into a single and synchronized update to the pyhisical leds.
-//        overflowing the 32 bits number so it will start with zero again is ok.
-//        for 50 frames per seconds, that would happen after 994 days. so in practice it is not expected.
-//    2.2 second number is the total number of segments in this frame.
-//        used to help the receiver understand that all the segmnets in the frame arrived, 
-//        and that frame data is completed.
-//
-// 3. segment definition. 8 bytes, containes segment id, and first pixel id.
-//    3.1 first 4 bytes are the current segment id in the frame.
-//        the segment id must be numbered 0...n-1, where n is the total number of segments
-//        in the frame, as pusbliesd in 2.2
-//    3.2 next 2 byte is the pyisical strip number (should by 0-7 in teensy)
-//    3.3 next 2 bytes are the first pixel id in the strip.
-//        the amount of pixels in the frame is set by the payload length.
-//
-// the payload should consist of 3*n bytes, representing n pixels.
-// each 3-bytes-pixel should contain the 3 channels for that pixel, as RGB.
-// different led-chips may have differrent color order for the red-green-blue tuple.
-// correcting the color order should be done on the sender side.
-// the recevier is unaware of the actual leds connected to it.
-//
-// the amount of leds in the payload is not limited by any hard value.
-// the sender is able to divide each strip to as many segments as needed.
-// 
+extern "C" {
+#include "leds_colors.h"
+}
 
 #define MAX_PACKET_SIZE (8)
 
 #define MAX_PIXELS 600
 #define LEDS_PER_STRIP (MAX_PIXELS + 1)
-DMAMEM int displayMemory[LEDS_PER_STRIP*6];
-int drawingMemory[LEDS_PER_STRIP*6];
+DMAMEM int displayMemory[LEDS_PER_STRIP * 8];
+int drawingMemory[LEDS_PER_STRIP * 8];
 
 const int config = WS2811_GRB | WS2811_800kHz;
 OctoWS2811 leds(LEDS_PER_STRIP, displayMemory, drawingMemory, config);
@@ -69,11 +23,15 @@ OctoWS2811 leds(LEDS_PER_STRIP, displayMemory, drawingMemory, config);
 byte mac[] = {
   0xDE, 0xAD, 0xBE, 0xEF, 0x65, 0x65 //last byte should be the hex of the last byte of the ip address
 };
-IPAddress ip( 10,0,0,211 );
+IPAddress ip( 10, 0, 0, 211 );
 unsigned int localPort = 2000;      // local port to listen on
 // An EthernetUDP instance to let us send and receive packets over UDP
 EthernetUDP Udp;
 
+float rand_hue = random();
+char packetBuffer[UDP_TX_PACKET_MAX_SIZE];  //buffer to hold incoming packet,
+
+int counter = 0;
 
 //////////////////////////////////////////////////////////
 ////////////// Indication Leds ///////////////////////////
@@ -88,9 +46,9 @@ void PaintAllLeds(int color, int pin)
   digitalWrite(greenPin, LOW);
   digitalWrite(bluePin, LOW);
 
-  digitalWrite(pin, HIGH);  
+  digitalWrite(pin, HIGH);
 
-  for(int i=0; i<leds.numPixels(); i++)
+  for (int i = 0; i < leds.numPixels(); i++)
     leds.setPixel(i, color);
   leds.show();
 }
@@ -112,7 +70,7 @@ void InitIndicationLeds()
   PaintAllLeds(leds.color(0, 128, 0), greenPin);
   delay(1000);
   PaintAllLeds(leds.color(0, 0, 128), bluePin);
-  delay(1000); 
+  delay(1000);
 
   // we should leave only the green, as we have power, but no network or error
   PaintAllLeds(leds.color(0, 0, 0), greenPin);
@@ -129,7 +87,27 @@ void SendColorsToStrips()
 
 void PaintLeds(const uint8_t packetBuf[])
 {
+  float average = 0.0;
+  for (int i = 0; i < 8; i++) {
+    average += packetBuf[i];
+  }
+  average = average / 8;
+  if (average > 255) {
+    average = 255.0;
+  }
 
+  hsv hsv_color;
+  hsv_color.h = rand_hue * 360;
+  hsv_color.s = 1.0;
+  hsv_color.v = average / 255.0;
+  rgb rgb_color = hsv2rgb(hsv_color);
+
+
+  int color = leds.color((int)(rgb_color.r * 255.0), (int)(rgb_color.g * 255.0), (int)(rgb_color.b * 255.0));
+  Serial.println(color);
+  for (int i = 0; i < leds.numPixels(); i++) {
+    leds.setPixel(i, color);
+  }
 }
 
 void setup() {
@@ -144,37 +122,72 @@ void setup() {
   Serial.begin(9600);
   Serial.println("hello");
 
+  rand_hue = 0.5;
+  Serial.printf("rand_hue=%f", rand_hue);
+
   InitIndicationLeds();
+
 }
 
 void loop() {
+  //  Serial.println("start loop");
+  //  // if there's data available, read a packet
+  //  int packetSize = Udp.parsePacket();
+  //Serial.printf("size = %d", packetSize);
+  //
+  ////  digitalWrite(bluePin, LOW);
+  ////  digitalWrite(redPin, LOW);
+  //
+  //  if (packetSize > 0) {
+  //    if(packetSize > MAX_PACKET_SIZE)
+  //    {
+  //      Serial.println(packetSize);
+  //      Serial.print("Error");
+  ////      digitalWrite(redPin, HIGH);
+  //      Udp.flush();
+  //      Serial.println("flush");
+  //    } else {
+  //
+  //     Serial.print("fft = ");
+  //     uint8_t tempBuf[MAX_PACKET_SIZE];
+  //      Udp.read((uint8_t *)tempBuf, MAX_PACKET_SIZE);
+  //      Udp.flush();
+  //      for(int i = 0; i < MAX_PACKET_SIZE; i++) {
+  //       Serial.print(tempBuf[i]);
+  //       Serial.print(" ");
+  //     }
+  //     Serial.println();
+  //
+  ////     digitalWrite(bluePin, HIGH);
+  ////     PaintLeds(tempBuf);
+  ////     leds.show();
+  //
+  //    }
+  //  }
+  //  Serial.flush();
   // if there's data available, read a packet
   int packetSize = Udp.parsePacket();
-  //Serial.println(packetSize);
-
-  digitalWrite(bluePin, LOW);
-  digitalWrite(redPin, LOW);
-  
-  if (packetSize > 0) {  
-
-    if(packetSize > MAX_PACKET_SIZE)
-    {
-      Serial.println(packetSize);
-      Serial.print("Error");
-      digitalWrite(redPin, HIGH);
-      return;      
+  if (packetSize) {
+    counter++;
+    Serial.print("Received packet of size ");
+    Serial.println(packetSize);
+    Serial.print("From ");
+    IPAddress remote = Udp.remoteIP();
+    for (int i = 0; i < 4; i++) {
+      Serial.print(remote[i], DEC);
+      if (i < 3) {
+        Serial.print(".");
+      }
     }
+    Serial.print(", port ");
+    Serial.println(Udp.remotePort());
 
-    Serial.print("fft = ");
-    uint8_t tempBuf[MAX_PACKET_SIZE];
-    Udp.read((uint8_t *)tempBuf, MAX_PACKET_SIZE);
-    for(int i = 0; i < MAX_PACKET_SIZE; i++) {
-      Serial.print(tempBuf[i]);
-      Serial.print(" ");
-    }
-    Serial.println();
-    
-    PaintLeds(tempBuf);
+    // read the packet into packetBufffer
+    Udp.read(packetBuffer, UDP_TX_PACKET_MAX_SIZE);
+    Serial.println("Contents:");
+    Serial.println(packetBuffer);
+    Serial.printf("Counter = %d", counter);
   }
+  delay(10);
 }
 
