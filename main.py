@@ -3,13 +3,11 @@ import datetime
 import pygame
 import socket
 from Songs.Song import Song
-from Sensors.RFID import RFID
 from Sensors.RFIDUDP import RFIDUDP
 from Sensors.Temperature import Temperature
 from Sensors.Motion import Motion
 from Sensors.Decisions import Decisions
 
-r = RFID()
 rf = RFIDUDP()
 temperature = Temperature()
 motion = Motion()
