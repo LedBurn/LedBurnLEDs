@@ -9,6 +9,7 @@ from UIElements.SmallSheep import SmallSheep
 from UIElements.Grass import Grass
 from UIElements.Sign import Sign
 from UIElements.Lake import Lake
+from UIElements.Tree import Tree
 from UIElements.TempStick import TempStick
 from UIElements.SachiMeter import SachiMeter
 
@@ -18,6 +19,7 @@ from Animations_Grass.GrassAnimationFactory import GrassAnimationFactory
 from Animations_Lake.LakeAnimationFactory import LakeAnimationFactory
 from Animations_Sheep.SheepAnimationFactory import SheepAnimationFactory
 from Animations_Sign.SignAnimationFactory import SignAnimationFactory
+from Animations_Tree.TreeAnimationFactory import TreeAnimationFactory
 
 class Song():
 	def __init__(self, file_name):
@@ -33,12 +35,15 @@ class Song():
 		self.sheep_animation_mul = 1
 		self.sign_animation = None
 		self.sign_animation_mul = 1
+		self.tree_animation = None
+		self.tree_animation_mul = 1
 
 		self.flower = Flower()
 		self.sheep = SmallSheep()
 		self.grass = Grass()
 		self.sign = Sign()
 		self.lake = Lake()
+		self.tree = Tree()
 		self.temp_stick = TempStick()
 		self.sachi_meter = SachiMeter()
 
@@ -85,6 +90,7 @@ class Song():
 			self.lake_animation = GlowAnimation(self.lake)
 			self.sheep_animation = GlowAnimation(self.sheep)
 			self.sign_animation = GlowAnimation(self.sign)
+			self.tree_animation = GlowAnimation(self.tree)
 
 		else:
 			self.flower_animation = self.get_effect(animation_dict, 'flower', self.flower, FlowerAnimationFactory)
@@ -101,6 +107,9 @@ class Song():
 
 			self.sign_animation = self.get_effect(animation_dict, 'sign', self.sign, SignAnimationFactory)
 			self.sign_animation_mul = self.get_mul(animation_dict, 'sign')
+
+			self.tree_animation = self.get_effect(animation_dict, 'tree', self.tree, TreeAnimationFactory)
+			self.tree_animation_mul = self.get_mul(animation_dict, 'tree')
 
 
 	def apply_animation(self, animation, num_of_beats, duration, relative_song_time):
@@ -123,6 +132,7 @@ class Song():
 		self.grass.clear()
 		self.sign.clear()
 		self.lake.clear()
+		self.tree.clear()
 
 	def play_animations(self, song_time, curr_temerature, sachi_meter=None):
 
@@ -164,12 +174,17 @@ class Song():
 			sign_num_of_beats = num_of_beats * self.sign_animation_mul
 			self.apply_animation(self.sign_animation, sign_num_of_beats, duration, relative_song_time)
 
+		if self.tree_animation != None:
+			tree_num_of_beats = num_of_beats * self.tree_animation_mul
+			self.apply_animation(self.tree_animation, tree_num_of_beats, duration, relative_song_time)
+
 		network.send(self.frame_id, 
 			flower_data=self.flower.get_array(), 
 			sheep_data=self.sheep.get_array(), 
 			grass_data=self.grass.get_array(), 
 			sign_data=self.sign.get_array(),
 			lake_data=self.lake.get_array(),
+			tree_data=self.tree.get_array(),
 			temp_stick=self.temp_stick.get_array(),
 			sachi_meter=self.sachi_meter.get_array())
 
