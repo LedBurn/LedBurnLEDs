@@ -28,6 +28,9 @@ check_num = 0
 start_temperature = None
 prevSachiMeter = 0
 
+# uncomment this to start with sensors
+#from time import sleep
+#sleep(2)
 
 while True:
     # read sensors data

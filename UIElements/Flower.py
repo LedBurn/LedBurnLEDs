@@ -60,7 +60,7 @@ class Flower:
         return self.leaf_right_back + self.leaf_right_front
 
     def get_all_indexes(self):
-        return self.get_leaves() + self.get_seeds()
+        return self.whole_flower
 
     def clear(self):
         self.arr = [0, 0, 0] * 583

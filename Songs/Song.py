@@ -108,7 +108,7 @@ class Song():
 			return
 
 		if self.is_transition:
-			percent_beat_time = (relative_song_time % 5.0) / 5.0
+			percent_beat_time = (relative_song_time % 2.0) / 2.0
 		else:
 			beat_duration = duration/num_of_beats
 			beats_played = math.floor(relative_song_time / beat_duration)

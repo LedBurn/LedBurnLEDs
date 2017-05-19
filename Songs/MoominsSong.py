@@ -65,9 +65,6 @@ class MoominsSong():
                 self.s_effects = [
                     AlwaysOnEffect(sheep.get_leg34_indexes(), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
                 self.f_effects = [AlwaysOnEffect(self.flower.get_right_leaf(), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
-                #self.f_effects = [
-                #    AlwaysOnEffect(self.flower.get_right_leaf(), Colors.hls_to_rgb(0.0, 1.0, 1.0))
-                #]
                 self.hue = (self.hue + 0.3) % 1
             elif label == "W":
                 self.s_effects = [

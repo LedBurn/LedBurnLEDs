@@ -10,7 +10,7 @@ class InputType:
 class Decisions:
 
     MAX_HUG_REQUESTS = 2
-    HUG_MAX_TEMP = 20.0
+    HUG_MAX_TEMP = 23.0
     ALREADY_HUGED_TEMP = 27.0
     TEMP_DIFF_FOR_DECISION = 2.0
     STONED_REQUESTS = 2
@@ -64,10 +64,13 @@ class Decisions:
                 self.curr_input = InputType.SACHI
                 print 'will use input selection of SACHI'
 
+
+
         if self.curr_input == InputType.SACHI:
             next_songs = self.decide_by_RFID(illusions_flag, sachi_meter)
             return next_songs
 
+        print self.use_temperature(curr_temperature)
         if self.use_temperature(curr_temperature):
             next_song = self.decide_by_temperature(start_temperature, curr_temperature)
             if next_song is not None:

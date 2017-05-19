@@ -1,0 +1,749 @@
+--- 
+offset: -1.2
+file_name: "Guns N' Roses - Sweet Child O' Mine.mp3"
+pieces: 
+  - 
+    - 0
+    - 32
+    -
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
+        beat_mul: 0.5
+  - 
+    - 15.37160998
+    - 32
+    -
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
+        beat_mul: 0.5
+
+      grass:
+        Spike:
+          directionType: Up
+          leafChooseType: All
+          hue_start: Rainbow
+        beat_mul: 0.25
+  -
+    - 30.53424036
+    - 64
+    -
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
+        beat_mul: 0.5
+
+      grass:
+        Spike:
+          directionType: Down
+          leafChooseType: All
+          hue_start: Rainbow
+        beat_mul: 0.25
+
+      flower:
+        Confetti:
+          only_top: True
+          leds_percent_per_beat: 0.2
+          brightness: 0.4
+  - 
+    - 60.85950113
+    - 16
+    -
+      lake:
+        Spin:
+          contour_color:
+            type: circular_loc_hue
+        beat_mul: 0.125
+
+      flower:
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.5
+
+      grass:
+        Clear:
+
+  - 
+    - 68.52208617
+    - 16
+    -
+      lake:
+        Spin:
+          contour_color:
+            type: circular_loc_hue
+        beat_mul: 0.125
+
+      flower:
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.5
+
+      grass:
+        RoundRobin:
+          hue_speed: 0.25
+        beat_mul: 2
+
+
+      sign:
+        Rainbow:
+        beat_mul: 0.5
+  - 
+    - 76.23111111
+    - 32
+    -
+      lake:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            only_waves: False
+            brightness: 0.5
+        beat_mul: 0.5
+
+      grass:
+        Clear:
+
+      flower:
+        Clear:
+
+      sign:
+       Clear:
+  - 
+    - 91.69560091
+    - 64
+    -
+     lake:
+        Eq:
+          hue1: 0.0
+          hue2: 0.5
+          brightness: 0.2
+
+     sheep:
+        Confetti:
+
+     tree:
+        Confetti:
+  - 
+    - 122.2995011
+    - 16
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+
+     tree:
+       Rainbow:
+
+     sign:
+       Rainbow:
+
+     grass:
+        RoundRobin:
+          hue_speed: 0.05
+
+
+  - 
+    - 130.031746
+    - 16
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+
+     tree:
+       Rainbow:
+
+     sign:
+       Rainbow:
+
+     grass:
+        RoundRobin:
+          hue_speed: 0.25
+        beat_mul: 2
+
+     flower:
+       Rainbow:
+
+     sheep:
+      Rainbow:
+  - 
+    - 137.740771
+    - 32
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+
+     lake:
+      Natural:
+
+     sign:
+      Hue:
+
+
+  - 
+    - 153.2517007
+    - 68
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+
+     lake:
+        RoundRobin:
+            hue_speed: 0.04
+            hue_start: 0.0
+        beat_mul: 4
+  - 
+    - 185.9918367
+    - 64
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+
+     sheep:
+      Alternate:
+
+     flower:
+      Explosion:
+
+     lake:
+        Spin:
+          contour_color:
+            type: circular_loc_hue
+        beat_mul: 0.125
+
+
+     grass:
+        RoundRobin:
+          hue_speed: 0.05
+
+     sign:
+        Rainbow:
+        beat_mul: 0.5
+
+     tree:
+        RoundRobin:
+          hue_speed: 0.05
+
+  - 
+    - 216.6886168
+    - 16
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+
+     grass:
+        Spike:
+          directionType: Up
+          leafChooseType: All
+          hue_start: Rainbow
+        beat_mul: 0.25
+
+  - 
+    - 224.1654422
+    - 16
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+
+     grass:
+        Confetti:
+
+  - 
+    - 231.5958277
+    - 16
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+
+     grass:
+       Spike:
+          directionType: Up
+          leafChooseType: All
+          hue_start: Rainbow
+       beat_mul: 0.25
+
+     sign:
+       Hue:
+
+  - 
+    - 239.0494331
+    - 4
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+
+     grass:
+        Spike:
+          directionType: Up
+          leafChooseType: All
+          hue_start: Rainbow
+        beat_mul: 0.25
+
+     flower:
+       RoundRobin:
+        hue_speed: 0.05
+
+     sign:
+      Rainbow:
+
+
+
+
+  - 
+    - 240.9534694
+    - 4
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+
+     grass:
+        Spike:
+          directionType: Up
+          leafChooseType: All
+          hue_start: Rainbow
+        beat_mul: 0.25
+
+     flower:
+       RoundRobin:
+        hue_speed: 0.05
+
+     sign:
+      Rainbow:
+
+     sheep:
+      Spikes:
+  - 
+    - 242.8110658
+    - 8
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+
+     grass:
+        Spike:
+          directionType: Up
+          leafChooseType: All
+          hue_start: Rainbow
+        beat_mul: 0.25
+
+     flower:
+       RoundRobin:
+        hue_speed: 0.05
+
+     sign:
+      Rainbow:
+
+     tree:
+      RoundRobin:
+
+     sheep:
+      Rainbow:
+
+  - 
+    - 246.5726984
+    - 32
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+
+     grass:
+        Spike:
+          directionType: Up
+          leafChooseType: All
+          hue_start: Rainbow
+        beat_mul: 0.25
+
+     flower:
+       RoundRobin:
+        hue_speed: 0.05
+
+     sign:
+      Rainbow:
+
+     tree:
+      Rainbow:
+
+     lake:
+       Spin:
+
+     sheep:
+       Rainbow:
+  - 
+    - 261.642449
+    - 16
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+
+
+     tree:
+      Rainbow:
+
+     sheep:
+      Rainbow:
+
+     sign:
+      Rainbow:
+
+     grass:
+      RoundRobin:
+
+     lake:
+      RoundRobin:
+
+     flower:
+      Rainbow:
+
+
+  - 
+    - 269.1424943
+    - 8
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+
+     tree:
+      Natural:
+
+     lake:
+      Natural:
+
+     flower:
+      Natural:
+
+     sheep:
+      FillFade:
+  -
+    - 272.904127
+    - 4
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+
+     tree:
+      Natural:
+
+     lake:
+      Natural:
+
+     flower:
+      Natural:
+
+  -
+    - 274.7849433
+    - 2
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+
+     tree:
+      Natural:
+
+     lake:
+      Natural:
+  -
+    - 275.7601814
+    - 2
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+
+     tree:
+      Natural:
+
+  -
+    - 276.6657596
+    - 32
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+
+     tree:
+      Confetti:
+
+     sheep:
+      Confetti:
+
+     grass:
+      Confetti:
+
+     sign:
+      Hue:
+
+     lake:
+      Confetti:
