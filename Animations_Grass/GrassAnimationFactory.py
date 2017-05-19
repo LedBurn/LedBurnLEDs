@@ -4,6 +4,8 @@ from RoundRobinGrassAnimation import RoundRobinGrassAnimation
 from SpikeGrassAnimation import SpikeGrassAnimation
 from ConfettiGrassAnimation import ConfettiGrassAnimation
 from StarsGrassAnimation import StarsGrassAnimation
+from SwipeGrassAnimation import SwipeGrassAnimation
+from AlternateGrassAnimation import AlternateGrassAnimation
 
 class GrassAnimationFactory():
     @staticmethod
@@ -34,10 +36,10 @@ class GrassAnimationFactory():
             return StarsGrassAnimation(grass, config['Stars'])
 
         if 'Swipe' in config:
-            return StarsGrassAnimation(grass, config['Swipe'])
+            return SwipeGrassAnimation(grass, config['Swipe'])
 
         if 'Alternate' in config:
-            return StarsGrassAnimation(grass, config['Alternate'])
+            return AlternateGrassAnimation(grass, config['Alternate'])
 
         print 'Invalid grass animation -', config
 
