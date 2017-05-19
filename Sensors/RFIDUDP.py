@@ -50,7 +50,7 @@ class RFIDUDP:
                 self.sachiMeter = 0
                 self.illusionFlag = True
                 print 'Ellusions flag is set'
-        else:
+        elif whichUID is not None:
             if ((curr_time - self.rfidTime) > datetime.timedelta(seconds=90) and
                     (curr_time - self.fadeTime) > datetime.timedelta(seconds=90)):
                 self.rfidTime = curr_time
