@@ -35,7 +35,6 @@ GRASS2_IP = 213
 GRASS2_STRIP_ID0 = 2
 GRASS2_STRIP_ID1 = 5
 
-
 # sign - 150 leds
 SIGN_IP = 210
 SIGN_STRIP_ID = 3
@@ -55,6 +54,10 @@ TREE_IP = 210
 TREE_STRIP_ID0 = 5
 TREE_STRIP_ID1 = 6
 
+# sachi meter
+SACHI_METER_IP = 210
+SACHI_STRIP_ID = 0
+
 
 def uint8_to_array(num):
     c1 = (num / (1)) % 256
@@ -73,13 +76,14 @@ def uint32_to_array(num):
     return [c4, c3, c2, c1]
 
 def send(frame_id,
-         flower_data=[0, 0, 0] * 580,
-         sheep_data=[0, 0, 0] * 302,
-         grass_data=[0, 0, 0] * 600,
-         sign_data=[0, 0, 0] * 150,
-         lake_data=[0, 0, 0] * 1800,
-         temp_stick=[0, 0, 0] * 144,
-         tree_data=[0,0,0] * 1081):
+         flower_data=   [0, 0, 0] * 580,
+         sheep_data=    [0, 0, 0] * 302,
+         grass_data=    [0, 0, 0] * 600,
+         sign_data=     [0, 0, 0] * 150,
+         lake_data=     [0, 0, 0] * 1800,
+         temp_stick=    [0, 0, 0] * 144,
+         tree_data=     [0, 0, 0] * 1081,
+         sachi_meter=   [0, 0, 0] * 7):
 
     sendPacketWithIp(TREE_IP, TREE_STRIP_ID0, 0, tree_data[0:900])
     sendPacketWithIp(TREE_IP, TREE_STRIP_ID0, 300, tree_data[900:1497])
@@ -110,6 +114,7 @@ def send(frame_id,
     sendPacketWithIp(LAKE_IP, LAKE_WAVE_STRIP_ID1, 300, lake_data[4500:5400])
 
     sendPacketWithIp(TEMP_STICK_IP, TEMP_STICK_STRIP_ID, 0, temp_stick[0:144*3])
+    sendPacketWithIp(SACHI_METER_IP, SACHI_STRIP_ID, 0, sachi_meter)
 
     sendStoredFrame()
 
@@ -150,18 +155,5 @@ def replaceGBRtoRGB(data_array,in_range):
         gbr = data_array[i*3:i*3+3]
         rgb = [gbr[1], gbr[0], gbr[2]]
         data_array[i*3:i*3+3] = rgb
-
-
-#test:
-# i = 0
-# while (True):
-#     i += 1
-#     flower = [200, 0, 0] * 580
-#     sheep = [200, 0 ,0] * 302
-#     grass = [0, 200, 0] * 600
-#     sign = [0, 0, 200] * 150
-#     lake = [0, 200, 200] * 600 + [0, 0, 200] * 600 + [0, 0, 200] * 600
-#     send(i,  flower, sheep, grass, sign, lake)
-#     time.sleep(0.1)
 
 
