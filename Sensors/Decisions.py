@@ -195,11 +195,15 @@ class Decisions:
                 if self.stoned_request_count == 1:
                     return [random.choice(["Transitions/sachta.yml"])]
                 else:
-                    #bigler - change this yml to something else
+                    #TODO: bigler change this :)
                     return [random.choice(["Transitions/sachta.yml"])]
             else:
                 #I can't decide if I want to get stoned or go to the gym.
-                return [random.choice(["Transitions/cant_decide.yml"])]
+                if self.stoned_request_count == 1:
+                    return [random.choice(["Transitions/cant_decide.yml"])]
+                else:
+                    #TODO: bigler change this :)
+                    return [random.choice(["Transitions/cant_decide.yml"])]
 
         return None
 
@@ -216,7 +220,11 @@ class Decisions:
 
         if curr_temperature < self.HUG_MAX_TEMP and self.hug_request_count < self.MAX_HUG_REQUESTS:
             self.hug_request_count += 1
-            return [random.choice(["Transitions/DesertChill.yml", "Transitions/HoldMyStick.yml"])]
+            if self.hug_request_count == 0:
+                return [random.choice(["Transitions/DesertChill.yml", "Transitions/HoldMyStick.yml"])]
+            else:
+                #TODO: bigler - fix this :)
+                return [random.choice(["Transitions/DesertChill.yml", "Transitions/HoldMyStick.yml"])]
         elif curr_temperature > self.ALREADY_HUGED_TEMP:
             return [random.choice(["Transitions/HuggingMe.yml"]), "exile.yml"]
 
