@@ -35,13 +35,13 @@ class RFIDUDP:
             # 3 seconds between detections avoids redundant consequtive detections
             if ((curr_time - self.rfidTime) > datetime.timedelta(seconds=3)):
                 self.rfidTime = curr_time
-                if (self.sachiMeter < 4):
+                if (self.sachiMeter < 3):
                     self.sachiMeter += 1
                 print "SachiMeter at " + str(self.sachiMeter)
         elif (whichUID == self.gymUID):
             if ((curr_time - self.rfidTime) > datetime.timedelta(seconds=3)):
                 self.rfidTime = curr_time
-                if (self.sachiMeter > -4):
+                if (self.sachiMeter > -3):
                     self.sachiMeter += -1
                 print "SachiMeter at " + str(self.sachiMeter)
         elif (whichUID == self.cardUID):

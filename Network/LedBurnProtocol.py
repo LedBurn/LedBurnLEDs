@@ -114,6 +114,8 @@ def send(frame_id,
     sendPacketWithIp(LAKE_IP, LAKE_WAVE_STRIP_ID1, 300, lake_data[4500:5400])
 
     sendPacketWithIp(TEMP_STICK_IP, TEMP_STICK_STRIP_ID, 0, temp_stick[0:144*3])
+    
+    replaceGBRtoRGB(sachi_meter, range(len(sachi_meter)/3))
     sendPacketWithIp(SACHI_METER_IP, SACHI_STRIP_ID, 0, sachi_meter)
 
     sendStoredFrame()

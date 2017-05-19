@@ -165,12 +165,13 @@ class Song():
 			self.apply_animation(self.sign_animation, sign_num_of_beats, duration, relative_song_time)
 
 		network.send(self.frame_id, 
-			self.flower.get_array(), 
-			self.sheep.get_array(), 
-			self.grass.get_array(), 
-			self.sign.get_array(),
-			self.lake.get_array(),
-			self.temp_stick.get_array())
+			flower_data=self.flower.get_array(), 
+			sheep_data=self.sheep.get_array(), 
+			grass_data=self.grass.get_array(), 
+			sign_data=self.sign.get_array(),
+			lake_data=self.lake.get_array(),
+			temp_stick=self.temp_stick.get_array(),
+			sachi_meter=self.sachi_meter.get_array())
 
 		self.frame_id += 1
 
