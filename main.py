@@ -32,6 +32,8 @@ prevSachiMeter = 0
 #from time import sleep
 #sleep(2)
 
+last_time = 0
+
 while True:
     # read sensors data
     # todo - sample motion & temp sensors - by udp
@@ -47,9 +49,12 @@ while True:
     song_playing = song != None and pygame.mixer.music.get_busy()
     if song_playing:
         song_time = (pygame.mixer.music.get_pos())/ 1000.0
+        song_time = max(song_time, last_time)
+        last_time = song_time
         song.play_animations(song_time, curr_temperature, sachiMeter)
         start_temperature = curr_temperature
     else: #no song playing
+        last_time = 0
         if next_song is not None:
             print "next song is: " + next_song[0]
             song = Song("Songs/" + next_song[0])
