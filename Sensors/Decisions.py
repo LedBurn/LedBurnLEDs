@@ -175,7 +175,7 @@ class Decisions:
 
         # finish the RFID input selection
         if sachi_meter < -2:
-            #"man i havent been to the gym in a while, lets dance instead! (play upbeat song)"
+            #"man i havent been to the gym in a while, i better go soon"
             print 'sachi meter is LOW'
             return [random.choice(["Transitions/gym.yml"]), self.choose_and_validate_next_song()]
 
@@ -194,19 +194,21 @@ class Decisions:
             self.last_req_time = datetime.datetime.now()
 
             if sachi_meter >= 0:
-                # "Can someone pass me the sachta, i'm almost there"
                 if self.stoned_request_count == 1:
-                    return [random.choice(["Transitions/sachta.yml"])]
-                else:
                     #TODO: bigler change this :)
-                    return [random.choice(["Transitions/sachta.yml"])]
+                    #you see that big ol joint, can you please pass it to kivsi?
+                    return [random.choice(["Transitions/joint_ask.yml","Transitions/joint_ask_hebrew.yml"])]
+                else:
+                    # "Can someone pass me the sachta, i'm almost there"
+                    return [random.choice(["Transitions/sachta.yml","Transitions/sachta_hebrew.yml"])]
             else:
-                #I can't decide if I want to get stoned or go to the gym.
                 if self.stoned_request_count == 1:
-                    return [random.choice(["Transitions/cant_decide.yml"])]
-                else:
                     #TODO: bigler change this :)
-                    return [random.choice(["Transitions/cant_decide.yml"])]
+                    #has anyone seen my gym chip i swear i saw it around, can you get it to the sheep mouth?
+                    return [random.choice(["Transitions/gym_ask.yml","Transitions/gym_ask_hebrew.yml"])]
+                else:
+                    #I can't decide if I want to get stoned or go to the gym.
+                    return [random.choice(["Transitions/cant_decide.yml","Transitions/cant_decide_hebrew.yml"])]
 
         return None
 
@@ -224,10 +226,10 @@ class Decisions:
         if curr_temperature < self.HUG_MAX_TEMP and self.hug_request_count < self.MAX_HUG_REQUESTS:
             self.hug_request_count += 1
             if self.hug_request_count == 0:
-                return [random.choice(["Transitions/desert_chill.yml", "Transitions/hold_my_stick.yml"])]
+                return [random.choice(["Transitions/desert_chill.yml", "Transitions/hold_my_stick.yml", "Transitions/cold.yml"])]
             else:
                 #TODO: bigler - fix this :)
-                return [random.choice(["Transitions/desert_chill.yml", "Transitions/hold_my_stick.yml"])]
+                return [random.choice(["Transitions/stick_ask.yml", "Transitions/stick_ask_hebrew.yml"])]
         elif curr_temperature > self.ALREADY_HUGED_TEMP:
             return [random.choice(["Transitions/hugging_me.yml"]), "exile.yml"]
 
