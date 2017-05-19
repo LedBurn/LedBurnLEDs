@@ -139,7 +139,7 @@ class Decisions:
     def decide_by_motion(self, motion_detected):
         if motion_detected:
             print "Hey! I see I got company, let me play you a song"
-            return ["SeeYou.yml", "TATRAN - Shvat.yml"]
+            return ["see_you.yml", "TATRAN - Shvat.yml"]
         return None
 
     def use_temperature(self, curr_temperature):
@@ -219,17 +219,17 @@ class Decisions:
             print 'start temperature was ' + str(start_temperature) + " now its " + str(curr_temperature) + \
                   " thanking for the hug..."
             self.hug_request_count = 0
-            return [random.choice(["Transitions/HugThanks.yml"]), "exile.yml"]
+            return [random.choice(["Transitions/hug_thanks.yml"]), "exile.yml"]
 
         if curr_temperature < self.HUG_MAX_TEMP and self.hug_request_count < self.MAX_HUG_REQUESTS:
             self.hug_request_count += 1
             if self.hug_request_count == 0:
-                return [random.choice(["Transitions/DesertChill.yml", "Transitions/HoldMyStick.yml"])]
+                return [random.choice(["Transitions/desert_chill.yml", "Transitions/hold_my_stick.yml"])]
             else:
                 #TODO: bigler - fix this :)
-                return [random.choice(["Transitions/DesertChill.yml", "Transitions/HoldMyStick.yml"])]
+                return [random.choice(["Transitions/desert_chill.yml", "Transitions/hold_my_stick.yml"])]
         elif curr_temperature > self.ALREADY_HUGED_TEMP:
-            return [random.choice(["Transitions/HuggingMe.yml"]), "exile.yml"]
+            return [random.choice(["Transitions/hugging_me.yml"]), "exile.yml"]
 
         return None
 
