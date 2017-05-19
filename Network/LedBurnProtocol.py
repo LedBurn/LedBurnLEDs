@@ -41,7 +41,7 @@ SIGN_IP = 210
 SIGN_STRIP_ID = 3
 
 # lake
-LAKE_IP = 210
+LAKE_IP = 212
 LAKE_STRIP_ID = 4
 LAKE_WAVE_STRIP_ID0 = 5
 LAKE_WAVE_STRIP_ID1 = 6
@@ -49,6 +49,11 @@ LAKE_WAVE_STRIP_ID1 = 6
 # temp stick - 144 leds
 TEMP_STICK_IP = 210
 TEMP_STICK_STRIP_ID = 7
+
+# tree
+TREE_IP = 210
+TREE_STRIP_ID0 = 5
+TREE_STRIP_ID1 = 6
 
 
 def uint8_to_array(num):
@@ -73,7 +78,13 @@ def send(frame_id,
          grass_data=[0, 0, 0] * 600,
          sign_data=[0, 0, 0] * 150,
          lake_data=[0, 0, 0] * 1800,
-         temp_stick=[0, 0, 0] * 144):
+         temp_stick=[0, 0, 0] * 144,
+         tree_data=[0,0,0] * 1081):
+
+    sendPacketWithIp(TREE_IP, TREE_STRIP_ID0, 0, tree_data[0:900])
+    sendPacketWithIp(TREE_IP, TREE_STRIP_ID0, 300, tree_data[900:1497])
+    sendPacketWithIp(TREE_IP, TREE_STRIP_ID1, 0, tree_data[1497:2397])
+    sendPacketWithIp(TREE_IP, TREE_STRIP_ID1, 300, tree_data[2397:3246])
 
     replaceGBRtoRGB(flower_data, range(463, 513))
     sendPacketWithIp(FLOWER_IP, FLOWER_STRIP_ID, 0, flower_data[0:900])
@@ -128,7 +139,10 @@ def sendPacket(ip, strip_id, seg_in_frame, seg_id, pixel_id, pixels_data):
     data = data + pixels_data
     msg = "LedBurn" + array.array('B', data).tostring()
 
-    sock.sendto(msg, (ip, UDP_PORT))
+    try:
+        sock.sendto(msg, (ip, UDP_PORT))
+    except:
+        print 'no network'
 
 
 def replaceGBRtoRGB(data_array,in_range):
