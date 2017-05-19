@@ -1,0 +1,19 @@
+--- 
+offset: -0.17
+file_name: "Silence.mp3"
+pieces: 
+  - 
+    - 0
+    - 16
+    - lake:
+        Clear:
+    - grass:
+        Clear:
+    - tree:
+        Clear:
+    - flower:
+        Clear:
+    - sheep:
+        Clear:
+    - sign:
+        Clear:

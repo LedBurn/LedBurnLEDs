@@ -1,5 +1,6 @@
 import datetime
 import random
+import platform
 
 class InputType:
     TEMPERATURE = 0
@@ -40,6 +41,11 @@ class Decisions:
     # return None if no song
     # return yml if we want a song. example: return "Songs/Teletubbies.yml"
     def decide(self, start_temperature, curr_temperature, sachi_meter, illusions_flag, motion_detected):
+
+        # we should not work during the day when there is light, it could damage the leds.
+        # we plan to disconnect electricity during the day, but if that fails, make sure the leds are not on and heating
+        if not self.check_valid_hour_in_day():
+            return ['silence.yml']
 
         if self.curr_input is None:
 
@@ -215,3 +221,20 @@ class Decisions:
             return [random.choice(["Transitions/HuggingMe.yml"]), "exile.yml"]
 
         return None
+
+    def check_valid_hour_in_day(self):
+
+        #do it only if we are running on the RPI
+        if platform.machine() != 'armv7l':
+            return True
+
+        current_hour = datetime.datetime.now().hour
+        if current_hour >= 19:
+            return True
+        if current_hour <= 5:
+            return True
+        return False
+
+
+
+
