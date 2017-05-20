@@ -13,6 +13,10 @@ from UIElements.TempStick import TempStick
 from UIElements.SachiMeter import SachiMeter
 
 from Animations.GlowAnimation import GlowAnimation
+from Animations_Tree.GlowTreeAnimation import GlowTreeAnimation
+from Animations_Flower.GlowFlowerAnimation import GlowFlowerAnimation
+from Animations_Grass.GlowGrassAnimation import GlowGrassAnimation
+from Animations_Sign.GlowSignAnimation import GlowSignAnimation
 
 class TransitionsDriver:
 
@@ -28,12 +32,12 @@ class TransitionsDriver:
         self.temp_stick = TempStick()
         self.sachi_meter = SachiMeter()
 
-        self.flower_animation = GlowAnimation(self.flower, [0, 255, 0])
-        self.grass_animation = GlowAnimation(self.grass, [255, 255, 0])
+        self.flower_animation = GlowFlowerAnimation(self.flower)
+        self.grass_animation = GlowGrassAnimation(self.grass)
         self.lake_animation = GlowAnimation(self.lake, [0, 0, 255])
-        self.sheep_animation = GlowAnimation(self.sheep, [255, 255, 255])
-        self.sign_animation = GlowAnimation(self.sign, [255, 0, 0])
-        self.tree_animation = GlowAnimation(self.tree, [0, 255, 0])
+        self.sheep_animation = GlowAnimation(self.sheep, [64, 64, 64])
+        self.sign_animation = GlowSignAnimation(self.sign)
+        self.tree_animation = GlowTreeAnimation(self.tree)
 
     def play_animations(self, curr_temerature, sachi_meter=None):
 

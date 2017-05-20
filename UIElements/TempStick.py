@@ -10,7 +10,7 @@ class TempStick:
     MID_PIX = NUM_OF_PIX / 2.0
 
     SAMPLES_FOR_CHANGE_DETECTION = 10
-    DEG_DIFF_FOR_CHANGE_DETECTION = 1.0
+    DEG_DIFF_FOR_CHANGE_DETECTION = 0.3
 
     def __init__(self):
         self.arr = [0,0,0] * 144
