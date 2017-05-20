@@ -10,9 +10,9 @@ class InputType:
 class Decisions:
 
     MAX_HUG_REQUESTS = 2
-    HUG_MAX_TEMP = 23.0
+    HUG_MAX_TEMP = 26.0
     ALREADY_HUGED_TEMP = 27.0
-    TEMP_DIFF_FOR_DECISION = 2.0
+    TEMP_DIFF_FOR_DECISION = 1.0
     STONED_REQUESTS = 2
 
     ALL_SONGS = ['bao.yml', 'Dreamfunk.yml', 'exile.yml', 'nisim.yml', 'Soul Orchestra.yml', 'space.yml',
@@ -195,7 +195,7 @@ class Decisions:
         # if we are here, we are waiting fot the user to change the sachi meter.
         # tell him how it goes...
 
-        if self.last_req_time is None or (datetime.datetime.now() - self.last_req_time) > datetime.timedelta(seconds = 15):
+        if self.last_req_time is None or (datetime.datetime.now() - self.last_req_time) > datetime.timedelta(seconds = 20):
 
             if self.stoned_request_count >= self.STONED_REQUESTS:
                 print 'finished all our stoned requests. chosing next song without transition'

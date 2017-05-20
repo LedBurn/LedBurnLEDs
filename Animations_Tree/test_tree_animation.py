@@ -39,7 +39,7 @@ while True:
 
     animation.apply(time_precent)
 
-    network.send(frame_id, tree_data=tree.get_array())
+    network.send(tree_data=tree.get_array())
 
     time.sleep(0.02)
     current_time = (current_time + 1) % speed

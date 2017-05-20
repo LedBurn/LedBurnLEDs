@@ -111,8 +111,7 @@ if __name__ == "__main__":
         song_time = (pygame.mixer.music.get_pos() - 170)/ 1000.0
         song.apply_animation(song_time)
 
-        network.send(frame_id,
-                     flower.get_array(),
+        network.send(flower.get_array(),
                      sheep.get_array(),
                      grass,
                      sign,

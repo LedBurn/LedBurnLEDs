@@ -28,7 +28,7 @@ while True:
 
 	animation.apply(time_precent)
 
-	network.send(frame_id, lake_data=lake.get_array())
+	network.send(lake_data=lake.get_array())
 
 	time.sleep(0.05)
 	current_time = (current_time + 1) % speed

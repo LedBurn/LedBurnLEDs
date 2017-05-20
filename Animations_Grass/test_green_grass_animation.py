@@ -28,7 +28,7 @@ while True:
 
     animation.apply(time_precent)
 
-    network.send(frame_id, flower, sheep, grass.get_array(), sign)
+    network.send(flower, sheep, grass.get_array(), sign)
 
     time.sleep(0.02)
     current_time = (current_time + 1) % speed

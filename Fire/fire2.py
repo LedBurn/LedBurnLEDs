@@ -32,6 +32,6 @@ while True:
 	sheep = [200, 0 ,0] * 302
 	grass = [0, 200, 0] * 600
 	#sign = [0, 0, 200] * 150
-	network.send(frame,  flower, sheep, grass, arr)
+	network.send(flower, sheep, grass, arr)
 	time.sleep(0.1)
 	frame += 1

@@ -56,6 +56,7 @@ while True:
             song.play_animations(song_time, curr_temperature, sachiMeter)
 
     else: #no song playing
+        transDriver.play_animations(curr_temperature, sachiMeter)
         last_time = 0
         if next_song is not None:
             print "next song is: " + next_song[0]

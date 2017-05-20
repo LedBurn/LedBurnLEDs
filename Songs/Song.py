@@ -12,7 +12,6 @@ from UIElements.Tree import Tree
 from UIElements.TempStick import TempStick
 from UIElements.SachiMeter import SachiMeter
 
-from Animations.GlowAnimation import GlowAnimation
 from Animations_Flower.FlowerAnimationFactory import FlowerAnimationFactory
 from Animations_Grass.GrassAnimationFactory import GrassAnimationFactory
 from Animations_Lake.LakeAnimationFactory import LakeAnimationFactory
@@ -82,32 +81,23 @@ class Song():
 
 	def create_animations(self, animation_dict):
 
-		if self.is_transition:
-			self.flower_animation = GlowAnimation(self.flower)
-			self.grass_animation = GlowAnimation(self.grass)
-			self.lake_animation = GlowAnimation(self.lake)
-			self.sheep_animation = GlowAnimation(self.sheep)
-			self.sign_animation = GlowAnimation(self.sign)
-			self.tree_animation = GlowAnimation(self.tree)
+		self.flower_animation = self.get_effect(animation_dict, 'flower', self.flower, FlowerAnimationFactory)
+		self.flower_animation_mul = self.get_mul(animation_dict, 'flower')
 
-		else:
-			self.flower_animation = self.get_effect(animation_dict, 'flower', self.flower, FlowerAnimationFactory)
-			self.flower_animation_mul = self.get_mul(animation_dict, 'flower')
+		self.grass_animation = self.get_effect(animation_dict, 'grass', self.grass, GrassAnimationFactory)
+		self.grass_animation_mul = self.get_mul(animation_dict, 'grass')
 
-			self.grass_animation = self.get_effect(animation_dict, 'grass', self.grass, GrassAnimationFactory)
-			self.grass_animation_mul = self.get_mul(animation_dict, 'grass')
+		self.lake_animation = self.get_effect(animation_dict, 'lake', self.lake, LakeAnimationFactory)
+		self.lake_animation_mul = self.get_mul(animation_dict, 'lake')
 
-			self.lake_animation = self.get_effect(animation_dict, 'lake', self.lake, LakeAnimationFactory)
-			self.lake_animation_mul = self.get_mul(animation_dict, 'lake')
+		self.sheep_animation = self.get_effect(animation_dict, 'sheep', self.sheep, SheepAnimationFactory)
+		self.sheep_animation_mul = self.get_mul(animation_dict, 'sheep')
 
-			self.sheep_animation = self.get_effect(animation_dict, 'sheep', self.sheep, SheepAnimationFactory)
-			self.sheep_animation_mul = self.get_mul(animation_dict, 'sheep')
+		self.sign_animation = self.get_effect(animation_dict, 'sign', self.sign, SignAnimationFactory)
+		self.sign_animation_mul = self.get_mul(animation_dict, 'sign')
 
-			self.sign_animation = self.get_effect(animation_dict, 'sign', self.sign, SignAnimationFactory)
-			self.sign_animation_mul = self.get_mul(animation_dict, 'sign')
-
-			self.tree_animation = self.get_effect(animation_dict, 'tree', self.tree, TreeAnimationFactory)
-			self.tree_animation_mul = self.get_mul(animation_dict, 'tree')
+		self.tree_animation = self.get_effect(animation_dict, 'tree', self.tree, TreeAnimationFactory)
+		self.tree_animation_mul = self.get_mul(animation_dict, 'tree')
 
 
 	def apply_animation(self, animation, num_of_beats, duration, relative_song_time):
