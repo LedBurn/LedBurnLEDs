@@ -35,7 +35,7 @@ class NaturalLakeAnimation(LakeAnimation):
             self.start_times.append(start_time)
             self.speeds.append(speed)
 
-            wave = self.lake.waves_arr[i]
+            wave = self.lake.waves_arr[i][::-1]
             self.effects.append(DarkPointEffect(wave, 10))
 
     
