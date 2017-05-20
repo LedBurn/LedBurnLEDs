@@ -55,6 +55,9 @@ pieces:
       sign:
         Confetti:
         beat_mul: 4.0
+      tree:
+        Confetti:
+        beat_mul: 4.0
   -
     - 45.88263039
     - 28
@@ -71,6 +74,8 @@ pieces:
         Clear:
       sign:
         Clear:
+      tree:
+        Clear:
   - 
     - 62.04371882
     - 4
@@ -84,6 +89,8 @@ pieces:
         Confetti:
       sign:
         Confetti:
+      tree:
+        Confetti:
   -
     - 64.34249433
     - 32
@@ -92,6 +99,8 @@ pieces:
       flower:
         Clear:
       sign:
+        Clear:
+      tree:
         Clear:
       lake:
         Eq:
@@ -126,6 +135,9 @@ pieces:
           brightness: 0.5
       grass:
         Confetti:
+      tree:
+        Spike:
+        beat_mul: 0.25
   - 
     - 119.7220862
     - 28
@@ -136,10 +148,15 @@ pieces:
           brightness: 0.5
       grass:
         Confetti:
+      tree:
+        Spike:
+        beat_mul: 0.25
   -
     - 135.9063946
     - 4
     - lake:
+        Clear:
+      tree:
         Clear:
   - 
     - 138.2051701
@@ -149,6 +166,8 @@ pieces:
           hue_start: 0.4
       lake:
         Confetti:
+      tree:
+        Confetti:
   - 
     - 156.665034
     - 24
@@ -157,6 +176,9 @@ pieces:
           hue_start: 0.6
       lake:
         Confetti:
+      tree:
+        Explosion:
+        beat_mul: 0.125
   -
     - 170.5273469
     - 8
@@ -166,6 +188,8 @@ pieces:
       lake:
         Clear:
       grass:
+        Clear:
+      tree:
         Clear:
   - 
     - 175.2035374
@@ -177,6 +201,9 @@ pieces:
           brightness: 0.5
       grass:
         Confetti:
+      tree:
+        Spike:
+        beat_mul: 0.25
       flower:
         Clear:
   - 
@@ -189,12 +216,16 @@ pieces:
           brightness: 0.5
       grass:
         Confetti:
+      tree:
+        Confetti:
   -
     - 209.8941497
     - 4
     - lake:
         Clear:
       grass:
+        Clear:
+      tree:
         Clear:
   - 
     - 212.4251247

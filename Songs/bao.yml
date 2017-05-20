@@ -11,6 +11,7 @@ pieces:
           hue_start: 0.7
           brightness: 0.4
         beat_mul: 0.25
+
   - 
     - 6.524807256
     - 32
@@ -270,6 +271,9 @@ pieces:
       flower:
         RoundRobin:
         beat_mul: 0.5
+      tree:
+        RoundRobin:
+        beat_mul: 0.5
   - 
     - 164.327619
     - 28
@@ -291,6 +295,8 @@ pieces:
         beat_mul: 0.5
       flower:
         Alternate:
+      tree:
+        Alternate:
   - 
     - 175.8447166
     - 4
@@ -311,6 +317,8 @@ pieces:
         Rainbow:
         beat_mul: 0.125
       flower:
+        Alternate:
+      tree:
         Alternate:
   - 
     - 177.4701134
@@ -335,6 +343,8 @@ pieces:
         beat_mul: 0.5
       flower:
         Alternate:
+      tree:
+        Alternate:
   - 
     - 188.9872109
     - 4
@@ -358,6 +368,8 @@ pieces:
         beat_mul: 0.25
       flower:
         Alternate:
+      tree:
+        Alternate:
   - 
     - 190.6358277
     - 28
@@ -378,6 +390,8 @@ pieces:
         beat_mul: 1.0
       flower:
         Rainbow:
+      tree:
+        Rainbow:
   - 
     - 202.1529252
     - 4
@@ -396,6 +410,9 @@ pieces:
           hue_start: 0.8
         beat_mul: 0.25
       flower:
+        Rainbow:
+        beat_mul: 0.25
+      tree:
         Rainbow:
         beat_mul: 0.25
   - 
@@ -422,6 +439,8 @@ pieces:
         Spin:
           contour_color:
             type: "circular_loc_hue"
+      tree:
+        Rainbow:
   - 
     - 216.9440363
     - 16
@@ -436,6 +455,8 @@ pieces:
       sign:
         Clear:
       flower:
+        Clear:
+      tree:
         Clear:
       lake:
         Spin:
