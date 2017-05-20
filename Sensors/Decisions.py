@@ -73,7 +73,7 @@ class Decisions:
                     self.mark_next_song(yml)
                 return next_songs
 
-            self.curr_input = self.chose_next_input(sachi_meter, curr_temperature)
+            self.curr_input = self.chose_next_input(sachi_meter, curr_temperature, illusions_flag)
 
         if self.curr_input == InputType.SACHI:
             next_songs = self.decide_by_RFID(illusions_flag, sachi_meter)
@@ -91,13 +91,14 @@ class Decisions:
         return ['sheep.yml', self.choose_and_validate_next_song()]
 
 
-    def chose_next_input(self, sachi_meter, curr_temperature):
+    def chose_next_input(self, sachi_meter, curr_temperature, illusions_flag):
         # if not the time, we will choose an input source since we don't have one
-        if sachi_meter is not None and random.random() < 1.0:
+        rand = random.random()
+        if sachi_meter is not None and (illusions_flag or rand < 0.33):
             print 'will use input selection of SACHI'
             return InputType.SACHI
 
-        if self.use_temperature(curr_temperature) and random.random() < 0.3:
+        if self.use_temperature(curr_temperature) and rand < 0.66:
             print 'will use input selection of TEMPERATURE'
             return InputType.TEMPERATURE
 

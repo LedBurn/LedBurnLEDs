@@ -18,6 +18,7 @@ from Animations_Tree.GlowTreeAnimation import GlowTreeAnimation
 from Animations_Flower.GlowFlowerAnimation import GlowFlowerAnimation
 from Animations_Grass.GlowGrassAnimation import GlowGrassAnimation
 from Animations_Sign.GlowSignAnimation import GlowSignAnimation
+from Animations_Sheep.GlowSheepAnimation import GlowSheepAnimation
 
 class TransitionsDriver:
 
@@ -37,7 +38,7 @@ class TransitionsDriver:
         self.flower_animation = GlowFlowerAnimation(self.flower)
         self.grass_animation = GlowGrassAnimation(self.grass)
         self.lake_animation = GlowAnimation(self.lake, [0, 0, 255])
-        self.sheep_animation = GlowAnimation(self.sheep, [64, 64, 64])
+        self.sheep_animation = GlowSheepAnimation(self.sheep)
         self.sign_animation = GlowSignAnimation(self.sign)
         self.tree_animation = GlowTreeAnimation(self.tree)
 
@@ -48,6 +49,7 @@ class TransitionsDriver:
 
         self.temp_stick.set_is_input_mode(input_type == Decisions.InputType.TEMPERATURE)
         self.sachi_meter.set_is_input_mode(input_type == Decisions.InputType.SACHI)
+        self.sheep_animation.set_is_input_mode(input_type == Decisions.InputType.SACHI)
 
         self.flower_animation.apply(time_percent)
         self.grass_animation.apply(time_percent)

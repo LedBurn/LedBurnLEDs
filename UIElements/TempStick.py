@@ -38,6 +38,7 @@ class TempStick:
         else:
             curr_temp = max(curr_temp, self.MIN_TEMP)
             curr_temp = min(curr_temp, self.MAX_TEMP)
+            print curr_temp
             temp_percent = (curr_temp - self.MIN_TEMP)/(self.MAX_TEMP - self.MIN_TEMP)
             pix_num = int(temp_percent * self.NUM_OF_PIX)
 
