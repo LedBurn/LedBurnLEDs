@@ -51,6 +51,8 @@ pieces:
     - 12
     - sheep:
         Rainbow:
+      tree:
+        Pixel:
       grass:
         Confetti:
       lake:
@@ -78,6 +80,8 @@ pieces:
         beat_mul: 0.25
       grass:
         Confetti:
+      tree:
+        Confetti:
   - 
     - 113.0579592
     - 28
@@ -93,6 +97,8 @@ pieces:
         beat_mul: 0.25
       grass:
         Confetti:
+      tree:
+        Confetti:
   - 
     - 137.7872109
     - 16
@@ -105,6 +111,8 @@ pieces:
       lake:
         Clear:
       grass:
+        Clear:
+      tree:
         Clear:
   - 
     - 151.9049433
@@ -130,6 +138,8 @@ pieces:
         Spike:
           directionType: "UpAndDown"
         beat_mul: 2.0
+      tree:
+        Clear:
   - 
     - 167.3926531
     - 20
@@ -144,6 +154,8 @@ pieces:
         beat_mul: 0.5
       Stars:
         beat_mul: 0.5
+      tree:
+        Alternate:
   - 
     - 184.6682993
     - 4
@@ -159,6 +171,9 @@ pieces:
         beat_mul: 0.5
       Stars:
         beat_mul: 0.5
+      tree:
+        Rainbow:
+        beat_mul: 0.25
   - 
     - 188.1745125
     - 20
@@ -175,7 +190,8 @@ pieces:
         Eq:
           hue1: 0.8
           hue2: 0.6
-
+      tree:
+        Alternate:
   - 
     - 205.6126984
     - 8
@@ -194,6 +210,9 @@ pieces:
         Eq:
           hue1: 0.8
           hue2: 0.0
+      tree:
+        Rainbow:
+        beat_mul: 0.5
   - 
     - 212.6019048
     - 20
@@ -213,6 +232,9 @@ pieces:
       lake:
         Confetti:
           leds_percent_per_beat: 0.75
+      tree:
+        Explosion:
+        beat_mul: 0.25
   - 
     - 230.0400907
     - 16
@@ -225,6 +247,8 @@ pieces:
       grass:
         Clear:
       flower:
+        Clear:
+      tree:
         Clear:
   - 
     - 243.8791837
@@ -271,6 +295,8 @@ pieces:
         beat_mul: 0.5
       lake:
         Stars:
+      tree:
+        Alternate:
   - 
     - 276.3639002
     - 32
@@ -279,7 +305,7 @@ pieces:
         beat_mul: 2.0
       flower:
         Rainbow:
-        beat_mul: 025
+        beat_mul: 4
       grass:
         Spike:
           directionType: "UpAndDown"
@@ -289,6 +315,10 @@ pieces:
           leds_percent_per_beat: 0.9
       sign:
         Rainbow:
+        beat_mul: 4
+      tree:
+        Rainbow:
+        beat_mul: 4
   - 
     - 303.3687075
     - 4
@@ -297,6 +327,8 @@ pieces:
       flower:
         Clear:
       sign:
+        Clear:
+      tree:
         Clear:
       sheep:
         Stars:
