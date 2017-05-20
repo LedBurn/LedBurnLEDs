@@ -32,6 +32,7 @@ from time import sleep
 sleep(2)
 
 last_time = 0
+input_type = None
 
 while True:
     # read sensors data
@@ -51,7 +52,7 @@ while True:
         song_time = max(song_time, last_time)
         last_time = song_time
         if song.is_transition:
-            transDriver.play_animations(curr_temperature, sachiMeter)
+            transDriver.play_animations(curr_temperature, sachiMeter, input_type)
         else:
             song.play_animations(song_time, curr_temperature, sachiMeter)
 
@@ -68,8 +69,9 @@ while True:
                 next_song = None
         else:
             next_song = decisions.decide(curr_temperature, sachiMeter, illusionsFlag, motion_detected)
+            input_type = decisions.curr_input
             if next_song is None:
-                transDriver.play_animations(curr_temperature, sachiMeter)
+                transDriver.play_animations(curr_temperature, sachiMeter, input_type)
 
     clock.tick(50)
     

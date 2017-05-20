@@ -1,6 +1,9 @@
 
 import datetime
 
+from Effects.SpikeEffect import SpikeEffect
+from Colors.TimedColor import ConstTimedColor
+
 class TempStick:
 
     MAX_TEMP = 32.0
@@ -12,17 +15,21 @@ class TempStick:
     SAMPLES_FOR_CHANGE_DETECTION = 10
     DEG_DIFF_FOR_CHANGE_DETECTION = 0.3
 
+    top_pixels = range(120,144)
+
     def __init__(self):
         self.arr = [0,0,0] * 144
         self.is_on = False
         self.brightness = 1.0
         self.last_samples = []
         self.last_sample_time = datetime.datetime.now()
+        self.is_input_mode = False
+        self.top_spike = None
 
     def get_array(self):
         return self.arr
 
-    def set_temperature(self, curr_temp):
+    def set_temperature(self, time_percent, curr_temp):
 
         self.change_detection(curr_temp)
 
@@ -47,6 +54,9 @@ class TempStick:
                     else:
                         r = int( self.brightness * 255 * ( float(i-self.MID_PIX) / float(self.MID_PIX) ))
                     self.arr[i*3 : i*3+3] = [r, 0, b]
+
+            if self.top_spike:
+                self.top_spike.apply(time_percent, self.arr)
 
     def change_detection(self, curr_temp):
 
@@ -73,6 +83,15 @@ class TempStick:
 
     def set_is_on(self, val):
         self.is_on = val
+
+    def set_is_input_mode(self, val):
+        if self.is_input_mode == val:
+            return
+        if val:
+            self.top_spike = SpikeEffect(self.top_pixels, ConstTimedColor([255, 0, 0]), 1.0, len(self.top_pixels), False)
+        else:
+            self.top_spike = None
+        self.is_input_mode = val
 
 
 

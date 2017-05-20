@@ -30,7 +30,7 @@ from SinglePixelTreeAnimation import SinglePixelTreeAnimation
 #animation = SpikeTreeAnimation(tree, {'circular': False, 'dir': 'outside'})
 animation = SinglePixelTreeAnimation(tree, {})
 
-speed = 25  # in 50 hrz
+speed = 15  # in 50 hrz
 current_time = 0
 frame_id = 0;
 

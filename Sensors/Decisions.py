@@ -12,7 +12,7 @@ class Decisions:
     MAX_HUG_REQUESTS = 2
     HUG_MAX_TEMP = 26.0
     ALREADY_HUGED_TEMP = 27.0
-    TEMP_DIFF_FOR_DECISION = 1.0
+    TEMP_DIFF_FOR_DECISION = 0.2
     STONED_REQUESTS = 2
 
     ALL_SONGS = ['bao.yml', 'Dreamfunk.yml', 'exile.yml', 'nisim.yml', 'Soul Orchestra.yml', 'space.yml',
@@ -93,11 +93,11 @@ class Decisions:
 
     def chose_next_input(self, sachi_meter, curr_temperature):
         # if not the time, we will choose an input source since we don't have one
-        if sachi_meter is not None and random.random() < 0.33:
+        if sachi_meter is not None and random.random() < 0.3:
             print 'will use input selection of SACHI'
             return InputType.SACHI
 
-        if self.use_temperature(curr_temperature) and random.random() < 0.33:
+        if self.use_temperature(curr_temperature) and random.random() < 0.3:
             print 'will use input selection of TEMPERATURE'
             return InputType.TEMPERATURE
 
@@ -240,6 +240,7 @@ class Decisions:
             self.start_temperature = curr_temperature
 
         diff_from_start = curr_temperature - self.start_temperature
+        print diff_from_start
         if diff_from_start > self.TEMP_DIFF_FOR_DECISION:
             print 'start temperature was ' + str(self.start_temperature) + " now its " + str(curr_temperature) + \
                   " thanking for the hug..."
