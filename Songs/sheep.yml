@@ -5,8 +5,7 @@ pieces:
   - 
     - 0
     - 50
-    -
-    sheep:
+    - sheep:
         Fire:
         
   - 

@@ -73,30 +73,37 @@ class Decisions:
                     self.mark_next_song(yml)
                 return next_songs
 
-            # if not the time, we will choose an input source since we don't have one
-            if sachi_meter is not None:
-                self.curr_input = InputType.SACHI
-                print 'will use input selection of SACHI'
-
-
+            self.curr_input = self.chose_next_input(sachi_meter, curr_temperature)
 
         if self.curr_input == InputType.SACHI:
             next_songs = self.decide_by_RFID(illusions_flag, sachi_meter)
             return next_songs
 
-        if self.use_temperature(curr_temperature):
+        if self.curr_input == InputType.TEMPERATURE:
             next_song = self.decide_by_temperature(curr_temperature)
             return next_song
 
-        next_song = self.decide_by_motion(motion_detected)
-        if next_song is not None:
-            return next_song
+        if self.curr_input == InputType.MOTION:
+            next_song = self.decide_by_motion(motion_detected)
+            if next_song is not None:
+                return next_song
 
-        return [self.choose_and_validate_next_song()]
+        return ['sheep.yml', self.choose_and_validate_next_song()]
 
 
-    def chose_next_input(self):
-        pass
+    def chose_next_input(self, sachi_meter, curr_temperature):
+        # if not the time, we will choose an input source since we don't have one
+        if sachi_meter is not None and random.random() < 0.33:
+            print 'will use input selection of SACHI'
+            return InputType.SACHI
+
+        if self.use_temperature(curr_temperature) and random.random() < 0.33:
+            print 'will use input selection of TEMPERATURE'
+            return InputType.TEMPERATURE
+
+        self.curr_input = None
+        print 'will do sheep voice'
+        return None
 
     def mark_next_song(self, yml):
         if yml not in self.songs_stats:
@@ -227,7 +234,7 @@ class Decisions:
 
     def decide_by_temperature(self, curr_temperature):
         if curr_temperature is None:
-            return
+            return [self.choose_and_validate_next_song()]
 
         if self.start_temperature is None:
             self.start_temperature = curr_temperature
