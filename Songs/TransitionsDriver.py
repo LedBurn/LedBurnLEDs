@@ -30,6 +30,7 @@ class TransitionsDriver:
         self.lake = Lake()
         self.tree = Tree()
         self.temp_stick = TempStick()
+        self.temp_stick.set_is_on(True)
         self.sachi_meter = SachiMeter()
 
         self.flower_animation = GlowFlowerAnimation(self.flower)
@@ -50,6 +51,8 @@ class TransitionsDriver:
         self.sheep_animation.apply(time_percent)
         self.sign_animation.apply(time_percent)
         self.tree_animation.apply(time_percent)
+        self.temp_stick.set_temperature(curr_temerature)
+        self.sachi_meter.set_sachi_meter(sachi_meter)
 
 
         network.send(flower_data=self.flower.get_array(),
