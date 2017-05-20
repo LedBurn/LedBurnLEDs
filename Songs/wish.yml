@@ -80,6 +80,8 @@ pieces:
         FillFade:
           hue_start: 0.15
         beat_mul: 0.5
+      tree:
+        RoundRobin:
   - 
     - 131.7964626
     - 4
@@ -100,6 +102,9 @@ pieces:
         FillFade:
           hue_start: 0.15
         beat_mul: 0.5
+      tree:
+        Rainbow:
+        beat_mul: 0.125
   - 
     - 135.8599546
     - 4
@@ -120,6 +125,9 @@ pieces:
         FillFade:
           hue_start: 0.15
         beat_mul: 0.5
+      tree:
+        Rainbow:
+        beat_mul: 0.125
   - 
     - 139.8770068
     - 2
@@ -130,6 +138,8 @@ pieces:
       grass:
         Confetti:
       sheep:
+        Clear:
+      tree:
         Clear:
   - 
     - 141.8971429
@@ -168,6 +178,8 @@ pieces:
           brightness: 0.5
       flower:
         Alternate:
+      tree:
+        Alternate:
   - 
     - 179.4438095
     - 8
@@ -177,6 +189,8 @@ pieces:
         Alternate:
       grass:
         Confetti:
+      tree:
+        Clear:
   - 
     - 187.3385941
     - 8
@@ -199,6 +213,8 @@ pieces:
         Confetti:
       sheep:
         Alternate:
+      tree:
+        Alternate:
   - 
     - 203.1746032
     - 40
@@ -209,6 +225,8 @@ pieces:
       grass:
         Confetti:
       sheep:
+        Confetti:
+      tree:
         Confetti:
   - 
     - 242.160907
@@ -229,7 +247,10 @@ pieces:
         beat_mul: 0.5
       flower:
         Rainbow:
-      beat_mul: 0.125
+        beat_mul: 0.125
+      tree:
+        Rainbow:
+        beat_mul: 0.125
   - 
     - 246.0386395
     - 4
@@ -249,7 +270,10 @@ pieces:
         beat_mul: 0.5
       flower:
         Rainbow:
-      beat_mul: 0.125
+        beat_mul: 0.125
+      tree:
+        Rainbow:
+        beat_mul: 0.125
   - 
     - 249.869932
     - 32
@@ -269,7 +293,10 @@ pieces:
         beat_mul: 0.5
       flower:
         Rainbow:
-      beat_mul: 0.25
+        beat_mul: 0.25
+      tree:
+        Rainbow:
+        beat_mul: 0.25
   - 
     - 280.5434921
     - 16
@@ -280,4 +307,6 @@ pieces:
       grass:
         Confetti:
       sheep:
+        Confetti:
+      tree:
         Confetti:
