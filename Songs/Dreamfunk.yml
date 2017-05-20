@@ -115,6 +115,11 @@ pieces:
             only_waves: False
             brightness: 0.5
         beat_mul: 1
+
+      tree:
+        Confetti:
+          leds_percent_per_beat: 0.2
+          brightness: 0.5
   -
     - 112.5935601
     - 96
@@ -135,6 +140,11 @@ pieces:
       lake:
         Eq:
         beat_mul: 2
+
+      tree:
+        Confetti:
+          leds_percent_per_beat: 0.2
+          brightness: 0.5
   -
     - 154.621678
     - 64
@@ -160,6 +170,11 @@ pieces:
       sheep:
         Spikes:
           hue_start: 0.0
+
+      tree:
+        Confetti:
+          leds_percent_per_beat: 0.2
+          brightness: 0.5
   -
     - 182.6713832
     - 64
@@ -184,6 +199,9 @@ pieces:
         beat_mul: 1
         
       sheep:
+        Alternate:
+
+      tree:
         Alternate:
           
   -
@@ -212,6 +230,11 @@ pieces:
       
       sheep:
         Confetti:
+
+      tree:
+        Confetti:
+          leds_percent_per_beat: 0.2
+          brightness: 0.5
   -
     - 238.7243537
     - 32
@@ -238,6 +261,10 @@ pieces:
         
       sheep:
         Confetti:
+
+      tree:
+        Explosion:
+        beat_mul: 0.5
   -
     - 252.7259864
     - 64
@@ -263,6 +290,10 @@ pieces:
       sheep:
         Spikes:
           hue_start: 0.0
+
+      tree:
+        Explosion:
+        beat_mul: 0.5
   -
     - 280.7524717
     - 64
@@ -285,6 +316,9 @@ pieces:
         beat_mul: 1
         
       sheep:
+        Confetti:
+
+      tree:
         Confetti:
   -
     - 308.8021769
@@ -311,6 +345,10 @@ pieces:
         
       sheep:
         Rainbow:
+
+      tree:
+        Pixel:
+        beat_mul: 0.125
   -
     - 336.8286621
     - 24
@@ -337,6 +375,10 @@ pieces:
         
       sheep:
         Clear:
+
+      tree:
+        Pixel:
+        beat_mul: 0.125
   -
     - 347.3240816
     - 8
@@ -359,7 +401,10 @@ pieces:
           contour_color:
             type: circular_loc_hue
         beat_mul: 0.25
-        
+
+      tree:
+        Pixel:
+        beat_mul: 0.125
   -
     - 350.8302948
     - 80
@@ -385,6 +430,9 @@ pieces:
         
       sheep:
         FillFade:
+
+      tree:
+        Clear:
   -
     - 385.8692063
     - 64

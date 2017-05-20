@@ -162,6 +162,10 @@ class Song():
 			sign_num_of_beats = num_of_beats * self.sign_animation_mul
 			self.apply_animation(self.sign_animation, sign_num_of_beats, duration, relative_song_time)
 
+		if self.tree_animation != None:
+			tree_num_of_beats = num_of_beats * self.tree_animation_mul
+			self.apply_animation(self.tree_animation, tree_num_of_beats, duration, relative_song_time)
+
 		network.send(flower_data=self.flower.get_array(),
 			sheep_data=self.sheep.get_array(),
 			grass_data=self.grass.get_array(), 

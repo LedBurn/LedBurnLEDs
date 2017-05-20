@@ -45,6 +45,9 @@ pieces:
           on_time_percent: 1.0
           brightness: 0.5
         beat_mul: 0.5
+      tree:
+        Pixel:
+        beat_mul: 0.125
   - 
     - 59.90748299
     - 8
@@ -62,6 +65,9 @@ pieces:
             on_time_percent: 0
             brightness: 0.6
         beat_mul: 0.25
+      tree:
+        Pixel:
+        beat_mul: 0.125
   - 
     - 65.1784127
     - 12
@@ -79,6 +85,9 @@ pieces:
           on_time_percent: 1.0
           brightness: 0.6
         beat_mul: 0.5
+      tree:
+        Pixel:
+        beat_mul: 0.25
   - 
     - 73.18929705
     - 4
@@ -88,6 +97,8 @@ pieces:
       sheep:
         Clear:
       grass:
+        Clear:
+      tree:
         Clear:
   - 
     - 75.39519274
@@ -105,6 +116,9 @@ pieces:
           on_time_percent: 0.5
           brightness: 0.8
         beat_mul: 0.5
+      tree:
+        Pixel:
+        beat_mul: 0.25
       flower:
         RoundRobin:
           hue_start: 0.1
@@ -119,6 +133,8 @@ pieces:
       grass:
         Clear:
       flower:
+        Clear:
+      tree:
         Clear:
   - 
     - 100.2637642
@@ -260,6 +276,9 @@ pieces:
           on_time_percent: 1.0
           brightness: 0.6
         beat_mul: 0.25
+      tree:
+        Spikes:
+        beat_mul: 0.25
   - 
     - 135.1401361
     - 8
@@ -289,6 +308,9 @@ pieces:
           on_time_percent: 1.0
           brightness: 0.6
         beat_mul: 0.25
+      tree:
+        Spikes:
+        beat_mul: 0.25
   - 
     - 151.2083447
     - 8
@@ -309,6 +331,9 @@ pieces:
           on_time_percent: 1.0
           brightness: 0.6
         beat_mul: 0.5
+      tree:
+        Spikes:
+        beat_mul: 0.25
   - 
     - 156.5024943
     - 8
@@ -329,6 +354,9 @@ pieces:
           on_time_percent: 1.0
           brightness: 0.6
         beat_mul: 0.5
+      tree:
+        Spikes:
+        beat_mul: 0.25
   - 
     - 161.796644
     - 16
@@ -338,6 +366,8 @@ pieces:
       sheep:
         Clear:
       grass:
+        Clear:
+      tree:
         Clear:
   - 
     - 172.4081633
@@ -387,6 +417,9 @@ pieces:
         RoundRobin:
           hue_start: 0.1
           hue_speed: 0.13
+      tree:
+        Spikes:
+        beat_mul: 0.5
   - 
     - 215.06322
     - 16
@@ -410,6 +443,9 @@ pieces:
       sheep:
         Spikes:
           hue_start: 0.67
+        beat_mul: 0.5
+      tree:
+        Spikes:
         beat_mul: 0.5
   - 
     - 225.7211791
@@ -442,6 +478,9 @@ pieces:
           animated: False
           full_color: True
         beat_mul: 1.0
+      tree:
+        Spikes:
+        beat_mul: 0.5
   - 
     - 233.7611791
     - 1
