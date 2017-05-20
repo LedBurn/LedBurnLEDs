@@ -186,7 +186,7 @@ class Decisions:
             #"Ahh, i see you're looking for something special, how about this.. (play illusion song)"
             ill_song = random.choice(["LiveFullyNow.yml", "ItStartsNow.yml", "Daya.yml"])
             print 'illusions_flag set, next illusion song is ' + str(ill_song)
-            return [random.choice(["Transitions/special.yml"]), ill_song, self.choose_and_validate_next_song()]
+            return [random.choice(["Transitions/special.yml","Transitions/special_hebrew.yml"]), ill_song, self.choose_and_validate_next_song()]
 
         # finish the RFID input selection
         if sachi_meter > 2:
@@ -198,7 +198,7 @@ class Decisions:
         if sachi_meter < -2:
             #"man i havent been to the gym in a while, i better go soon"
             print 'sachi meter is LOW'
-            return [random.choice(["Transitions/gym.yml"]), self.choose_and_validate_next_song()]
+            return [random.choice(["Transitions/gym.yml","Transitions/gym_hebrew.yml"]), self.choose_and_validate_next_song()]
 
         # if we are here, we are waiting fot the user to change the sachi meter.
         # tell him how it goes...
@@ -214,7 +214,12 @@ class Decisions:
             self.stoned_request_count += 1
             self.last_req_time = datetime.datetime.now()
 
-            if sachi_meter >= 0:
+            if sachi_meter == 0:
+                #I can't decide if I want to get stoned or go to the gym.
+                return [random.choice(["Transitions/cant_decide.yml", "Transitions/cant_decide_hebrew.yml", 
+                                        "Transitions/cant_decide_info_hebrew.yml", "Transitions/cant_decide_info.yml", 
+                                        "Transitions/if_i_was_kivsi_hebrew.yml", "Transitions/if_i_was_kivsi.yml"])]
+            elif sachi_meter > 0:
                 if self.stoned_request_count == 1:
                     #TODO: bigler change this :)
                     #you see that big ol joint, can you please pass it to kivsi?
@@ -226,11 +231,9 @@ class Decisions:
                 if self.stoned_request_count == 1:
                     #TODO: bigler change this :)
                     #has anyone seen my gym chip i swear i saw it around, can you get it to the sheep mouth?
-                    return [random.choice(["Transitions/gym_ask.yml","Transitions/gym_ask_hebrew.yml"])]
+                    return [random.choice(["Transitions/gym_ask_hebrew.yml"])]
                 else:
-                    #I can't decide if I want to get stoned or go to the gym.
-                    return [random.choice(["Transitions/cant_decide.yml","Transitions/cant_decide_hebrew.yml"])]
-
+                    return [random.choice(["Transitions/gym_ask.yml"])]
         return None
 
     def decide_by_temperature(self, curr_temperature):
@@ -246,7 +249,7 @@ class Decisions:
             print 'start temperature was ' + str(self.start_temperature) + " now its " + str(curr_temperature) + \
                   " thanking for the hug..."
             self.hug_request_count = 0
-            return [random.choice(["Transitions/hug_thanks.yml"]), "exile.yml"]
+            return [random.choice(["Transitions/hug_thanks.yml", "Transitions/hug_thanks_hebrew.yml"]), "exile.yml"]
 
         enough_time_since_last = self.temperature_req_time is None or (datetime.datetime.now() - self.temperature_req_time) > datetime.timedelta(seconds=15)
         if not enough_time_since_last:
@@ -261,7 +264,7 @@ class Decisions:
                 #TODO: bigler - fix this :)
                 return [random.choice(["Transitions/stick_ask.yml", "Transitions/stick_ask_hebrew.yml"])]
         elif curr_temperature > self.ALREADY_HUGED_TEMP:
-            return [random.choice(["Transitions/hugging_me.yml"]), "exile.yml"]
+            return [random.choice(["Transitions/hugging_me.yml", "Transitions/hugging_me_hebrew.yml"]), "exile.yml"]
 
         return [self.choose_and_validate_next_song()]
 
