@@ -133,6 +133,10 @@ pieces:
           contour_color:
             type: circular_loc_hue
         beat_mul: 0.125
+        
+      tree:
+        Pixel:
+        beat_mul: 0.125
   - 
     - 99.93868481
     - 32
@@ -156,6 +160,9 @@ pieces:
             only_waves: False
             brightness: 0.5
         beat_mul: 1
+        
+      tree:
+        Clear:
   - 
     - 113.6152381
     - 32
@@ -181,6 +188,10 @@ pieces:
         beat_mul: 1
         
       sheep:
+        Alternate:
+        beat_mul: 0.25
+      
+      tree:
         Alternate:
         beat_mul: 0.25
   - 
@@ -209,6 +220,9 @@ pieces:
         
       sheep:
         Clear:
+        
+      tree:
+        Clear:
   - 
     - 141.0380045
     - 32
@@ -235,7 +249,15 @@ pieces:
       sheep:
         Spikes:
           hue_start: 0.33
-          beat_mul: 0.5
+        beat_mul: 0.5
+        
+      tree:
+        Spikes:
+          color:
+            type: const_color
+            hue: 0.33
+          circular: True
+        beat_mul: 0.5
           
   - 
     - 154.7609977
@@ -263,6 +285,11 @@ pieces:
         
       sheep:
         Clear:
+        
+      tree:
+        Confetti:
+            leds_percent_per_beat: 0.2
+            brightness: 0.5
   - 
     - 168.460771
     - 64
@@ -290,6 +317,10 @@ pieces:
       sheep:
         Rainbow:
         beat_mul: 0.5
+        
+      tree:
+        Rainbow:
+        beat_mul: 0.5
   -
     - 195.8835374
     - 64
@@ -308,6 +339,9 @@ pieces:
         beat_mul: 1
         
       sheep:
+        Confetti:
+        
+      tree:
         Confetti:
   - 
     - 223.283084
@@ -331,3 +365,6 @@ pieces:
       sign:
         Rainbow:
         beat_mul: 0.0625
+        
+      tree:
+        Clear:

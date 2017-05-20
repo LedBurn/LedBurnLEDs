@@ -121,6 +121,10 @@ pieces:
             contour_color: 
                 type: circular_loc_hue
         beat_mul: 0.0625
+        
+      tree:
+        Rainbow: 
+        beat_mul: 0.125
   - 
     - 103.2591383
     - 16
@@ -133,6 +137,10 @@ pieces:
         Confetti:
           only_waves: True
         beat_mul: 0.125
+        
+      tree:
+        Rainbow: 
+        beat_mul: 0.125
   - 
     - 113.5920181
     - 12
@@ -144,6 +152,10 @@ pieces:
       lake:
         Confetti:
           only_waves: False
+        beat_mul: 0.125
+        
+      tree:
+        Rainbow: 
         beat_mul: 0.125
   - 
     - 121.3010431
@@ -162,6 +174,8 @@ pieces:
         Spike:
         beat_mul: 0.25
       
+      tree:
+        Confetti:
   - 
     - 123.7623583
     - 32
@@ -177,6 +191,10 @@ pieces:
         
       grass:
         Clear:
+        
+      tree:
+        Pixel:
+        beat_mul: 0.25
   - 
     - 144.5674376
     - 24
@@ -193,6 +211,10 @@ pieces:
       grass:
         RoundRobin:
         beat_mul: 1
+        
+      tree:
+        Pixel:
+        beat_mul: 0.25
   - 
     - 160.0319274
     - 8
@@ -209,6 +231,11 @@ pieces:
       sheep:
         Spikes:
         beat_mul: 1
+        
+      tree:
+        Spikes:
+          dir: clockwise
+        beat_mul: 0.5
   - 
     - 165.1867574
     - 32
@@ -220,6 +247,11 @@ pieces:
       sheep:
         Spikes:
         beat_mul: 1
+        
+      tree:
+        Spikes:
+          dir: counter_clockwise
+        beat_mul: 0.5
   - 
     - 185.7131973
     - 32
@@ -229,6 +261,9 @@ pieces:
         beat_mul: 0.5
         
       lake:
+        RoundRobin:
+        
+      tree:
         RoundRobin:
   - 
     - 206.4950567
@@ -241,7 +276,10 @@ pieces:
         RoundRobin:
         
       lake:
-        Eq:      
+        Eq:
+
+      tree:
+        RoundRobin:
   - 
     - 227.1375964
     - 28
@@ -255,6 +293,9 @@ pieces:
       grass:
         HorLine:
         beat_mul: 0.5
+        
+      tree:
+        RoundRobin:
   - 
     - 245.3217234
     - 4
@@ -267,10 +308,14 @@ pieces:
         
       grass:
         Clear:
+        
+      tree:
+        Alternate:
   - 
     - 247.9194558
     - 8
     - 
       flower:
         Confetti:
-        
+      tree:
+        Confetti:
