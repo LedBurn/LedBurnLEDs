@@ -18,7 +18,7 @@ class TempStick:
     top_pixels = range(120,144)
 
     def __init__(self):
-        self.arr = [0,0,0] * 144
+        self.arr = [0,0,0] * self.NUM_OF_PIX
         self.is_on = False
         self.brightness = 1.0
         self.last_samples = []
@@ -38,7 +38,6 @@ class TempStick:
         else:
             curr_temp = max(curr_temp, self.MIN_TEMP)
             curr_temp = min(curr_temp, self.MAX_TEMP)
-            print curr_temp
             temp_percent = (curr_temp - self.MIN_TEMP)/(self.MAX_TEMP - self.MIN_TEMP)
             pix_num = int(temp_percent * self.NUM_OF_PIX)
 
@@ -47,13 +46,14 @@ class TempStick:
             elif pix_num <= 0:
                 self.all_same_color([0,0,255])
             else:
-                for i in range(0,pix_num):
+                for i in range(0, self.NUM_OF_PIX):
                     r = 0
                     b = 0
-                    if i < self.MID_PIX:
-                        b = int( self.brightness * 255 * (1.0- i / self.MID_PIX))
-                    else:
-                        r = int( self.brightness * 255 * ( float(i-self.MID_PIX) / float(self.MID_PIX) ))
+                    if i < pix_num:
+                        if i < self.MID_PIX:
+                            b = int( self.brightness * 255 * (1.0- i / self.MID_PIX))
+                        else:
+                            r = int( self.brightness * 255 * ( float(i-self.MID_PIX) / float(self.MID_PIX) ))
                     self.arr[i*3 : i*3+3] = [r, 0, b]
 
             if self.top_spike:
