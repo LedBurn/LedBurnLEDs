@@ -93,7 +93,7 @@ class Decisions:
 
     def chose_next_input(self, sachi_meter, curr_temperature):
         # if not the time, we will choose an input source since we don't have one
-        if sachi_meter is not None and random.random() < 0.3:
+        if sachi_meter is not None and random.random() < 1.0:
             print 'will use input selection of SACHI'
             return InputType.SACHI
 

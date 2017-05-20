@@ -1,6 +1,7 @@
 
 import datetime
 
+from Sensors import Decisions
 import Network.LedBurnProtocol as network
 
 from UIElements.Flower import Flower
@@ -40,10 +41,13 @@ class TransitionsDriver:
         self.sign_animation = GlowSignAnimation(self.sign)
         self.tree_animation = GlowTreeAnimation(self.tree)
 
-    def play_animations(self, curr_temerature, sachi_meter=None):
+    def play_animations(self, curr_temerature, sachi_meter, input_type):
 
         diff_time = (datetime.datetime.now() - self.start_time).total_seconds()
         time_percent = (diff_time % 3.0) / 3.0
+
+        self.temp_stick.set_is_input_mode(input_type == Decisions.InputType.TEMPERATURE)
+        self.sachi_meter.set_is_input_mode(input_type == Decisions.InputType.SACHI)
 
         self.flower_animation.apply(time_percent)
         self.grass_animation.apply(time_percent)
@@ -51,8 +55,8 @@ class TransitionsDriver:
         self.sheep_animation.apply(time_percent)
         self.sign_animation.apply(time_percent)
         self.tree_animation.apply(time_percent)
-        self.temp_stick.set_temperature(curr_temerature)
-        self.sachi_meter.set_sachi_meter(sachi_meter)
+        self.temp_stick.set_temperature(time_percent, curr_temerature)
+        self.sachi_meter.set_sachi_meter(time_percent, sachi_meter)
 
 
         network.send(flower_data=self.flower.get_array(),

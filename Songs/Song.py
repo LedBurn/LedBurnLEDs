@@ -127,7 +127,7 @@ class Song():
 		song_time += self.offset
 
 		self.temp_stick.set_temperature(None, curr_temerature)
-		self.sachi_meter.set_sachi_meter(sachi_meter)
+		self.sachi_meter.set_sachi_meter(None, sachi_meter)
 
 		if self.current_piece_id < len(self.pieces) -1 and song_time > self.pieces[self.current_piece_id+1][0]:
 			self.current_piece_id += 1
