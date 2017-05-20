@@ -53,6 +53,9 @@ class Decisions:
         if not self.check_valid_hour_in_day():
             return ['silence.yml']
 
+        if self.check_if_fire_time():
+            return ['fire.yml']
+
         next_song = self.decide_by_input(curr_temperature, sachi_meter, illusions_flag, motion_detected)
         if next_song is not None:
             self.start_temperature = curr_temperature
@@ -282,6 +285,28 @@ class Decisions:
             return True
         return False
 
+    def check_if_fire_time(self):
+
+        #do it only if we are running on the RPI
+        if platform.machine() != 'armv7l':
+            return False
+
+        day = datetime.datetime.now().day
+        month = datetime.datetime.now().month
+        hour = datetime.datetime.now().hour
+
+        print day
+        print month
+        print hour
+
+        if day == 1 and month == 6: #thursday
+            if hour > 17:
+                return True
+
+        if day > 1 and month == 6: #friday
+            return True
+
+        return False
 
 
 
