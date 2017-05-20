@@ -78,8 +78,8 @@ class RFIDUDP:
             self.last_sucessful_read_time = datetime.datetime.now()
             return uidRead
 
-        elif self.last_sucessful_read_time and datetime.datetime.now() - self.last_sucessful_read_time > datetime.timedelta(seconds=30):
-            print 'did not receive data from RFID sensor for more than 30 seconds!'
+        elif self.last_sucessful_read_time and datetime.datetime.now() - self.last_sucessful_read_time > datetime.timedelta(seconds=10):
+            print 'did not receive data from RFID sensor for more than 10 seconds!'
             self.last_sucessful_read_time = None
 
         if self.last_sucessful_read_time is None:

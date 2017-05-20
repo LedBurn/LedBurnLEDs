@@ -14,6 +14,9 @@ class SachiMeter:
 		return self.arr
 
 	def set_sachi_meter(self, time_percent, val):
+		if val is None:
+			self.arr = [0,0,0] * 7
+
 		if val == -3:
 			self.arr = 	self.sachi_color*3 + 				self.zero_color + 		self.clear*3
 		elif val == -2:
