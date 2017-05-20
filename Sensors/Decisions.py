@@ -249,7 +249,7 @@ class Decisions:
             print 'start temperature was ' + str(self.start_temperature) + " now its " + str(curr_temperature) + \
                   " thanking for the hug..."
             self.hug_request_count = 0
-            return [random.choice(["Transitions/hug_thanks.yml", "Transitions/hug_thanks_hebrew.yml"]), "exile.yml"]
+            return [random.choice(["Transitions/hug_thanks.yml", "Transitions/hug_thanks_hebrew.yml"]), random.choice(["exile.yml", "strawberry.yml", "wish.yml", "Soul Orchestra.yml",])]
 
         enough_time_since_last = self.temperature_req_time is None or (datetime.datetime.now() - self.temperature_req_time) > datetime.timedelta(seconds=15)
         if not enough_time_since_last:
@@ -264,7 +264,7 @@ class Decisions:
                 #TODO: bigler - fix this :)
                 return [random.choice(["Transitions/stick_ask.yml", "Transitions/stick_ask_hebrew.yml"])]
         elif curr_temperature > self.ALREADY_HUGED_TEMP:
-            return [random.choice(["Transitions/hugging_me.yml", "Transitions/hugging_me_hebrew.yml"]), "exile.yml"]
+            return [random.choice(["Transitions/hugging_me.yml", "Transitions/hugging_me_hebrew.yml"])]
 
         return [self.choose_and_validate_next_song()]
 
