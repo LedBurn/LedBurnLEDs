@@ -75,8 +75,7 @@ def uint32_to_array(num):
     c4 = (num / (1)) % 256
     return [c4, c3, c2, c1]
 
-def send(frame_id,
-         flower_data=   [0, 0, 0] * 580,
+def send(flower_data=   [0, 0, 0] * 580,
          sheep_data=    [0, 0, 0] * 302,
          grass_data=    [0, 0, 0] * 600,
          sign_data=     [0, 0, 0] * 150,

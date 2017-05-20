@@ -1,7 +1,6 @@
 import math
 
 import Network.LedBurnProtocol as network
-import pygame
 import yaml
 
 from UIElements.Flower import Flower
@@ -56,7 +55,6 @@ class Song():
 
 		print str(self.pieces[self.current_piece_id][0]) + " - " + str(self.pieces[self.current_piece_id][1])
 		self.create_animations(self.pieces[self.current_piece_id][2])
-		self.frame_id = 0
 
 	def get_audio_file(self):
 		return self.audio_file
@@ -164,8 +162,7 @@ class Song():
 			sign_num_of_beats = num_of_beats * self.sign_animation_mul
 			self.apply_animation(self.sign_animation, sign_num_of_beats, duration, relative_song_time)
 
-		network.send(self.frame_id, 
-			flower_data=self.flower.get_array(), 
+		network.send(flower_data=self.flower.get_array(),
 			sheep_data=self.sheep.get_array(), 
 			grass_data=self.grass.get_array(), 
 			sign_data=self.sign.get_array(),
@@ -173,6 +170,5 @@ class Song():
 			temp_stick=self.temp_stick.get_array(),
 			sachi_meter=self.sachi_meter.get_array())
 
-		self.frame_id += 1
 
 

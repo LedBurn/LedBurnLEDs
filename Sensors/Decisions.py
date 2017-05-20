@@ -23,6 +23,9 @@ class Decisions:
         self.stoned_request_count = 0
         self.last_req_time = None
 
+        self.start_temperature = None
+        self.temperature_req_time = None
+
         # it is ok to use transitions and full songs as you like in the time_songs map
         self.time_songs  = {datetime.datetime(2017,5,28,18,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,40,0) : ["Transitions/sundown.yml", "wish.yml"], datetime.datetime(2017,5,28,20,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,21,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,22,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,23,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,0,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,1,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,2,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,3,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,4,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,35,0) : ["Transitions/sunrise.yml", "wish.yml"], datetime.datetime(2017,5,28,6,0,0) : ["Transitions/hour.yml", "wish.yml"], \
                             datetime.datetime(2017,5,28,18,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,40,0) : ["Transitions/sundown.yml", "wish.yml"], datetime.datetime(2017,5,28,20,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,21,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,22,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,23,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,0,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,1,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,2,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,3,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,4,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,35,0) : ["Transitions/sunrise.yml", "wish.yml"], datetime.datetime(2017,5,28,6,0,0) : ["Transitions/hour.yml", "wish.yml"], \
@@ -40,12 +43,23 @@ class Decisions:
 
     # return None if no song
     # return yml if we want a song. example: return "Songs/Teletubbies.yml"
-    def decide(self, start_temperature, curr_temperature, sachi_meter, illusions_flag, motion_detected):
+    def decide(self, curr_temperature, sachi_meter, illusions_flag, motion_detected):
+
+        if curr_temperature is None:
+            self.start_temperature = None
 
         # we should not work during the day when there is light, it could damage the leds.
         # we plan to disconnect electricity during the day, but if that fails, make sure the leds are not on and heating
         if not self.check_valid_hour_in_day():
             return ['silence.yml']
+
+        next_song = self.decide_by_input(curr_temperature, sachi_meter, illusions_flag, motion_detected)
+        if next_song is not None:
+            self.start_temperature = curr_temperature
+        return next_song
+
+
+    def decide_by_input(self, curr_temperature, sachi_meter, illusions_flag, motion_detected):
 
         if self.curr_input is None:
 
@@ -70,17 +84,16 @@ class Decisions:
             next_songs = self.decide_by_RFID(illusions_flag, sachi_meter)
             return next_songs
 
-        print self.use_temperature(curr_temperature)
         if self.use_temperature(curr_temperature):
-            next_song = self.decide_by_temperature(start_temperature, curr_temperature)
-            if next_song is not None:
-                return next_song
+            next_song = self.decide_by_temperature(curr_temperature)
+            return next_song
 
         next_song = self.decide_by_motion(motion_detected)
         if next_song is not None:
             return next_song
 
         return [self.choose_and_validate_next_song()]
+
 
     def chose_next_input(self):
         pass
@@ -210,19 +223,27 @@ class Decisions:
 
         return None
 
-    def decide_by_temperature(self, start_temperature, curr_temperature):
-        if start_temperature is None:
-            start_temperature = curr_temperature
+    def decide_by_temperature(self, curr_temperature):
+        if curr_temperature is None:
+            return
 
-        diff_from_start = curr_temperature - start_temperature
+        if self.start_temperature is None:
+            self.start_temperature = curr_temperature
+
+        diff_from_start = curr_temperature - self.start_temperature
         if diff_from_start > self.TEMP_DIFF_FOR_DECISION:
-            print 'start temperature was ' + str(start_temperature) + " now its " + str(curr_temperature) + \
+            print 'start temperature was ' + str(self.start_temperature) + " now its " + str(curr_temperature) + \
                   " thanking for the hug..."
             self.hug_request_count = 0
             return [random.choice(["Transitions/hug_thanks.yml"]), "exile.yml"]
 
+        enough_time_since_last = self.temperature_req_time is None or (datetime.datetime.now() - self.temperature_req_time) > datetime.timedelta(seconds=15)
+        if not enough_time_since_last:
+            return None
+
         if curr_temperature < self.HUG_MAX_TEMP and self.hug_request_count < self.MAX_HUG_REQUESTS:
             self.hug_request_count += 1
+            self.temperature_req_time = datetime.datetime.now()
             if self.hug_request_count == 0:
                 return [random.choice(["Transitions/desert_chill.yml", "Transitions/hold_my_stick.yml"])]
             else:
@@ -231,7 +252,8 @@ class Decisions:
         elif curr_temperature > self.ALREADY_HUGED_TEMP:
             return [random.choice(["Transitions/hugging_me.yml"]), "exile.yml"]
 
-        return None
+        return [self.choose_and_validate_next_song()]
+
 
     def check_valid_hour_in_day(self):
 
