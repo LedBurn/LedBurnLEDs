@@ -110,6 +110,10 @@ pieces:
       flower: 
         Rainbow:
         beat_mul: 0.5
+        
+      tree:
+        Rainbow:
+        beat_mul: 0.5
   - 
     - 61.83473923
     - 4
@@ -128,6 +132,10 @@ pieces:
       flower: 
         Alternate:
         beat_mul: 1
+        
+      tree: 
+        Alternate:
+        beat_mul: 1
   - 
     - 64.96943311
     - 16
@@ -142,6 +150,9 @@ pieces:
       flower: 
         Explosion:
         beat_mul: 1
+        
+      tree:
+        Clear:
   -
     - 74.37351474
     - 4
@@ -163,7 +174,11 @@ pieces:
         Rainbow:
           hue_speed: 0.08
           hue_start: 0.0
-        beat_mul: 0.5      
+        beat_mul: 0.5 
+
+      tree:
+        Rainbow:
+        beat_mul: 0.5
   - 
     - 77.4849886621
     - 16
@@ -184,6 +199,9 @@ pieces:
         Confetti:
         
       sheep:
+        Confetti:
+        
+      tree:
         Confetti:
   - 
     - 90.11664399
@@ -221,6 +239,9 @@ pieces:
        
       sign:
         Rainbow:
+        
+      tree:
+        Rainbow:
   - 
     - 97.26839002
     - 4
@@ -249,6 +270,9 @@ pieces:
        
       sign:
         Clear:
+        
+      tree:
+        RoundRobin:
   - 
     - 100.5656236
     - 8
@@ -275,6 +299,9 @@ pieces:
        
       sign:
         Clear:
+        
+      tree:
+        Clear:
   - 
     - 106.927891156
     - 20
@@ -298,6 +325,10 @@ pieces:
        
       sign:
         Clear:
+        
+      tree:
+        Spikes:
+        beat_mul: 0.5
   - 
     - 122.833560091
     - 16
@@ -320,6 +351,10 @@ pieces:
        
       sign:
         Clear:
+        
+      tree:
+        Explosion:
+        beat_mul: 0.5
   - 
     - 135.743854875
     - 16
@@ -341,6 +376,9 @@ pieces:
        
       sign:
         Clear:
+        
+      tree:
+        Alternate:
   - 
     - 148.46839
     - 6
@@ -363,6 +401,9 @@ pieces:
        
       sign:
         Clear:
+        
+      tree:
+        Confetti:
   - 
     - 153.182040816
     - 2
@@ -389,6 +430,9 @@ pieces:
        
       sign:
         Clear:
+        
+      tree:
+        Clear:
   - 
     - 154.7145578
     - 16
@@ -411,6 +455,10 @@ pieces:
        
       sign:
         Clear:
+        
+      tree:
+        Pixel:
+        beat_mul: 0.5
   - 
     - 167.5087528
     - 6
@@ -434,6 +482,10 @@ pieces:
        
       sign:
         Clear:
+        
+      tree:
+        Spikes:
+        beat_mul: 0.5
   - 
     - 172.3152834
     - 3
@@ -457,6 +509,10 @@ pieces:
        
       sign:
         Clear:
+        
+      tree:
+        Spikes:
+        beat_mul: 0.5
   - 
     - 174.7301587
     - 4
@@ -485,6 +541,9 @@ pieces:
 
       sign:
         Rainbow:
+        
+      tree:
+        Rainbow:
   - 
     - 177.8880726
     - 30
@@ -507,6 +566,9 @@ pieces:
        
       sign:
         Clear:
+        
+      tree:
+        Clear:
   - 
     - 201.711746
     - 12
@@ -525,6 +587,9 @@ pieces:
         Clear:
        
       sign:
+        Clear:
+        
+      tree:
         Clear:
   - 
     - 211.440907
@@ -571,6 +636,9 @@ pieces:
        
       sign:
         Clear:
+        
+      tree:
+        Confetti:
   - 
     - 226.6267575
     - 2
@@ -590,4 +658,6 @@ pieces:
       sign:
         Hue:
           hue_start: 0.67
-
+          
+      tree:
+        Clear:
