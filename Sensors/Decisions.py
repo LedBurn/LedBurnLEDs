@@ -224,7 +224,6 @@ class Decisions:
                                         "Transitions/if_i_was_kivsi_hebrew.yml", "Transitions/if_i_was_kivsi.yml"])]
             elif sachi_meter > 0:
                 if self.stoned_request_count == 1:
-                    #TODO: bigler change this :)
                     #you see that big ol joint, can you please pass it to kivsi?
                     return [random.choice(["Transitions/joint_ask.yml","Transitions/joint_ask_hebrew.yml"])]
                 else:
@@ -232,7 +231,6 @@ class Decisions:
                     return [random.choice(["Transitions/sachta.yml","Transitions/sachta_hebrew.yml"])]
             else:
                 if self.stoned_request_count == 1:
-                    #TODO: bigler change this :)
                     #has anyone seen my gym chip i swear i saw it around, can you get it to the sheep mouth?
                     return [random.choice(["Transitions/gym_ask_hebrew.yml"])]
                 else:
@@ -259,12 +257,12 @@ class Decisions:
             return None
 
         if curr_temperature < self.HUG_MAX_TEMP and self.hug_request_count < self.MAX_HUG_REQUESTS:
-            self.hug_request_count += 1
             self.temperature_req_time = datetime.datetime.now()
             if self.hug_request_count == 0:
+                self.hug_request_count += 1
                 return [random.choice(["Transitions/desert_chill.yml", "Transitions/hold_my_stick.yml", "Transitions/cold.yml"])]
             else:
-                #TODO: bigler - fix this :)
+                self.hug_request_count += 1
                 return [random.choice(["Transitions/stick_ask.yml", "Transitions/stick_ask_hebrew.yml"])]
         elif curr_temperature > self.ALREADY_HUGED_TEMP:
             return [random.choice(["Transitions/hugging_me.yml", "Transitions/hugging_me_hebrew.yml"])]
