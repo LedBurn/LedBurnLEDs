@@ -31,7 +31,7 @@ pieces:
         beat_mul: 0.25
   -
     - 30.53424036
-    - 64
+    - 32
     -
       lake:
         Confetti:
@@ -52,7 +52,41 @@ pieces:
           only_top: True
           leds_percent_per_beat: 0.2
           brightness: 0.4
-  - 
+  -
+    - 45.6968707
+    - 32
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+      
+     lake:
+       Stars:
+        stars_color:
+         type: circular_loc_hue
+
+     grass:
+       Confetti:
+
+     Tree:
+       Pixel:
+       beat_mul: 0.5
+       
+  -   
     - 60.85950113
     - 16
     -
@@ -117,8 +151,26 @@ pieces:
        Clear:
   - 
     - 91.69560091
-    - 64
+    - 32
     -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+     
      lake:
         Eq:
           hue1: 0.0
@@ -131,6 +183,41 @@ pieces:
      tree:
         Confetti:
   - 
+    - 106.997551005
+    - 32
+    -
+     tree:
+      Clear:
+
+     sheep:
+      Clear:
+
+     grass:
+      Clear:
+
+     sign:
+      Clear:
+
+     lake:
+      Clear:
+
+     flower:
+      Clear:
+     
+     lake:
+      Stars:
+       stars_color:
+         type: circular_loc_hue
+
+     sheep:
+      Alternate:
+
+     tree:
+      Rainbow:
+      
+     grass:
+      Swipe:
+  -
     - 122.2995011
     - 16
     -
@@ -746,4 +833,7 @@ pieces:
       Hue:
 
      lake:
+      Confetti:
+      
+     flower:
       Confetti:
