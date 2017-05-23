@@ -11,6 +11,25 @@ extern "C" {
 /// Flower 2 :  Stem: 0-119, 180-300
 ///             Bulb: 120-179
 
+/// Flower 3 :  Stem: 0-119, 180-300
+///             Bulb: 120-179
+
+/// Mashroom Small and Tall:
+/// 
+
+
+// Teensy 1:
+// 1. 
+// 2.
+// 3.
+// 4.
+// 5.
+// 6.
+// 7.
+// 8. Eq
+
+// Teensy 2:
+//
 
 #define MAX_PIXELS 600
 #define LEDS_PER_STRIP (MAX_PIXELS + 1)
