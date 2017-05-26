@@ -7,7 +7,7 @@ class Tree:
                   [range(299, 347)[::-1], range(347,413)],
                   [range(413, 449)[::-1], range(449, 499)]]
 
-    right_leafs=[[range(661, 727)[::-1], range(727,811)],
+    right_leafs=[[range(661, 727)[::-1], range(727,812)],
                  [range(812, 857)[::-1], range(857, 921)],
                  [range(921, 956)[::-1], range(956, 997)]]
 

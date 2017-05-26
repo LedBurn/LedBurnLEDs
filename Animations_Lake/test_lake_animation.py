@@ -16,7 +16,7 @@ from NaturalLakeAnimation import NaturalLakeAnimation
 from EqLakeAnimation import EqLakeAnimation
 from SpiningColorLakeAnimation import SpiningColorLakeAnimation
 from StarsLakeAnimation import StarsLakeAnimation
-animation = SpiningColorLakeAnimation(lake,None)
+animation = NaturalLakeAnimation(lake,None)
 
 speed = 100 # in 50 hrz
 current_time = 0
