@@ -19,12 +19,12 @@ sock = socket.socket(socket.AF_INET, # Internet
 PROTOCOL_VERSION = 0
 
 # flower - 580 leds
-FLOWER_IP = 213
-FLOWER_STRIP_ID = 7
+FLOWER_IP = 210
+FLOWER_STRIP_ID = 0
 
 # sheep - 302 leds
 SHEEP_IP = 210
-SHEEP_STRIP_ID = 1
+SHEEP_STRIP_ID = 2
 
 # grass1 - 600 leds
 GRASS1_IP = 210
@@ -82,6 +82,7 @@ def send(frame_id,
     replaceGBRtoRGB(sheep_data, range(300, 302))
     sendPacketWithIp(SHEEP_IP, SHEEP_STRIP_ID, 0, sheep_data)
 
+    """"
     sendPacketWithIp(GRASS1_IP, GRASS1_STRIP_ID, 0, grass_data[0:900])
     sendPacketWithIp(GRASS1_IP, GRASS1_STRIP_ID, 300, grass_data[900:1800])
     sendPacketWithIp(GRASS2_IP, GRASS2_STRIP_ID0, 0, grass_data[1800:2700])
@@ -99,6 +100,7 @@ def send(frame_id,
     sendPacketWithIp(LAKE_IP, LAKE_WAVE_STRIP_ID1, 300, lake_data[4500:5400])
 
     sendPacketWithIp(TEMP_STICK_IP, TEMP_STICK_STRIP_ID, 0, temp_stick[0:144*3])
+    """
 
     sendStoredFrame()
 

@@ -1,5 +1,6 @@
 --- 
-offset: -0.55
+#offset: -0.55
+offset: 0
 file_name: "TATRAN - Shvat - 05 Shvat.mp3"
 pieces: 
   - 
@@ -35,8 +36,8 @@ pieces:
         Natural: 
         beat_mul: 0.25
       sheep:
-        Spikes:
-          hue_start: 0.67
+        FillFade:
+          hue_start: 0.1
         beat_mul: 0.5
       grass:
         HorLine:
@@ -52,8 +53,7 @@ pieces:
         Natural: 
         beat_mul: 0.25
       sheep:
-        Spikes:
-          hue_start: 0.67
+        Stars:
         beat_mul: 0.5
       grass:
         HorLine:
@@ -69,8 +69,7 @@ pieces:
         Natural: 
         beat_mul: 0.25
       sheep:
-        Spikes:
-          hue_start: 0.67
+        Confetti:
         beat_mul: 1.0
       grass:
         HorLine:
@@ -119,7 +118,7 @@ pieces:
       grass:
         Clear:
       flower:
-        Clear:
+        Confetti:
   - 
     - 100.2637642
     - 3
@@ -127,10 +126,7 @@ pieces:
         Natural: 
         beat_mul: 1.0
       flower:
-        RoundRobin:
-          hue_start: 0.0
-          hue_speed: 0.3
-        beat_mul: 1.0
+        Clear:
       sign:
         Hue:
           hue_start: 0.0
@@ -138,6 +134,8 @@ pieces:
           animated: False
           full_color: True
         beat_mul: 1.0
+      sheep:
+        Spikes:
   - 
     - 102.3303401
     - 5
@@ -145,8 +143,10 @@ pieces:
         Natural: 
         beat_mul: 0.25
       flower:
-        Clear:
+        Confetti:
       sign:
+        Clear:
+      sheep:
         Clear:
   - 
     - 105.8365533
@@ -155,10 +155,7 @@ pieces:
         Natural: 
         beat_mul: 0.3333333333
       flower:
-        RoundRobin:
-          hue_start: 0.1
-          hue_speed: 0.2
-        beat_mul: 0.3333333333
+        Rainbow:
       sign:
         Hue:
           hue_start: 0.0
@@ -166,6 +163,8 @@ pieces:
           animated: False
           full_color: True
         beat_mul: 0.3333333333
+      sheep:
+        Rainbow:
   - 
     - 107.8334694
     - 5
@@ -173,9 +172,11 @@ pieces:
         Natural: 
         beat_mul: 0.25
       flower:
-        Clear:
+        Confetti:
       sign:
         Clear:
+      sheep:
+        Confetti:
   - 
     - 111.2468027
     - 3
@@ -183,10 +184,7 @@ pieces:
         Natural: 
         beat_mul: 1.0
       flower:
-        RoundRobin:
-          hue_start: 0.0
-          hue_speed: 0.13
-        beat_mul: 1.0
+        Alternate:
       sign:
         Hue:
           hue_start: 0.0
@@ -194,6 +192,8 @@ pieces:
           animated: False
           full_color: True
         beat_mul: 1.0
+      sheep:
+        Alternate:
   - 
     - 113.4062585
     - 4
@@ -201,7 +201,7 @@ pieces:
         Natural: 
         beat_mul: 0.25
       flower:
-        Clear:
+        Confetti:
       sign:
         Hue:
           hue_start: 0.6
@@ -209,6 +209,8 @@ pieces:
           animated: Yes
           full_color: True
         beat_mul: 1.0
+      sheep:
+        Clear:
   - 
     - 116.1926531
     - 4
@@ -226,6 +228,8 @@ pieces:
         Spikes:
           hue_start: 0.67
         beat_mul: 0.5
+      flower:
+        Clear:
   - 
     - 118.9558277
     - 8
@@ -240,7 +244,7 @@ pieces:
           full_color: True
         beat_mul: 1.0
       sheep:
-        Spikes:
+        Stars:
           hue_start: 0.67
         beat_mul: 0.5
   - 
@@ -250,9 +254,7 @@ pieces:
         Natural: 
         beat_mul: 0.25
       sheep:
-        Spikes:
-          hue_start: 0.67
-        beat_mul: 0.5
+        Clear:
       grass:
         HorLine:
           hue_start: 0.67
@@ -260,6 +262,9 @@ pieces:
           on_time_percent: 1.0
           brightness: 0.6
         beat_mul: 0.25
+      flower:
+        Natural:
+        beat_mul: 0.5
   - 
     - 135.1401361
     - 8
@@ -267,8 +272,11 @@ pieces:
         Natural: 
         beat_mul: 0.25
       sheep:
-        Spikes:
+        FillFade:
           hue_start: 0.67
+        beat_mul: 0.25
+      flower:
+        Natural:
         beat_mul: 0.5
   - 
     - 140.5039456
@@ -279,9 +287,9 @@ pieces:
       sign:
         Clear:
       sheep:
-        Spikes:
+        FillFade:
           hue_start: 0.67
-        beat_mul: 0.5
+        beat_mul: 0.25
       grass:
         HorLine:
           hue_start: 0.67
@@ -289,6 +297,11 @@ pieces:
           on_time_percent: 1.0
           brightness: 0.6
         beat_mul: 0.25
+      flower:
+        RoundRobin:
+          hue_start: 0.1
+          hue_speed: 0.13
+        beat_mul: 1.0
   - 
     - 151.2083447
     - 8
@@ -300,7 +313,6 @@ pieces:
         beat_mul: 0.125
       sheep:
         Spikes:
-          hue_start: 0.67
         beat_mul: 0.5
       grass:
         HorLine:
@@ -309,6 +321,11 @@ pieces:
           on_time_percent: 1.0
           brightness: 0.6
         beat_mul: 0.5
+      flower:
+        RoundRobin:
+          hue_start: 0.1
+          hue_speed: 0.13
+        beat_mul: 1.0
   - 
     - 156.5024943
     - 8
@@ -320,7 +337,7 @@ pieces:
         beat_mul: 0.125
       sheep:
         Spikes:
-          hue_start: 0.67
+          hue_start: 0.87
         beat_mul: 0.5
       grass:
         HorLine:
@@ -329,6 +346,8 @@ pieces:
           on_time_percent: 1.0
           brightness: 0.6
         beat_mul: 0.5
+      flower:
+        Natural:
   - 
     - 161.796644
     - 16
@@ -339,6 +358,9 @@ pieces:
         Clear:
       grass:
         Clear:
+      flower:
+        Confetti:
+        beat_mul: 0.5
   - 
     - 172.4081633
     - 16
@@ -346,9 +368,11 @@ pieces:
         Natural: 
         beat_mul: 0.25
       sheep:
-        Spikes:
-          hue_start: 0.67
-        beat_mul: 0.5
+        Confetti:
+        beat_mul: 1.0
+      flower:
+        Confetti:
+        beat_mul: 1.0
   - 
     - 183.0429025
     - 32
@@ -356,13 +380,10 @@ pieces:
         Natural: 
         beat_mul: 0.5
       sheep:
-        Spikes:
-          hue_start: 0.67
-        beat_mul: 0.5
+        Clear:
       flower:
         RoundRobin:
-          hue_start: 0.1
-          hue_speed: 0.13
+        beat_mul: 1.0
   - 
     - 204.4052608
     - 16
@@ -373,7 +394,7 @@ pieces:
           only_waves: True
         beat_mul: 1.0
       sheep:
-        Spikes:
+        FillFade:
           hue_start: 0.67
         beat_mul: 0.5
       grass:
@@ -384,7 +405,7 @@ pieces:
           brightness: 0.6
         beat_mul: 0.5
       flower:
-        RoundRobin:
+        Natural:
           hue_start: 0.1
           hue_speed: 0.13
   - 
@@ -428,12 +449,9 @@ pieces:
           brightness: 1.0
         beat_mul: 1.0
       flower:
-        RoundRobin:
-          hue_start: 0.1
-          hue_speed: 0.13
+        Alternate:
       sheep:
-        Spikes:
-          hue_start: 0.67
+        Alternate:
         beat_mul: 0.5
       sign:
         Hue:
@@ -457,7 +475,7 @@ pieces:
     - 234.4311791
     - 8
     - sheep: 
-        Clear:
+        Confetti:
       lake:
         Confetti:
           leds_percent_per_beat: 0.1

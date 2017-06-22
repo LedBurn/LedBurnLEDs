@@ -12,6 +12,9 @@ pieces:
             only_waves: False
             brightness: 0.5
         beat_mul: 0.5
+      sheep:
+        Confetti:
+        beat_mul: 0.5
   - 
     - 20.06204082
     - 16
@@ -28,7 +31,11 @@ pieces:
           directionType: Up
           leafChooseType: All
           hue_start: Rainbow
-        beat_mul: 0.25      
+        beat_mul: 0.25
+      flower:
+        Confetti:
+      sheep:
+        Confetti:
   - 
     - 32.64725624
     - 9
@@ -46,7 +53,17 @@ pieces:
             hue_start: 0.66
             pixel_hue: 0.7
             brightness: 0.5
-        beat_mul: 0.125  
+        beat_mul: 0.125
+      flower:
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.125
+      sheep:
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.125
   - 
     - 39.77578231
     - 4
@@ -68,7 +85,12 @@ pieces:
         Rainbow:
           hue_speed: 0.08
           hue_start: 0.0
-        beat_mul: 0.5        
+        beat_mul: 0.5
+      sheep:
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.5
   - 
     - 43.02657596
     - 8
@@ -92,6 +114,9 @@ pieces:
           hue_speed: 0.04
           hue_start: 0.0
         beat_mul: 1
+
+      sheep:
+        Clear:
   - 
     - 49.27274376
     - 16
@@ -108,7 +133,11 @@ pieces:
         beat_mul: 1
         
       flower: 
-        Rainbow:
+        RoundRobin:
+        beat_mul: 0.5
+      sheep:
+        FillFade:
+          hue_start: 0.1
         beat_mul: 0.5
   - 
     - 61.83473923
@@ -128,6 +157,8 @@ pieces:
       flower: 
         Alternate:
         beat_mul: 1
+      sheep:
+        Alternate:
   - 
     - 64.96943311
     - 16
@@ -163,7 +194,12 @@ pieces:
         Rainbow:
           hue_speed: 0.08
           hue_start: 0.0
-        beat_mul: 0.5      
+        beat_mul: 0.5
+      sheep:
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.5
   - 
     - 77.4849886621
     - 16
@@ -196,10 +232,11 @@ pieces:
         Clear:
         
       flower: 
-        Confetti:
-        
+        Alternate:
+        beat_mul: 0.5
       sheep:
-        Confetti:
+        Alternate:
+        beat_mul: 0.5
        
       sign:
         Rainbow:
@@ -214,10 +251,15 @@ pieces:
         Clear:
         
       flower: 
-        Confetti:
-        
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.5
       sheep:
-        Confetti:
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.5
        
       sign:
         Rainbow:
@@ -239,14 +281,11 @@ pieces:
         beat_mul: 4
         
       flower: 
-        Rainbow:
-          hue_speed: 0.08
-          hue_start: 0.0
-        beat_mul: 0.5 
+        Explosion:
         
       sheep:
-        Rainbow:
-       
+        Spikes:
+        beat_mul: 0.25
       sign:
         Clear:
   - 
@@ -268,10 +307,10 @@ pieces:
         beat_mul: 0.5
         
       flower: 
-        Clear:
+        Confetti:
         
       sheep:
-        Clear:
+        Confetti:
        
       sign:
         Clear:
@@ -337,7 +376,7 @@ pieces:
         Alternate:
         
       sheep:
-        Clear:
+        Alternate:
        
       sign:
         Clear:
@@ -356,10 +395,15 @@ pieces:
         beat_mul: 1
         
       flower: 
-        Confetti:
-        
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.5
       sheep:
-        Clear:
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.5
        
       sign:
         Clear:
@@ -379,13 +423,18 @@ pieces:
           hue1: 0.2
           hue2: 0.6
           brightness: 0.4
-        beat_mul: 0.5
+        beat_mul: 1.0
         
       flower: 
-        Confetti:
-        
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.5
       sheep:
-        Clear:
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1.0
        
       sign:
         Clear:

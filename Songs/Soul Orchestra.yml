@@ -6,12 +6,9 @@ pieces:
     - 0
     - 20
     -   
-      lake:
+      sheep:
         Confetti:
-            leds_percent_per_beat: 0.2
-            only_waves: False
-            brightness: 0.5
-        beat_mul: 0.5
+        beat_mul: 0.25
   - 
     - 17.60072562
     - 32
@@ -21,53 +18,27 @@ pieces:
           hue_speed: 0.01
           hue_start: 0.0
         beat_mul: 0.5
-        
-      lake:
+      sheep:
         Confetti:
-            leds_percent_per_beat: 0.2
-            only_waves: False
-            brightness: 0.5
-        beat_mul: 0.5
-  - 
+        beat_mul: 0.25
+  -
     - 31.32371882
     - 32
     - 
-      flower: 
-        Clear:
-        
-      grass:  
+      flower:
         RoundRobin:
         beat_mul: 0.5
-        
-      lake:
-        Confetti:
-            leds_percent_per_beat: 0.2
-            only_waves: False
-            brightness: 0.5
-        beat_mul: 1
-  - 
+      sheep:
+        Clear:
+  -
     - 45.04671202
     - 32
     - 
-      flower: 
-        Rainbow: 
-          hue_speed: 0.02
-          hue_start: 0.0
-        beat_mul: 0.125
-        
-      grass:
-        HorLine:
-            on_time_percent: 1.0
-            hue_start: 0.1
-            pixel_hue: 0.7
-        beat_mul: 0.125
-        
-      lake:
+      flower:
+        RoundRobin:
+        beat_mul: 0.5
+      sheep:
         Confetti:
-            leds_percent_per_beat: 0.2
-            only_waves: False
-            brightness: 0.5
-        beat_mul: 1
   - 
     - 58.76970522
     - 32
@@ -77,20 +48,10 @@ pieces:
           hue_speed: 0.02
           hue_start: 0.25
         beat_mul: 1
-        
-      grass:  
-        Spike:
-          directionType: Up
-          leafChooseType: All
-          colorType: Rainbow
+      sheep:
+        Spikes:
         beat_mul: 0.25
-        
-      lake:
-        Stars:
-          stars_color:
-            type: circular_loc_hue
-        beat_mul: 1
-  - 
+  -
     - 72.46947846
     - 32
     - 
@@ -99,19 +60,6 @@ pieces:
           hue_speed: 0.01
           hue_start: 0.0
         beat_mul: 0.5
-        
-      grass:
-        HorLine:
-            on_time_percent: 1.0
-            hue_start: 0.33
-            pixel_hue: 0.7
-        beat_mul: 0.125
-        
-      lake:
-        Stars:
-          stars_color:
-            type: circular_loc_hue
-        beat_mul: 1
   - 
     - 86.19247166
     - 32
@@ -121,19 +69,11 @@ pieces:
           hue_speed: 0.02
           hue_start: 0.25
         beat_mul: 1
-        
-      grass:
-        Spike:
-          directionType: UpAndDown
-          leafChooseType: All
-        beat_mul: 0.25
-        
-      lake:
-        Spin:
-          contour_color:
-            type: circular_loc_hue
+
+      sheep:
+        Stars:
         beat_mul: 0.125
-  - 
+  -
     - 99.93868481
     - 32
     - 
@@ -142,21 +82,7 @@ pieces:
           hue_speed: 0.01
           hue_start: 0.25
         beat_mul: 1
-        
-      grass:
-        HorLine:
-            on_time_percent: 0.5
-            hue_start: 0.33
-            pixel_hue: 0.7
-        beat_mul: 0.125
-        
-      lake:
-        Confetti:
-            leds_percent_per_beat: 0.2
-            only_waves: False
-            brightness: 0.5
-        beat_mul: 1
-  - 
+  -
     - 113.6152381
     - 32
     - 
@@ -165,20 +91,6 @@ pieces:
           hue_speed: 0.01
           hue_start: 0.0
         beat_mul: 0.25
-        
-      grass:
-        HorLine:
-            on_time_percent: 0.5
-            hue_start: 0.33
-            pixel_hue: 0.7
-        beat_mul: 0.125
-        
-      lake:
-        Confetti:
-            leds_percent_per_beat: 0.2
-            only_waves: False
-            brightness: 0.5
-        beat_mul: 1
         
       sheep:
         Alternate:
@@ -193,20 +105,6 @@ pieces:
           hue_start: 0.25
         beat_mul: 1
         
-      grass:
-        HorLine:
-            on_time_percent: 0.5
-            hue_start: 0.33
-            pixel_hue: 0.7
-        beat_mul: 0.125
-        
-      lake:
-        Confetti:
-            leds_percent_per_beat: 0.2
-            only_waves: False
-            brightness: 0.5
-        beat_mul: 1
-        
       sheep:
         Clear:
   - 
@@ -219,23 +117,10 @@ pieces:
           hue_start: 0.0
         beat_mul: 0.5
         
-      grass:
-        HorLine:
-            on_time_percent: 0.5
-            hue_start: 0.33
-            pixel_hue: 0.7
-        beat_mul: 0.125
-        
-      lake:
-        RoundRobin:
-            hue_speed: 0.04
-            hue_start: 0.0
-        beat_mul: 1
-        
       sheep:
         Spikes:
           hue_start: 0.33
-          beat_mul: 0.5
+          beat_mul: 0.25
           
   - 
     - 154.7609977
@@ -245,21 +130,7 @@ pieces:
         RoundRobin: 
           hue_speed: 0.01
           hue_start: 0.25
-        beat_mul: 1
-        
-      grass:
-        HorLine:
-            on_time_percent: 0.5
-            hue_start: 0.33
-            pixel_hue: 0.7
-        beat_mul: 0.125
-        
-      lake:
-        Confetti:
-            leds_percent_per_beat: 0.2
-            only_waves: False
-            brightness: 0.5
-        beat_mul: 1
+        beat_mul: 0.5
         
       sheep:
         Clear:
@@ -273,20 +144,6 @@ pieces:
           hue_start: 0.0
         beat_mul: 0.5
         
-      grass:
-        Spike:
-          directionType: UpAndDown
-          leafChooseType: All
-          hue_start: Rainbow
-        beat_mul: 0.125
-        
-      lake:
-        Confetti:
-            leds_percent_per_beat: 0.2
-            only_waves: False
-            brightness: 0.5
-        beat_mul: 1
-        
       sheep:
         Rainbow:
         beat_mul: 0.5
@@ -298,15 +155,6 @@ pieces:
         Confetti:
         beat_mul: 1
         
-      grass:
-        Confetti:
-        
-      lake:
-        Eq:
-          hue1: 0.2
-          hue2: 0.1
-        beat_mul: 1
-        
       sheep:
         Confetti:
   - 
@@ -315,19 +163,7 @@ pieces:
     - 
       flower:
         Clear:
-        
-      grass:
-        Clear:
-        
-      lake:
-        Spin:
-          contour_color:
-            type: circular_loc_hue
-        beat_mul: 0.125
-
       sheep:
-        Clear:
-        
-      sign:
-        Rainbow:
-        beat_mul: 0.0625
+        Confetti:
+          leds_percent_per_beat: 0.05
+          brightness: 0.5

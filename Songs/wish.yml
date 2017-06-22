@@ -1,230 +1,151 @@
 --- 
-offset: -0.5
+offset: -0.17
 file_name: "Pink Floyd - Wish You Were Here.mp3"
 pieces: 
   - 
     - 0
     - 2
-    - 
-  - 
+    -
+  -
+    # entrence quite
     - 1.30031746
     - 32
-    - lake:
-        Spin:
-          contour_color:
-            type: "hue_change_time"
-            hue_start: 0.0
-            hue_end: 1.0
-        beat_mul: 0.125
+    - flower:
+        Confetti:
+          fade: 0.97
+          leds_percent_per_beat: 1.0
+        beat_mul: 0.25
   -
+    # bit more energy
     - 33.43673469
     - 8 
-    - lake:
-        Spin:
-          contour_color:
-            type: "const_color"
-            hue: 0.0
-        beat_mul: 0.25
-  - 
+    - flower:
+        Rainbow:
+        beat_mul: 0.125
+  -
+    # more sound added. still chill
     - 41.61015873
     - 32
-    - lake:
-        Natural:
-          hue_start: 0.75
-        beat_mul: 0.125
-  - 
+    - sheep:
+        Confetti:
+      flower:
+        Confetti:
+          fade: 0.97
+          leds_percent_per_beat: 1.0
+        beat_mul: 0.25
+  -
+    # short - before drama
     - 73.79301587
     - 4
-    - lake:
-        Natural:
-          hue_start: 0.75
-        beat_mul: 0.25
-      sheep:
+    - sheep:
         FillFade:
           hue_start: 0.75
         beat_mul: 0.5
-  - 
+      flower:
+        Confetti:
+        beat_mul: 2.0
+  -
+    # long sing chill
     - 77.94938776
     - 28
-    - lake:
-        Natural:
-          hue_start: 0.3
-        beat_mul: 0.125
-      grass:
-        HorLine:
-          hue_start: 0.3
-          pixel_hue: 0.75
-          on_time_percent: 0.8
-          brightness: 0.5
-      sheep:
+    - sheep:
         FillFade:
           hue_start: 0.3
         beat_mul: 0.5
-  - 
+      flower:
+        Alternate:
+        beat_mul: 0.25
+  -
+    # more energy still with sing
     - 107.50839
     - 24
-    - lake:
-        Natural:
-          hue_start: 0.15
-        beat_mul: 0.25
-      flower:
+    - flower:
         RoundRobin:
         beat_mul: 1.0
-      grass:
-        HorLine:
-          hue_start: 0.15
-          pixel_hue: 0.7
-          on_time_percent: 0.8
-          brightness: 0.5
       sheep:
         FillFade:
           hue_start: 0.15
         beat_mul: 0.5
-  - 
+  -
+    # short part - small change in sing
     - 131.7964626
     - 4
-    - lake:
-        Natural:
-          hue_start: 0.15
-        beat_mul: 0.25
-      flower:
+    - flower:
         Rainbow:
         beat_mul: 0.125
-      grass:
-        HorLine:
-          hue_start: 0.15
-          pixel_hue: 0.7
-          on_time_percent: 0.8
-          brightness: 0.5
       sheep:
         FillFade:
           hue_start: 0.15
         beat_mul: 0.5
-  - 
+  -
+    # short part - small change in sing
     - 135.8599546
     - 4
-    - lake:
-        Natural:
-          hue_start: 0.15
-        beat_mul: 0.25
-      flower:
+    - flower:
         Rainbow:
         beat_mul: 0.125
-      grass:
-        HorLine:
-          hue_start: 0.15
-          pixel_hue: 0.7
-          on_time_percent: 0.8
-          brightness: 0.5
       sheep:
         FillFade:
-          hue_start: 0.15
+          hue_start: 0.65
         beat_mul: 0.5
-  - 
+  -
+    # short part - no sing
     - 139.8770068
     - 2
-    - lake:
-        Confetti:
-      flower:
+    - flower:
         Clear:
-      grass:
-        Confetti:
       sheep:
-        Clear:
-  - 
+        Confetti:
+  -
+    # short part - no sing
     - 141.8971429
     - 2
-    - lake:
+    - flower:
         Confetti:
-      flower:
-        Clear:
-      grass:
+      sheep:
         Confetti:
-  - 
+  -
+    # long chill
     - 143.9172789
     - 32
-    - lake:
+    - flower:
         Natural:
-          hue_start: 0.3
-        beat_mul: 0.125
-      grass:
-        HorLine:
-          hue_start: 0.3
-          pixel_hue: 0.75
-          on_time_percent: 0.8
-          brightness: 0.5
-  - 
+        beat_mul: 0.5
+      sheep:
+        Clear:
+  -
+    # short part - raise in energy, build drama
     - 175.4964172
     - 4
-    - lake:
-        Natural:
-          hue_start: 0.0
-        beat_mul: 0.125
-      grass:
-        HorLine:
-          hue_start: 0.0
-          pixel_hue: 0.75
-          on_time_percent: 0.8
-          brightness: 0.5
-      flower:
-        Alternate:
-  - 
+    - flower:
+        Fire:
+      sheep:
+        Fire:
+  -
+    # sing with energy
     - 179.4438095
-    - 8
-    - lake:
+    - 32
+    - sheep:
         Confetti:
       flower:
+        Explosion:
+        beat_mul: 0.5
+  -
+    # chill
+    - 211.0693878
+    - 32
+    - flower:
         Alternate:
-      grass:
-        Confetti:
-  - 
-    - 187.3385941
-    - 8
-    - lake:
-        Confetti:
-      flower:
-        Alternate:
-      grass:
-        Confetti:
+        beat_mul: 0.25
       sheep:
-        Alternate:
-  - 
-    - 195.2333787
-    - 8
-    - lake:
-        Confetti:
-      flower:
-        Alternate:
-      grass:
-        Confetti:
-      sheep:
-        Alternate:
-  - 
-    - 203.1746032
-    - 40
-    - lake:
-        Confetti:
-      flower:
-        Alternate:
-      grass:
-        Confetti:
-      sheep:
-        Confetti:
-  - 
+        Stars:
+      beat_mul: 0.5
+  -
+    # short part - chill with more energy.
     - 242.160907
     - 4
-    - lake:
-        Natural:
-          hue_start: 0.3
-        beat_mul: 0.125
-      grass:
-        HorLine:
-          hue_start: 0.3
-          pixel_hue: 0.75
-          on_time_percent: 0.8
-          brightness: 0.5
-      sheep:
-        FillFade:
+    - sheep:
+        Spikes:
           hue_start: 0.3
         beat_mul: 0.5
       flower:
@@ -233,17 +154,7 @@ pieces:
   - 
     - 246.0386395
     - 4
-    - lake:
-        Natural:
-          hue_start: 0.3
-        beat_mul: 0.125
-      grass:
-        HorLine:
-          hue_start: 0.3
-          pixel_hue: 0.75
-          on_time_percent: 0.8
-          brightness: 0.5
-      sheep:
+    - sheep:
         FillFade:
           hue_start: 0.3
         beat_mul: 0.5
@@ -253,17 +164,7 @@ pieces:
   - 
     - 249.869932
     - 32
-    - lake:
-        Natural:
-          hue_start: 0.8
-        beat_mul: 0.125
-      grass:
-        HorLine:
-          hue_start: 0.8
-          pixel_hue: 0.75
-          on_time_percent: 0.8
-          brightness: 0.5
-      sheep:
+    - sheep:
         FillFade:
           hue_start: 0.8
         beat_mul: 0.5
@@ -273,11 +174,7 @@ pieces:
   - 
     - 280.5434921
     - 16
-    - lake:
-        Confetti:
-      flower:
-        Confetti:
-      grass:
+    - flower:
         Confetti:
       sheep:
         Confetti:
