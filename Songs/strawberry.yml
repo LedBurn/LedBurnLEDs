@@ -14,6 +14,8 @@ pieces:
         beat_mul: 0.5
       sheep:
         Confetti:
+          leds_percent_per_beat: 0.2
+          brightness: 0.5
         beat_mul: 0.5
   - 
     - 20.06204082
@@ -34,8 +36,15 @@ pieces:
         beat_mul: 0.25
       flower:
         Confetti:
+          leds_percent_per_beat: 0.2
+          only_top: True
+          brightness: 0.5
+        beat_mul: 1.0
       sheep:
         Confetti:
+          leds_percent_per_beat: 0.2
+          brightness: 0.5
+        beat_mul: 1.0
   - 
     - 32.64725624
     - 9
@@ -82,15 +91,9 @@ pieces:
         beat_mul: 0.125
         
       flower: 
-        Rainbow:
-          hue_speed: 0.08
-          hue_start: 0.0
-        beat_mul: 0.5
+        Explosion:
       sheep:
-        Rainbow:
-          hue_speed: 0.08
-          hue_start: 0.0
-        beat_mul: 0.5
+        Clear:
   - 
     - 43.02657596
     - 8
@@ -110,13 +113,10 @@ pieces:
         beat_mul: 1
         
       flower: 
-        Natural:
-          hue_speed: 0.04
-          hue_start: 0.0
-        beat_mul: 1
+        Confetti:
 
       sheep:
-        Clear:
+        Confetti:
   - 
     - 49.27274376
     - 16
@@ -134,10 +134,10 @@ pieces:
         
       flower: 
         RoundRobin:
-        beat_mul: 0.5
+        beat_mul: 1.0
       sheep:
         FillFade:
-          hue_start: 0.1
+          hue_start: 0.8
         beat_mul: 0.5
   - 
     - 61.83473923
@@ -173,6 +173,9 @@ pieces:
       flower: 
         Explosion:
         beat_mul: 1
+
+      sheep:
+        Clear:
   -
     - 74.37351474
     - 4
@@ -398,12 +401,12 @@ pieces:
         Rainbow:
           hue_speed: 0.08
           hue_start: 0.0
-        beat_mul: 0.5
+        beat_mul: 1.0
       sheep:
         Rainbow:
           hue_speed: 0.08
           hue_start: 0.0
-        beat_mul: 0.5
+        beat_mul: 1.0
        
       sign:
         Clear:
@@ -429,12 +432,12 @@ pieces:
         Rainbow:
           hue_speed: 0.08
           hue_start: 0.0
-        beat_mul: 0.5
+        beat_mul: 2.0
       sheep:
         Rainbow:
           hue_speed: 0.08
           hue_start: 0.0
-        beat_mul: 1.0
+        beat_mul: 2.0
        
       sign:
         Clear:
@@ -453,10 +456,10 @@ pieces:
         beat_mul: 0.5
         
       flower: 
-        Natural:
+        Spikes:
         
       sheep:
-        Clear:
+        Spikes:
        
       sign:
         Clear:
@@ -475,11 +478,10 @@ pieces:
         beat_mul: 0.5
         
       flower: 
-        Natural:
+        Alternate:
         
       sheep:
-        Spikes:
-          hue_start: 0.33
+        Alternate:
        
       sign:
         Clear:
@@ -498,11 +500,15 @@ pieces:
         beat_mul: 0.5
         
       flower: 
-        Natural:
-        
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1.0
       sheep:
-        FillFade:
-            hue_start : 0.33
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1.0
        
       sign:
         Clear:
@@ -524,13 +530,10 @@ pieces:
         beat_mul: 0.25
         
       flower: 
-        Rainbow:
-          hue_speed: 0.08
-          hue_start: 0.0
-        beat_mul: 0.5
+        Clear:
     
       sheep:
-        Rainbow:
+        Clear:
 
       sign:
         Rainbow:
@@ -548,11 +551,17 @@ pieces:
                 type: circular_loc_hue
         beat_mul: 0.125
         
-      flower: 
-        Clear:
-        
+      flower:
+        Confetti:
+          leds_percent_per_beat: 0.2
+          only_top: True
+          brightness: 0.5
+        beat_mul: 1.0
       sheep:
-        Clear:
+        Confetti:
+          leds_percent_per_beat: 0.2
+          brightness: 0.5
+        beat_mul: 1.0
        
       sign:
         Clear:
@@ -589,11 +598,17 @@ pieces:
                 type: circular_loc_hue
         beat_mul: 0.125
         
-      flower: 
-        Clear:
-        
+      flower:
+        Confetti:
+          leds_percent_per_beat: 0.2
+          only_top: True
+          brightness: 0.5
+        beat_mul: 1.0
       sheep:
-        Clear:
+        Confetti:
+          leds_percent_per_beat: 0.2
+          brightness: 0.5
+        beat_mul: 1.0
        
       sign:
         Clear:
@@ -610,13 +625,15 @@ pieces:
         
       lake:
         Confetti:
-            only_waves: False
+          only_waves: False
         
       flower: 
         Confetti:
+          leds_percent_per_beat: 0.8
         
       sheep:
         Confetti:
+          leds_percent_per_beat: 0.8
        
       sign:
         Clear:
