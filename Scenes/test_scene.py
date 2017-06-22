@@ -34,7 +34,7 @@ while True:
 
 	scene.apply(time_precent)
 
-	network.send(frame_id, flower.get_array(), sheep.get_array(), grass.get_array(), sign.get_array())
+	network.send(flower.get_array(), sheep.get_array(), grass.get_array(), sign.get_array())
 
 	time.sleep(0.02)
 	current_time = (current_time + 1) % speed

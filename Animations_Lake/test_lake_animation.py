@@ -16,7 +16,7 @@ from NaturalLakeAnimation import NaturalLakeAnimation
 from EqLakeAnimation import EqLakeAnimation
 from SpiningColorLakeAnimation import SpiningColorLakeAnimation
 from StarsLakeAnimation import StarsLakeAnimation
-animation = SpiningColorLakeAnimation(lake,None)
+animation = NaturalLakeAnimation(lake,None)
 
 speed = 100 # in 50 hrz
 current_time = 0
@@ -28,7 +28,7 @@ while True:
 
 	animation.apply(time_precent)
 
-	network.send(frame_id, lake_data=lake.get_array())
+	network.send(lake_data=lake.get_array())
 
 	time.sleep(0.05)
 	current_time = (current_time + 1) % speed

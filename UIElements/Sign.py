@@ -26,6 +26,9 @@ class Sign:
     def get_array(self):
         return self.arr
 
+    def get_all_indexes(self):
+        return self.whole_sign
+
     def get_letters(self):
         return [self.a, self.s, self.l, self.i, self.o, self.t]
 

@@ -93,6 +93,9 @@ class Grass:
     def num_of_leaves(self):
         return 25
 
+    def get_all_indexes(self):
+        return self.get_leaves()
+
     def get_leaves(self):
         return self.l1_up + self.l1_down + \
             self.l2_up + self.l2_down + \

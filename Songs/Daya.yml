@@ -1,8 +1,38 @@
 --- 
 offset: 0
-file_name: "Transitions/Daya.mp3"
+file_name: "Daya.mp3"
 pieces: 
   - 
     - 0
+    - 150
+    -
+        sheep:
+            Confetti:
+                leds_percent_per_beat: 0.1
+                brightness: 0.2
+        lake:
+            Confetti:
+                only_waves: False
+                leds_percent_per_beat: 0.1
+                brightness: 0.2
+        flower:
+            Confetti:
+                leds_percent_per_beat: 0.1
+                brightness: 0.2
+        grass:
+            Confetti:
+                leds_percent_per_beat: 0.1
+                brightness: 0.2
+        tree:
+            Confetti:
+                leds_percent_per_beat: 0.1
+                brightness: 0.2
+        sign:
+            Hue:
+              animated: True
+              full_color: True
+            beat_mul: 0.25
+  -
+    - 140
     - 1
     -

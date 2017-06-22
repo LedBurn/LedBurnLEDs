@@ -82,6 +82,9 @@ class Lake:
 	def clear(self):
 		self.arr = [0, 0, 0] * 1800
 
+	def get_all_indexes(self):
+		return self.whole_lake
+
 	def get_array(self):
 		return self.arr
 

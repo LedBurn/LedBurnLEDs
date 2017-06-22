@@ -1,5 +1,6 @@
 import datetime
 import random
+import platform
 
 class InputType:
     TEMPERATURE = 0
@@ -9,26 +10,31 @@ class InputType:
 class Decisions:
 
     MAX_HUG_REQUESTS = 2
-    HUG_MAX_TEMP = 20.0
+    HUG_MAX_TEMP = 22.0
     ALREADY_HUGED_TEMP = 27.0
-    TEMP_DIFF_FOR_DECISION = 2.0
+    TEMP_DIFF_FOR_DECISION = 0.2
     STONED_REQUESTS = 2
 
     ALL_SONGS = ['bao.yml', 'Dreamfunk.yml', 'exile.yml', 'nisim.yml', 'Soul Orchestra.yml', 'space.yml',
-               'strawberry.yml', 'TATRAN - Shvat.yml', 'Teletubbies.yml', 'wish.yml']
+               'strawberry.yml', 'TATRAN - Shvat.yml', 'Teletubbies.yml', 'wish.yml', 'Faceplant.yml',
+               'SweetChild.yml']
 
     def __init__(self):
         self.hug_request_count = 0
         self.stoned_request_count = 0
         self.last_req_time = None
 
+        self.start_temperature = None
+        self.temperature_req_time = None
+
         # it is ok to use transitions and full songs as you like in the time_songs map
-        self.time_songs  = {datetime.datetime(2017,5,28,18,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,40,0) : ["Transitions/sundown.yml", "wish.yml"], datetime.datetime(2017,5,28,20,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,21,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,22,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,23,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,0,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,1,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,2,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,3,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,4,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,35,0) : ["Transitions/sunrise.yml", "wish.yml"], datetime.datetime(2017,5,28,6,0,0) : ["Transitions/hour.yml", "wish.yml"], \
-                            datetime.datetime(2017,5,28,18,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,40,0) : ["Transitions/sundown.yml", "wish.yml"], datetime.datetime(2017,5,28,20,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,21,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,22,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,23,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,0,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,1,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,2,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,3,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,4,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,35,0) : ["Transitions/sunrise.yml", "wish.yml"], datetime.datetime(2017,5,28,6,0,0) : ["Transitions/hour.yml", "wish.yml"], \
-                            datetime.datetime(2017,5,28,18,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,40,0) : ["Transitions/sundown.yml", "wish.yml"], datetime.datetime(2017,5,28,20,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,21,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,22,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,23,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,0,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,1,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,2,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,3,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,4,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,35,0) : ["Transitions/sunrise.yml", "wish.yml"], datetime.datetime(2017,5,28,6,0,0) : ["Transitions/hour.yml", "wish.yml"], \
-                            datetime.datetime(2017,5,28,18,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,40,0) : ["Transitions/sundown.yml", "wish.yml"], datetime.datetime(2017,5,28,20,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,21,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,22,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,23,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,0,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,1,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,2,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,3,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,4,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,35,0) : ["Transitions/sunrise.yml", "wish.yml"], datetime.datetime(2017,5,28,6,0,0) : ["Transitions/hour.yml", "wish.yml"], \
-                            datetime.datetime(2017,5,28,18,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,19,40,0) : ["Transitions/sundown.yml", "wish.yml"], datetime.datetime(2017,5,28,20,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,21,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,22,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,23,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,0,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,1,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,2,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,3,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,4,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,28,5,35,0) : ["Transitions/sunrise.yml", "wish.yml"], datetime.datetime(2017,5,28,6,0,0) : ["Transitions/hour.yml", "wish.yml"], \
-                            }
+        self.time_songs  = {datetime.datetime(2017,5,28,19,0,0) : ["Transitions/sunday_night_start.yml", "Dreamfunk.yml"], datetime.datetime(2017,5,28,19,40,0) : ["Transitions/sundown.yml", "strawberry.yml", "space.yml"], datetime.datetime(2017,5,28,20,0,0) : ["Transitions/sunday_night_start.yml", "SweetChild.yml"], datetime.datetime(2017,5,28,21,0,0) : ["Transitions/sunday_night_start.yml", "TATRAN - Shvat.yml"], datetime.datetime(2017,5,28,22,0,0) : ["Transitions/sunday_night_start.yml", "wish.yml"], datetime.datetime(2017,5,28,23,0,0) : ["Transitions/night_start2.yml", "bao.yml"], datetime.datetime(2017,5,29,0,0,0) : ["Transitions/news.yml", "Faceplant.yml"], datetime.datetime(2017,5,29,1,0,0) : ["Transitions/words_at_sunrise.yml", "Soul Orchestra.yml"], datetime.datetime(2017,5,29,2,0,0) : ["Transitions/trolling.yml", "nisim.yml"], datetime.datetime(2017,5,29,3,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,29,4,0,0) : ["Transitions/late_night2.yml", "Faceplant.yml"], datetime.datetime(2017,5,29,5,0,0) : ["Transitions/late_night.yml", "space.yml"], datetime.datetime(2017,5,29,5,35,0) : [random.choice(["Transitions/sunrise.yml","Transitions/sunrise_hebrew.yml"]), "wish.yml"], datetime.datetime(2017,5,29,6,0,0) : ["Transitions/after_sunrise.yml", "exile.yml"], \
+                            datetime.datetime(2017,5,29,19,0,0) : ["Transitions/night_start.yml", "Dreamfunk.yml"], datetime.datetime(2017,5,29,19,40,0) : ["Transitions/sundown.yml", "strawberry.yml", "space.yml"], datetime.datetime(2017,5,29,20,0,0) : ["Transitions/night_start.yml", "SweetChild.yml"], datetime.datetime(2017,5,28,21,0,0) : ["Transitions/night_start.yml", "TATRAN - Shvat.yml"], datetime.datetime(2017,5,29,22,0,0) : ["Transitions/night_start.yml", "wish.yml"], datetime.datetime(2017,5,29,23,0,0) : ["Transitions/night_start2.yml", "bao.yml"], datetime.datetime(2017,5,30,0,0,0) : ["Transitions/news.yml", "Faceplant.yml"], datetime.datetime(2017,5,30,1,0,0) : ["Transitions/words_at_sunrise.yml", "Soul Orchestra.yml"], datetime.datetime(2017,5,30,2,0,0) : ["Transitions/trolling.yml", "nisim.yml"], datetime.datetime(2017,5,30,3,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,30,4,0,0) : ["Transitions/late_night2.yml", "Faceplant.yml"], datetime.datetime(2017,5,30,5,0,0) : ["Transitions/late_night.yml", "space.yml"], datetime.datetime(2017,5,30,5,35,0) : [random.choice(["Transitions/sunrise.yml","Transitions/sunrise_hebrew.yml"]), "wish.yml"], datetime.datetime(2017,5,30,6,0,0) : ["Transitions/after_sunrise.yml", "exile.yml"], \
+                            datetime.datetime(2017,5,30,19,0,0) : ["Transitions/lost_guy.yml", "Dreamfunk.yml"], datetime.datetime(2017,5,30,19,40,0) : ["Transitions/sundown.yml", "strawberry.yml", "space.yml"], datetime.datetime(2017,5,30,20,0,0) : ["Transitions/lost_guy.yml", "SweetChild.yml"], datetime.datetime(2017,5,28,21,0,0) : ["Transitions/lost_guy.yml", "TATRAN - Shvat.yml"], datetime.datetime(2017,5,30,22,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,30,23,0,0) : ["Transitions/hour.yml", "bao.yml"], datetime.datetime(2017,5,31,0,0,0) : ["Transitions/news.yml", "Faceplant.yml"], datetime.datetime(2017,5,31,1,0,0) : ["Transitions/words_at_sunrise.yml", "Soul Orchestra.yml"], datetime.datetime(2017,5,31,2,0,0) : ["Transitions/trolling.yml", "nisim.yml"], datetime.datetime(2017,5,31,3,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,5,31,4,0,0) : ["Transitions/late_night2.yml", "Faceplant.yml"], datetime.datetime(2017,5,31,5,0,0) : ["Transitions/late_night.yml", "space.yml"], datetime.datetime(2017,5,31,5,35,0) : [random.choice(["Transitions/sunrise.yml","Transitions/sunrise_hebrew.yml"]), "wish.yml"], datetime.datetime(2017,5,31,6,0,0) : ["Transitions/after_sunrise.yml", "exile.yml"], \
+                            datetime.datetime(2017,5,31,19,0,0) : ["Transitions/wednesday_night.yml", "Dreamfunk.yml"], datetime.datetime(2017,5,31,19,40,0) : ["Transitions/sundown.yml", "strawberry.yml", "space.yml"], datetime.datetime(2017,5,31,20,0,0) : ["Transitions/wednesday_night.yml", "SweetChild.yml"], datetime.datetime(2017,5,28,21,0,0) : ["Transitions/wednesday_night.yml", "TATRAN - Shvat.yml"], datetime.datetime(2017,5,31,22,0,0) : ["Transitions/traffic.yml", "wish.yml"], datetime.datetime(2017,5,31,23,0,0) : ["Transitions/traffic.yml", "bao.yml"], datetime.datetime(2017,6,1,0,0,0) : ["Transitions/news.yml", "Faceplant.yml"], datetime.datetime(2017,6,1,1,0,0) : ["Transitions/words_at_sunrise.yml", "Soul Orchestra.yml"], datetime.datetime(2017,6,1,2,0,0) : ["Transitions/trolling.yml", "nisim.yml"], datetime.datetime(2017,6,1,3,0,0) : ["Transitions/hour.yml", "wish.yml"], datetime.datetime(2017,1,1,4,0,0) : ["Transitions/late_night2.yml", "Faceplant.yml"], datetime.datetime(2017,6,1,5,0,0) : ["Transitions/late_night.yml", "space.yml"], datetime.datetime(2017,6,1,5,35,0) : [random.choice(["Transitions/sunrise.yml","Transitions/sunrise_hebrew.yml"]), "wish.yml"], datetime.datetime(2017,6,1,6,0,0) : ["Transitions/after_sunrise.yml", "exile.yml"] \
+                            }\
+
+                    
         self.clear_old_time_events()
 
         self.songs_stats = {yml:0 for yml in self.ALL_SONGS}
@@ -39,7 +45,26 @@ class Decisions:
 
     # return None if no song
     # return yml if we want a song. example: return "Songs/Teletubbies.yml"
-    def decide(self, start_temperature, curr_temperature, sachi_meter, illusions_flag, motion_detected):
+    def decide(self, curr_temperature, sachi_meter, illusions_flag, motion_detected):
+
+        if curr_temperature is None:
+            self.start_temperature = None
+
+        # we should not work during the day when there is light, it could damage the leds.
+        # we plan to disconnect electricity during the day, but if that fails, make sure the leds are not on and heating
+        if not self.check_valid_hour_in_day():
+            return ['silence.yml']
+
+        if self.check_if_fire_time():
+            return ['fire.yml']
+
+        next_song = self.decide_by_input(curr_temperature, sachi_meter, illusions_flag, motion_detected)
+        if next_song is not None:
+            self.start_temperature = curr_temperature
+        return next_song
+
+
+    def decide_by_input(self, curr_temperature, sachi_meter, illusions_flag, motion_detected):
 
         if self.curr_input is None:
 
@@ -53,28 +78,38 @@ class Decisions:
                     self.mark_next_song(yml)
                 return next_songs
 
-            # if not the time, we will choose an input source since we don't have one
-            if sachi_meter is not None:
-                self.curr_input = InputType.SACHI
-                print 'will use input selection of SACHI'
+            self.curr_input = self.chose_next_input(sachi_meter, curr_temperature, illusions_flag)
 
         if self.curr_input == InputType.SACHI:
             next_songs = self.decide_by_RFID(illusions_flag, sachi_meter)
             return next_songs
 
-        if self.use_temperature(curr_temperature):
-            next_song = self.decide_by_temperature(start_temperature, curr_temperature)
+        if self.curr_input == InputType.TEMPERATURE:
+            next_song = self.decide_by_temperature(curr_temperature)
+            return next_song
+
+        if self.curr_input == InputType.MOTION:
+            next_song = self.decide_by_motion(motion_detected)
             if next_song is not None:
                 return next_song
 
-        next_song = self.decide_by_motion(motion_detected)
-        if next_song is not None:
-            return next_song
+        return ['sheep.yml', self.choose_and_validate_next_song()]
 
-        return [self.choose_and_validate_next_song()]
 
-    def chose_next_input(self):
-        pass
+    def chose_next_input(self, sachi_meter, curr_temperature, illusions_flag):
+        # if not the time, we will choose an input source since we don't have one
+        rand = random.random()
+        if sachi_meter is not None and (illusions_flag or rand < 0.33):
+            print 'will use input selection of SACHI'
+            return InputType.SACHI
+
+        if self.use_temperature(curr_temperature) and rand < 0.5:
+            print 'will use input selection of TEMPERATURE'
+            return InputType.TEMPERATURE
+
+        self.curr_input = None
+        print 'will do sheep voice'
+        return None
 
     def mark_next_song(self, yml):
         if yml not in self.songs_stats:
@@ -130,7 +165,7 @@ class Decisions:
     def decide_by_motion(self, motion_detected):
         if motion_detected:
             print "Hey! I see I got company, let me play you a song"
-            return ["SeeYou.yml", "TATRAN - Shvat.yml"]
+            return ["see_you.yml"]
         return None
 
     def use_temperature(self, curr_temperature):
@@ -156,7 +191,7 @@ class Decisions:
             #"Ahh, i see you're looking for something special, how about this.. (play illusion song)"
             ill_song = random.choice(["LiveFullyNow.yml", "ItStartsNow.yml", "Daya.yml"])
             print 'illusions_flag set, next illusion song is ' + str(ill_song)
-            return [random.choice(["Transitions/special.yml"]), ill_song, self.choose_and_validate_next_song()]
+            return [random.choice(["Transitions/special.yml","Transitions/special_hebrew.yml"]), ill_song, self.choose_and_validate_next_song()]
 
         # finish the RFID input selection
         if sachi_meter > 2:
@@ -166,14 +201,14 @@ class Decisions:
 
         # finish the RFID input selection
         if sachi_meter < -2:
-            #"man i havent been to the gym in a while, lets dance instead! (play upbeat song)"
+            #"man i havent been to the gym in a while, i better go soon"
             print 'sachi meter is LOW'
-            return [random.choice(["Transitions/gym.yml"]), self.choose_and_validate_next_song()]
+            return [random.choice(["Transitions/gym.yml","Transitions/gym_hebrew.yml"]), self.choose_and_validate_next_song()]
 
         # if we are here, we are waiting fot the user to change the sachi meter.
         # tell him how it goes...
 
-        if self.last_req_time is None or (datetime.datetime.now() - self.last_req_time) > datetime.timedelta(seconds = 15):
+        if self.last_req_time is None or (datetime.datetime.now() - self.last_req_time) > datetime.timedelta(seconds = 20):
 
             if self.stoned_request_count >= self.STONED_REQUESTS:
                 print 'finished all our stoned requests. chosing next song without transition'
@@ -184,34 +219,94 @@ class Decisions:
             self.stoned_request_count += 1
             self.last_req_time = datetime.datetime.now()
 
-            if sachi_meter >= 0:
-                # "Can someone pass me the sachta, i'm almost there"
-                if self.stoned_request_count == 1:
-                    return [random.choice(["Transitions/sachta.yml"])]
-                else:
-                    #bigler - change this yml to something else
-                    return [random.choice(["Transitions/sachta.yml"])]
-            else:
+            if sachi_meter == 0:
                 #I can't decide if I want to get stoned or go to the gym.
-                return [random.choice(["Transitions/cant_decide.yml"])]
-
+                return [random.choice(["Transitions/cant_decide.yml", "Transitions/cant_decide_hebrew.yml", 
+                                        "Transitions/cant_decide_info_hebrew.yml", "Transitions/cant_decide_info.yml", 
+                                        "Transitions/if_i_was_kivsi_hebrew.yml", "Transitions/if_i_was_kivsi.yml"])]
+            elif sachi_meter > 0:
+                if self.stoned_request_count == 1:
+                    #you see that big ol joint, can you please pass it to kivsi?
+                    return [random.choice(["Transitions/joint_ask.yml","Transitions/joint_ask_hebrew.yml"])]
+                else:
+                    # "Can someone pass me the sachta, i'm almost there"
+                    return [random.choice(["Transitions/sachta.yml","Transitions/sachta_hebrew.yml"])]
+            else:
+                if self.stoned_request_count == 1:
+                    #has anyone seen my gym chip i swear i saw it around, can you get it to the sheep mouth?
+                    return [random.choice(["Transitions/gym_ask_hebrew.yml"])]
+                else:
+                    return [random.choice(["Transitions/gym_ask.yml"])]
         return None
 
-    def decide_by_temperature(self, start_temperature, curr_temperature):
-        if start_temperature is None:
-            start_temperature = curr_temperature
+    def decide_by_temperature(self, curr_temperature):
+        if curr_temperature is None:
+            return [self.choose_and_validate_next_song()]
 
-        diff_from_start = curr_temperature - start_temperature
+        if self.start_temperature is None:
+            self.start_temperature = curr_temperature
+
+        diff_from_start = curr_temperature - self.start_temperature
+        print diff_from_start
         if diff_from_start > self.TEMP_DIFF_FOR_DECISION:
-            print 'start temperature was ' + str(start_temperature) + " now its " + str(curr_temperature) + \
+            print 'start temperature was ' + str(self.start_temperature) + " now its " + str(curr_temperature) + \
                   " thanking for the hug..."
             self.hug_request_count = 0
-            return [random.choice(["Transitions/HugThanks.yml"]), "exile.yml"]
+            return [random.choice(["Transitions/hug_thanks.yml", "Transitions/hug_thanks_hebrew.yml"]), random.choice(["exile.yml", "strawberry.yml", "wish.yml", "Soul Orchestra.yml",])]
+
+        enough_time_since_last = self.temperature_req_time is None or (datetime.datetime.now() - self.temperature_req_time) > datetime.timedelta(seconds=15)
+        if not enough_time_since_last:
+            return None
 
         if curr_temperature < self.HUG_MAX_TEMP and self.hug_request_count < self.MAX_HUG_REQUESTS:
-            self.hug_request_count += 1
-            return [random.choice(["Transitions/DesertChill.yml", "Transitions/HoldMyStick.yml"])]
+            self.temperature_req_time = datetime.datetime.now()
+            if self.hug_request_count == 0:
+                self.hug_request_count += 1
+                return [random.choice(["Transitions/desert_chill.yml", "Transitions/hold_my_stick.yml", "Transitions/cold.yml"])]
+            else:
+                self.hug_request_count += 1
+                return [random.choice(["Transitions/stick_ask.yml", "Transitions/stick_ask_hebrew.yml"])]
         elif curr_temperature > self.ALREADY_HUGED_TEMP:
-            return [random.choice(["Transitions/HuggingMe.yml"]), "exile.yml"]
+            return [random.choice(["Transitions/hugging_me.yml", "Transitions/hugging_me_hebrew.yml"])]
 
-        return None
+        return [self.choose_and_validate_next_song()]
+
+
+    def check_valid_hour_in_day(self):
+
+        #do it only if we are running on the RPI
+        if platform.machine() != 'armv7l':
+            return True
+
+        current_hour = datetime.datetime.now().hour
+        if current_hour >= 19:
+            return True
+        if current_hour <= 5:
+            return True
+        return False
+
+    def check_if_fire_time(self):
+
+        #do it only if we are running on the RPI
+        if platform.machine() != 'armv7l':
+            return False
+
+        day = datetime.datetime.now().day
+        month = datetime.datetime.now().month
+        hour = datetime.datetime.now().hour
+
+        print day
+        print month
+        print hour
+
+        if day == 1 and month == 6: #thursday
+            if hour > 17:
+                return True
+
+        if day > 1 and month == 6: #friday
+            return True
+
+        return False
+
+
+

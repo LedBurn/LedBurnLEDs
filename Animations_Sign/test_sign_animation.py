@@ -27,7 +27,7 @@ while True:
 
 	animation.apply(time_precent)
 
-	network.send(frame_id, sign_data=sign.get_array())
+	network.send(sign_data=sign.get_array())
 
 	time.sleep(0.05)
 	current_time = (current_time + 1) % speed

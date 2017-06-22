@@ -35,13 +35,13 @@ class RFIDUDP:
             # 3 seconds between detections avoids redundant consequtive detections
             if ((curr_time - self.rfidTime) > datetime.timedelta(seconds=3)):
                 self.rfidTime = curr_time
-                if (self.sachiMeter < 4):
+                if (self.sachiMeter < 3):
                     self.sachiMeter += 1
                 print "SachiMeter at " + str(self.sachiMeter)
         elif (whichUID == self.gymUID):
             if ((curr_time - self.rfidTime) > datetime.timedelta(seconds=3)):
                 self.rfidTime = curr_time
-                if (self.sachiMeter > -4):
+                if (self.sachiMeter > -3):
                     self.sachiMeter += -1
                 print "SachiMeter at " + str(self.sachiMeter)
         elif (whichUID == self.cardUID):
@@ -50,7 +50,7 @@ class RFIDUDP:
                 self.sachiMeter = 0
                 self.illusionFlag = True
                 print 'Ellusions flag is set'
-        else:
+        elif whichUID is not None:
             if ((curr_time - self.rfidTime) > datetime.timedelta(seconds=90) and
                     (curr_time - self.fadeTime) > datetime.timedelta(seconds=90)):
                 self.rfidTime = curr_time
@@ -78,8 +78,8 @@ class RFIDUDP:
             self.last_sucessful_read_time = datetime.datetime.now()
             return uidRead
 
-        elif self.last_sucessful_read_time and datetime.datetime.now() - self.last_sucessful_read_time > datetime.timedelta(seconds=30):
-            print 'did not receive data from RFID sensor for more than 30 seconds!'
+        elif self.last_sucessful_read_time and datetime.datetime.now() - self.last_sucessful_read_time > datetime.timedelta(seconds=10):
+            print 'did not receive data from RFID sensor for more than 10 seconds!'
             self.last_sucessful_read_time = None
 
         if self.last_sucessful_read_time is None:

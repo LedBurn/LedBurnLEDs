@@ -31,7 +31,7 @@ while True:
 
 	animation.apply(time_precent)
 
-	network.send(frame_id, sheep_data=sheep.get_array())
+	network.send(sheep_data=sheep.get_array())
 
 	time.sleep(0.02)
 	current_time = (current_time + 1) % speed

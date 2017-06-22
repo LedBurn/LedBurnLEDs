@@ -50,7 +50,7 @@ while pygame.mixer.music.get_busy():
     time_precent = float(song_time) / beats_total_time
     animation.apply(time_precent)
 
-    network.send(frame_id, flower, sheep, grass.get_array(), sign)
+    network.send(flower, sheep, grass.get_array(), sign)
     frame_id += 1
 
     clock.tick(50)

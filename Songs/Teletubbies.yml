@@ -16,9 +16,11 @@ pieces:
             on_time_percent: 1.0
         beat_mul: 0.25
 
-      lake:
-        Spin:
-        beat_mul: 0.125
+      tree:
+        Spikes:
+          dir: "inside"
+          circular: True
+        beat_mul: 0.25
   - 
     - 18.92426304
     - 8
@@ -35,9 +37,11 @@ pieces:
           hue_speed: 0.08
         beat_mul: 4
 
-      lake:
-        Spin:
-        beat_mul: 1
+      tree:
+        Spikes:
+          dir: "inside"
+          circular: True
+        beat_mul: 4
   -
     - 25.77414966
     - 32
@@ -54,10 +58,11 @@ pieces:
           hue_speed: 0.08
         beat_mul: 0.5
 
-      lake:
-        Eq:
-        beat_mul: 1
-
+      tree:
+        Spikes:
+          dir: "inside"
+          circular: True
+        beat_mul: 0.5
   - 
     - 39.49714286
     - 32
@@ -75,8 +80,14 @@ pieces:
         beat_mul: 0.5
 
       lake:
-        Eq:
-        beat_mul: 1
+        Stars:
+        beat_mul: 0.25
+
+      tree:
+        Spikes:
+          dir: "outside"
+          circular: True
+        beat_mul: 0.5
   -
     - 53.1969161
     - 44
@@ -92,35 +103,59 @@ pieces:
         beat_mul: 0.25
 
       lake:
-        Spin:
-        beat_mul: 0.125
+        Stars:
+        beat_mul: 0.25
+
+      tree:
+        Rainbow:
+        beat_mul: 0.25
   -
     - 72.05151927
     - 8
     - 
       flower: 
-        RoundRobin: 
-          hue_speed: 0.08
+        RoundRobin:
           hue_start: 0.44
+          hue_speed: 0.08
+        beat_mul: 4
+
+      grass:
+        RoundRobin:
+          hue_start: 0.44
+          hue_speed: 0.08
         beat_mul: 4
 
       lake:
-        Spin:
-        beat_mul: 1
+        Stars:
+        beat_mul: 4
+
+      tree:
+        RoundRobin:
+        beat_mul: 4
   -
 
     - 78.92462585
     - 32
     - 
       flower: 
-        RoundRobin: 
-          hue_speed: 0.08
+        RoundRobin:
           hue_start: 0.0
+          hue_speed: 0.08
         beat_mul: 0.5
 
+      grass:
+        Swipe:
+          color:
+            type: "circular_loc_hue"
+        beat_mul: 0.25
+
       lake:
-        Eq:
-        beat_mul: 1
+        Stars:
+        beat_mul: 0.25
+
+      tree:
+        RoundRobin: 
+        beat_mul: 0.25
   -
     - 92.62439909
     - 32
@@ -131,9 +166,21 @@ pieces:
           hue_start: 0.92
         beat_mul: 0.5
 
+      grass:
+        Swipe:
+          color:
+            type: "circular_loc_hue"
+        beat_mul: 0.25
+
       lake:
-        Eq:
-        beat_mul: 1
+        Stars:
+        beat_mul: 0.25
+
+      tree:
+        Spikes:
+          dir: "inside"
+          circular: True
+        beat_mul: 0.5
   -
     - 106.3473923
     - 44
@@ -144,38 +191,81 @@ pieces:
           hue_start: 0.0
 
       grass:
-        Spike:
-            on_time_percent: 1.0
-        beat_mul: 0.25
+        Swipe:
+          color:
+            type: "circular_loc_hue"
+        beat_mul: 0.125
 
       lake:
-        Spin:
-        beat_mul: 0.125
+        Stars:
+        beat_mul: 0.25
+
+      sheep:
+        Stars:
+        beat_mul: 0.25
+
+      tree:
+        Spikes:
+          dir: "counter_clockwise"
+          circular: True
+        beat_mul: 0.25
   -
     - 125.2019955
     - 8
     - 
       flower: 
-        RoundRobin: 
-          hue_speed: 0.08
+        RoundRobin:
           hue_start: 0.44
+          hue_speed: 0.08
         beat_mul: 4
+
+      grass:
+        Alternate:
+        beat_mul: 4
+
       lake:
-        Spin:
-        beat_mul: 1
+        RoundRobin:
+          hue_start: 0.44
+          hue_speed: 0.18
+        beat_mul: 4
+
+      sheep:
+        Stars:
+        beat_mul: 4
+
+      tree:
+        Spikes:
+          dir: "clockwise"
+          circular: True
+        beat_mul: 4
   -
     - 132.075102
     - 32
     - 
       flower: 
-        RoundRobin: 
-          hue_speed: 0.08
+        RoundRobin:
           hue_start: 0.0
+          hue_speed: 0.08
+        beat_mul: 0.5
+
+      grass:
+        Alternate:
         beat_mul: 0.5
 
       lake:
-        Eq:
-        beat_mul: 1
+        Stars:
+        beat_mul: 0.25
+      
+      sheep:
+        Stars:
+        beat_mul: 0.25
+
+      tree:
+        Spikes:
+          dir: "counter_clockwise"
+          circular: True
+        beat_mul: 0.25
+
   -
     - 145.7748753
     - 32
@@ -186,6 +276,21 @@ pieces:
           hue_start: 0.92
         beat_mul: 0.5
 
+      grass:
+        Alternate:
+        beat_mul: 0.5
+
       lake:
-        Eq:
-        beat_mul: 1
+        Stars:
+        beat_mul: 0.25
+
+      sheep:
+        Stars:
+        beat_mul: 0.25
+
+      tree:
+        Spikes:
+          dir: "clockwise"
+          circular: True
+        beat_mul: 0.25
+

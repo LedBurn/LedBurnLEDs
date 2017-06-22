@@ -65,9 +65,6 @@ class MoominsSong():
                 self.s_effects = [
                     AlwaysOnEffect(sheep.get_leg34_indexes(), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
                 self.f_effects = [AlwaysOnEffect(self.flower.get_right_leaf(), Colors.hls_to_rgb(self.hue, 1.0, 1.0))]
-                #self.f_effects = [
-                #    AlwaysOnEffect(self.flower.get_right_leaf(), Colors.hls_to_rgb(0.0, 1.0, 1.0))
-                #]
                 self.hue = (self.hue + 0.3) % 1
             elif label == "W":
                 self.s_effects = [
@@ -114,8 +111,7 @@ if __name__ == "__main__":
         song_time = (pygame.mixer.music.get_pos() - 170)/ 1000.0
         song.apply_animation(song_time)
 
-        network.send(frame_id,
-                     flower.get_array(),
+        network.send(flower.get_array(),
                      sheep.get_array(),
                      grass,
                      sign,

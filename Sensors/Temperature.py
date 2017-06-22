@@ -18,8 +18,8 @@ class Temperature:
             if self.last_sucessful_read_time is None:
                 print 'starting to receive temperature from sensor. curr value: ' + str(self.temperature)
             self.last_sucessful_read_time = datetime.datetime.now()
-        elif self.last_sucessful_read_time and datetime.datetime.now() - self.last_sucessful_read_time > datetime.timedelta(seconds=30):
-            print 'did not receive data from temperature sensor for more than 30 seconds!'
+        elif self.last_sucessful_read_time and datetime.datetime.now() - self.last_sucessful_read_time > datetime.timedelta(seconds=10):
+            print 'did not receive data from temperature sensor for more than 10 seconds!'
             self.last_sucessful_read_time = None
             self.temperature = None
         return self.temperature

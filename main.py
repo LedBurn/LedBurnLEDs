@@ -1,15 +1,12 @@
-import time
 import datetime
 import pygame
-import socket
 from Songs.Song import Song
-from Sensors.RFID import RFID
+from Songs.TransitionsDriver import TransitionsDriver
 from Sensors.RFIDUDP import RFIDUDP
 from Sensors.Temperature import Temperature
 from Sensors.Motion import Motion
 from Sensors.Decisions import Decisions
 
-r = RFID()
 rf = RFIDUDP()
 temperature = Temperature()
 motion = Motion()
@@ -23,13 +20,19 @@ MyTime = datetime.datetime.now()
 prevTime = MyTime
 rfidTime = MyTime
 
+transDriver = TransitionsDriver()
 song = None
 next_song = None
 check_num = 0
 
-start_temperature = None
 prevSachiMeter = 0
 
+# uncomment this to start with sensors
+from time import sleep
+sleep(2)
+
+last_time = 0
+input_type = None
 
 while True:
     # read sensors data
@@ -46,9 +49,15 @@ while True:
     song_playing = song != None and pygame.mixer.music.get_busy()
     if song_playing:
         song_time = (pygame.mixer.music.get_pos())/ 1000.0
-        song.play_animations(song_time, curr_temperature, sachiMeter)
-        start_temperature = curr_temperature
+        song_time = max(song_time, last_time)
+        last_time = song_time
+        if song.is_transition:
+            transDriver.play_animations(curr_temperature, sachiMeter, input_type)
+        else:
+            song.play_animations(song_time, curr_temperature, sachiMeter)
+
     else: #no song playing
+        last_time = 0
         if next_song is not None:
             print "next song is: " + next_song[0]
             song = Song("Songs/" + next_song[0])
@@ -59,7 +68,10 @@ while True:
             else:
                 next_song = None
         else:
-            next_song = decisions.decide(start_temperature, curr_temperature, sachiMeter, illusionsFlag, motion_detected)
+            next_song = decisions.decide(curr_temperature, sachiMeter, illusionsFlag, motion_detected)
+            input_type = decisions.curr_input
+            if next_song is None:
+                transDriver.play_animations(curr_temperature, sachiMeter, input_type)
 
     clock.tick(50)
     
