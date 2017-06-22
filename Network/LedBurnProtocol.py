@@ -19,44 +19,36 @@ sock = socket.socket(socket.AF_INET, # Internet
 PROTOCOL_VERSION = 0
 
 # flower - 580 leds
-FLOWER_IP = 213
-FLOWER_STRIP_ID = 4
+FLOWER_IP = 210
+FLOWER_STRIP_ID = 0
 
 # sheep - 302 leds
 SHEEP_IP = 210
-SHEEP_STRIP_ID = 6
+SHEEP_STRIP_ID = 2
 
 # grass1 - 600 leds
 GRASS1_IP = 210
-GRASS1_STRIP_ID = 3
+GRASS1_STRIP_ID = 2
 
 #grass2 - how many leds?
 GRASS2_IP = 213
-GRASS2_STRIP_ID0 = 6
+GRASS2_STRIP_ID0 = 2
 GRASS2_STRIP_ID1 = 5
+
 
 # sign - 150 leds
 SIGN_IP = 210
-SIGN_STRIP_ID = 7
+SIGN_STRIP_ID = 3
 
 # lake
-LAKE_IP = 213
-LAKE_STRIP_ID = 2
-LAKE_WAVE_STRIP_ID0 = 0
-LAKE_WAVE_STRIP_ID1 = 1
+LAKE_IP = 210
+LAKE_STRIP_ID = 4
+LAKE_WAVE_STRIP_ID0 = 5
+LAKE_WAVE_STRIP_ID1 = 6
 
 # temp stick - 144 leds
-TEMP_STICK_IP = 213
+TEMP_STICK_IP = 210
 TEMP_STICK_STRIP_ID = 7
-
-# tree
-TREE_IP = 210
-TREE_STRIP_ID0 = 1
-TREE_STRIP_ID1 = 5
-
-# sachi meter
-SACHI_METER_IP = 210
-SACHI_STRIP_ID = 4
 
 
 def uint8_to_array(num):
@@ -75,19 +67,8 @@ def uint32_to_array(num):
     c4 = (num / (1)) % 256
     return [c4, c3, c2, c1]
 
-def send(flower_data=   [0, 0, 0] * 580,
-         sheep_data=    [0, 0, 0] * 302,
-         grass_data=    [0, 0, 0] * 600,
-         sign_data=     [0, 0, 0] * 150,
-         lake_data=     [0, 0, 0] * 1800,
-         temp_stick=    [0, 0, 0] * 144,
-         tree_data=     [0, 0, 0] * 1081,
-         sachi_meter=   [0, 0, 0] * 7):
-
-    sendPacketWithIp(TREE_IP, TREE_STRIP_ID0, 0, tree_data[0:900])
-    sendPacketWithIp(TREE_IP, TREE_STRIP_ID0, 300, tree_data[900:1497])
-    sendPacketWithIp(TREE_IP, TREE_STRIP_ID1, 0, tree_data[1497:2397])
-    sendPacketWithIp(TREE_IP, TREE_STRIP_ID1, 300, tree_data[2397:3246])
+def send(flower_data=[0, 0, 0] * 580,
+         sheep_data=[0, 0, 0] * 302):
 
     replaceGBRtoRGB(flower_data, range(463, 513))
     sendPacketWithIp(FLOWER_IP, FLOWER_STRIP_ID, 0, flower_data[0:900])
@@ -96,6 +77,7 @@ def send(flower_data=   [0, 0, 0] * 580,
     replaceGBRtoRGB(sheep_data, range(300, 302))
     sendPacketWithIp(SHEEP_IP, SHEEP_STRIP_ID, 0, sheep_data)
 
+    """"
     sendPacketWithIp(GRASS1_IP, GRASS1_STRIP_ID, 0, grass_data[0:900])
     sendPacketWithIp(GRASS1_IP, GRASS1_STRIP_ID, 300, grass_data[900:1800])
     sendPacketWithIp(GRASS2_IP, GRASS2_STRIP_ID0, 0, grass_data[1800:2700])
@@ -113,9 +95,7 @@ def send(flower_data=   [0, 0, 0] * 580,
     sendPacketWithIp(LAKE_IP, LAKE_WAVE_STRIP_ID1, 300, lake_data[4500:5400])
 
     sendPacketWithIp(TEMP_STICK_IP, TEMP_STICK_STRIP_ID, 0, temp_stick[0:144*3])
-    
-    replaceGBRtoRGB(sachi_meter, range(len(sachi_meter)/3))
-    sendPacketWithIp(SACHI_METER_IP, SACHI_STRIP_ID, 0, sachi_meter)
+    """
 
     sendStoredFrame()
 
@@ -145,10 +125,7 @@ def sendPacket(ip, strip_id, seg_in_frame, seg_id, pixel_id, pixels_data):
     data = data + pixels_data
     msg = "LedBurn" + array.array('B', data).tostring()
 
-    try:
-        sock.sendto(msg, (ip, UDP_PORT))
-    except:
-        print 'no network'
+    sock.sendto(msg, (ip, UDP_PORT))
 
 
 def replaceGBRtoRGB(data_array,in_range):
@@ -156,5 +133,18 @@ def replaceGBRtoRGB(data_array,in_range):
         gbr = data_array[i*3:i*3+3]
         rgb = [gbr[1], gbr[0], gbr[2]]
         data_array[i*3:i*3+3] = rgb
+
+
+#test:
+# i = 0
+# while (True):
+#     i += 1
+#     flower = [200, 0, 0] * 580
+#     sheep = [200, 0 ,0] * 302
+#     grass = [0, 200, 0] * 600
+#     sign = [0, 0, 200] * 150
+#     lake = [0, 200, 200] * 600 + [0, 0, 200] * 600 + [0, 0, 200] * 600
+#     send(i,  flower, sheep, grass, sign, lake)
+#     time.sleep(0.1)
 
 

@@ -1,5 +1,5 @@
 --- 
-offset: -0.1
+offset: 0.1
 file_name: "TATRAN - Shvat - 10 Strawberry Fields Forever.mp3"
 pieces: 
   -
@@ -11,6 +11,11 @@ pieces:
             leds_percent_per_beat: 0.2
             only_waves: False
             brightness: 0.5
+        beat_mul: 0.5
+      sheep:
+        Confetti:
+          leds_percent_per_beat: 0.2
+          brightness: 0.5
         beat_mul: 0.5
   - 
     - 20.06204082
@@ -28,7 +33,18 @@ pieces:
           directionType: Up
           leafChooseType: All
           hue_start: Rainbow
-        beat_mul: 0.25      
+        beat_mul: 0.25
+      flower:
+        Confetti:
+          leds_percent_per_beat: 0.2
+          only_top: True
+          brightness: 0.5
+        beat_mul: 1.0
+      sheep:
+        Confetti:
+          leds_percent_per_beat: 0.2
+          brightness: 0.5
+        beat_mul: 1.0
   - 
     - 32.64725624
     - 9
@@ -46,7 +62,17 @@ pieces:
             hue_start: 0.66
             pixel_hue: 0.7
             brightness: 0.5
-        beat_mul: 0.125  
+        beat_mul: 0.125
+      flower:
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.125
+      sheep:
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.125
   - 
     - 39.77578231
     - 4
@@ -65,10 +91,9 @@ pieces:
         beat_mul: 0.125
         
       flower: 
-        Rainbow:
-          hue_speed: 0.08
-          hue_start: 0.0
-        beat_mul: 0.5        
+        Explosion:
+      sheep:
+        Clear:
   - 
     - 43.02657596
     - 8
@@ -88,10 +113,10 @@ pieces:
         beat_mul: 1
         
       flower: 
-        Natural:
-          hue_speed: 0.04
-          hue_start: 0.0
-        beat_mul: 1
+        Confetti:
+
+      sheep:
+        Confetti:
   - 
     - 49.27274376
     - 16
@@ -108,11 +133,11 @@ pieces:
         beat_mul: 1
         
       flower: 
-        Rainbow:
-        beat_mul: 0.5
-        
-      tree:
-        Rainbow:
+        RoundRobin:
+        beat_mul: 1.0
+      sheep:
+        FillFade:
+          hue_start: 0.8
         beat_mul: 0.5
   - 
     - 61.83473923
@@ -132,10 +157,8 @@ pieces:
       flower: 
         Alternate:
         beat_mul: 1
-        
-      tree: 
+      sheep:
         Alternate:
-        beat_mul: 1
   - 
     - 64.96943311
     - 16
@@ -150,8 +173,8 @@ pieces:
       flower: 
         Explosion:
         beat_mul: 1
-        
-      tree:
+
+      sheep:
         Clear:
   -
     - 74.37351474
@@ -174,10 +197,11 @@ pieces:
         Rainbow:
           hue_speed: 0.08
           hue_start: 0.0
-        beat_mul: 0.5 
-
-      tree:
+        beat_mul: 0.5
+      sheep:
         Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
         beat_mul: 0.5
   - 
     - 77.4849886621
@@ -200,9 +224,6 @@ pieces:
         
       sheep:
         Confetti:
-        
-      tree:
-        Confetti:
   - 
     - 90.11664399
     - 6
@@ -214,16 +235,14 @@ pieces:
         Clear:
         
       flower: 
-        Confetti:
-        
+        Alternate:
+        beat_mul: 0.5
       sheep:
-        Confetti:
+        Alternate:
+        beat_mul: 0.5
        
       sign:
         Rainbow:
-        
-      tree:
-        Confetti:
   - 
     - 94.85351474
     - 3
@@ -235,15 +254,17 @@ pieces:
         Clear:
         
       flower: 
-        Confetti:
-        
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.5
       sheep:
-        Confetti:
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 0.5
        
       sign:
-        Rainbow:
-        
-      tree:
         Rainbow:
   - 
     - 97.26839002
@@ -263,19 +284,13 @@ pieces:
         beat_mul: 4
         
       flower: 
-        Rainbow:
-          hue_speed: 0.08
-          hue_start: 0.0
-        beat_mul: 0.5 
+        Explosion:
         
       sheep:
-        Rainbow:
-       
+        Spikes:
+        beat_mul: 0.25
       sign:
         Clear:
-        
-      tree:
-        RoundRobin:
   - 
     - 100.5656236
     - 8
@@ -295,15 +310,12 @@ pieces:
         beat_mul: 0.5
         
       flower: 
-        Clear:
+        Confetti:
         
       sheep:
-        Clear:
+        Confetti:
        
       sign:
-        Clear:
-        
-      tree:
         Clear:
   - 
     - 106.927891156
@@ -328,10 +340,6 @@ pieces:
        
       sign:
         Clear:
-        
-      tree:
-        Spikes:
-        beat_mul: 0.5
   - 
     - 122.833560091
     - 16
@@ -354,10 +362,6 @@ pieces:
        
       sign:
         Clear:
-        
-      tree:
-        Explosion:
-        beat_mul: 0.5
   - 
     - 135.743854875
     - 16
@@ -375,13 +379,10 @@ pieces:
         Alternate:
         
       sheep:
-        Clear:
+        Alternate:
        
       sign:
         Clear:
-        
-      tree:
-        Alternate:
   - 
     - 148.46839
     - 6
@@ -397,16 +398,18 @@ pieces:
         beat_mul: 1
         
       flower: 
-        Confetti:
-        
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1.0
       sheep:
-        Clear:
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1.0
        
       sign:
         Clear:
-        
-      tree:
-        Confetti:
   - 
     - 153.182040816
     - 2
@@ -423,18 +426,20 @@ pieces:
           hue1: 0.2
           hue2: 0.6
           brightness: 0.4
-        beat_mul: 0.5
+        beat_mul: 1.0
         
       flower: 
-        Confetti:
-        
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 2.0
       sheep:
-        Clear:
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 2.0
        
       sign:
-        Clear:
-        
-      tree:
         Clear:
   - 
     - 154.7145578
@@ -451,17 +456,13 @@ pieces:
         beat_mul: 0.5
         
       flower: 
-        Natural:
+        Spikes:
         
       sheep:
-        Clear:
+        Spikes:
        
       sign:
         Clear:
-        
-      tree:
-        Pixel:
-        beat_mul: 0.5
   - 
     - 167.5087528
     - 6
@@ -477,18 +478,13 @@ pieces:
         beat_mul: 0.5
         
       flower: 
-        Natural:
+        Alternate:
         
       sheep:
-        Spikes:
-          hue_start: 0.33
+        Alternate:
        
       sign:
         Clear:
-        
-      tree:
-        Spikes:
-        beat_mul: 0.5
   - 
     - 172.3152834
     - 3
@@ -504,18 +500,18 @@ pieces:
         beat_mul: 0.5
         
       flower: 
-        Natural:
-        
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1.0
       sheep:
-        FillFade:
-            hue_start : 0.33
+        Rainbow:
+          hue_speed: 0.08
+          hue_start: 0.0
+        beat_mul: 1.0
        
       sign:
         Clear:
-        
-      tree:
-        Spikes:
-        beat_mul: 0.5
   - 
     - 174.7301587
     - 4
@@ -534,18 +530,12 @@ pieces:
         beat_mul: 0.25
         
       flower: 
-        Rainbow:
-          hue_speed: 0.08
-          hue_start: 0.0
-        beat_mul: 0.5
+        Clear:
     
       sheep:
-        Rainbow:
+        Clear:
 
       sign:
-        Rainbow:
-        
-      tree:
         Rainbow:
   - 
     - 177.8880726
@@ -561,16 +551,19 @@ pieces:
                 type: circular_loc_hue
         beat_mul: 0.125
         
-      flower: 
-        Clear:
-        
+      flower:
+        Confetti:
+          leds_percent_per_beat: 0.2
+          only_top: True
+          brightness: 0.5
+        beat_mul: 1.0
       sheep:
-        Clear:
+        Confetti:
+          leds_percent_per_beat: 0.2
+          brightness: 0.5
+        beat_mul: 1.0
        
       sign:
-        Clear:
-        
-      tree:
         Clear:
   - 
     - 201.711746
@@ -591,9 +584,6 @@ pieces:
        
       sign:
         Clear:
-        
-      tree:
-        Clear:
   - 
     - 211.440907
     - 12
@@ -608,11 +598,17 @@ pieces:
                 type: circular_loc_hue
         beat_mul: 0.125
         
-      flower: 
-        Clear:
-        
+      flower:
+        Confetti:
+          leds_percent_per_beat: 0.2
+          only_top: True
+          brightness: 0.5
+        beat_mul: 1.0
       sheep:
-        Clear:
+        Confetti:
+          leds_percent_per_beat: 0.2
+          brightness: 0.5
+        beat_mul: 1.0
        
       sign:
         Clear:
@@ -629,19 +625,18 @@ pieces:
         
       lake:
         Confetti:
-            only_waves: False
+          only_waves: False
         
       flower: 
         Confetti:
+          leds_percent_per_beat: 0.8
         
       sheep:
         Confetti:
+          leds_percent_per_beat: 0.8
        
       sign:
         Clear:
-        
-      tree:
-        Confetti:
   - 
     - 226.6267575
     - 2
@@ -661,6 +656,4 @@ pieces:
       sign:
         Hue:
           hue_start: 0.67
-          
-      tree:
-        Clear:
+
