@@ -9,7 +9,7 @@ pygame.mixer.init()
 MyTime = datetime.datetime.now()
 prevTime = MyTime
 
-songs_list = ['sheep.yml', 'wish.yml', 'Soul Orchestra.yml']
+songs_list = ['sheep.yml', 'wish.yml', 'Soul Orchestra.yml', 'major.yml']
 next_song_index = 0
 
 song = None
