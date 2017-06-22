@@ -167,13 +167,7 @@ class Song():
 			self.apply_animation(self.tree_animation, tree_num_of_beats, duration, relative_song_time)
 
 		network.send(flower_data=self.flower.get_array(),
-			sheep_data=self.sheep.get_array(),
-			grass_data=self.grass.get_array(), 
-			sign_data=self.sign.get_array(),
-			lake_data=self.lake.get_array(),
-			tree_data=self.tree.get_array(),
-			temp_stick=self.temp_stick.get_array(),
-			sachi_meter=self.sachi_meter.get_array())
+			sheep_data=self.sheep.get_array())
 
 
 

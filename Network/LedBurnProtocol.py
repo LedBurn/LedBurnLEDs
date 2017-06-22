@@ -67,13 +67,8 @@ def uint32_to_array(num):
     c4 = (num / (1)) % 256
     return [c4, c3, c2, c1]
 
-def send(frame_id,
-         flower_data=[0, 0, 0] * 580,
-         sheep_data=[0, 0, 0] * 302,
-         grass_data=[0, 0, 0] * 600,
-         sign_data=[0, 0, 0] * 150,
-         lake_data=[0, 0, 0] * 1800,
-         temp_stick=[0, 0, 0] * 144):
+def send(flower_data=[0, 0, 0] * 580,
+         sheep_data=[0, 0, 0] * 302):
 
     replaceGBRtoRGB(flower_data, range(463, 513))
     sendPacketWithIp(FLOWER_IP, FLOWER_STRIP_ID, 0, flower_data[0:900])
