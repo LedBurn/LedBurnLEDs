@@ -6,7 +6,7 @@ from Colors import Colors
 
 class GlowFlowerAnimation:
 
-    def __init__(self, flower):
+    def __init__(self, flower, props):
         self.flower = flower
 
     def apply(self, time_percent):

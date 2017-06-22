@@ -55,9 +55,9 @@ class Flower:
         return self.seeds
 
     def get_left_leaf(self):
-        return self.leaf_left_back + self.leaf_left_front
+        return self.leaf_left_back + self.leaf_left_front[::-1]
     def get_right_leaf(self):
-        return self.leaf_right_back + self.leaf_right_front
+        return self.leaf_right_back + self.leaf_right_front[::-1]
 
     def get_all_indexes(self):
         return self.whole_flower

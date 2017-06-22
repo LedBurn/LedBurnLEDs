@@ -5,6 +5,8 @@ from ExplosionFlowerAnimation import ExplosionFlowerAnimation
 from AlternateFlowerAnimation import AlternateFlowerAnimation
 from FireFlowerAnimation import FireFlowerAnimation
 from ConfettiFlowerAnimation import ConfettiFlowerAnimation
+from SpikesFlowerAnimation import SpikesFlowerAnimation
+from GlowFlowerAnimation import GlowFlowerAnimation
 
 
 class FlowerAnimationFactory():
@@ -39,6 +41,12 @@ class FlowerAnimationFactory():
 
         if 'Confetti' in config:
             return ConfettiFlowerAnimation(flower, config['Confetti'])
+
+        if 'Spikes' in config:
+            return SpikesFlowerAnimation(flower, config['Spikes'])
+
+        if 'Glow' in config:
+            return GlowFlowerAnimation(flower, config['Glow'])
 
         print 'Invalid flower animation -', config
 
