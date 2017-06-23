@@ -7,7 +7,8 @@ from Song import Song
 #song = Song("TATRAN - Shvat.yml")
 #song = Song("wish.yml")
 #song = Song("Soul Orchestra.yml")
-song = Song("strawberry.yml")
+#song = Song("strawberry.yml")
+song = Song(r"Transitions/post_midburn.yml")
 
 clock = pygame.time.Clock()
 pygame.mixer.init()

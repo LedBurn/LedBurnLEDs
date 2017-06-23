@@ -1,0 +1,13 @@
+--- 
+offset: 0
+file_name: "Transitions/post_midburn.mp3"
+pieces: 
+  - 
+    - 0
+    - 60
+    - flower:
+        Glow:
+  -
+    - 60
+    - 1
+    -
