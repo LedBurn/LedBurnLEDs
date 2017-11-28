@@ -1,31 +1,31 @@
 class Flower:
 
-    line_front = range(8, 19) + range(113, 163)
-    line_back = range(513, 577)[::-1]
+    line_front = range(7, 18) + range(112, 162)
+    line_back = range(512, 576)[::-1]
 
     line = line_front + line_back
     
-    leaf_right_front = range(90, 112)[::-1]
-    leaf_right_back = range(66, 91)
-    leaf_left_front = range(19, 39)
-    leaf_left_back = range(38, 63)[::-1]
+    leaf_right_front = range(89, 111)[::-1]
+    leaf_right_back = range(65, 90)
+    leaf_left_front = range(18, 38)
+    leaf_left_back = range(37, 62)[::-1]
 
     leaves = leaf_left_back + leaf_left_front + leaf_right_back + leaf_right_front
     
     bottom_parts = line + leaves
     
-    seeds = range(463, 513)
+    seeds = range(462, 512)
 
-    l1 = range(163, 190)
-    l2 = range(193, 221)
-    l3 = range(222, 251)
-    l4 = range(251, 280)
-    l5 = range(281, 310)
-    l6 = range(312, 341)
-    l7 = range(342, 370)
-    l8 = range(370, 401)
-    l9 = range(402, 432)
-    l10 = range(432, 462)
+    l1 = range(162, 189)
+    l2 = range(192, 220)
+    l3 = range(221, 250)
+    l4 = range(250, 279)
+    l5 = range(280, 309)
+    l6 = range(311, 340)
+    l7 = range(341, 369)
+    l8 = range(369, 400)
+    l9 = range(401, 431)
+    l10 = range(431, 461)
 
     top_leaves = l1 + l2 + l3 + l4 + l5 + l6 + l7 + l8 + l9 + l10
     top_leaves_arr = [l1, l2, l3, l4, l5, l6, l7, l8, l9, l10]
@@ -63,4 +63,4 @@ class Flower:
         return self.whole_flower
 
     def clear(self):
-        self.arr = [0, 0, 0] * 583
+        self.arr = [0, 0, 0] * 582

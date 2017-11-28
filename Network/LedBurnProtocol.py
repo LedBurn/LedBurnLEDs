@@ -70,8 +70,8 @@ def uint32_to_array(num):
 def send(flower_data=[0, 0, 0] * 580,
          sheep_data=[0, 0, 0] * 302):
 
-    flower_data = [ int(c / 8.0) for c in flower_data]
-    replaceGBRtoRGB(flower_data, range(463, 513))
+    flower_data = [ int(c) for c in flower_data]
+    replaceGBRtoRGB(flower_data, range(462, 512))
     sendPacketWithIp(FLOWER_IP, FLOWER_STRIP_ID, 0, flower_data[0:900])
     sendPacketWithIp(FLOWER_IP, FLOWER_STRIP_ID, 300, flower_data[900:1800])
 
