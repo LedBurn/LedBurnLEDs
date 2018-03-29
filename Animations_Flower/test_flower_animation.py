@@ -23,7 +23,8 @@ from SpikesFlowerAnimation import SpikesFlowerAnimation
 # 		'leds_percent_per_beat' : 0.5,
 # 		'brightness': 0.7}
 # animation = ConfettiFlowerAnimation(flower, props)
-animation = SpikesFlowerAnimation(flower, {'color':{'type':'const_color', 'hue':0.5}})
+#animation = SpikesFlowerAnimation(flower, {'color':{'type':'const_color', 'hue':0.5}})
+animation = ExplosionFlowerAnimation(flower, None)
 
 speed = 200 # in 50 hrz
 current_time = 0

@@ -1,31 +1,31 @@
 class Flower:
 
-    line_front = range(7, 18) + range(112, 162)
-    line_back = range(512, 576)[::-1]
+    line_front = range(0, 18) + range(111, 161)
+    line_back = range(501, 575)[::-1]
 
     line = line_front + line_back
     
-    leaf_right_front = range(89, 111)[::-1]
-    leaf_right_back = range(65, 90)
+    leaf_right_front = range(88, 110)[::-1]
+    leaf_right_back = range(61, 88)
     leaf_left_front = range(18, 38)
-    leaf_left_back = range(37, 62)[::-1]
+    leaf_left_back = range(38, 61)[::-1]
 
     leaves = leaf_left_back + leaf_left_front + leaf_right_back + leaf_right_front
     
     bottom_parts = line + leaves
     
-    seeds = range(462, 512)
+    seeds = range(461, 501)
 
-    l1 = range(162, 189)
-    l2 = range(192, 220)
-    l3 = range(221, 250)
-    l4 = range(250, 279)
-    l5 = range(280, 309)
-    l6 = range(311, 340)
-    l7 = range(341, 369)
-    l8 = range(369, 400)
-    l9 = range(401, 431)
-    l10 = range(431, 461)
+    l1 = range(161, 188)
+    l2 = range(191, 219)
+    l3 = range(220, 249)
+    l4 = range(249, 278)
+    l5 = range(279, 308)
+    l6 = range(310, 339)
+    l7 = range(340, 368)
+    l8 = range(368, 399)
+    l9 = range(400, 430)
+    l10 = range(430, 460)
 
     top_leaves = l1 + l2 + l3 + l4 + l5 + l6 + l7 + l8 + l9 + l10
     top_leaves_arr = [l1, l2, l3, l4, l5, l6, l7, l8, l9, l10]
